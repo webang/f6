@@ -1,0 +1,107 @@
+@import './../style/base.less';
+
+@button-cls: ~'@{prefix}-button';
+
+.@{button-cls} {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  -webkit-appearance: none;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: opacity 200ms;
+
+  // type
+  &--default {
+    color: #333;
+    background: #fff;
+  }
+  &--default&--plain {
+    border-color: #333;
+  }
+  &--primary {
+    color: #fff;
+    border-color: var(--f6-button-primary-border-color);
+    background-color: var(--f6-button-primary-background-color);
+  }
+  &--primary&--plain {
+    color: var(--f6-button-primary-background-color);
+    border-color: var(--f6-button-primary-background-color);
+    background-color: #fff;
+  }
+  &--danger {
+    color: #fff;
+    border-color: var(--f6-danger-color);
+    background-color: var(--f6-danger-color);
+  }
+  &--danger&--plain {
+    color: var(--f6-danger-color);
+    border-color: var(--f6-danger-color);
+    background-color: #fff;
+  }
+  &--warning {
+    color: #fff;
+    border-color: var(--f6-warning-color);
+    background-color: var(--f6-warning-color);
+  }
+  &--warning&--plain {
+    color: var(--f6-warning-color);
+    border-color: var(--f6-warning-color);
+    background-color: #fff;
+  }
+  &--success {
+    color: #fff;
+    border-color: var(--f6-success-color);
+    background-color: var(--f6-success-color);
+  }
+  &--success&--plain {
+    color: var(--f6-success-color);
+    border-color: var(--f6-success-color);
+    background-color: #fff;
+  }
+
+  // size
+  &--middle {
+    height: var(--f6-button-middle-height);
+    padding: 0 12px;
+  }
+  &--small {
+    height: 32px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  &--mini {
+    height: 24px;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+
+  // 形状
+  &--square {
+    border-radius: 2px;
+  }
+  &--round {
+    border-radius: 20px;
+  }
+  &--block {
+    display: flex;
+    width: 100%;
+  }
+
+  &--loading {
+    opacity: .8;
+    cursor: not-allowed;
+  }
+
+  &--disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}

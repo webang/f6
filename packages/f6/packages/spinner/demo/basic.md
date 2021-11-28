@@ -1,0 +1,28 @@
+---
+order: 0
+title: 动画类型
+---
+
+```jsx
+import { Spinner, Cell } from "f6";
+function App() {
+  return (
+    <Cell.Group>
+      <Cell
+        title={"lines"}
+        value={<Spinner type="lines" style={{ color: "#666" }} />}
+      />
+      <Cell
+        title={"oval"}
+        value={<Spinner type="oval" style={{ color: "#666" }} />}
+      />
+      <Cell
+        title={"crescent"}
+        value={<Spinner type="crescent" style={{ color: "#666" }} />}
+      />
+    </Cell.Group>
+  );
+}
+
+export default App;
+```

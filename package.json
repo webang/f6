@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "boot": "lerna bootstrap",
+    "dev": "lerna run dev --stream",
+    "build": "lerna run build --stream"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

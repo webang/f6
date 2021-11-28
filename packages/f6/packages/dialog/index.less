@@ -1,0 +1,55 @@
+@import './../style/base.less';
+
+@dialog-cls: ~'@{prefix}-dialog';
+
+.@{dialog-cls} {
+  z-index: var(--f6-dialog-z-index);
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  overflow: hidden;
+  width: 280px;
+  max-height: 100%;
+  border-radius: 6px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  &__header {
+    padding-top: 20px;
+    text-align: center;
+  }
+  &__content {
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 24px;
+  }
+  &__footer {
+    display: flex;
+    &::after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #eee;
+    }
+    .wax-button {
+      flex: 1;
+      border: 0;
+      &::after {
+        content: " ";
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 1px;
+        background-color: #eee;
+      }
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

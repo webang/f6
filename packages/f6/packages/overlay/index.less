@@ -1,0 +1,24 @@
+.wax-overlay {
+  z-index: var(--f6-overlay-z-index);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--f6-overlay-background-color);
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity;
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity;
+}

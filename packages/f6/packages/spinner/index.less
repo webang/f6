@@ -1,0 +1,39 @@
+@import './../style/base.less';
+
+@button-cls: ~'@{prefix}-spinner';
+
+@keyframes spinner-fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.@{button-cls} {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  vertical-align: middle;
+
+  &--lines {
+    .item {
+      left: 0px;
+      top: 0px;
+      transform-origin: center center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translateZ(0px);
+      animation: 1s linear 0s infinite normal none running spinner-fade-out;
+    }
+    .line {
+      stroke-width: 4px;
+      stroke-linecap: round;
+      stroke: currentcolor;
+    }
+  }
+}

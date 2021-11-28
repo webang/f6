@@ -1,0 +1,15 @@
+@import './../style/base.less';
+
+@button-cls: ~'@{prefix}-loading';
+
+.@{button-cls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  color: #ccc;
+  vertical-align: middle;
+  &__icon {
+    margin-right: 4px;
+  }
+}
