@@ -35,6 +35,7 @@ const _PullRefresh: _PullRefresh = (
     topPullDistance = 40,
     pullText = "下拉刷新",
     looseText = "释放刷新",
+    loadingText = "加载中",
     topMaxPullDistance = 60,
   },
   ref
@@ -73,7 +74,7 @@ const _PullRefresh: _PullRefresh = (
     }));
   };
 
-  const handleMove: any = (event) => {
+  const handleMove: any = (event: any) => {
     if (!state.touched) return;
     const touch = getPosition(event.type, event);
     const diff = touch.clientY - state.touchStartScreenY;
@@ -120,7 +121,7 @@ const _PullRefresh: _PullRefresh = (
 
   const topText = () => {
     if (state.loading) {
-      return <Loading />;
+      return <Loading spinnerSize={20} message={loadingText} />;
     } else if (state.translate >= topPullDistance) {
       return looseText;
     } else if (state.translate < topPullDistance) {
@@ -139,9 +140,7 @@ const _PullRefresh: _PullRefresh = (
       onMouseUp={handleEnd}
       style={style} 
     >
-      <div
-        className={`${prefix}-indictor`}
-      >
+      <div className={`${prefix}-indictor`}>
         {topText()}
       </div>
       <div className={`${prefix}-container`} ref={wrapRef}>

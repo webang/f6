@@ -103,6 +103,11 @@ export default [
     title: '展示组件',
     menus: [
       {
+        title: "Message 提示消息",
+        key: 'Message',
+        content: require("../.build/docs/message.md"),
+      },
+      {
         title: "InfiniteScroll 滚动组件",
         key: 'InfiniteScroll',
         content: require("../.build/docs/infinite-scroll.md"),

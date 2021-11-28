@@ -1,0 +1,33 @@
+.wax-message {
+  display: flex;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px 10px;
+  border-radius: 2px;
+  &--primary {
+    color: var(--f6-message-primary-color);
+    background: var(--f6-message-primary-bg);
+  }
+  &--warning {
+    color: var(--f6-message-warning-color);
+    background-color: var(--f6-message-warning-bg);
+  }
+  &--danger {
+    color: var(--f6-message-danger-color);
+    background: var(--f6-message-danger-bg);
+  }
+  &--success {
+    color: var(--f6-message-success-color);
+    background-color: var(--f6-message-success-bg);
+  }
+  &__icon {
+    margin-right: 4px;
+    margin-top: 1px;
+  }
+  &__body {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+}

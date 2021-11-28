@@ -1,0 +1,1046 @@
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/demo/index.less ***!
+  \************************************************************************************************************************************************************************************************/
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  background-color: #f7f8fa;
+}
+
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/style/default-theme.less ***!
+  \******************************************************************************************************************************************************************************************************************/
+:root {
+  --f6-overlay-z-index: 999;
+  --f6-dialog-z-index: 1000;
+  --f6-popup-z-index: 1000;
+  --f6-primary-color: #009688;
+  --f6-danger-color: #ee0a24;
+  --f6-warning-color: #ff976a;
+  --f6-success-color: #07c160;
+  --f6-info-color: #00c853;
+  --theme-primary-h: 174;
+  --theme-primary-s: 100%;
+  --theme-primary-l: 29%;
+  --theme-warning-h: 18;
+  --theme-warning-s: 100%;
+  --theme-warning-l: 71%;
+  --theme-danger-h: 353;
+  --theme-danger-s: 92%;
+  --theme-danger-l: 49%;
+  --theme-success-h: 149;
+  --theme-success-s: 93%;
+  --theme-success-l: 39%;
+  --f6-overlay-background-color: rgba(0, 0, 0, 0.6);
+  --popover-arrow-color: #fff;
+  --f6-button-primary-border-color: var(--f6-primary-color);
+  --f6-button-primary-background-color: var(--f6-primary-color);
+  --f6-button-middle-height: 40px;
+  --f6-message-primary-color: var(--f6-primary-color);
+  --f6-message-primary-bg: hsla(var(--theme-primary-h), var(--theme-primary-s), var(--theme-primary-l), 0.1);
+  --f6-message-warning-bg: hsla(var(--theme-warning-h), var(--theme-warning-s), var(--theme-warning-l), 0.1);
+  --f6-message-danger-bg: hsla(var(--theme-danger-h), var(--theme-danger-s), var(--theme-danger-l), 0.1);
+  --f6-message-success-bg: hsla(var(--theme-success-h), var(--theme-success-s), var(--theme-success-l), 0.1);
+  --f6-message-warning-color: var(--f6-warning-color);
+  --f6-message-danger-color: var(--f6-danger-color);
+  --f6-message-success-color: var(--f6-success-color);
+  --f6-message-info-color: var(--f6-info-color);
+}
+.wax-scale-fade-enter {
+  transform: translate(-50%, -50%) scale(0);
+}
+.wax-scale-fade-enter-active {
+  transform: translate(-50%, -50%) scale(1);
+}
+.wax-scale-fade-exit {
+  transform: translate(-50%, -50%) scale(1);
+}
+.wax-scale-fade-exit-active {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/button/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-button {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  -webkit-appearance: none;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: opacity 200ms;
+}
+.wax-button--default {
+  color: #333;
+  background: #fff;
+}
+.wax-button--default.wax-button--plain {
+  border-color: #333;
+}
+.wax-button--primary {
+  color: #fff;
+  border-color: var(--f6-button-primary-border-color);
+  background-color: var(--f6-button-primary-background-color);
+}
+.wax-button--primary.wax-button--plain {
+  color: var(--f6-button-primary-background-color);
+  border-color: var(--f6-button-primary-background-color);
+  background-color: #fff;
+}
+.wax-button--danger {
+  color: #fff;
+  border-color: var(--f6-danger-color);
+  background-color: var(--f6-danger-color);
+}
+.wax-button--danger.wax-button--plain {
+  color: var(--f6-danger-color);
+  border-color: var(--f6-danger-color);
+  background-color: #fff;
+}
+.wax-button--warning {
+  color: #fff;
+  border-color: var(--f6-warning-color);
+  background-color: var(--f6-warning-color);
+}
+.wax-button--warning.wax-button--plain {
+  color: var(--f6-warning-color);
+  border-color: var(--f6-warning-color);
+  background-color: #fff;
+}
+.wax-button--success {
+  color: #fff;
+  border-color: var(--f6-success-color);
+  background-color: var(--f6-success-color);
+}
+.wax-button--success.wax-button--plain {
+  color: var(--f6-success-color);
+  border-color: var(--f6-success-color);
+  background-color: #fff;
+}
+.wax-button--middle {
+  height: var(--f6-button-middle-height);
+  padding: 0 12px;
+}
+.wax-button--small {
+  height: 32px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.wax-button--mini {
+  height: 24px;
+  padding: 0 4px;
+  font-size: 12px;
+}
+.wax-button--square {
+  border-radius: 2px;
+}
+.wax-button--round {
+  border-radius: 20px;
+}
+.wax-button--block {
+  display: flex;
+  width: 100%;
+}
+.wax-button--loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.wax-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/spinner/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+@keyframes spinner-fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.wax-spinner {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  vertical-align: middle;
+}
+.wax-spinner--lines .item {
+  left: 0px;
+  top: 0px;
+  transform-origin: center center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0px);
+  animation: 1s linear 0s infinite normal none running spinner-fade-out;
+}
+.wax-spinner--lines .line {
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke: currentcolor;
+}
+
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/cell/index.less ***!
+  \*********************************************************************************************************************************************************************************************************/
+.wax-cell {
+  position: relative;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fff;
+}
+.wax-cell__head {
+  display: flex;
+  align-items: flex-start;
+}
+.wax-cell__title {
+  flex: 1;
+  display: flex;
+  font-size: 14px;
+}
+.wax-cell__icon {
+  margin-right: 6px;
+}
+.wax-cell__value {
+  flex: 1;
+  text-align: right;
+}
+.wax-cell__label {
+  font-size: 12px;
+  color: #969799;
+  line-height: 18px;
+  margin-top: 2px;
+}
+.wax-cell__arrow {
+  position: relative;
+  width: 16px;
+  height: 24px;
+  right: -4px;
+  cursor: pointer;
+}
+.wax-cell--border::after {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  content: " ";
+  height: 1px;
+  transform: scaleY(0.5);
+  background-color: #ebedf0;
+}
+.wax-cell-group {
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #fff;
+}
+.wax-cell-group .wax-cell:last-child::after {
+  display: none;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/overlay/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-overlay {
+  z-index: var(--f6-overlay-z-index);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--f6-overlay-background-color);
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity;
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/dialog/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-dialog {
+  z-index: var(--f6-dialog-z-index);
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  overflow: hidden;
+  width: 280px;
+  max-height: 100%;
+  border-radius: 6px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+.wax-dialog__header {
+  padding-top: 20px;
+  text-align: center;
+}
+.wax-dialog__content {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 24px;
+}
+.wax-dialog__footer {
+  display: flex;
+}
+.wax-dialog__footer::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #eee;
+}
+.wax-dialog__footer .wax-button {
+  flex: 1;
+  border: 0;
+}
+.wax-dialog__footer .wax-button::after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background-color: #eee;
+}
+.wax-dialog__footer .wax-button:last-child::after {
+  display: none;
+}
+
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/transition/index.less ***!
+  \***************************************************************************************************************************************************************************************************************/
+.f6-scale-fade-appear {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.f6-scale-fade-appear-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-appear-done {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-enter {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.f6-scale-fade-enter-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-enter-done {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-exit {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.f6-scale-fade-exit-active {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition-property: transform opacity;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/loading/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-loading {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  color: #ccc;
+  vertical-align: middle;
+}
+.wax-loading__icon {
+  margin-right: 4px;
+}
+
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/infinite-scroll/index.less ***!
+  \********************************************************************************************************************************************************************************************************************/
+.wax-infinite-scroll-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/popover/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-popover__content {
+  position: absolute;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 2px 12px #ccc;
+}
+.wax-popover__trigger {
+  display: inline-block;
+}
+.wax-popover__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-color: transparent;
+  border-style: solid;
+}
+.wax-popover--bottom-start .wax-popover__arrow,
+.wax-popover--bottom .wax-popover__arrow,
+.wax-popover--bottom-end .wax-popover__arrow {
+  top: -12px;
+  border-bottom-color: var(--popover-arrow-color);
+}
+.wax-popover--top .wax-popover__arrow,
+.wax-popover--top-start .wax-popover__arrow,
+.wax-popover--top-end .wax-popover__arrow {
+  bottom: -12px;
+  border-top-color: var(--popover-arrow-color);
+}
+.wax-popover--right .wax-popover__arrow,
+.wax-popover--right-start .wax-popover__arrow,
+.wax-popover--right-end .wax-popover__arrow {
+  left: -12px;
+  border-right-color: var(--popover-arrow-color);
+}
+.wax-popover--left .wax-popover__arrow,
+.wax-popover--left-end .wax-popover__arrow,
+.wax-popover--left-start .wax-popover__arrow {
+  right: -12px;
+  border-left-color: var(--popover-arrow-color);
+}
+.wax-popover--left .wax-popover__arrow,
+.wax-popover--right .wax-popover__arrow {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wax-popover--left-start .wax-popover__arrow,
+.wax-popover--right-start .wax-popover__arrow {
+  top: 8px;
+}
+.wax-popover--left-end .wax-popover__arrow,
+.wax-popover--right-end .wax-popover__arrow {
+  bottom: 8px;
+}
+.wax-popover--top .wax-popover__arrow,
+.wax-popover--bottom .wax-popover__arrow {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wax-popover--top-end .wax-popover__arrow,
+.wax-popover--bottom-end .wax-popover__arrow {
+  right: 8px;
+}
+.wax-popover--top-start .wax-popover__arrow,
+.wax-popover--bottom-start .wax-popover__arrow {
+  left: 8px;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/picker/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-picker-columns {
+  height: 180px;
+  display: flex;
+  background-color: #fff;
+}
+.wax-picker-option {
+  line-height: 36px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.wax-picker-column {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  flex: 1;
+  text-align: center;
+}
+.wax-picker-column__scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.wax-picker-column__mask {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+  height: 100%;
+  margin: 0 auto;
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)), linear-gradient(0deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6));
+  background-position: top,bottom;
+  background-size: 100% 72px;
+  background-repeat: no-repeat;
+}
+.wax-picker-column__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  top: 72px;
+  box-sizing: border-box;
+  height: 36px;
+}
+.wax-picker-column__line::before,
+.wax-picker-column__line::after {
+  content: "";
+  position: absolute;
+  background-color: #ddd;
+  display: block;
+  z-index: 1;
+  width: 100%;
+  height: 1px;
+  transform-origin: 50% 50%;
+  transform: scaleY(0.5);
+}
+.wax-picker-column__line::before {
+  bottom: 0;
+  right: auto;
+  top: auto;
+  left: 0;
+}
+.wax-picker-column__line::after {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/popup/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-slide-top-enter {
+  transform: translate3d(0%, -100%, 0);
+}
+.wax-slide-top-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-top-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-top-exit-active {
+  transition-property: transform;
+  transform: translate3d(0%, -100%, 0);
+}
+.wax-slide-bottom-enter {
+  transform: translate3d(0%, 100vh, 0);
+}
+.wax-slide-bottom-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-bottom-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-bottom-exit-active {
+  transition-property: transform;
+  transform: translate3d(0%, 100%, 0);
+}
+.wax-slide-left-enter {
+  transform: translate3d(-100%, 0%, 0);
+}
+.wax-slide-left-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-left-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-left-exit-active {
+  transition-property: transform;
+  transform: translate3d(-100%, 0%, 0);
+}
+.wax-slide-right-enter {
+  transform: translate3d(100%, 0%, 0);
+}
+.wax-slide-right-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-right-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-right-exit-active {
+  transition-property: transform;
+  transform: translate3d(100%, 0%, 0);
+}
+.wax-slide-middle-enter {
+  opacity: 0;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-enter-active {
+  transition-property: transform opacity;
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-exit {
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-exit-active {
+  transition-property: transform opacity;
+  opacity: 0;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+}
+.wax-popup {
+  position: fixed;
+  width: 100vw;
+  z-index: var(--f6-popup-z-index);
+  background-color: #fff;
+}
+.wax-popup--middle {
+  width: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.wax-popup--top {
+  left: 0;
+  top: 0;
+}
+.wax-popup--bottom {
+  left: 0;
+  bottom: 0;
+}
+.wax-popup--left {
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+}
+.wax-popup--right {
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 100vh;
+}
+
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/tab/index.less ***!
+  \********************************************************************************************************************************************************************************************************/
+.wax-tab__wrap {
+  position: relative;
+  color: #646566;
+}
+.wax-tab__list {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.wax-tab-item {
+  flex: 1;
+  height: 100%;
+  line-height: 44px;
+  text-align: center;
+}
+.wax-tab__line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  height: 2px;
+  background: rebeccapurple;
+  transform: scaleX(0.2);
+  transition: left 300ms;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/switch/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-switch {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 300ms;
+  background-color: #dcdcdc;
+}
+.wax-switch--on {
+  background-color: #00bc70;
+}
+.wax-switch-node {
+  position: absolute;
+  width: 26px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left 300ms;
+}
+.wax-switch-node--on {
+  left: 22px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/toast/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-toast {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+}
+.wax-toast--top {
+  top: 10px;
+  left: 50%;
+  transform: translate3d(-50%, 0%, 0);
+}
+.wax-toast--bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translate3d(-50%, 0%, 0);
+}
+.wax-toast--middle {
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.wax-toast--text {
+  padding: 8px 12px;
+}
+.wax-toast--fail,
+.wax-toast--loading,
+.wax-toast--warning,
+.wax-toast--success {
+  width: 70px;
+  height: 70px;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 12px;
+}
+.wax-toast--fail .wax-toast__icon,
+.wax-toast--loading .wax-toast__icon,
+.wax-toast--warning .wax-toast__icon,
+.wax-toast--success .wax-toast__icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.wax-toast--fail .wax-toast__icon {
+  font-size: 32px;
+  font-weight: bold;
+}
+.wax-toast--loading .wax-spinner {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 10px;
+}
+.slide-top-enter {
+  opacity: 0;
+  top: -100px;
+}
+.slide-top-enter-active {
+  transition: all;
+  opacity: 1;
+  top: 10px;
+}
+.slide-top-exit {
+  opacity: 1;
+  top: 10px;
+}
+.slide-top-exit-active {
+  opacity: 0;
+  transition: all;
+  top: -100px;
+}
+.slide-bottom-enter {
+  opacity: 0;
+  bottom: -100px;
+}
+.slide-bottom-enter-active {
+  transition: all;
+  opacity: 1;
+  bottom: 10px;
+}
+.slide-bottom-exit {
+  opacity: 1;
+  bottom: 10px;
+}
+.slide-bottom-exit-active {
+  opacity: 0;
+  transition: all;
+  bottom: -100px;
+}
+.slide-middle-enter {
+  opacity: 0;
+}
+.slide-middle-enter-active {
+  transition: all;
+  opacity: 1;
+}
+.slide-middle-exit {
+  opacity: 1;
+}
+.slide-middle-exit-active {
+  opacity: 0;
+  transition: all;
+}
+.wax-toast-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6-icons/iconfont/iconfont.css ***!
+  \************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "yus-icon";
+  src: url(../be05928413c018f9f49a.eot?t=1567348981721);
+  /* IE9 */
+  src: url(../be05928413c018f9f49a.eot?t=1567348981721#iefix) format('embedded-opentype'), /* IE6-IE8 */ url(data:application/x-font-woff2;charset=utf-8;base64,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) format('woff2'), url(../f4795ee0c5c56d30bb2c.woff?t=1567348981721) format('woff'), url(../b37ccb62ff5feeeabd6c.ttf?t=1567348981721) format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url(../f68c4777400b5eb83498.svg?t=1567348981721#yus-icon) format('svg');
+  /* iOS 4.1- */
+}
+.yus-icon {
+  font-family: "yus-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.yus-icon-checkbox-o:before {
+  content: "\e8ad";
+}
+.yus-icon-checkbox:before {
+  content: "\e8ae";
+}
+.yus-icon-close-circle-o:before {
+  content: "\e8af";
+}
+.yus-icon-flame-o:before {
+  content: "\e8b0";
+}
+.yus-icon-checkmark-circle:before {
+  content: "\e8b1";
+}
+.yus-icon-circle:before {
+  content: "\e8b2";
+}
+.yus-icon-home:before {
+  content: "\e8b3";
+}
+.yus-icon-close-circle:before {
+  content: "\e8b4";
+}
+.yus-icon-information-o:before {
+  content: "\e8b5";
+}
+.yus-icon-person:before {
+  content: "\e8b6";
+}
+.yus-icon-home-o:before {
+  content: "\e8b7";
+}
+.yus-icon-information:before {
+  content: "\e8b8";
+}
+.yus-icon-help-circle:before {
+  content: "\e8b9";
+}
+.yus-icon-success:before {
+  content: "\e8ba";
+}
+.yus-icon-help-circle-o:before {
+  content: "\e8bb";
+}
+.yus-icon-pin-o:before {
+  content: "\e8bc";
+}
+.yus-icon-success1:before {
+  content: "\e8bd";
+}
+.yus-icon-warn:before {
+  content: "\e8be";
+}
+.yus-icon-arrow-down:before {
+  content: "\e8bf";
+}
+.yus-icon-arrow-left-circle:before {
+  content: "\e8c0";
+}
+.yus-icon-arrow-up:before {
+  content: "\e8c1";
+}
+.yus-icon-search:before {
+  content: "\e8c2";
+}
+.yus-icon-success2:before {
+  content: "\e8c3";
+}
+.yus-icon-arrow-left-circle-o:before {
+  content: "\e8c4";
+}
+.yus-icon-arrow-right:before {
+  content: "\e8c5";
+}
+.yus-icon-arrow-left:before {
+  content: "\e8c6";
+}
+.yus-icon-person-o:before {
+  content: "\e8c7";
+}
+.yus-icon-cart-o:before {
+  content: "\e8c8";
+}
+.yus-icon-megaphone-o:before {
+  content: "\e8c9";
+}
+.yus-icon-flame:before {
+  content: "\e8ca";
+}
+.yus-icon-success3:before {
+  content: "\e8cb";
+}
+.yus-icon-pin:before {
+  content: "\e8cc";
+}
+.yus-icon-error:before {
+  content: "\e8cd";
+}
+.yus-icon-trash-o:before {
+  content: "\e8ce";
+}
+.yus-icon-radio-on:before {
+  content: "\e8cf";
+}
+.yus-icon-megaphone:before {
+  content: "\e8d0";
+}
+.yus-icon-trash:before {
+  content: "\e8d1";
+}
+.yus-icon-backtop:before {
+  content: "\e8d2";
+}
+.yus-icon-cross:before {
+  content: "\e8d3";
+}
+.yus-icon-plus:before {
+  content: "\e8d4";
+}
+
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/pull-refresh/index.less ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.wax-pull-refresh-indictor {
+  width: 100%;
+  font-size: 12px;
+  height: 30px;
+  margin-top: -30px;
+  color: #999;
+  text-align: center;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/message/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-message {
+  display: flex;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px 10px;
+  border-radius: 2px;
+}
+.wax-message--primary {
+  color: var(--f6-message-primary-color);
+  background: var(--f6-message-primary-bg);
+}
+.wax-message--warning {
+  color: var(--f6-message-warning-color);
+  background-color: var(--f6-message-warning-bg);
+}
+.wax-message--danger {
+  color: var(--f6-message-danger-color);
+  background: var(--f6-message-danger-bg);
+}
+.wax-message--success {
+  color: var(--f6-message-success-color);
+  background-color: var(--f6-message-success-bg);
+}
+.wax-message__icon {
+  margin-right: 4px;
+  margin-top: 1px;
+}
+.wax-message__body {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/components/demo-block.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.demo-page {
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+.page-title {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.demo-block-title {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.demo-block-body {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.demo-page-Button .wax-button {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.demo-page-Cell .wax-cell-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+

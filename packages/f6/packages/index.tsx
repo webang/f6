@@ -41,3 +41,6 @@ export type { ToastProps } from './toast';
 
 export { default as PullRefresh } from './pull-refresh';
 export type { PullRefreshProps, PullRefreshRef } from './pull-refresh';
+
+export { default as Message } from './message';
+export type { MessageProps } from './message';

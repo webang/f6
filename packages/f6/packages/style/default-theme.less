@@ -5,10 +5,26 @@
 
   // theme color
   --f6-primary-color: #009688;
-  --f6-success-color: #07c160;
   --f6-danger-color: #ee0a24;
   --f6-warning-color: #ff976a;
+  --f6-success-color: #07c160;
   --f6-info-color: #00c853;
+
+  --theme-primary-h: 174;
+  --theme-primary-s: 100%;
+  --theme-primary-l: 29%;
+
+  --theme-warning-h: 18;
+  --theme-warning-s: 100%;
+  --theme-warning-l: 71%;
+
+  --theme-danger-h: 353;
+  --theme-danger-s: 92%;
+  --theme-danger-l: 49%;
+
+  --theme-success-h: 149;
+  --theme-success-s: 93%;
+  --theme-success-l: 39%;
 
   // overlay
   --f6-overlay-background-color: rgba(0, 0, 0, 0.6);
@@ -20,6 +36,37 @@
   --f6-button-primary-border-color: var(--f6-primary-color);
   --f6-button-primary-background-color: var(--f6-primary-color);
   --f6-button-middle-height: 40px;
+
+  // message
+  --f6-message-primary-color: var(--f6-primary-color);
+  --f6-message-primary-bg: hsla(
+    var(--theme-primary-h),
+    var(--theme-primary-s),
+    var(--theme-primary-l),
+    .1
+  );
+  --f6-message-warning-bg: hsla(
+    var(--theme-warning-h),
+    var(--theme-warning-s),
+    var(--theme-warning-l),
+    .1
+  );
+  --f6-message-danger-bg: hsla(
+    var(--theme-danger-h),
+    var(--theme-danger-s),
+    var(--theme-danger-l),
+    .1
+  );
+  --f6-message-success-bg: hsla(
+    var(--theme-success-h),
+    var(--theme-success-s),
+    var(--theme-success-l),
+    .1
+  );
+  --f6-message-warning-color: var(--f6-warning-color);
+  --f6-message-danger-color: var(--f6-danger-color);
+  --f6-message-success-color: var(--f6-success-color);
+  --f6-message-info-color: var(--f6-info-color);
 }
 
 @import './transition.less';
