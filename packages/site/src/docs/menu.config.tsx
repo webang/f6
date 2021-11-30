@@ -123,6 +123,11 @@ export default [
     title: '导航组件',
     menus: [
       {
+        title: "Affix 固钉",
+        key: 'Affix',
+        content: require("../.build/docs/affix.md"),
+      },
+      {
         title: "Tab 标签页",
         key: 'Tab',
         content: require("../.build/docs/tab.md"),

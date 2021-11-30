@@ -31,7 +31,7 @@ npm run dev
 - [x] PullRefresh 下拉刷新
 - [x] InfinitScroll 上拉加载
 - [x] Message 消息
-- [ ] Affix 固钉
+- [x] Affix 固钉
 - [ ] SwipeAction 滑动操作
 - [ ] Collapse 折叠面板
 

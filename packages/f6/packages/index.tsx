@@ -44,3 +44,6 @@ export type { PullRefreshProps, PullRefreshRef } from './pull-refresh';
 
 export { default as Message } from './message';
 export type { MessageProps } from './message';
+
+export { default as Affix } from './affix';
+export type { AffixProps } from './affix';
