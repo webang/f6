@@ -1,0 +1,28 @@
+.wax-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  &::after {
+    border-top-width: 1px;
+  }
+  &-item {
+    position: relative;
+    box-sizing: border-box;
+    &::after {
+      border-bottom-width: 1px;
+      border-right-width: 1px;
+    }
+    &__body {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      box-sizing: border-box;
+      height: 100%;
+      padding: 10px 12px;
+      background-color: #fff;
+    }
+    &__text {
+      margin-top: 4px;
+    }
+  }
+}

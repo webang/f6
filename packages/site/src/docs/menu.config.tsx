@@ -108,6 +108,11 @@ export default [
         content: require("../.build/docs/message.md"),
       },
       {
+        title: "Grid 宫格",
+        key: 'Grid',
+        content: require("../.build/docs/grid.md"),
+      },
+      {
         title: "InfiniteScroll 滚动组件",
         key: 'InfiniteScroll',
         content: require("../.build/docs/infinite-scroll.md"),
