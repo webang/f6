@@ -50,3 +50,6 @@ export type { AffixProps } from './affix';
 
 export { default as Grid } from './grid';
 export type { GridProps, GridItemProps } from './grid';
+
+export { default as Radio } from './radio';
+export type { RadioProps, RadioGroupProps, RadioValue } from './radio';

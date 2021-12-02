@@ -2,17 +2,34 @@
 
 ```jsx
 import { Grid } from 'f6';
-const icon = <img width={24} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
+const icon = <img width={16} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
+
+export default function App() {
+  return (
+    <Grid>
+      <Grid.Item icon={icon} text="业务"></Grid.Item>
+      <Grid.Item icon={icon} text="财务"></Grid.Item>
+    </Grid>
+  )
+}
+```
+</div>
+
+<div class="block-panel"><h3>边框配置</h3>
+
+```jsx
+import { Grid } from 'f6';
+const icon = <img width={16} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
 
 export default function App() {
   return (
     <>
-      <Grid>
+      <Grid border={true}>
         <Grid.Item icon={icon} text="业务"></Grid.Item>
         <Grid.Item icon={icon} text="财务"></Grid.Item>
       </Grid>
       <div style={{ height: 20 }}></div>
-      <Grid>
+      <Grid border={false}>
         <Grid.Item icon={icon} text="商品"></Grid.Item>
         <Grid.Item icon={icon} text="订单"></Grid.Item>
         <Grid.Item icon={icon} text="物流">主要按钮</Grid.Item>
@@ -23,11 +40,11 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>多行展示</h3>
+<div class="block-panel"><h3>列数配置</h3>
 
 ```jsx
 import { Grid } from 'f6';
-const icon = <img width={20} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
+const icon = <img width={16} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
 
 export default function App() {
   return (
@@ -53,6 +70,7 @@ export default function App() {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
+| border | 是否有边框 | boolean | `true` |
 | columnNum | 每行展示的列数 | number | `4` |
 
 ### GridItemProps

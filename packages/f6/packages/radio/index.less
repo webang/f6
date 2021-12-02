@@ -1,0 +1,32 @@
+@import './../style/base.less';
+
+@radio-cls: ~'@{prefix}-radio';
+
+.@{radio-cls} {
+  display: inline-block;
+  vertical-align: middle;
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    .wax-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__text {
+    color: #666;
+    margin-left: 2px;
+  }
+  &--checked {
+    .@{radio-cls}__icon {
+      color: var(--f6-primary-color);
+    }
+  }
+  &--disabled {
+    .@{radio-cls}__icon,
+    .@{radio-cls}__text {
+      color: #aaa;
+    }
+  }
+}

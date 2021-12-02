@@ -7,6 +7,7 @@ export interface GridProps {
   className?: string;
   style?: CSSProperties;
   columnNum: number;
+  border?: boolean;
 }
 
 export interface GridItemProps {
@@ -20,6 +21,7 @@ const Grid: FC<GridProps> = ({
   className,
   children,
   columnNum = 4,
+  border = true,
   ...restProps
 }) => {
   const [prefix] = defineName('grid');
@@ -39,7 +41,7 @@ const Grid: FC<GridProps> = ({
       ...((child as any).props.style || {}),
       flexBasis: `${(1 / mColumnNum) * 100}%`,
     }
-    return cloneElement(child as ReactElement, { index, style })
+    return cloneElement(child as ReactElement, { index, style, border })
   });
 
   return (
@@ -58,7 +60,9 @@ const GridItem: FC<GridItemProps> = (props) => {
     ...restProps
   } = props;
   const [prefix] = defineName('grid-item');
-  const mCls = classNames([prefix, className, 'hairline']);
+  const mCls = classNames([prefix, className], {
+    hairline: (restProps as any)['border']
+  });
 
   return (
     <div className={mCls} {...restProps}>

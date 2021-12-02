@@ -1,4 +1,4 @@
-import { Button, Popover, Cell } from "f6/packages";
+import { Button, Popover, Cell } from "f6";
 
 function App() {
   return (

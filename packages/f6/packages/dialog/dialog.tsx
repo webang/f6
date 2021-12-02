@@ -4,6 +4,7 @@ import "./index.less";
 import Button from "../button";
 import Transition from "../transition";
 import { defineName } from "../utils/name";
+import classNames from "classnames";
 
 export interface DialogProps {
   visible?: boolean;
@@ -100,7 +101,7 @@ const _Dialog: ForwardRefRenderFunction<DialogRef, DialogProps> = ({
         >
           {title && <div className={prefix + "__header"}>{title}</div>}
           <div className={prefix + "__content"}>{message}</div>
-          <div className={prefix + "__footer"}>
+          <div className={classNames([prefix + "__footer", 'hairline'])}>
             {showCancelButton && (
               <Button onClick={handleClickCancel}>
                 {cancelText}

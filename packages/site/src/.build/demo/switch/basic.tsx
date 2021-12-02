@@ -1,4 +1,4 @@
-import { Switch } from 'f6/packages';
+import { Switch } from 'f6';
 
 export default function App() {
   return (

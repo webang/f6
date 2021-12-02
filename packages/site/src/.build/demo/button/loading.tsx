@@ -1,4 +1,4 @@
-import { Button } from 'f6/packages';
+import { Button } from 'f6';
 
 export default function App() {
   return (

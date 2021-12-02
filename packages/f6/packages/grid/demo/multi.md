@@ -1,11 +1,11 @@
 ---
-order: 1
-title: 多行展示
+order: 2
+title: 列数配置
 ---
 
 ```jsx
 import { Grid } from 'f6';
-const icon = <img width={20} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
+const icon = <img width={16} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" />;
 
 export default function App() {
   return (

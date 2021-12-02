@@ -1,4 +1,4 @@
-import { Cell, Button } from "f6/packages";
+import { Cell, Button } from "f6";
 export default function() {
   return (
     <>

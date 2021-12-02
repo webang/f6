@@ -1,4 +1,4 @@
-import { Cell, Button } from "f6/packages";
+import { Cell, Button } from "f6";
 
 const labelStyle = {
   display: 'inline-block',

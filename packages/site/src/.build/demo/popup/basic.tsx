@@ -1,4 +1,4 @@
-import { Button, Popup, Popover, Cell  } from 'f6/packages';
+import { Button, Popup, Popover, Cell  } from 'f6';
 import { useState } from "react";
 
 export default function App() {

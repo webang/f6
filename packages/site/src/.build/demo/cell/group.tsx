@@ -1,4 +1,4 @@
-import { Cell, Button } from "f6/packages";
+import { Cell, Button } from "f6";
 
 const button = (<Button size="mini" type="primary">详情</Button>);
 const label = <span>乱山千叠横江，忆君游倦何方。知否小窗红烛，照人此夜凄凉。</span>;

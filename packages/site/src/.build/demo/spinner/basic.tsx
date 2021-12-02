@@ -1,4 +1,4 @@
-import { Spinner, Cell } from "f6/packages";
+import { Spinner, Cell } from "f6";
 function App() {
   return (
     <Cell.Group>

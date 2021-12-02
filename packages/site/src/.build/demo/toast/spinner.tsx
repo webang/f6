@@ -1,4 +1,4 @@
-import { Cell, Button, Toast } from "f6/packages";
+import { Cell, Button, Toast } from "f6";
 
 export default function App() {
   return (

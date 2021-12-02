@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { InfiniteScroll } from 'f6/packages';
+import { InfiniteScroll } from 'f6';
 import { InfiniteScrollMethods } from 'f6/packages/infinite-scroll';
 
 function loadData(len: number, start = 0) {

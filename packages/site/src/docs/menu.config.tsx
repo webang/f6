@@ -93,9 +93,29 @@ export default [
         content: require("../.build/docs/picker.md"),
       },
       {
+        title: "Radio 单选框",
+        key: 'Radio',
+        content: require("../.build/docs/radio.md"),
+      },
+      {
         title: "Switch 标签页",
         key: 'Switch',
         content: require("../.build/docs/switch.md"),
+      }
+    ]
+  },
+  {
+    title: '布局组件',
+    menus: [
+      {
+        title: "Affix 固钉",
+        key: 'Affix',
+        content: require("../.build/docs/affix.md"),
+      },
+      {
+        title: "Grid 宫格",
+        key: 'Grid',
+        content: require("../.build/docs/grid.md"),
       }
     ]
   },
@@ -106,11 +126,6 @@ export default [
         title: "Message 提示消息",
         key: 'Message',
         content: require("../.build/docs/message.md"),
-      },
-      {
-        title: "Grid 宫格",
-        key: 'Grid',
-        content: require("../.build/docs/grid.md"),
       },
       {
         title: "InfiniteScroll 滚动组件",
@@ -127,11 +142,6 @@ export default [
   {
     title: '导航组件',
     menus: [
-      {
-        title: "Affix 固钉",
-        key: 'Affix',
-        content: require("../.build/docs/affix.md"),
-      },
       {
         title: "Tab 标签页",
         key: 'Tab',

@@ -25,7 +25,7 @@ function parseDocument(modulePath, name) {
     .sort((a,b) => a.order - b.order)
     .map((it, index) => {
       const code = `\`\`\`jsx\n${it.code}\`\`\``;
-      fs.writeFileSync(`${outputPath}/${files[index].replace('md', 'tsx')}`, it.code.replace('f6', 'f6/packages'));
+      fs.writeFileSync(`${outputPath}/${files[index].replace('md', 'tsx')}`, it.code);
       return `<div class="block-panel"><h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`
     })
     .join('\n\n');

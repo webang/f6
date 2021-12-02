@@ -1,4 +1,4 @@
-import { Picker, Toast } from 'f6/packages';
+import { Picker, Toast } from 'f6';
 
 const columns = [
   [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Overlay, Loading } from 'f6/packages';
+import { Button, Overlay, Loading } from 'f6';
 
 const style = {
   marginRight: 10

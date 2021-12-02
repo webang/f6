@@ -1,4 +1,4 @@
-import { Affix, Button } from 'f6/packages';
+import { Affix, Button } from 'f6';
 
 export default function App() {
 

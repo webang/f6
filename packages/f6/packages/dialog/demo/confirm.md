@@ -1,6 +1,6 @@
 ---
-order: 0
-title: 基本用法
+order: 1
+title: confirm
 ---
 
 ```jsx
@@ -11,7 +11,7 @@ export default function App() {
   const [visible, setVisible] = React.useState(false);
   return (
     <>
-      <Button onClick={() => setVisible((pre) => !pre)}>visible</Button>
+      <Button onClick={() => setVisible((pre) => !pre)}>显示</Button>
       <Dialog
         onOk={(index) => {
           setVisible(false);
@@ -21,7 +21,7 @@ export default function App() {
         }}
         visible={visible}
         title="提示"
-        message="this is a message"
+        message="山有木兮木有枝，心悦君兮君不知。"
       />
     </>
   );

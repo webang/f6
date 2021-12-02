@@ -1,4 +1,4 @@
-import { Picker, Toast } from 'f6/packages';
+import { Picker, Toast } from 'f6';
 
 const children1 = new Array(30).fill(0).map((it, index) => {
   return { label: `深圳${index}` }

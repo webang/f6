@@ -1,4 +1,4 @@
-import { Tab } from 'f6/packages';
+import { Tab } from 'f6';
 
 const { TabItem } = Tab;
 

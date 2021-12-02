@@ -7,6 +7,14 @@ body {
   font-size: 14px;
   background-color: #f7f8fa;
 }
+* {
+  padding: 0;
+  margin: 0;
+}
+h2 {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
 
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/style/default-theme.less ***!
@@ -47,6 +55,22 @@ body {
   --f6-message-success-color: var(--f6-success-color);
   --f6-message-info-color: var(--f6-info-color);
 }
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
 .wax-scale-fade-enter {
   transform: translate(-50%, -50%) scale(0);
 }
@@ -63,6 +87,22 @@ body {
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/button/index.less ***!
   \***********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
 .wax-button {
   position: relative;
   display: inline-flex;
@@ -162,6 +202,22 @@ body {
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/spinner/index.less ***!
   \************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
 @keyframes spinner-fade-out {
   0% {
     opacity: 0;
@@ -197,6 +253,22 @@ body {
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/cell/index.less ***!
   \*********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
 .wax-cell {
   position: relative;
   padding: 10px 12px;
@@ -282,6 +354,22 @@ body {
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/dialog/index.less ***!
   \***********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
 .wax-dialog {
   z-index: var(--f6-dialog-z-index);
   position: fixed;
@@ -304,29 +392,34 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 24px;
+  color: #666;
 }
 .wax-dialog__footer {
   display: flex;
 }
 .wax-dialog__footer::after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  background-color: #eee;
+  border-top-width: 1px !important;
 }
 .wax-dialog__footer .wax-button {
   flex: 1;
   border: 0;
+  position: relative;
 }
 .wax-dialog__footer .wax-button::after {
-  content: " ";
+  z-index: 2;
   position: absolute;
-  right: 0;
-  height: 100%;
-  width: 1px;
-  background-color: #eee;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.wax-dialog__footer .wax-button::after {
+  border-right-width: 1px;
 }
 .wax-dialog__footer .wax-button:last-child::after {
   display: none;
@@ -376,6 +469,22 @@ body {
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/loading/index.less ***!
   \************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
 .wax-loading {
   position: relative;
   display: inline-flex;
@@ -1013,6 +1122,82 @@ body {
   justify-content: space-between;
 }
 
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/grid/index.less ***!
+  \*********************************************************************************************************************************************************************************************************/
+.wax-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wax-grid::after {
+  border-top-width: 1px;
+}
+.wax-grid-item {
+  position: relative;
+  box-sizing: border-box;
+}
+.wax-grid-item::after {
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+.wax-grid-item__body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px 12px;
+  background-color: #fff;
+}
+.wax-grid-item__text {
+  margin-top: 4px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/radio/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.wax-radio {
+  display: inline-block;
+  vertical-align: middle;
+}
+.wax-radio__icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.wax-radio__icon .wax-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+.wax-radio__text {
+  color: #666;
+  margin-left: 2px;
+}
+.wax-radio--checked .wax-radio__icon {
+  color: var(--f6-primary-color);
+}
+.wax-radio--disabled .wax-radio__icon,
+.wax-radio--disabled .wax-radio__text {
+  color: #aaa;
+}
+
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/components/demo-block.less ***!
   \***********************************************************************************************************************************************************************************************************/
@@ -1030,6 +1215,8 @@ body {
   font-weight: normal;
   padding-left: 16px;
   padding-right: 16px;
+  margin-top: 18px;
+  margin-bottom: 12px;
 }
 .demo-block-body {
   padding-left: 16px;

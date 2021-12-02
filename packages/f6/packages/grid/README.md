@@ -8,6 +8,7 @@ subTitle: 宫格
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
+| border | 是否有边框 | boolean | `true` |
 | columnNum | 每行展示的列数 | number | `4` |
 
 ### GridItemProps

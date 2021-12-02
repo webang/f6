@@ -23,27 +23,19 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 24px;
+    color: #666;
   }
   &__footer {
     display: flex;
     &::after {
-      content: " ";
-      position: absolute;
-      left: 0;
-      height: 1px;
-      width: 100%;
-      background-color: #eee;
+      border-top-width: 1px !important;
     }
     .wax-button {
       flex: 1;
       border: 0;
+      .hairline();
       &::after {
-        content: " ";
-        position: absolute;
-        right: 0;
-        height: 100%;
-        width: 1px;
-        background-color: #eee;
+        border-right-width: 1px;
       }
       &:last-child {
         &::after {

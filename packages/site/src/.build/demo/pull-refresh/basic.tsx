@@ -1,5 +1,5 @@
 import { FC, useState, useRef } from "react";
-import { PullRefresh, PullRefreshRef } from "f6/packages";
+import { PullRefresh, PullRefreshRef } from "f6";
 
 function loadData(len: number, start = 0) {
   return new Array(len).fill(0).map((_, index) => {
