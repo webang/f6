@@ -1,6 +1,6 @@
 ---
 category: Components
-title: Radio
+title: Checkbox
 subTitle: 组件
 ---
 

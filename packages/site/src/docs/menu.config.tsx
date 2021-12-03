@@ -88,6 +88,11 @@ export default [
     title: '表单组件',
     menus: [
       {
+        title: "Checkbox 单选框",
+        key: 'Checkbox',
+        content: require("../.build/docs/checkbox.md"),
+      },
+      {
         title: "Picker 选择器",
         key: 'Picker',
         content: require("../.build/docs/picker.md"),

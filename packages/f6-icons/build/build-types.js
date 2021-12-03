@@ -1,25 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const svgDir = path.resolve(__dirname, '../src/iconfont.svg');
+const { glyphs } = require('../iconfont/iconfont.json');
+const types = glyphs.map(it => `"${it.font_class}"`).join('|');
 
-fs.readFile(svgDir, 'utf8', (err, data) => {
-
-  const reg = /glyph-name=".*" unicode=/g
-  const matchRet = data.match(reg);
-
-  let list = [];
-  matchRet.forEach(element => {
-    list.push(element.replace(/ unicode=/g, '').replace(/"/g, '').replace(/glyph-name=/g, ''));
-  })
-
-  let svgJsonList = [];
-  list.forEach(element => {
-    svgJsonList.push(`"${element}"`)
-  })
-  let svgJsonStr = `[${svgJsonList.join(',')}]`
-
-  fs.writeFile(path.resolve(__dirname, '../lib/data.json'), svgJsonStr, (err, data) => {
-    console.log(data);
-  })
-})
+fs.writeFileSync(
+  path.resolve(__dirname, '../lib/interface.ts'),
+  `export type IconType = ${types}`
+);
