@@ -56,3 +56,6 @@ export type { RadioProps, RadioGroupProps, RadioValue } from './radio';
 
 export { default as Checkbox } from './checkbox';
 export type { CheckboxProps, CheckboxGroupProps } from './checkbox';
+
+export { default as Field } from './field';
+export type { FieldProps } from './field';

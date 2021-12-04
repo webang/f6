@@ -88,6 +88,11 @@ export default [
     title: '表单组件',
     menus: [
       {
+        title: "Field 输入框",
+        key: 'Field',
+        content: require("../.build/docs/field.md"),
+      },
+      {
         title: "Checkbox 单选框",
         key: 'Checkbox',
         content: require("../.build/docs/checkbox.md"),

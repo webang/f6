@@ -13,7 +13,7 @@ export interface CellProps {
   border?: boolean;
   link?: boolean;
   url?: string;
-  onClick: React.MouseEventHandler<Element>
+  onClick?: React.MouseEventHandler<Element>
 }
 
 const [prefix] = defineName("cell");
@@ -30,11 +30,14 @@ const Cell: React.FC<CellProps> = ({
   bodyStyle = {},
 }) => {
   const mCls = classNames([prefix, className], {
-    [`${prefix}--border`]: border
+    [`${prefix}--border`]: border,
+    [`hairline`]: border,
   });
+
   const handleClick: React.MouseEventHandler<Element> = (event) => {
     onClick && onClick(event);
   };
+
   const renderIcon = () => {
     if (!icon) return null;
     return (
@@ -44,13 +47,20 @@ const Cell: React.FC<CellProps> = ({
     )
   };
 
+  const renderTitle = () => {
+    if (!title && !icon) return null;
+    return (
+      <div className={prefix + "__title"}>
+        {renderIcon()}
+        <span>{title}</span>
+      </div>
+    )
+  }
+
   return (
     <div className={mCls} onClick={handleClick}>
       <div className={`${prefix}__head`}>
-        <div className={prefix + "__title"}>
-          {renderIcon()}
-          <span>{title}</span>
-        </div>
+        {renderTitle()}
         <div className={prefix + "__value"}>{value}</div>
         {link && (
           <img
