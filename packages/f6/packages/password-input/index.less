@@ -1,0 +1,58 @@
+.wax-password-input {
+  background-color: #fff;
+  &::after {
+    border-top-width: 1px !important;
+    border-left-width: 1px !important;
+    border-bottom-width: 1px !important;
+  }
+  &__list {
+    display: flex;
+    width: 100%;
+    height: 44px;
+    cursor: pointer;
+  }
+  &__item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    &::after {
+      border-right-width: 1px !important;
+    }
+  }
+  &__input {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    opacity: 0;
+  }
+  &__token {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  &__cursor {
+    position: absolute;
+    width: 1px;
+    height: 18px;
+    background-color: #a5a5a5;
+    animation: 1000ms move infinite;
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

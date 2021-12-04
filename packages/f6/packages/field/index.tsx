@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { ChangeEventHandler, FC, useState } from "react";
+import { ChangeEventHandler, FC, useEffect, useState } from "react";
 import Cell from "../cell";
 import "./index.less";
 import Icon from "f6-icons";
@@ -19,6 +19,7 @@ export interface FieldProps {
   clearable?: boolean;
   placeholder?: string;
   rules?: Rule[];
+  immediateCheck?: boolean;
   onChange?: (value?: number | string) => void;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -33,11 +34,18 @@ const Field: FC<FieldProps> = (props) => {
     defaultValue,
     clearable = true,
     rules = [],
+    immediateCheck,
     type = "text",
     onFocus,
   } = props;
   const [value, setValue] = useState(defaultValue ? `${defaultValue}` : "");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (immediateCheck) {
+      doCheck(value);
+    }
+  }, [immediateCheck])
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const nVal = e.target.value;
