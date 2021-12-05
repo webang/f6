@@ -62,3 +62,9 @@ export type { FieldProps } from './field';
 
 export { default as PasswordInput } from './password-input';
 export type { PasswordInputProps } from './password-input'; 
+
+export { default as NumberKeyboard } from './number-keyboard';
+export type {  NumberKeyboardProps } from './number-keyboard';
+
+export { default as Space } from './space';
+export type { SpaceProps } from './space';

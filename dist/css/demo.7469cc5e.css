@@ -1373,6 +1373,74 @@ h2 {
   }
 }
 
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/number-keyboard/index.less ***!
+  \********************************************************************************************************************************************************************************************************************/
+.wax-number-keyboard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.wax-number-keyboard__units {
+  display: flex;
+  flex: 3;
+  flex-wrap: wrap;
+}
+.wax-number-keyboard__unit {
+  position: relative;
+  flex: 1;
+  flex-basis: 33%;
+  box-sizing: border-box;
+  padding: 0 6px 6px 0;
+}
+.wax-number-keyboard__box {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.wax-number-keyboard__keyboard-icon,
+.wax-number-keyboard__delete-icon {
+  width: 32px;
+  height: 22px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/space/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-space-horizontal {
+  flex-direction: row;
+}
+.wax-space-vertical {
+  flex-direction: column;
+}
+.wax-space-item {
+  flex: none;
+}
+.wax-space {
+  display: inline-flex;
+}
+.wax-space-wrap {
+  flex-wrap: wrap;
+}
+.wax-space-horizontal > .wax-space-item {
+  margin-right: 8px;
+}
+.wax-space-vertical > .wax-space-item {
+  margin-bottom: 8px;
+}
+.wax-space-horizontal.wax-space-wrap > .wax-space-item {
+  margin-bottom: 8px;
+}
+
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/components/demo-block.less ***!
   \***********************************************************************************************************************************************************************************************************/

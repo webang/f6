@@ -3,7 +3,7 @@ import "./index.less";
 import { SpinnerType } from "../spinner";
 export interface ToastProps {
     message: string;
-    duration: number;
+    duration?: number;
     position?: "top" | "bottom" | "middle";
     type?: "text" | "loading" | "success" | "fail" | "warning";
     spinner?: SpinnerType;

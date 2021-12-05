@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var tslib_1 = require("tslib");
 var jsx_runtime_1 = require("react/jsx-runtime");
+var dom_1 = require("../utils/dom");
 var react_1 = require("react");
 var loading_1 = (0, tslib_1.__importDefault)(require("../loading"));
 var name_1 = require("../utils/name");
@@ -18,7 +19,7 @@ var _InfiniteScroll = function (_a, ref) {
         }
     }); });
     (0, react_1.useEffect)(function () {
-        var target = getScrollTarget(wrapperRef.current);
+        var target = (0, dom_1.getScrollTarget)(wrapperRef.current);
         var handleScroll = function () {
             var container = containerRef.current;
             var wrapperHeight = target === window
@@ -38,17 +39,6 @@ var _InfiniteScroll = function (_a, ref) {
             target.removeEventListener('scroll', handleScroll);
         };
     }, [loading, hasMore]);
-    var getScrollTarget = function (element) {
-        var currentElement = element;
-        while (currentElement && ['HTML', 'BODY'].indexOf(currentElement.tagName) === -1) {
-            var overflow = document.defaultView.getComputedStyle(currentElement).overflowY;
-            if (['scroll', 'auto'].indexOf(overflow) !== -1) {
-                return currentElement;
-            }
-            currentElement = currentElement.parentNode;
-        }
-        return window;
-    };
     var mFooter = function () {
         if (footer)
             return footer({ loading: loading, hasMore: hasMore });

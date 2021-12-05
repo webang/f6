@@ -10,7 +10,7 @@ export interface CellProps {
     border?: boolean;
     link?: boolean;
     url?: string;
-    onClick: React.MouseEventHandler<Element>;
+    onClick?: React.MouseEventHandler<Element>;
 }
 declare const Cell: React.FC<CellProps>;
 export declare const CellGroup: React.FC;

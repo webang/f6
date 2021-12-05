@@ -103,6 +103,11 @@ export default [
         content: require("../.build/docs/password-input.md"),
       },
       {
+        title: "NumberKeyboard 数字键盘",
+        key: 'NumberKeyboard',
+        content: require("../.build/docs/number-keyboard.md"),
+      },
+      {
         title: "Picker 选择器",
         key: 'Picker',
         content: require("../.build/docs/picker.md"),
@@ -131,7 +136,12 @@ export default [
         title: "Grid 宫格",
         key: 'Grid',
         content: require("../.build/docs/grid.md"),
-      }
+      },
+      {
+        title: "Space 间距",
+        key: 'Space',
+        content: require("../.build/docs/space.md"),
+      },
     ]
   },
   {

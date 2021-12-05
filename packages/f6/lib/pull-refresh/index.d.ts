@@ -1,6 +1,15 @@
-import { FC } from 'react';
-import './index.less';
+import React from "react";
+import "./index.less";
 export interface PullRefreshProps {
+    onLoad?: Function;
+    topPullDistance?: number;
+    loadingText?: number;
+    pullText?: string;
+    looseText?: string;
+    topMaxPullDistance?: number;
 }
-declare const PullRefresh: FC;
+export interface PullRefreshRef {
+    finish: Function;
+}
+declare const PullRefresh: React.ForwardRefExoticComponent<PullRefreshProps & React.RefAttributes<PullRefreshRef>>;
 export default PullRefresh;

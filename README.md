@@ -39,3 +39,10 @@ npm run dev
 
 - [ ] TabBar 标签栏
 - [ ] NavBar 导航栏
+
+
+## 参考
+
+- https://vant-contrib.gitee.io/vant/v3/#/zh-CN/number-keyboard
+- https://zarm.design/#/components/keyboard
+- https://mobile.ant.design/components/stepper
