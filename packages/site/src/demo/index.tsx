@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import { Routes, Route } from "react-router-dom";
 import { HashRouter as Router } from "react-router-dom";
 import "./index.less";
-import { NumberKeyboard } from 'f6/packages'
+import { Cascader } from 'f6/packages'
 
 const importAll = (requireContext: __WebpackModuleApi.RequireContext) => {
   return requireContext.keys().map((key: string) => {

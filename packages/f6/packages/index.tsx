@@ -68,3 +68,6 @@ export type {  NumberKeyboardProps } from './number-keyboard';
 
 export { default as Space } from './space';
 export type { SpaceProps } from './space';
+
+export { default as Cascader } from './cascader';
+export type { CascaderProps } from './cascader';
