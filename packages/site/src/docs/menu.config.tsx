@@ -98,6 +98,11 @@ export default [
         content: require("../.build/docs/checkbox.md"),
       },
       {
+        title: "PasswordInput 密码输入",
+        key: 'PasswordInput',
+        content: require("../.build/docs/password-input.md"),
+      },
+      {
         title: "Picker 选择器",
         key: 'Picker',
         content: require("../.build/docs/picker.md"),
