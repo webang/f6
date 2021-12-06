@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { defineName } from "../utils/name";
 import Spinner from "../spinner";
 
-export type ButtonType = "primary" | "info" | "success" | "warning" | "danger";
+export type ButtonType = "primary" | "info" | "success" | "warning" | "danger" | "text";
 export type ButtonSize = "large" | "small" | "mini" | "middle";
 export type ButtonShape = 'round' | 'square';
 
