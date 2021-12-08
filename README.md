@@ -44,6 +44,7 @@ npm run dev
 - [ ] Marquee 滚动
 - [ ] Steps 步骤条
 - [ ] BackTop 回到顶部
+- [ ] Swipe 轮播组件
 
 ## 园林
 
