@@ -98,6 +98,11 @@ export default [
         content: require("../.build/docs/checkbox.md"),
       },
       {
+        title: "CheckList 选择清单",
+        key: 'CheckList',
+        content: require("../.build/docs/check-list.md"),
+      },
+      {
         title: "PasswordInput 密码输入",
         key: 'PasswordInput',
         content: require("../.build/docs/password-input.md"),

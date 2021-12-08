@@ -71,3 +71,6 @@ export type { SpaceProps } from './space';
 
 export { default as Cascader } from './cascader';
 export type { CascaderProps } from './cascader';
+
+export { default as CheckList } from './check-list';
+export type { CheckListItemProps, CheckListProps } from './check-list';
