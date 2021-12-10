@@ -82,6 +82,11 @@ export default [
         key: 'Dialog',
         content: require("../.build/docs/dialog.md"),
       },
+      {
+        title: "SwipeCell 滑动操作",
+        key: 'SwipeCell',
+        content: require("../.build/docs/swipe-cell.md"),
+      },
     ]
   },
   {

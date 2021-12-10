@@ -32,7 +32,7 @@ npm run dev
 - [x] InfiniteScroll 上拉加载
 - [x] Message 消息
 - [x] Affix 固钉
-- [ ] SwipeCell 滑动操作
+- [x] SwipeCell 滑动操作
 - [ ] Collapse 折叠面板
 - [ ] Slider 滑块
 - [ ] ActionSheet

@@ -40,3 +40,18 @@ export const getPosition = (type: string, event: any) => {
   }
   return event.changedTouches[0];
 }
+
+/**
+ * 判断 target 是否为 node 的父元素
+ */
+export const isParent = (node: Element, target: Element) => {
+  if (node === target) {
+    return true;
+  }
+  while (node = node?.parentNode as Element) {
+    if (node === target) {
+      return true;
+    }
+  }
+  return false;
+}

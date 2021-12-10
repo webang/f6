@@ -1795,6 +1795,7 @@ pre[class*="language-"] {
 .wax-swipe-cell {
   overflow: hidden;
   position: relative;
+  background: #fff;
 }
 .wax-swipe-cell__right {
   position: absolute;
@@ -1802,6 +1803,13 @@ pre[class*="language-"] {
   top: 0;
   height: 100%;
   transform: translate3d(100%, 0, 0);
+}
+.wax-swipe-cell__left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transform: translate3d(-100%, 0, 0);
 }
 
 /*!************************************************************************************************************************************************************************************************!*\
