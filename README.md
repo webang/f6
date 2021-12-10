@@ -33,7 +33,7 @@ npm run dev
 - [x] Message 消息
 - [x] Affix 固钉
 - [x] SwipeCell 滑动操作
-- [ ] Collapse 折叠面板
+- [x] Collapse 折叠面板
 - [ ] Slider 滑块
 - [ ] ActionSheet
 - [ ] Uploader 文件上传
