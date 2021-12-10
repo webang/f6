@@ -77,3 +77,6 @@ export type { CheckListItemProps, CheckListProps } from './check-list';
 
 export { default as SwipeCell } from './swipe-cell';
 export type { SwipeCellProps } from './swipe-cell';
+
+export { default as Collapse } from './collapse';
+export type { CollapseProps, CollapseItemProps } from './collapse';

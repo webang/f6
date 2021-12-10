@@ -163,6 +163,11 @@ export default [
     title: '展示组件',
     menus: [
       {
+        title: "Collapse 折叠面板",
+        key: 'Collapse',
+        content: require("../.build/docs/collapse.md"),
+      },
+      {
         title: "Message 提示消息",
         key: 'Message',
         content: require("../.build/docs/message.md"),

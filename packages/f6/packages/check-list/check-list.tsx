@@ -1,5 +1,5 @@
 import { usePropsValue } from "../utils/useValue";
-import { FC, ReactNode, useContext, useState } from "react";
+import { FC, ReactNode } from "react";
 import { CheckListContext } from "./context";
 
 export interface CheckListProps {
