@@ -1,4 +1,24 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+      <script>var code =`import { Picker, Toast } from 'f6';
+
+const columns = new Array(10).fill(1).map((_, index) => {
+  return { label: '广东' + index, value: 'A' }
+})
+
+export default function App() {
+  return (
+    <Picker
+      cascade={false}
+      defaultIndex={[0]}
+      columns={[columns]}
+      onChange={(index, value, column, picker) => {
+        console.log(picker.getValues())
+      }}
+    />
+  )
+}
+`; console.log(code)</script>
+      <h3>基本用法</h3>
 
 ```jsx
 import { Picker, Toast } from 'f6';
@@ -22,7 +42,44 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>相关方法</h3>
+<div class="block-panel">
+      <script>var code =`import { Picker, Toast } from 'f6';
+
+const columns = [
+  [
+    { label: '广东', value: 'A' },
+    { label: '贵州', value: 'B' },
+    { label: '浙江', value: 'C' }
+  ],
+  [
+    { label: '苹果1', value: 'A' },
+    { label: '苹果2', value: 'B' },
+    { label: '苹果3', value: 'C' }
+  ]
+]
+
+export default function App() {
+  return (
+    <>
+      <Picker
+        cascade={false}
+        defaultIndex={[0, 0]}
+        columns={columns}
+        onChange={(index, value, column, picker) => {
+          if (index === 0) {
+            picker.setColumnOptions(1, [
+              { label: '香蕉1', value: 'B' },
+              { label: '香蕉1', value: 'C' }
+            ])
+          }
+          console.log(picker)
+        }}
+      />
+    </>
+  )
+}
+`; console.log(code)</script>
+      <h3>相关方法</h3>
 
 ```jsx
 import { Picker, Toast } from 'f6';
@@ -63,7 +120,43 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>联动效果</h3>
+<div class="block-panel">
+      <script>var code =`import { Picker, Toast } from 'f6';
+
+const children1 = new Array(30).fill(0).map((it, index) => {
+  return { label: `深圳${index}` }
+});
+
+const children2 = new Array(30).fill(0).map((it, index) => {
+  return { label: `遵义${index}` }
+});
+
+const columns = [
+  [
+    { label: '广东', value: 'A', children: children1 },
+    { label: '贵州', value: 'B', children: children2 },
+  ],
+  children1
+]
+
+export default function App() {
+  return (
+    <Picker
+      cascade={true}
+      defaultIndex={[0]}
+      columns={columns}
+      maxLength={2}
+      onChange={(index, value, column, picker) => {
+        console.log(picker.getValues())
+        Toast.show({
+          message: picker.getValues().map(it => it.label).join('-')
+        })
+      }}
+    />
+  )
+}
+`; console.log(code)</script>
+      <h3>联动效果</h3>
 
 ```jsx
 import { Picker, Toast } from 'f6';

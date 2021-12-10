@@ -14,6 +14,7 @@
     "lib"
   ],
   "dependencies": {
+    "@types/prismjs": "^1.16.6",
     "@types/react-transition-group": "^4.4.4",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.4"

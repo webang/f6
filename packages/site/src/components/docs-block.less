@@ -4,7 +4,7 @@
   color: #34495e;
   pre {
     padding: 20px !important;
-    border-radius: 8px;
+    border-radius: 2px;
     background-color: #f6f8fa;
   }
   h3 {
@@ -24,7 +24,7 @@
   padding: 20px;
   background-color: #fff;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .f6-docs-table {
@@ -45,5 +45,37 @@
   td {
     padding: 8px;
     border-top: 1px solid #f1f4f8;
+  }
+}
+
+.code-container {
+  position: relative;
+  pre {
+    border: 1px solid #fff;
+  }
+  .code-input {
+    position: absolute;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0;
+  }
+  &:hover {
+    pre {
+      border: 1px solid #009688;
+    }
+    .btn-copy {
+      display: block;
+    }
+  }
+  .btn-copy {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #009688;
+    color: #fff;
+    border: 0;
+    padding: 4px 10px;
+    cursor: pointer;
   }
 }

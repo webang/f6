@@ -74,3 +74,6 @@ export type { CascaderProps } from './cascader';
 
 export { default as CheckList } from './check-list';
 export type { CheckListItemProps, CheckListProps } from './check-list';
+
+export { default as SwipeCell } from './swipe-cell';
+export type { SwipeCellProps } from './swipe-cell';

@@ -1,4 +1,24 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+      <script>var code =`import { Affix, CheckList, Toast } from "f6";
+
+export default function App() {
+  return (
+    <div style={{ backgroundColor: '#fff' }}>
+      <CheckList defaultValue={["B"]} onChange={(v) => Toast.show({ message: v })}>
+        <CheckList.Item value="A">A</CheckList.Item>
+        <CheckList.Item value="B">B</CheckList.Item>
+        <CheckList.Item value="C" disabled>
+          C
+        </CheckList.Item>
+        <CheckList.Item value="D" readOnly>
+          D
+        </CheckList.Item>
+      </CheckList>
+    </div>
+  );
+}
+`; console.log(code)</script>
+      <h3>基本用法</h3>
 
 ```jsx
 import { Affix, CheckList, Toast } from "f6";
@@ -22,7 +42,24 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>多选</h3>
+<div class="block-panel">
+      <script>var code =`import { Affix, CheckList, Toast } from "f6";
+
+export default function App() {
+  return (
+    <div style={{ backgroundColor: '#fff' }}>
+      <CheckList defaultValue={["B"]} multiple onChange={(v) => Toast.show({ message: v })}>
+        <CheckList.Item value="A">A</CheckList.Item>
+        <CheckList.Item value="B">B</CheckList.Item>
+        <CheckList.Item value="C" disabled>
+          C
+        </CheckList.Item>
+      </CheckList>
+    </div>
+  );
+}
+`; console.log(code)</script>
+      <h3>多选</h3>
 
 ```jsx
 import { Affix, CheckList, Toast } from "f6";

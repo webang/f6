@@ -1,3 +1,6 @@
+/**
+ * 获取元素所属的滚动容器
+ */
 export const getScrollTarget = (element: Element) => {
   let currentElement: Element | null = element;
   while (
@@ -14,6 +17,9 @@ export const getScrollTarget = (element: Element) => {
   return window;
 };
 
+/**
+ * 获取 window scrollTop
+ */
 export const getScrollTop = (element: Window|Element) => {
   if (element === window) {
     return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
@@ -22,6 +28,9 @@ export const getScrollTop = (element: Window|Element) => {
   }
 }
 
+/**
+ * 获取鼠标事件的当前坐标点
+ */
 export const getPosition = (type: string, event: any) => {
   if (["mousedown", "mousemove"].includes(type)) {
     return {
