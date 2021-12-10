@@ -55,3 +55,10 @@ export const isParent = (node: Element, target: Element) => {
   }
   return false;
 }
+
+/**
+ * is mobile
+ */
+export const isMobile = () => {
+  return 'ontouchstart' in window
+}

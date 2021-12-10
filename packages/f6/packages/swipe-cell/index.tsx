@@ -2,7 +2,7 @@ import { defineName } from "../utils/name";
 import { FC, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import './index.less';
-import { getPosition, isParent } from "../utils/dom";
+import { getPosition, isMobile, isParent } from "../utils/dom";
 
 // https://youzan.github.io/vant/#/zh-CN/swipe-cell
 
@@ -24,6 +24,7 @@ const SwipeCell: FC<SwipeCellProps> = (p) => {
   useEffect(() => {
     const handleClick = (e: any) => {
       if (mRef.current) {
+        console.log(e.target, mRef.current)
         if (!isParent(e.target, mRef.current)) {
           setState((prev) => {
             return {
@@ -34,9 +35,10 @@ const SwipeCell: FC<SwipeCellProps> = (p) => {
         }
       }
     }
-    document.addEventListener('touchstart', handleClick);
+    const event = isMobile() ? 'touchstart' : 'mousedown'
+    document.addEventListener(event, handleClick);
     return () => {
-      document.removeEventListener('touchstart', handleClick);
+      document.removeEventListener(event, handleClick);
     }
   }, [])
 
@@ -112,10 +114,14 @@ const SwipeCell: FC<SwipeCellProps> = (p) => {
     });
   }
 
-  const events = {
+  const events = isMobile() ? {
     onTouchStart: startHandler,
     onTouchMove: moveHandler,
     onTouchEnd: endHandler
+  } : {
+    onMouseDown: startHandler,
+    onMouseMove: moveHandler,
+    onMouseUp: endHandler,
   }
 
   const style: React.CSSProperties = {

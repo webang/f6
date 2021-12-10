@@ -1,5 +1,5 @@
-const namepsace = "wax";
+const namespace = "wax";
 
 export const defineName = (name: string) => {
-  return [`${namepsace}-${name}`]
+  return [`${namespace}-${name}`]
 };
