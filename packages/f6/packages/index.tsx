@@ -92,3 +92,6 @@ export type { DropdownMenuProps, DropdownMenuItemProps } from './dropdown-menu';
 
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
+
+export { default as NoticeBar } from './notice-bar';
+export type { NoticeBarProps } from './notice-bar';

@@ -101,7 +101,7 @@ export default [
         title: "BackTop 回到顶部",
         key: 'BackTop',
         content: require("../.build/docs/back-top.md"),
-      },
+      }
     ]
   },
   {
@@ -201,6 +201,11 @@ export default [
         title: "PullRefresh 下拉刷新",
         key: 'PullRefresh',
         content: require("../.build/docs/pull-refresh.md"),
+      },
+      {
+        title: "NoticeBar 通知栏",
+        key: 'NoticeBar',
+        content: require("../.build/docs/notice-bar.md"),
       },
     ]
   },
