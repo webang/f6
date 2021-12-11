@@ -35,7 +35,7 @@ npm run dev
 - [x] SwipeCell 滑动操作
 - [x] Collapse 折叠面板
 - [x] Slider 滑块
-- [ ] ActionSheet
+- [x] ActionSheet
 - [ ] Uploader 文件上传
 - [ ] DatetimePicker 时间选择
 - [ ] Calendar 日历

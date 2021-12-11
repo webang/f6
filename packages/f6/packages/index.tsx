@@ -83,3 +83,6 @@ export type { CollapseProps, CollapseItemProps } from './collapse';
 
 export { default as Slider } from './slider';
 export type { SliderProps } from './slider';
+
+export { default as ActionSheet } from './action-sheet'
+export type { ActionSheetProps } from './action-sheet';

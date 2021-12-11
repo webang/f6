@@ -87,6 +87,11 @@ export default [
         key: 'SwipeCell',
         content: require("../.build/docs/swipe-cell.md"),
       },
+      {
+        title: "ActionSheet 动作面板",
+        key: 'ActionSheet',
+        content: require("../.build/docs/action-sheet.md"),
+      },
     ]
   },
   {

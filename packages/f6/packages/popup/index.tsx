@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import "./index.less";
 import { CSSTransition } from "react-transition-group";
 import Overlay from "../overlay";
@@ -6,8 +6,10 @@ import classNames from "classnames";
 import { defineName } from "../utils/name";
 
 export interface PopupProps {
+  style?: CSSProperties;
   visible?: boolean;
   position?: Direction;
+  className?: string;
   animationDuration?: number;
 }
 
@@ -20,6 +22,8 @@ const Popup: React.FC<PopupProps> = ({
   visible,
   animationDuration = 300,
   position = "top",
+  style = {},
+  className
 }) => {
   return (
     <>
@@ -31,8 +35,8 @@ const Popup: React.FC<PopupProps> = ({
         timeout={animationDuration}
       >
         <div
-          style={{ transitionDuration: `${animationDuration}ms` }}
-          className={classNames([prefix, prefix + "--" + position])}
+          style={{ ...style, transitionDuration: `${animationDuration}ms` }}
+          className={classNames([prefix, className, prefix + "--" + position])}
         >
           {children}
         </div>
