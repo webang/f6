@@ -86,3 +86,6 @@ export type { SliderProps } from './slider';
 
 export { default as ActionSheet } from './action-sheet'
 export type { ActionSheetProps } from './action-sheet';
+
+export { default as DropdownMenu } from './dropdown-menu';
+export type { DropdownMenuProps, DropdownMenuItemProps } from './dropdown-menu';

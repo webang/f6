@@ -130,7 +130,7 @@ const SwipeCell: FC<SwipeCellProps> = (p) => {
   };
 
   return (
-    <div  className={mCls} ref={mRef} {...events}>
+    <div className={mCls} ref={mRef} {...events}>
       <div className={`${prefix}-wrapper`} style={style}>
         <div className={`${prefix}__left`} ref={lRef}>{left}</div>
         {children}

@@ -36,14 +36,15 @@ npm run dev
 - [x] Collapse 折叠面板
 - [x] Slider 滑块
 - [x] ActionSheet
-- [ ] Uploader 文件上传
-- [ ] DatetimePicker 时间选择
-- [ ] Calendar 日历
 - [ ] DropdownMenu 下拉菜单
+- [ ] BackTop 回到顶部
+- [ ] DatetimePicker 时间选择
+
+- [ ] Uploader 文件上传
+- [ ] Calendar 日历
 - [ ] NoticeBar 通告栏
 - [ ] Marquee 滚动
 - [ ] Steps 步骤条
-- [ ] BackTop 回到顶部
 - [ ] Swipe 轮播组件
 
 ## 园林

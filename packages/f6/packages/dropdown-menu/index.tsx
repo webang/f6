@@ -1,23 +1,10 @@
-import { FC } from "react";
-import { defineName } from "packages/utils/name";
-import classNames from "classnames";
+import DropdownMenu from './dropdown-menu';
+import DropdownMenuItem from './dropdown-menu-item';
+import './index.less';
 
-const [prefix] = defineName('prefix');
+export type { DropdownMenuProps } from './dropdown-menu';
+export type { DropdownMenuItemProps } from './dropdown-menu-item';
 
-export interface DropdownMenuProps {
-  className?: string;
-}
+(DropdownMenu as any).Item = DropdownMenuItem;
 
-const DropdownMenu: FC<DropdownMenuProps> = ({
-  className
-}) => {
-  const mCls = classNames([className, prefix]);
-
-  return (
-    <div className={mCls}>
-      
-    </div>
-  )
-}
-
-export default DropdownMenu; 
+export default DropdownMenu

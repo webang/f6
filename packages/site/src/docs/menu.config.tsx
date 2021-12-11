@@ -92,6 +92,11 @@ export default [
         key: 'ActionSheet',
         content: require("../.build/docs/action-sheet.md"),
       },
+      {
+        title: "DropdownMenu 下拉菜单",
+        key: 'DropdownMenu',
+        content: require("../.build/docs/dropdown-menu.md"),
+      },
     ]
   },
   {

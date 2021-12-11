@@ -7,12 +7,13 @@ import { CheckListContext } from './context';
 export interface CheckListItemProps {
   value: string;
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 const [prefix] = defineName('check-list-item')
 
 const CheckListItem: FC<CheckListItemProps> = p => {
-  const { children, value, disabled } = p;
+  const { children, value, disabled, onClick } = p;
   const context = useContext(CheckListContext);
   const isChecked = context?.value.includes(value);
 
@@ -20,6 +21,8 @@ const CheckListItem: FC<CheckListItemProps> = p => {
     if (disabled) {
       return;
     }
+
+    onClick?.();
 
     if (isChecked) {
       context?.uncheck(value);
