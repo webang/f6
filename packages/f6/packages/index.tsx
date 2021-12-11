@@ -80,3 +80,6 @@ export type { SwipeCellProps } from './swipe-cell';
 
 export { default as Collapse } from './collapse';
 export type { CollapseProps, CollapseItemProps } from './collapse';
+
+export { default as Slider } from './slider';
+export type { SliderProps } from './slider';

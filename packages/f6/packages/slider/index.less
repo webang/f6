@@ -1,0 +1,40 @@
+.wax-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
+  &__inner {
+    position: relative;
+    height: 2px;
+    // height: 100%;
+    flex: 1;
+    margin-right: 24px;
+  }
+  &__runway {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    right: -24px;
+    background-color: #EBEBEB;
+  }
+  &__track {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    max-width: 100%;
+    background-color: #07c160;
+  }
+  &__thumb {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    cursor: move;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate3d(0, -50%, 0);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
+  }
+}

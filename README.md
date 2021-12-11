@@ -34,7 +34,7 @@ npm run dev
 - [x] Affix 固钉
 - [x] SwipeCell 滑动操作
 - [x] Collapse 折叠面板
-- [ ] Slider 滑块
+- [x] Slider 滑块
 - [ ] ActionSheet
 - [ ] Uploader 文件上传
 - [ ] DatetimePicker 时间选择

@@ -136,6 +136,11 @@ export default [
         title: "Switch 标签页",
         key: 'Switch',
         content: require("../.build/docs/switch.md"),
+      },
+      {
+        title: "Slider 输入条",
+        key: 'Slider',
+        content: require("../.build/docs/slider.md"),
       }
     ]
   },
