@@ -97,6 +97,11 @@ export default [
         key: 'DropdownMenu',
         content: require("../.build/docs/dropdown-menu.md"),
       },
+      {
+        title: "BackTop 回到顶部",
+        key: 'BackTop',
+        content: require("../.build/docs/back-top.md"),
+      },
     ]
   },
   {

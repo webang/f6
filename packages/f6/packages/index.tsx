@@ -89,3 +89,6 @@ export type { ActionSheetProps } from './action-sheet';
 
 export { default as DropdownMenu } from './dropdown-menu';
 export type { DropdownMenuProps, DropdownMenuItemProps } from './dropdown-menu';
+
+export { default as BackTop } from './back-top';
+export type { BackTopProps } from './back-top';
