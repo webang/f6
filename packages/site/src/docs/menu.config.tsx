@@ -208,6 +208,11 @@ export default [
         content: require("../.build/docs/notice-bar.md"),
       },
       {
+        title: "Flow",
+        key: 'Flow',
+        content: require("../.build/docs/flow.md"),
+      },
+      {
         title: "Marquee",
         key: 'Marquee',
         content: require("../.build/docs/marquee.md"),

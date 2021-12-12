@@ -98,3 +98,6 @@ export type { NoticeBarProps } from './notice-bar';
 
 export { default as Marquee } from './marquee';
 export type { MarqueeItemProps, MarqueeProps } from './marquee';
+
+export { default as Flow } from './flow';
+export type { FlowItemProps, FlowProps } from './flow';
