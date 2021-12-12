@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const os = require('os')
 
 module.exports = {
   parseDocument,
@@ -142,18 +143,18 @@ function parseDemoDoc(filePath) {
     const map = {};
 
     // metaData
-    const metaReg = /(---\n)([\s\S]*)(---)/;
+    const metaReg = new RegExp(`---${os.EOL}([\\s\\S]*?)---`);
     const metaRes = metaReg.exec(s);
-    const list = metaRes[2].split("\n").filter((it) => it.includes(":"));
+    const list = metaRes[1].split(os.EOL).filter((it) => it.includes(":"));
     list.forEach((it) => {
       const [key, value] = it.split(":");
       map[key.trim()] = value.trim();
     });
 
     // code
-    var codeReg = /(```jsx\n)([\s\S]*)(```)/;
-    var codeRes = codeReg.exec(s);
-    map.code = codeRes[2];
+    const codeReg = new RegExp(`\`\`\`jsx${os.EOL}([\\s\\S]*?)\`\`\``);
+    const codeRes = codeReg.exec(s);
+    map.code = codeRes[1];
 
     // description
     let start = metaRes.index + metaRes[0].length;
@@ -161,7 +162,7 @@ function parseDemoDoc(filePath) {
     map.description = s.substr(start + 1, end - start - 1);
 
     return map;
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function parseReadMeDoc(filePath) {
@@ -169,9 +170,9 @@ function parseReadMeDoc(filePath) {
   const map = {};
 
   // metaData
-  const metaReg = /(---\n)([\s\S]*)(---)/;
+  const metaReg = new RegExp(`---${os.EOL}([\\s\\S]*?)---`);
   const metaRes = metaReg.exec(s);
-  const list = metaRes[2].split("\n").filter((it) => it.includes(":"));
+  const list = metaRes[1].split(os.EOL).filter((it) => it.includes(":"));
   list.forEach((it) => {
     const [key, value] = it.split(":");
     map[key.trim()] = value.trim();
