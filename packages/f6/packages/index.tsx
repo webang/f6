@@ -101,3 +101,6 @@ export type { MarqueeItemProps, MarqueeProps } from './marquee';
 
 export { default as Flow } from './flow';
 export type { FlowItemProps, FlowProps } from './flow';
+
+export { default as Swipe } from './swipe';
+export type { SwipeItemProps, SwipeProps } from './swipe';
