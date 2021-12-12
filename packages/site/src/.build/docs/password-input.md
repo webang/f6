@@ -1,19 +1,4 @@
-<div class="block-panel">
-      <script>var code =`import { PasswordInput, Toast } from "f6";
-
-export default function App() {
-  return (
-    <div>
-      <PasswordInput
-        onChange={(val) => {
-          Toast.show({ message: val.join("-") });
-        }}
-      />
-    </div>
-  );
-}
-`; console.log(code)</script>
-      <h3>基本用法</h3>
+<div class="block-panel"><h3>基本用法</h3>
 
 ```jsx
 import { PasswordInput, Toast } from "f6";

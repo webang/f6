@@ -6,7 +6,7 @@ import App4 from './toast/position';
 import App5 from './toast/spinner';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Toast';
+  const title = 'toast';
   const list = [{
         title: '基本用法',
         element: App0

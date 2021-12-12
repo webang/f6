@@ -7,7 +7,7 @@ import App5 from './button/shape';
 import App6 from './button/size';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Button';
+  const title = 'button';
   const list = [{
         title: '基本用法',
         element: App0

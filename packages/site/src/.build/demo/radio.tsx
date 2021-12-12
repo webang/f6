@@ -4,7 +4,7 @@ import App2 from './radio/group';
 import App3 from './radio/icon';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Radio';
+  const title = 'radio';
   const list = [{
         title: '基本用法',
         element: App0

@@ -1,18 +1,4 @@
-<div class="block-panel">
-      <script>var code =`import { Slider, Toast } from 'f6';
-
-export default function App() {
-  return (
-    <>
-      <div style={{ height: 10 }}></div>
-      <Slider></Slider>
-      <div style={{ height: 10 }}></div>
-      <Slider></Slider>
-    </>
-  )
-}
-`; console.log(code)</script>
-      <h3>基本用法</h3>
+<div class="block-panel"><h3>基本用法</h3>
 
 ```jsx
 import { Slider, Toast } from 'f6';
@@ -30,20 +16,7 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Slider, Toast } from 'f6';
-
-export default function App() {
-  return (
-    <>
-      <Slider left={<span>0</span>} right={<span>100</span>} onChange={(v) => {
-        Toast.show({ message: v })
-      }}></Slider>
-    </>
-  )
-}
-`; console.log(code)</script>
-      <h3>使用插槽</h3>
+<div class="block-panel"><h3>使用插槽</h3>
 
 ```jsx
 import { Slider, Toast } from 'f6';

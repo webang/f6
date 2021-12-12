@@ -3,7 +3,7 @@ import App1 from './message/icon';
 import App2 from './message/link';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Message';
+  const title = 'message';
   const list = [{
         title: '基本用法',
         element: App0

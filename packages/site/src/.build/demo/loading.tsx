@@ -3,7 +3,7 @@ import App1 from './loading/color';
 import App2 from './loading/size';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Loading';
+  const title = 'loading';
   const list = [{
         title: '基本用法',
         element: App0

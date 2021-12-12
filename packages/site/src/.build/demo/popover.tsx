@@ -4,7 +4,7 @@ import App2 from './popover/right';
 import App3 from './popover/top';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Popover';
+  const title = 'popover';
   const list = [{
         title: '基本用法',
         element: App0

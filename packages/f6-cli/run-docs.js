@@ -2,62 +2,123 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = {
-  parseDocument
+  parseDocument,
+};
+
+if (!fs.existsSync(`../site/src/.build`)) {
+  fs.mkdirSync(`../site/src/.build`)
+}
+
+if (!fs.existsSync(`../site/src/.build/demo`)) {
+  fs.mkdirSync(`../site/src/.build/demo`)
+}
+
+if (!fs.existsSync(`../site/src/.build/docs`)) {
+  fs.mkdirSync(`../site/src/.build/docs`)
 }
 
 /**
- * @desc 解析 demo md
+ * modulePath = "../f6/packages/button", name = "button"
  */
 function parseDocument(modulePath, name) {
-  const readMeMd = path.resolve(modulePath, 'README.md');
-  const demosMd = path.resolve(modulePath, 'demo');
-  let files = fs.readdirSync(demosMd);
+  const demoPath = path.resolve(modulePath, "demo");
+  const pagePath = path.resolve(modulePath, "page");
   const outputPath = `../site/src/.build/demo/${name}`;
 
-  if (!fs.existsSync(outputPath)) {
-    fs.mkdirSync(outputPath)
+  // 如果已经存在 page/index.tsx
+  if (fs.existsSync(`${pagePath}/index.tsx`)) {
+    // 生成 渲染模板
+    fs.writeFileSync(
+      `../site/src/.build/demo/${name}.tsx`,
+      fs.readFileSync(`${pagePath}/index.tsx`)
+    );
+    generateMarkdown(modulePath, name)
+    return;
   }
 
-  files = files.filter(it => it)
+  if (!fs.existsSync(outputPath)) {
+    fs.mkdirSync(outputPath);
+  }
 
-  const usageList = files
-    .map((it) => parseDemoDoc(demosMd + '/' + it))
-    .sort((a,b) => a.order - b.order)
+  // 获取 demo 下的 markdown 文件
+  let demos = fs.readdirSync(demoPath).filter((it) => it);
+
+  // 将这些 demo markdown 中的代码复制到目标目录
+  demos
+    .map((it) => parseDemoDoc(demoPath + "/" + it))
+    .sort((a, b) => a.order - b.order)
     .map((it, index) => {
-      const code = `\`\`\`jsx\n${it.code}\`\`\``;
-      fs.writeFileSync(`${outputPath}/${files[index].replace('md', 'tsx')}`, it.code);
-      return `<div class="block-panel">
-      <script>var code =\`${it.code}\`; console.log(code)</script>
-      <h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`
+      fs.writeFileSync(
+        `${outputPath}/${demos[index].replace("md", "tsx")}`,
+        it.code
+      );
     })
-    .join('\n\n');
 
-  const codes = files.map((it, index) => {
-    const key = it.replace('.md', '')
-    return `import App${index} from './${name}/${key}';`;
-  }).join('\n')
+  // 依赖列表
+  const deps = demos
+    .map((it, index) => {
+      const key = it.replace(".md", "");
+      return `import App${index} from './${name}/${key}';`;
+    })
+    .join("\n");
 
-  const _list = files
-    .map((it) => parseDemoDoc(demosMd + '/' + it))
-    .sort((a,b) => a.order - b.order)
+  // 渲染列表
+  const _list = demos
+    .map((it) => parseDemoDoc(demoPath + "/" + it))
+    .sort((a, b) => a.order - b.order)
     .reduce((prev, curr, index) => {
-      return prev + `{
+      return (
+        prev +
+        `{
         title: '${curr.title}',
         element: App${index}
       },`
-    }, '');
-
-  const readMeMap = parseReadMeDoc(readMeMd);
-
-  fs.writeFileSync(
-    `../site/src/.build/docs/${name}.md`,
-    usageList + '\n' + readMeMap.body
-  );
+      );
+    }, "");
 
   fs.writeFileSync(
     `../site/src/.build/demo/${name}.tsx`,
-    demoTemplate({ deps: codes, title: readMeMap.title, list: `[${_list}]` })
-  )
+    demoTemplate({
+      deps,
+      title: name,
+      list: `[${_list}]`,
+    })
+  );
+
+  generateMarkdown(modulePath, name)
+}
+
+/**
+ * modulePath = "../f6/packages/button", name = "button"
+ */
+function generateMarkdown(modulePath, name) {
+  const readMeMd = path.resolve(modulePath, "README.md");
+  const demoPath = path.resolve(modulePath, "demo");
+  const pagePath = path.resolve(modulePath, "page");
+  const readMeMap = parseReadMeDoc(readMeMd);
+
+  let usageList = '';
+
+  if (fs.existsSync(`${pagePath}/index.tsx`)) {
+    const content = fs.readFileSync(`${pagePath}/index.tsx`, 'utf-8')
+    const code = `\`\`\`jsx\n${content}\`\`\``;
+    usageList = `<div class="block-panel"><h3>Demos</h3>\n\n${code}\n</div>`;
+  } else {
+    usageList = fs.readdirSync(demoPath)
+      .filter((it) => it)
+      .map((it) => parseDemoDoc(demoPath + "/" + it))
+      .sort((a, b) => a.order - b.order)
+      .map((it) => {
+        const code = `\`\`\`jsx\n${it.code}\`\`\``;
+        return `<div class="block-panel"><h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`;
+      })
+      .join("\n\n");
+  }
+
+  fs.writeFileSync(
+    `../site/src/.build/docs/${name}.md`,
+    usageList + "\n" + readMeMap.body
+  );
 }
 
 function demoTemplate({ deps, title, list }) {
@@ -67,13 +128,13 @@ export default () => {
   const list = ${list};
   return <Demo list={list} title={title}/>;
 }
-`
+`;
 }
 
 /**
  * @desc 将某个 usage-md 文件解析为 usage-map
- * @param {*} filePath 
- * @returns 
+ * @param {*} filePath
+ * @returns
  */
 function parseDemoDoc(filePath) {
   try {
@@ -83,14 +144,14 @@ function parseDemoDoc(filePath) {
     // metaData
     const metaReg = /(---\n)([\s\S]*)(---)/;
     const metaRes = metaReg.exec(s);
-    const list = metaRes[2].split('\n').filter(it => it.includes(":"));
+    const list = metaRes[2].split("\n").filter((it) => it.includes(":"));
     list.forEach((it) => {
-      const [key, value] = it.split(':');
-      map[key.trim()] = value.trim()
-    })
+      const [key, value] = it.split(":");
+      map[key.trim()] = value.trim();
+    });
 
     // code
-    var codeReg = /(```jsx\n)([\s\S]*)(```)/
+    var codeReg = /(```jsx\n)([\s\S]*)(```)/;
     var codeRes = codeReg.exec(s);
     map.code = codeRes[2];
 
@@ -100,9 +161,7 @@ function parseDemoDoc(filePath) {
     map.description = s.substr(start + 1, end - start - 1);
 
     return map;
-  } catch (e) {
-
-  }
+  } catch (e) {}
 }
 
 function parseReadMeDoc(filePath) {
@@ -112,11 +171,11 @@ function parseReadMeDoc(filePath) {
   // metaData
   const metaReg = /(---\n)([\s\S]*)(---)/;
   const metaRes = metaReg.exec(s);
-  const list = metaRes[2].split('\n').filter(it => it.includes(":"));
+  const list = metaRes[2].split("\n").filter((it) => it.includes(":"));
   list.forEach((it) => {
-    const [key, value] = it.split(':');
-    map[key.trim()] = value.trim()
-  })
+    const [key, value] = it.split(":");
+    map[key.trim()] = value.trim();
+  });
 
   // description
   let start = metaRes.index + metaRes[0].length;

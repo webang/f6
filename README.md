@@ -42,16 +42,16 @@ npm run dev
 - [x] Marquee 滚动
 - [x] Flow 步骤条
 
+- [ ] Swipe 轮播组件
 - [ ] Uploader 文件上传
+
 - [ ] Calendar 日历
 - [ ] DatetimePicker 时间选择
-- [ ] Swipe 轮播组件
 
 ## 园林
 
 - [ ] TabBar 标签栏
 - [ ] NavBar 导航栏
-
 
 ## 参考
 

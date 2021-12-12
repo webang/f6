@@ -5,7 +5,7 @@ import App3 from './cell/icon';
 import App4 from './cell/label';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Cell';
+  const title = 'cell';
   const list = [{
         title: '基本用法',
         element: App0

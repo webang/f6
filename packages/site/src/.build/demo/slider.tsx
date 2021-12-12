@@ -2,7 +2,7 @@ import App0 from './slider/basic';
 import App1 from './slider/slot';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Slider';
+  const title = 'slider';
   const list = [{
         title: '基本用法',
         element: App0

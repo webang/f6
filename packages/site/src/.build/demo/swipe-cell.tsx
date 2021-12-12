@@ -1,7 +1,7 @@
 import App0 from './swipe-cell/basic';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Space';
+  const title = 'swipe-cell';
   const list = [{
         title: '基本用法',
         element: App0

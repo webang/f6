@@ -1,17 +1,4 @@
-<div class="block-panel">
-      <script>var code =`import { Affix, BackTop } from 'f6';
-
-export default function App() {
-  return (
-    <div>
-      <div style={{ height: 400 }} />
-      <BackTop bottom={20}></BackTop>
-      <div style={{ height: 400 }} />
-    </div>
-  )
-}
-`; console.log(code)</script>
-      <h3>基本用法</h3>
+<div class="block-panel"><h3>基本用法</h3>
 
 ```jsx
 import { Affix, BackTop } from 'f6';

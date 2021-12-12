@@ -2,7 +2,7 @@ import App0 from './spinner/basic';
 import App1 from './spinner/size';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Spinner';
+  const title = 'spinner';
   const list = [{
         title: '动画类型',
         element: App0

@@ -3,7 +3,7 @@ import App1 from './picker/casade';
 import App2 from './picker/method';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Picker';
+  const title = 'picker';
   const list = [{
         title: '基本用法',
         element: App0

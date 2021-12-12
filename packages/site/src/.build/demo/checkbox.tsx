@@ -4,7 +4,7 @@ import App2 from './checkbox/group';
 import App3 from './checkbox/icon';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Checkbox';
+  const title = 'checkbox';
   const list = [{
         title: '基本用法',
         element: App0

@@ -1,45 +1,23 @@
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-export default function App() {
-  return (
-    <div>
-      <Button type="default">默认按钮</Button>
-      <Button type="primary">主要按钮</Button>
-      <Button type="success">成功按钮</Button>
-      <Button type="danger">危险按钮</Button>
-      <Button type="warning">警告按钮</Button>
-    </div>
-  )
-}
-`; console.log(code)</script>
-      <h3>基本用法</h3>
+<div class="block-panel"><h3>基本用法</h3>
 
 ```jsx
-import { Button } from 'f6';
+import { Button, Space } from 'f6';
 
 export default function App() {
   return (
-    <div>
+    <Space>
       <Button type="default">默认按钮</Button>
       <Button type="primary">主要按钮</Button>
       <Button type="success">成功按钮</Button>
       <Button type="danger">危险按钮</Button>
       <Button type="warning">警告按钮</Button>
-    </div>
+    </Space>
   )
 }
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-export default function App () {
-  return <Button disabled type="primary">禁用状态</Button>
-}
-`; console.log(code)</script>
-      <h3>禁用状态</h3>
+<div class="block-panel"><h3>禁用状态</h3>
 
 ```jsx
 import { Button } from 'f6';
@@ -50,14 +28,7 @@ export default function App () {
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-export default function App() {
-    return <Button loading type="primary">块级按钮</Button>
-}
-`; console.log(code)</script>
-      <h3>加载按钮</h3>
+<div class="block-panel"><h3>加载按钮</h3>
 
 ```jsx
 import { Button } from 'f6';
@@ -68,48 +39,26 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-export default function App() {
-  return (
-    <div>
-      <Button type="default" plain>默认按钮</Button>
-      <Button type="primary" plain>主要按钮</Button>
-      <Button type="success" plain>成功按钮</Button>
-      <Button type="danger" plain>危险按钮</Button>
-      <Button type="warning" plain>警告按钮</Button>
-    </div>
-  )
-}
-`; console.log(code)</script>
-      <h3>朴素按钮</h3>
+<div class="block-panel"><h3>朴素按钮</h3>
 
 ```jsx
-import { Button } from 'f6';
+import { Button, Space } from 'f6';
 
 export default function App() {
   return (
-    <div>
+    <Space>
       <Button type="default" plain>默认按钮</Button>
       <Button type="primary" plain>主要按钮</Button>
       <Button type="success" plain>成功按钮</Button>
       <Button type="danger" plain>危险按钮</Button>
       <Button type="warning" plain>警告按钮</Button>
-    </div>
+    </Space>
   )
 }
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-export default function App () {
-  return <Button block type="primary">块级按钮</Button>
-}
-`; console.log(code)</script>
-      <h3>块级按钮</h3>
+<div class="block-panel"><h3>块级按钮</h3>
 
 块级按钮：占据占据父元素的所有宽度。
 
@@ -122,33 +71,18 @@ export default function App () {
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-function App() {
-  return (
-    <>
-      <Button type="primary" size="middle">默认大小</Button>
-      <Button type="primary" size="small">小型按钮</Button>
-      <Button type="primary" size="mini">迷你按钮</Button>
-    </>
-  )
-}
-
-export default App;
-`; console.log(code)</script>
-      <h3>按钮大小</h3>
+<div class="block-panel"><h3>按钮大小</h3>
 
 ```jsx
-import { Button } from 'f6';
+import { Button, Space } from 'f6';
 
 function App() {
   return (
-    <>
+    <Space>
       <Button type="primary" size="middle">默认大小</Button>
       <Button type="primary" size="small">小型按钮</Button>
       <Button type="primary" size="mini">迷你按钮</Button>
-    </>
+    </Space>
   )
 }
 
@@ -156,29 +90,17 @@ export default App;
 ```
 </div>
 
-<div class="block-panel">
-      <script>var code =`import { Button } from 'f6';
-
-export default function App() {
-  return (
-    <>
-      <Button shape="square" type="primary">方形按钮</Button>
-      <Button shape="round" type="danger">圆角按钮</Button>
-    </>
-  )
-}
-`; console.log(code)</script>
-      <h3>按钮形状</h3>
+<div class="block-panel"><h3>按钮形状</h3>
 
 ```jsx
-import { Button } from 'f6';
+import { Button, Space } from 'f6';
 
 export default function App() {
   return (
-    <>
+    <Space>
       <Button shape="square" type="primary">方形按钮</Button>
       <Button shape="round" type="danger">圆角按钮</Button>
-    </>
+    </Space>
   )
 }
 ```

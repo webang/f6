@@ -3,7 +3,7 @@ import App1 from './space/direction';
 import App2 from './space/wrap';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Space';
+  const title = 'space';
   const list = [{
         title: '基本用法',
         element: App0

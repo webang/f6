@@ -3,7 +3,7 @@ import App1 from './dialog/confirm';
 import App2 from './dialog/function';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Dialog';
+  const title = 'dialog';
   const list = [{
         title: 'alert',
         element: App0

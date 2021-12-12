@@ -1,7 +1,6 @@
 import { Affix, Button } from 'f6';
 
 export default function App() {
-
   return (
     <div style={{ height: '800px', background: '#ccc' }}>
       <Affix top={20}>

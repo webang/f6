@@ -3,7 +3,7 @@ import App1 from './grid/border';
 import App2 from './grid/multi';
 import Demo from '../../components/demo-block';
 export default () => {
-  const title = 'Grid';
+  const title = 'grid';
   const list = [{
         title: '基本用法',
         element: App0
