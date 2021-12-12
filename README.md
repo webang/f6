@@ -39,7 +39,7 @@ npm run dev
 - [x] DropdownMenu 下拉菜单
 - [x] BackTop 回到顶部
 - [x] NoticeBar 通告栏
-- [ ] Marquee 滚动
+- [x] Marquee 滚动
 
 - [ ] Uploader 文件上传
 - [ ] Calendar 日历

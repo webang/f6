@@ -207,6 +207,11 @@ export default [
         key: 'NoticeBar',
         content: require("../.build/docs/notice-bar.md"),
       },
+      {
+        title: "Marquee",
+        key: 'Marquee',
+        content: require("../.build/docs/marquee.md"),
+      },
     ]
   },
   {

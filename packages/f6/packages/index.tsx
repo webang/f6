@@ -95,3 +95,6 @@ export type { BackTopProps } from './back-top';
 
 export { default as NoticeBar } from './notice-bar';
 export type { NoticeBarProps } from './notice-bar';
+
+export { default as Marquee } from './marquee';
+export type { MarqueeItemProps, MarqueeProps } from './marquee';
