@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import { defineName } from "../utils/name";
-import { getPosition } from "../utils/dom";
+import { getPosition, isMobile } from "../utils/dom";
 import Button from "../button";
 import { SwipeProps } from "./interface";
 import classNames from "classnames";
@@ -21,12 +21,8 @@ class Swipe extends React.Component<SwipeProps, {}> {
   };
 
   state = {
-    current: 0,
-    translate: 0,
-    gridIndex: 0,
+    translate: 0
   };
-
-  isHorizontal = this.props.direction === "horizontal";
 
   store = {
     width: 0,
@@ -46,12 +42,13 @@ class Swipe extends React.Component<SwipeProps, {}> {
     minGridIndex: 0,
     minTranslate: 0,
     initialized: false,
-    rectProp: (this.isHorizontal ? "width" : "height") as "width" | "height",
     slides: [] as HTMLDivElement[],
     slidesGrid: [] as number[],
     isLoop: !!this.props.loop,
     useAnimate: false,
     timeId: null as unknown as NodeJS.Timeout,
+    isHorizontal: this.props.direction === "horizontal",
+    rectProp: (this.props.direction === 'horizontal' ? "width" : "height") as "width" | "height"
   };
 
   private wrapperRef = React.createRef<HTMLDivElement>();
@@ -60,10 +57,13 @@ class Swipe extends React.Component<SwipeProps, {}> {
   private moveHandler = (event: React.TouchEvent) => {
     const touch = getPosition(event.type, event);
     const store = this.store;
+    if (!store.isTouched) return;
+
+    event.preventDefault();
 
     store.diffX = touch.clientX - store.startX;
     store.diffY = touch.clientY - store.startY;
-    store.diff = this.isHorizontal ? store.diffX : store.diffY;
+    store.diff = store.isHorizontal ? store.diffX : store.diffY;
     store.useAnimate = false;
 
     this.setState((prev) => {
@@ -88,28 +88,28 @@ class Swipe extends React.Component<SwipeProps, {}> {
 
   private endHandler = () => {
     const { store, slideTo } = this;
-    if (store.diff === 0) return;
 
-    const deltaTime = Date.now() - store.startTime;
-
-    if (store.diff < 0) {
-      if (deltaTime < SHORT_TOUCH) {
-        this.slideNext()
-      } else {
-        if (store.diff < -100) {
+    if (store.diff !== 0) {
+      const deltaTime = Date.now() - store.startTime;
+      if (store.diff < 0) {
+        if (deltaTime < SHORT_TOUCH) {
           this.slideNext()
         } else {
-          slideTo(store.gridIndex);
+          if (store.diff < -100) {
+            this.slideNext()
+          } else {
+            slideTo(store.gridIndex);
+          }
         }
-      }
-    } else if (store.diff > 0) {
-      if (deltaTime < SHORT_TOUCH) {
-        this.slidePrev();
-      } else {
-        if (store.diff > 100) {
+      } else if (store.diff > 0) {
+        if (deltaTime < SHORT_TOUCH) {
           this.slidePrev();
         } else {
-          slideTo(store.gridIndex);
+          if (store.diff > 100) {
+            this.slidePrev();
+          } else {
+            slideTo(store.gridIndex);
+          }
         }
       }
     }
@@ -125,8 +125,8 @@ class Swipe extends React.Component<SwipeProps, {}> {
     const wrapperEl = wrapperRef.current;
     const { width, height } = wrapperEl.getBoundingClientRect();
 
-    store.size = this.isHorizontal ? width : height;
-    if (this.isHorizontal) {
+    store.size = store.isHorizontal ? width : height;
+    if (store.isHorizontal) {
       wrapperEl.style.width = width + "px";
     } else {
       wrapperEl.style.height = height + "px";
@@ -154,7 +154,7 @@ class Swipe extends React.Component<SwipeProps, {}> {
     store.slides.forEach((element, index) => {
       element.style[store.rectProp] = store.size + "px";
       if (index !== children.length - 1) {
-        if (this.isHorizontal) {
+        if (store.isHorizontal) {
           element.style.marginRight = spaceBetween + "px";
         } else {
           element.style.marginBottom = spaceBetween + "px";
@@ -246,8 +246,28 @@ class Swipe extends React.Component<SwipeProps, {}> {
     innerEl.appendChild(firstEl);
   }
 
+  private initEvents = () => {
+    const { moveHandler, startHandler, endHandler } = this;
+    if (this.wrapperRef.current) {
+      const el = this.wrapperRef.current;
+      const options = {
+        passive: false
+      }
+      if (isMobile()) {
+        el.addEventListener('touchstart', startHandler as any, options);
+        el.addEventListener('touchmove', moveHandler as any, options);
+        el.addEventListener('touchend', endHandler as any, options);
+      } else {
+        el.addEventListener('mousedown', startHandler as any, options);
+        el.addEventListener('mousemove', moveHandler as any, options);
+        el.addEventListener('mouseup', endHandler as any, options);
+      }
+    }
+  }
+
   componentDidMount() {
     this.onMount();
+    this.initEvents();
     if (this.props.loop) {
       this.slideTo(this.props.activeIndex || 0 + 1, false);
     } else {
@@ -256,14 +276,13 @@ class Swipe extends React.Component<SwipeProps, {}> {
   }
 
   render() {
-    const { moveHandler, startHandler, endHandler } = this;
-    const { props, state, store, wrapperRef, containerRef } = this;
     const { children } = this.props;
+    const { props, state, store, wrapperRef, containerRef } = this;
 
     const containerStl: CSSProperties = {
       transitionDuration: `${store.useAnimate ? props.duration : 0}ms`,
       [store.rectProp]: `${store.maxTranslate + store.size}px`,
-      transform: this.isHorizontal
+      transform: store.isHorizontal
         ? `translate3d(${state.translate}px, 0, 0)`
         : `translate3d(0, ${state.translate}px, 0)`,
     };
@@ -271,8 +290,7 @@ class Swipe extends React.Component<SwipeProps, {}> {
     const wrapperCls = classNames({
       [prefix]: true,
       ['effect-' + this.props.effect]: true,
-      ['is-vertical']: !this.isHorizontal,
-      ['is-horizontal']: this.isHorizontal
+      [`is-${this.props.direction}`]: true,
     })
 
     return (
@@ -281,13 +299,7 @@ class Swipe extends React.Component<SwipeProps, {}> {
         <Button onClick={() => this.slidePrev()}>prev</Button>
         <Button onClick={() => this.stop()}>stop</Button>
         <Button onClick={() => this.play()}>play</Button>
-        <div
-          className={wrapperCls}
-          onTouchMove={moveHandler}
-          onTouchStart={startHandler}
-          onTouchEnd={endHandler}
-          ref={wrapperRef}
-        >
+        <div className={wrapperCls} ref={wrapperRef}>
           <div
             style={containerStl}
             className={`${prefix}-container`}

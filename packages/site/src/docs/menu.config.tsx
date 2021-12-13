@@ -217,6 +217,11 @@ export default [
         key: 'Marquee',
         content: require("../.build/docs/marquee.md"),
       },
+      {
+        title: "Swipe",
+        key: 'Swipe',
+        content: require("../.build/docs/swipe.md"),
+      }
     ]
   },
   {
