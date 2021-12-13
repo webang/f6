@@ -20,17 +20,24 @@
   }
 }
 
+.block-panel,
+.f6-docs-table {
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 12px #ebedf0;
+}
+
 .block-panel {
   padding: 20px;
-  background-color: #fff;
+  padding-bottom: 12px;
   margin-top: 20px;
-  border-radius: 2px;
 }
 
 .f6-docs-table {
+  padding: 10px 16px;
+  margin-bottom: 12px;
   table {
     width: 100%;
-    margin-top: 12px;
     color: #34495e;
     font-size: 14px;
     line-height: 2;
@@ -39,12 +46,22 @@
   }
   th {
     padding: 8px 10px;
+    padding-left: 0;
     font-weight: 600;
     text-align: left;
   }
   td {
     padding: 8px;
+    padding-left: 0;
     border-top: 1px solid #f1f4f8;
+  }
+  code {
+    display: inline-block;
+    padding: 4px 6px;
+    line-height: 14px;
+    color: #009688;
+    border-radius: 2px;
+    background-color: #f7f4f4;
   }
 }
 
