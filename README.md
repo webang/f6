@@ -41,10 +41,9 @@ npm run dev
 - [x] NoticeBar 通告栏
 - [x] Marquee 滚动
 - [x] Flow 步骤条
+- [x] Swipe 轮播组件
 
-- [ ] Swipe 轮播组件
 - [ ] Uploader 文件上传
-
 - [ ] Calendar 日历
 - [ ] DatetimePicker 时间选择
 
