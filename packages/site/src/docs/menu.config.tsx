@@ -133,7 +133,7 @@ export default [
         content: require("../.build/docs/number-keyboard.md"),
       },
       {
-        title: "Cascader 联动选择器",
+        title: "Cascader 联动选择",
         key: 'Cascader',
         content: require("../.build/docs/cascader.md"),
       },

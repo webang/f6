@@ -100,10 +100,10 @@ const Cascader: FC<CascaderProps> = (props) => {
     return (
       <>
         <div className={`${prefix}-header`}>
-          <Button type="text" onClick={() => onClose?.()}>
+          <Button fill="none" onClick={() => onClose?.()}>
             取消
           </Button>
-          <Button type="text" onClick={() => onConfirm?.(selected)}>
+          <Button fill="none" onClick={() => onConfirm?.(selected)}>
             确认
           </Button>
         </div>
