@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div>
-      <Button type="primary" onClick={show}>点击显示</Button>
+      <Button color="primary" onClick={show}>点击显示</Button>
       <Overlay onClick={hide} visible={visible}>
         <div style={style}>hello world</div>
       </Overlay>

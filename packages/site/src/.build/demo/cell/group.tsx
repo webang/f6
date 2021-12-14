@@ -1,6 +1,6 @@
 import { Cell, Button } from "f6";
 
-const button = (<Button size="mini" type="primary">详情</Button>);
+const button = (<Button size="mini" color="primary">详情</Button>);
 const label = <span>乱山千叠横江，忆君游倦何方。知否小窗红烛，照人此夜凄凉。</span>;
 const icon = <img width={24} src="https://avatars.githubusercontent.com/u/34447750?s=40&v=4" /> 
 

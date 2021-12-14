@@ -1,7 +1,7 @@
 import { Cell, Flow, Field, Toast, Button } from "f6";
 
 const button = (
-  <Button size="mini" type="primary">
+  <Button size="mini" color="primary">
     详情
   </Button>
 );

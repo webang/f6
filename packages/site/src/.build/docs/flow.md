@@ -15,7 +15,7 @@ export default function () {
         <Flow.Item index={2} title='标题2' description='描述'></Flow.Item>
       </Flow>
       <div style={{ height: 16 }}></div>
-      <Button type="primary" block onClick={next}>next</Button>
+      <Button color="primary" block onClick={next}>next</Button>
     </>
   );
 }
@@ -28,7 +28,7 @@ export default function () {
 import { Cell, Flow, Field, Toast, Button } from "f6";
 
 const button = (
-  <Button size="mini" type="primary">
+  <Button size="mini" color="primary">
     详情
   </Button>
 );

@@ -1,6 +1,6 @@
 import { Cell, Button } from "f6";
 
-const button = (<Button size="mini" type="primary">详情</Button>);
+const button = (<Button size="mini" color="primary">详情</Button>);
 
 export default function() {
   return (

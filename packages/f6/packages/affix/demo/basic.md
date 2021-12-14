@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div style={{ height: "700px", background: "#607d8b" }}>
       <Affix top={20}>
-        <Button size="sm" shape="round" type="primary">
+        <Button size="sm" shape="round" color="primary">
           首页
         </Button>
       </Affix>

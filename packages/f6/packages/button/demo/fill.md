@@ -1,3 +1,9 @@
+---
+order: 1
+title: 填充模式
+---
+
+```jsx
 import { Button, Space } from 'f6';
 
 export default function App() {
@@ -25,3 +31,4 @@ export default function App() {
     </Space>
   )
 }
+```

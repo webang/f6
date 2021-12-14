@@ -80,9 +80,9 @@ export default function App() {
   const [visible, setVisible] = React.useState(false);
   return (
     <>
-      <Button block type="primary" onClick={() => showConfirm()}>confirm</Button>
+      <Button block color="primary" onClick={() => showConfirm()}>confirm</Button>
       <div style={{height: 10 }}></div>
-      <Button block type="primary" onClick={() => showAlert()}>alert</Button>
+      <Button block color="primary" onClick={() => showAlert()}>alert</Button>
     </>
   );
 }

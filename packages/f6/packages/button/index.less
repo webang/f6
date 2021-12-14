@@ -18,56 +18,80 @@
   font-size: 14px;
   transition: opacity 200ms;
 
-  // type
-  &--text {
-    border: 0;
-  }
   &--default {
     color: #333;
-    background: #fff;
+    background-color: #fff;
+    &.@{button-cls}--fill-outline {
+      border-color: #333;
+    }
+    &.@{button-cls}--fill-none {
+      border-color: transparent;
+      background: transparent;
+    }
   }
-  &--default&--plain {
-    border-color: #333;
-  }
+
   &--primary {
     color: #fff;
     border-color: var(--f6-button-primary-border-color);
     background-color: var(--f6-button-primary-background-color);
+    &.@{button-cls}--fill-outline {
+      color: var(--f6-button-primary-background-color);
+      border-color: var(--f6-button-primary-background-color);
+      background-color: #fff;
+    }
+    &.@{button-cls}--fill-none {
+      color: var(--f6-button-primary-background-color);
+      border-color: transparent;
+      background-color: transparent;
+    }
   }
-  &--primary&--plain {
-    color: var(--f6-button-primary-background-color);
-    border-color: var(--f6-button-primary-background-color);
-    background-color: #fff;
-  }
+
   &--danger {
     color: #fff;
     border-color: var(--f6-danger-color);
     background-color: var(--f6-danger-color);
+    &.@{button-cls}--fill-outline {
+      color: var(--f6-danger-color);
+      border-color: var(--f6-danger-color);
+      background-color: #fff;
+    }
+    &.@{button-cls}--fill-none {
+      color: var(--f6-danger-color);
+      border-color: transparent;
+      background-color: transparent;
+    }
   }
-  &--danger&--plain {
-    color: var(--f6-danger-color);
-    border-color: var(--f6-danger-color);
-    background-color: #fff;
-  }
+
   &--warning {
     color: #fff;
     border-color: var(--f6-warning-color);
     background-color: var(--f6-warning-color);
+    &.@{button-cls}--fill-outline {
+      color: var(--f6-warning-color);
+      border-color: var(--f6-warning-color);
+      background-color: #fff;
+    }
+    &.@{button-cls}--fill-none {
+      color: var(--f6-warning-color);
+      border-color: transparent;
+      background-color: transparent;
+    }
   }
-  &--warning&--plain {
-    color: var(--f6-warning-color);
-    border-color: var(--f6-warning-color);
-    background-color: #fff;
-  }
+
   &--success {
     color: #fff;
     border-color: var(--f6-success-color);
     background-color: var(--f6-success-color);
-  }
-  &--success&--plain {
-    color: var(--f6-success-color);
-    border-color: var(--f6-success-color);
-    background-color: #fff;
+    &.@{button-cls}--fill-outline {
+      color: var(--f6-success-color);
+      border-color: var(--f6-success-color);
+      background-color: #fff;
+    }
+    &.@{button-cls}--fill-none {
+      color: var(--f6-success-color);
+      border-color: transparent;
+      background-color: transparent;
+    }
   }
 
   // size
@@ -87,11 +111,14 @@
   }
 
   // 形状
-  &--square {
+  &--shape-default {
     border-radius: 2px;
   }
-  &--round {
+  &--shape-round {
     border-radius: 20px;
+  }
+  &--shape-square {
+    border-radius: 0;
   }
   &--block {
     display: flex;

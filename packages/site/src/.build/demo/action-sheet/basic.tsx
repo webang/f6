@@ -12,7 +12,7 @@ export default function App() {
   };
 
   const mButton = (
-    <Button size="mini" type="primary" onClick={show}>
+    <Button size="mini" color="primary" onClick={show}>
       显示
     </Button>
   );

@@ -5,7 +5,7 @@ export default function App() {
     <>
       <SwipeCell
         left={
-          <Button type="primary" style={{ borderRadius: 0 }}>
+          <Button color="primary" style={{ borderRadius: 0 }}>
             收藏
           </Button>
         }
@@ -19,7 +19,7 @@ export default function App() {
       </SwipeCell>
       <SwipeCell
         right={
-          <Button type="primary" style={{ borderRadius: 0 }}>
+          <Button color="primary" style={{ borderRadius: 0 }}>
             删除
           </Button>
         }

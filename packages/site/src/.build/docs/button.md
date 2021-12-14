@@ -6,11 +6,11 @@ import { Button, Space } from 'f6';
 export default function App() {
   return (
     <Space>
-      <Button type="default">默认按钮</Button>
-      <Button type="primary">主要按钮</Button>
-      <Button type="success">成功按钮</Button>
-      <Button type="danger">危险按钮</Button>
-      <Button type="warning">警告按钮</Button>
+      <Button color="default">默认按钮</Button>
+      <Button color="primary">主要按钮</Button>
+      <Button color="success">成功按钮</Button>
+      <Button color="danger">危险按钮</Button>
+      <Button color="warning">警告按钮</Button>
     </Space>
   )
 }
@@ -23,7 +23,40 @@ export default function App() {
 import { Button } from 'f6';
 
 export default function App () {
-  return <Button disabled type="primary">禁用状态</Button>
+  return <Button disabled color="primary">禁用状态</Button>
+}
+```
+</div>
+
+<div class="block-panel"><h3>填充模式</h3>
+
+```jsx
+import { Button, Space } from 'f6';
+
+export default function App() {
+  return (
+    <Space>
+      <Button color="default" fill="solid">默认按钮</Button>
+      <Button color="default" fill="outline">默认按钮</Button>
+      <Button color="default" fill="none">默认按钮</Button>
+
+      <Button color="primary" fill="solid">默认按钮</Button>
+      <Button color="primary" fill="outline">默认按钮</Button>
+      <Button color="primary" fill="none">默认按钮</Button>
+
+      <Button color="danger" fill="solid">危险按钮</Button>
+      <Button color="danger" fill="outline">危险按钮</Button>
+      <Button color="danger" fill="none">危险按钮</Button>
+
+      <Button color="warning" fill="solid">默认按钮</Button>
+      <Button color="warning" fill="outline">默认按钮</Button>
+      <Button color="warning" fill="none">默认按钮</Button>
+
+      <Button color="success" fill="solid">默认按钮</Button>
+      <Button color="success" fill="outline">默认按钮</Button>
+      <Button color="success" fill="none">默认按钮</Button>
+    </Space>
+  )
 }
 ```
 </div>
@@ -34,26 +67,7 @@ export default function App () {
 import { Button } from 'f6';
 
 export default function App() {
-    return <Button loading type="primary">块级按钮</Button>
-}
-```
-</div>
-
-<div class="block-panel"><h3>朴素按钮</h3>
-
-```jsx
-import { Button, Space } from 'f6';
-
-export default function App() {
-  return (
-    <Space>
-      <Button type="default" plain>默认按钮</Button>
-      <Button type="primary" plain>主要按钮</Button>
-      <Button type="success" plain>成功按钮</Button>
-      <Button type="danger" plain>危险按钮</Button>
-      <Button type="warning" plain>警告按钮</Button>
-    </Space>
-  )
+    return <Button loading color="primary">块级按钮</Button>
 }
 ```
 </div>
@@ -66,7 +80,7 @@ export default function App() {
 import { Button } from 'f6';
 
 export default function App () {
-  return <Button block type="primary">块级按钮</Button>
+  return <Button block color="primary">块级按钮</Button>
 }
 ```
 </div>
@@ -79,9 +93,9 @@ import { Button, Space } from 'f6';
 function App() {
   return (
     <Space>
-      <Button type="primary" size="middle">默认大小</Button>
-      <Button type="primary" size="small">小型按钮</Button>
-      <Button type="primary" size="mini">迷你按钮</Button>
+      <Button color="primary" size="middle">默认大小</Button>
+      <Button color="primary" size="small">小型按钮</Button>
+      <Button color="primary" size="mini">迷你按钮</Button>
     </Space>
   )
 }
@@ -98,8 +112,9 @@ import { Button, Space } from 'f6';
 export default function App() {
   return (
     <Space>
-      <Button shape="square" type="primary">方形按钮</Button>
-      <Button shape="round" type="danger">圆角按钮</Button>
+      <Button shape="default" color="primary">默认形状</Button>
+      <Button shape="square" color="primary">方形按钮</Button>
+      <Button shape="round" color="primary">圆角按钮</Button>
     </Space>
   )
 }
@@ -110,31 +125,31 @@ export default function App() {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| type | 按钮类型，可选值为：`primary` `info` `success` `warning` `danger` | string | `default` |
+| color | 按钮颜色，可选值为：`primary` `info` `success` `warning` `danger` | string | `default` |
 | size | 按钮大小，可选值为：`large` `middle` `small` `mini` | string | `middle` |
 | square | 按钮形状，可选值为：`square` `round` | string | `square` |
 | block | 是否块级按钮 | boolean | `false` |
-| plain | 是否朴素按钮 | boolean | `false` |
+| fill | 填充模式 | `solid` \| `outline` \| `none` | `solid` |
 | loading | 是否加载状态 | boolean | `false` |
 | disabled | 是否禁用状态 | boolean | `false` |
 | title | 按钮文字 | ReactNode | - |
 | onClick |	非必需，点击后触发的回调函数 | `React.MouseEventHandler<Element>` | - |
 
+
 ```tsx
-export type ButtonType = "primary" | "info" | "success" | "warning" | "danger" | "text";
+export type ButtonColor = "primary" | "info" | "success" | "warning" | "danger";
 export type ButtonSize = "large" | "small" | "mini" | "middle";
-export type ButtonShape = 'round' | 'square';
+export type ButtonShape = 'round' | 'square' | 'default';
+export type ButtonFill = 'solid' | 'outline' | 'none';
 
 interface BaseButtonProps {
   className?: string;
-  title?: ReactNode; // 内容
-  shape?: ButtonShape; // 形状
-  type?: ButtonType; // 类型
+  title?: ReactNode; // 按钮内容
+  shape?: ButtonShape; // 按钮形状
+  color?: ButtonColor; // 按钮颜色
   size?: ButtonSize; // 尺寸
-  text?: string; // 按钮文字
-  color?: string; // 按钮颜色
+  fill?: ButtonFill; // 填充模式
   block?: boolean; // 是否为块级元素
-  plain?: boolean;
   loading?: boolean;
   disabled?: boolean;
 }

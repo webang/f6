@@ -7,7 +7,7 @@ export default function App() {
   const hide = () => setVisible(false);
   return (
     <div>
-      <Button type="primary" onClick={show}>点击显示</Button>
+      <Button color="primary" onClick={show}>点击显示</Button>
       <Overlay onClick={hide} visible={visible} />
     </div>
   )

@@ -21,7 +21,7 @@ export default function App() {
     >
       <div style={{ height: "40px" }}></div>
       <Affix top={10} container={() => ref.current}>
-        <Button size="sm" shape="round" type="primary">
+        <Button size="sm" shape="round" color="primary">
           首页
         </Button>
       </Affix>

@@ -14,7 +14,7 @@ const style = {
 function App() {
   return (
     <>
-      <Message type="primary" style={style} link>这是一段默认的普通文字描述</Message>
+      <Message color="primary" style={style} link>这是一段默认的普通文字描述</Message>
       <Message type="warning" style={style} link>这是一段默认的普通文字描述</Message>
     </>
   )

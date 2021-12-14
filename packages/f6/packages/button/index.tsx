@@ -4,20 +4,19 @@ import classNames from "classnames";
 import { defineName } from "../utils/name";
 import Spinner from "../spinner";
 
-export type ButtonType = "primary" | "info" | "success" | "warning" | "danger" | "text";
+export type ButtonColor = "primary" | "info" | "success" | "warning" | "danger";
 export type ButtonSize = "large" | "small" | "mini" | "middle";
-export type ButtonShape = 'round' | 'square';
+export type ButtonShape = 'round' | 'square' | 'default';
+export type ButtonFill = 'solid' | 'outline' | 'none';
 
 interface BaseButtonProps {
   className?: string;
   title?: ReactNode; // 按钮内容
   shape?: ButtonShape; // 按钮形状
-  type?: ButtonType; // 类型
+  color?: ButtonColor; // 按钮颜色
   size?: ButtonSize; // 尺寸
-  text?: string; // 按钮文字
-  color?: string; // 按钮颜色
+  fill?: ButtonFill; // 填充模式
   block?: boolean; // 是否为块级元素
-  plain?: boolean;
   loading?: boolean;
   disabled?: boolean;
 }
@@ -32,10 +31,10 @@ const [prefix] = defineName("button");
 
 const Button: React.FC<ButtonProps> = ({
   size = "middle",
-  type = "default",
-  shape = "square",
+  color = "default",
+  shape = "default",
+  fill = 'solid',
   block = false,
-  plain = false,
   loading = false,
   disabled = false,
   className,
@@ -49,12 +48,12 @@ const Button: React.FC<ButtonProps> = ({
     prefix,
     className,
     `${prefix}--${size}`,
-    `${prefix}--${type}`,
-    `${prefix}--${shape}`,
+    `${prefix}--${color}`,
+    `${prefix}--shape-${shape}`,
+    `${prefix}--fill-${fill}`,
     {
-      [`${prefix}--active`]: active,
       [`${prefix}--block`]: block,
-      [`${prefix}--plain`]: plain,
+      [`${prefix}--active`]: active,
       [`${prefix}--loading`]: loading,
       [`${prefix}--disabled`]: disabled,
     },
