@@ -1,17 +1,13 @@
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/docs/App.less ***!
   \**********************************************************************************************************************************************************************************************/
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 14px;
-}
 .layout-header {
   position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
-  background-color: #fff;
   height: 60px;
+  background: #fff;
   box-shadow: 0 2px 8px #f0f1f2;
   display: flex;
   justify-content: flex-end;
@@ -33,9 +29,7 @@ code {
   left: 0;
   top: 60px;
   bottom: 0;
-  z-index: 1;
-  min-width: 220px;
-  max-width: 240px;
+  width: 220px;
   padding: 24 px 0;
   overflow-y: auto;
   background-color: #fff;
@@ -66,7 +60,7 @@ code {
   position: relative;
   flex: 1;
   margin-left: 220px;
-  margin-right: 390px;
+  margin-right: 370px;
   padding-top: 60px;
 }
 .docs {
@@ -77,13 +71,14 @@ code {
   right: 20px;
   top: 80px;
   overflow: auto;
-  width: 375px;
-  height: 667px;
+  width: 350px;
+  height: calc(100vh - (60px + 20px + 20px));
+  max-height: 667px;
   overflow: hidden;
   background: #fafafa;
-  box-shadow: 0 8px 12px #ebedf0;
-  background-color: #fff;
+  border-radius: 8px;
   border: 1px solid #fafafa;
+  box-shadow: 0px 0px 12px #dae0e9;
 }
 .preview iframe {
   width: 100%;
@@ -115,15 +110,23 @@ code {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.block-panel,
+.f6-docs-table {
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 12px #ebedf0;
+}
 .block-panel {
   padding: 20px;
-  background-color: #fff;
+  padding-bottom: 12px;
   margin-top: 20px;
-  border-radius: 2px;
+}
+.f6-docs-table {
+  padding: 10px 16px;
+  margin-bottom: 12px;
 }
 .f6-docs-table table {
   width: 100%;
-  margin-top: 12px;
   color: #34495e;
   font-size: 14px;
   line-height: 2;
@@ -132,12 +135,22 @@ code {
 }
 .f6-docs-table th {
   padding: 8px 10px;
+  padding-left: 0;
   font-weight: 600;
   text-align: left;
 }
 .f6-docs-table td {
   padding: 8px;
+  padding-left: 0;
   border-top: 1px solid #f1f4f8;
+}
+.f6-docs-table code {
+  display: inline-block;
+  padding: 4px 6px;
+  line-height: 14px;
+  color: #009688;
+  border-radius: 2px;
+  background-color: #f7f4f4;
 }
 .code-container {
   position: relative;
@@ -2191,5 +2204,9 @@ pre[class*="language-"] {
 .style .token.string {
   color: #6983b7;
   background-color: transparent;
+}
+.code-container {
+  border-radius: 10px;
+  background-color: #fff;
 }
 
