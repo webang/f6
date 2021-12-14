@@ -1,6 +1,7 @@
 import { usePropsValue } from "../utils/useValue";
 import { FC, ReactNode } from "react";
 import { CheckListContext } from "./context";
+import { defineName } from "../utils/name";
 
 export interface CheckListProps {
   value?: string[];
@@ -14,6 +15,8 @@ const defaultProps = {
   multiple: false,
   defaultValue: [],
 }
+
+const [prefix] = defineName('check-list');
 
 const CheckList: FC<CheckListProps> = (p) => {
   const props = { ...defaultProps, ...p };
@@ -37,7 +40,7 @@ const CheckList: FC<CheckListProps> = (p) => {
   };
 
   return (
-    <div>
+    <div className={prefix}>
       <CheckListContext.Provider
         value={{
           value,

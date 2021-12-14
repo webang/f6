@@ -31,7 +31,7 @@ const CheckListItem: FC<CheckListItemProps> = p => {
     }
   }
 
-  const mCls = classNames([prefix, 'hairline'], {
+  const mCls = classNames([prefix, 'hairline-bottom'], {
     [`${prefix}--disabled`]: disabled
   })
 
