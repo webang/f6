@@ -1,13 +1,34 @@
 ---
-category: 导航组件
-title: Affix
-subTitle: 固钉
+category: 操作反馈
+title: ActionSheet
+subTitle: 动作面板
 ---
 
 ### Props
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| top | 距离顶部距离 | number | `0` |
-| container | 相对偏移的容器 | ```(() => HTMLElement) | Window``` | `window` |
-| wrapperStyle | 固钉 style | `(params: { fixed: boolean }) => React.CSSProperties` | - |
+| visible | visibility | `boolean` | `false` |
+| title | 标题 | `ReactNode` | - |
+| actions | 配置列表 | `ActionItem[]` | `[]` |
+| borderRadiusSize | 圆角大小 | `number` | `12` |
+| onClose | 关闭事件 | `() => void` | - |
+| callback | 选项点击事件 | `(index: number) => void` | - |
+
+```tsx
+export interface ActionItem {
+  name: ReactNode;
+  desc?: ReactNode;
+  render?: () => ReactNode;
+}
+
+export interface ActionSheetProps {
+  className?: string;
+  title?: ReactNode;
+  actions?: ActionItem[];
+  visible: boolean;
+  borderRadiusSize: number;
+  onClose?: () => void;
+  callback?: (index: number) => void;
+}
+```
