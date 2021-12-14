@@ -1,9 +1,3 @@
----
-order: 0
-title: 基本用法
----
-
-```jsx
 import { Cell, Button, ActionSheet, Toast } from "f6";
 import { useState } from "react";
 
@@ -35,4 +29,3 @@ export default function App() {
     </div>
   );
 }
-```

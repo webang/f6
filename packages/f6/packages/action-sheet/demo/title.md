@@ -4,23 +4,36 @@ title: 设置标题
 ---
 
 ```jsx
-import { Cell, Button, ActionSheet, Toast } from 'f6';
-import { useState } from 'react';
+import { Cell, Button, ActionSheet, Toast } from "f6";
+import { useState } from "react";
 
 export default function App() {
-  const [show, setShow] = useState(false);
-  const mShow = () => setShow(true);
-  const hide = () => setShow(false);
+  const [visible, setVisible] = useState(false);
+
+  const show = () => setVisible(true);
+  const hide = () => setVisible(false);
   const callback = (index: number) => {
-    Toast.show({ message: index })
-    setShow(false)
-  }
+    Toast.show({ message: index });
+    hide();
+  };
+
+  const mButton = (
+    <Button size="mini" type="primary" onClick={show}>
+      显示
+    </Button>
+  );
 
   return (
     <div>
-      <Cell title="标题" value={<Button size="mini" type="primary" onClick={mShow}>显示</Button>} />
-      <ActionSheet title="标题" onClose={hide} callback={callback} visible={show} actions={[{ name: '相机' }, { name: '相册' }]}></ActionSheet>
+      <Cell title="标题" value={mButton} />
+      <ActionSheet
+        title="选择图片"
+        visible={visible}
+        onClose={hide}
+        callback={callback}
+        actions={[{ name: "相机" }, { name: "相册" }]}
+      />
     </div>
-  )
+  );
 }
 ```

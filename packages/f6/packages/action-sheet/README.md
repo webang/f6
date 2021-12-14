@@ -15,7 +15,7 @@ subTitle: 动作面板
 | onClose | 关闭事件 | `() => void` | - |
 | callback | 选项点击事件 | `(index: number) => void` | - |
 
-```tsx
+```ts
 export interface ActionItem {
   name: ReactNode;
   desc?: ReactNode;

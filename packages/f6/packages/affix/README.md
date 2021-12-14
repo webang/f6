@@ -1,5 +1,5 @@
 ---
-category: 导航组件
+category: 布局组件
 title: Affix
 subTitle: 固钉
 ---
@@ -9,5 +9,13 @@ subTitle: 固钉
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
 | top | 距离顶部距离 | number | `0` |
-| container | 相对偏移的容器 | ```(() => HTMLElement) | Window``` | `window` |
-| wrapperStyle | 固钉 style | `(params: { fixed: boolean }) => React.CSSProperties` | - |
+| container | 相对偏移的容器 | `(() => HTMLElement) \| Window` | `window` |
+| wrapperStyle | 容器样式 | `(params: { fixed: boolean }) => React.CSSProperties` | - |
+
+```tsx
+export interface AffixProps {
+  top?: number;
+  container?: (() => HTMLElement) | Window;
+  wrapperStyle?: (params: { fixed: boolean }) => React.CSSProperties;
+}
+```

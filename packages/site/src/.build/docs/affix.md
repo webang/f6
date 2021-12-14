@@ -1,16 +1,18 @@
 <div class="block-panel"><h3>基本用法</h3>
 
 ```jsx
-import { Affix, Button } from 'f6';
+import { Affix, Button } from "f6";
 
 export default function App() {
   return (
-    <div style={{ height: '800px', background: '#ccc' }}>
+    <div style={{ height: "700px", background: "#607d8b" }}>
       <Affix top={20}>
-        <Button size="sm" shape="round" type="primary">首页</Button>
+        <Button size="sm" shape="round" type="primary">
+          首页
+        </Button>
       </Affix>
     </div>
-  )
+  );
 }
 ```
 </div>
@@ -18,20 +20,30 @@ export default function App() {
 <div class="block-panel"><h3>设置容器</h3>
 
 ```jsx
-import React from 'react';
-import { Affix, Button } from 'f6';
+import React from "react";
+import { Affix, Button } from "f6";
 
 export default function App() {
   const ref = React.useRef<HTMLDivElement>(null);
   return (
-    <div class="test1" ref={ref} style={{ height: '200px', background: '#ccc', overflow: 'scroll', position: 'relative' }}>
-      <div style={{ height: '100px' }}></div>
-      <Affix top={30} container={() => ref.current}>
-        <Button size="sm" shape="round" type="primary">首页</Button>
+    <div
+      ref={ref}
+      style={{
+        height: "200px",
+        background: "#607d8b",
+        overflow: "scroll",
+        position: "relative",
+      }}
+    >
+      <div style={{ height: "40px" }}></div>
+      <Affix top={10} container={() => ref.current}>
+        <Button size="sm" shape="round" type="primary">
+          首页
+        </Button>
       </Affix>
-      <div style={{ height: '400px' }}></div>
+      <div style={{ height: "300px" }}></div>
     </div>
-  )
+  );
 }
 ```
 </div>
@@ -41,5 +53,13 @@ export default function App() {
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
 | top | 距离顶部距离 | number | `0` |
-| container | 相对偏移的容器 | ```(() => HTMLElement) | Window``` | `window` |
-| wrapperStyle | 固钉 style | `(params: { fixed: boolean }) => React.CSSProperties` | - |
+| container | 相对偏移的容器 | `(() => HTMLElement) \| Window` | `window` |
+| wrapperStyle | 容器样式 | `(params: { fixed: boolean }) => React.CSSProperties` | - |
+
+```tsx
+export interface AffixProps {
+  top?: number;
+  container?: (() => HTMLElement) | Window;
+  wrapperStyle?: (params: { fixed: boolean }) => React.CSSProperties;
+}
+```

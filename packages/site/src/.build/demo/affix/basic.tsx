@@ -1,11 +1,13 @@
-import { Affix, Button } from 'f6';
+import { Affix, Button } from "f6";
 
 export default function App() {
   return (
-    <div style={{ height: '800px', background: '#ccc' }}>
+    <div style={{ height: "700px", background: "#607d8b" }}>
       <Affix top={20}>
-        <Button size="sm" shape="round" type="primary">首页</Button>
+        <Button size="sm" shape="round" type="primary">
+          首页
+        </Button>
       </Affix>
     </div>
-  )
+  );
 }

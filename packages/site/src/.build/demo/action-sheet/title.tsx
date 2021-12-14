@@ -1,9 +1,3 @@
----
-order: 0
-title: 基本用法
----
-
-```jsx
 import { Cell, Button, ActionSheet, Toast } from "f6";
 import { useState } from "react";
 
@@ -27,6 +21,7 @@ export default function App() {
     <div>
       <Cell title="标题" value={mButton} />
       <ActionSheet
+        title="选择图片"
         visible={visible}
         onClose={hide}
         callback={callback}
@@ -35,4 +30,3 @@ export default function App() {
     </div>
   );
 }
-```

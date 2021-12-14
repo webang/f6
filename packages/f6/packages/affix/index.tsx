@@ -25,7 +25,12 @@ const removeEvent = (target: EventTarget, type: string, cb: Function) => {
   target.removeEventListener(type, cb as any);
 };
 
-const Affix: React.FC<AffixProps> = ({ top, children, wrapperStyle, container = window }) => {
+const Affix: React.FC<AffixProps> = ({
+  top,
+  children,
+  wrapperStyle,
+  container = window,
+}) => {
   const [state, setState] = useState({
     fixed: false,
     offsetTop: 0,
@@ -105,10 +110,10 @@ const Affix: React.FC<AffixProps> = ({ top, children, wrapperStyle, container = 
         top: isWindow ? top : state.pOffsetTop + (top || 0),
       }
     : {};
-  
-    if (wrapperStyle) {
-      Object.assign(style, wrapperStyle({ fixed: state.fixed }))
-    }
+
+  if (wrapperStyle) {
+    Object.assign(style, wrapperStyle({ fixed: state.fixed }));
+  }
 
   return (
     <div className={prefix} ref={ref} style={style}>

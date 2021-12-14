@@ -94,11 +94,6 @@
   padding-right: 20px;
   color: #34495e;
 }
-.docs-block pre {
-  padding: 20px !important;
-  border-radius: 2px;
-  background-color: #f6f8fa;
-}
 .docs-block h3 {
   font-size: 20px;
 }
@@ -109,6 +104,11 @@
 .docs-block ul {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.block-panel pre {
+  padding: 20px !important;
+  border-radius: 2px;
+  background-color: #f6f8fa;
 }
 .block-panel,
 .f6-docs-table {
@@ -156,6 +156,7 @@
   position: relative;
 }
 .code-container pre {
+  padding: 10px 16px;
   border: 1px solid #fff;
 }
 .code-container .code-input {
