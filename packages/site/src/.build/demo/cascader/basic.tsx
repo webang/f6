@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog, Cascader, Button, Toast } from "f6";
+import { Cascader, Button, Toast } from "f6";
 
 export const options = [
   {

@@ -9,13 +9,13 @@ const renderer = {
     return `<div class="grid-container f6-docs-table"><table class="grid"><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
   },
   code: (code: string, language: string) => {
-    const res = encodeURIComponent(code)
+    // const res = encodeURIComponent(code)
     const highlightCode =
       Object.keys(Prism.languages).indexOf(language) > -1
         ? Prism.highlight(code, Prism.languages[language], language)
         : code;
     return `<div class="code-container">
-      <button class="btn-copy" data-code=${res}>复制</button>
+      <button class="btn-copy">复制</button>
       <textarea class="code-input">${code.trim()}</textarea>
       <pre class="code" ><code class="language-${language}">${highlightCode}</code></pre>
     </div>`;
