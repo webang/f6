@@ -1,7 +1,7 @@
 <div class="block-panel"><h3>基本用法</h3>
 
 ```jsx
-import { Affix, BackTop } from 'f6';
+import { BackTop } from 'f6';
 
 export default function App() {
   return (
@@ -19,5 +19,10 @@ export default function App() {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| block | 是否块级按钮 | boolean | `false` |
-| plain | 是否朴素按钮 | boolean | `false` |
+| distance | 滚动距离阈值，超出这个值显示按钮 | number | `10` |
+
+```ts
+export interface BackTopProps {
+  distance?: number;
+}
+```

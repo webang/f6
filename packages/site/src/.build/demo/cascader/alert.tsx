@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog, Cascader, Button } from "f6";
+import { Dialog, Cascader, Button, Toast } from "f6";
 
 export const options = [
   {
@@ -18,21 +18,12 @@ export const options = [
             label: "上城区",
             value: "上城区",
           },
-          {
-            label: "余杭区",
-            value: "余杭区",
-            disabled: true,
-          },
         ],
       },
       {
         label: "温州",
         value: "温州",
         children: [
-          {
-            label: "鹿城区",
-            value: "鹿城区",
-          },
           {
             label: "龙湾区",
             value: "龙湾区",
@@ -56,11 +47,7 @@ export const options = [
             label: "江北区",
             value: "江北区",
           },
-          {
-            label: "镇海区",
-            value: "镇海区",
-          },
-        ],
+        ]
       },
     ],
   },
@@ -80,10 +67,6 @@ export const options = [
             label: "蜀山区",
             value: "蜀山区",
           },
-          {
-            label: "瑶海区",
-            value: "瑶海区",
-          },
         ],
       },
       {
@@ -97,10 +80,6 @@ export const options = [
           {
             label: "弋江区",
             value: "弋江区",
-          },
-          {
-            label: "湾沚区",
-            value: "湾沚区",
           },
         ],
       },
@@ -121,11 +100,7 @@ export const options = [
           {
             label: "秦淮区",
             value: "秦淮区",
-          },
-          {
-            label: "建邺区",
-            value: "建邺区",
-          },
+          }
         ],
       },
       {
@@ -140,10 +115,6 @@ export const options = [
             label: "吴中区",
             value: "吴中区",
           },
-          {
-            label: "相城区",
-            value: "相城区",
-          },
         ],
       },
     ],
@@ -151,21 +122,23 @@ export const options = [
 ];
 
 export default function App() {
-  const [visible2, setVisible2] = React.useState(false);
-  const print = (v) => {
-    console.log(v);
-    setVisible2(false);
+  const [visible, setVisible] = React.useState(false);
+  const print = (list) => {
+    Toast.show({ message: list.map(it => it.value).join('-') });
+    setVisible(false);
   };
+
   return (
     <>
-      <Button block onClick={() => setVisible2((pre) => !pre)}>
+      <Button block onClick={() => setVisible((pre) => !pre)}>
         显示
       </Button>
       <Cascader
-        visible={visible2}
+        visible={visible}
         options={options}
-        onClose={() => setVisible2(false)}
+        onClose={() => setVisible(false)}
         onConfirm={print}
+        defaultValue={['浙江', '杭州', '西湖区']}
       />
     </>
   );

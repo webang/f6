@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, MouseEventHandler, ReactNode, useState } from "react";
+import React, { ButtonHTMLAttributes, ReactNode, useState } from "react";
 import "./index.less";
 import classNames from "classnames";
 import { defineName } from "../utils/name";
@@ -10,8 +10,8 @@ export type ButtonShape = 'round' | 'square';
 
 interface BaseButtonProps {
   className?: string;
-  title?: ReactNode;
-  shape?: ButtonShape;
+  title?: ReactNode; // 按钮内容
+  shape?: ButtonShape; // 按钮形状
   type?: ButtonType; // 类型
   size?: ButtonSize; // 尺寸
   text?: string; // 按钮文字

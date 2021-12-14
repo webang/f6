@@ -1,45 +1,75 @@
 import { defineName } from "../utils/name";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Popup from "../popup";
 import CascaderView, { CascaderViewOption } from "./cascader-view";
 import "./index.less";
 import Button from "../button";
 
 export interface CascaderProps {
-  options: CascaderViewOption[];
-  visible: boolean;
-  value?: string[];
-  onClose?: () => void;
-  onConfirm?: (val: CascaderViewOption[]) => void;
+  options: CascaderViewOption[]; // 选项列表
+  visible: boolean; // 可见性
+  defaultValue?: string[]; // 初始值
+  onClose?: () => void; // 关闭事件
+  onConfirm?: (val: CascaderViewOption[]) => void; // 确认事件
 }
 
 const [prefix] = defineName("cascader");
 
+const getInitData = (options: CascaderProps["options"], value: CascaderProps["defaultValue"] = []) => {
+  const rValue = [];
+  const columns = [options];
+
+  for (let i = 0; i < value.length; i++) {
+    const val = value[i];
+    const item = columns[i].find((it) => it.value === val);
+    if (item) {
+      rValue.push(item);
+      if (i < value.length - 1) {
+        columns.push(item.children || [])
+      }
+    } else {
+      return {
+        columns: [options],
+        value: []
+      }
+    }
+  }
+
+  return {
+    columns: columns,
+    value: rValue
+  }
+};
+
 const Cascader: FC<CascaderProps> = (props) => {
   const { visible, options, onClose, onConfirm } = props;
-  const [columns, setColumns] = useState([options]);
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState<number>(0);
+  const [columns, setColumns] = useState<CascaderViewOption[][]>([]);
   const [selected, setSelected] = useState<CascaderViewOption[]>([]);
 
+  useEffect(() => {
+    const { columns, value } = getInitData(options, props.defaultValue);
+    setColumns(columns);
+    setSelected(value);
+    setCurrent(columns.length - 1);
+  }, [])
+
   const onClick = (option: CascaderViewOption, index: number) => {
+    const hasChild = option.children && option.children.length;
+
     if (!selected[index]) {
       setSelected((prev) => [...prev, option]);
-      if (option.children && option.children.length) {
-        setColumns((prev) => [...prev, option.children || []]);
+      if (hasChild) {
+        setColumns((prev) => [...prev, option.children!]);
         setCurrent(index + 1);
       }
     } else {
-      let list = selected.map((it, i) => (i === index ? option : it));
-      list = list.filter((_, i) => i <= index);
-      setSelected(list);
-      {
-        let list = columns.filter((it, i) => i <= index);
-        if (option.children && option.children.length) {
-          list.push(option.children || []);
-          setCurrent(index + 1);
-        }
-        setColumns(list);
-      }
+      const mSelected = selected.map((it, i) => (i === index ? option : it)).filter((_, i) => i <= index);
+      const mColumns = columns.filter((_, i) => i <= index);
+
+      setSelected(mSelected);
+      setCurrent(hasChild ? index + 1 : index);
+      setColumns(hasChild ? [...mColumns, option.children!] : mColumns);
     }
   };
 
@@ -70,8 +100,12 @@ const Cascader: FC<CascaderProps> = (props) => {
     return (
       <>
         <div className={`${prefix}-header`}>
-          <Button type="text" onClick={() => onClose?.()}>取消</Button>
-          <Button type="text" onClick={() => onConfirm?.(selected)}>确认</Button>
+          <Button type="text" onClick={() => onClose?.()}>
+            取消
+          </Button>
+          <Button type="text" onClick={() => onConfirm?.(selected)}>
+            确认
+          </Button>
         </div>
         <div className={`${prefix}__tab`}>
           {list}

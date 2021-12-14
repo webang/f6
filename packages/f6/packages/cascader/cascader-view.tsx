@@ -25,6 +25,8 @@ const CascaderView: FC<CascaderViewProps> = (props) => {
   const renderItem = (it: CascaderViewOption, index: number) => {
     const isChecked = value === it;
     const itemCls = classNames({
+      ['hairline']: true,
+      ['border-b']: true,
       [`${prefix}-option`]: true,
       [`${prefix}-selected`]: isChecked
     });
@@ -32,6 +34,7 @@ const CascaderView: FC<CascaderViewProps> = (props) => {
       [`${prefix}-label`]: true,
       [`${prefix}-label-selected`]: isChecked
     });
+
     return (
       <div
         key={index}

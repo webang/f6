@@ -1,4 +1,4 @@
-import { Affix, BackTop } from 'f6';
+import { BackTop } from 'f6';
 
 export default function App() {
   return (

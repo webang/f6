@@ -7,7 +7,6 @@ import './index.less';
 const[prefix] = defineName('back-top');
 
 export interface BackTopProps {
-  bottom?: number;
   distance?: number;
 }
 

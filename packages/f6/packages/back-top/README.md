@@ -1,12 +1,17 @@
 ---
-category: Components
-title: Button
-subTitle: 组件
+category: 操作反馈
+title: BackTop
+subTitle: 回到顶部
 ---
 
 ### Props
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| block | 是否块级按钮 | boolean | `false` |
-| plain | 是否朴素按钮 | boolean | `false` |
+| distance | 滚动距离阈值，超出这个值显示按钮 | number | `10` |
+
+```ts
+export interface BackTopProps {
+  distance?: number;
+}
+```

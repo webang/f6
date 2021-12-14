@@ -2,7 +2,7 @@
 
 ```jsx
 import React from "react";
-import { Dialog, Cascader, Button } from "f6";
+import { Dialog, Cascader, Button, Toast } from "f6";
 
 export const options = [
   {
@@ -21,21 +21,12 @@ export const options = [
             label: "上城区",
             value: "上城区",
           },
-          {
-            label: "余杭区",
-            value: "余杭区",
-            disabled: true,
-          },
         ],
       },
       {
         label: "温州",
         value: "温州",
         children: [
-          {
-            label: "鹿城区",
-            value: "鹿城区",
-          },
           {
             label: "龙湾区",
             value: "龙湾区",
@@ -59,11 +50,7 @@ export const options = [
             label: "江北区",
             value: "江北区",
           },
-          {
-            label: "镇海区",
-            value: "镇海区",
-          },
-        ],
+        ]
       },
     ],
   },
@@ -83,10 +70,6 @@ export const options = [
             label: "蜀山区",
             value: "蜀山区",
           },
-          {
-            label: "瑶海区",
-            value: "瑶海区",
-          },
         ],
       },
       {
@@ -100,10 +83,6 @@ export const options = [
           {
             label: "弋江区",
             value: "弋江区",
-          },
-          {
-            label: "湾沚区",
-            value: "湾沚区",
           },
         ],
       },
@@ -124,11 +103,7 @@ export const options = [
           {
             label: "秦淮区",
             value: "秦淮区",
-          },
-          {
-            label: "建邺区",
-            value: "建邺区",
-          },
+          }
         ],
       },
       {
@@ -143,9 +118,156 @@ export const options = [
             label: "吴中区",
             value: "吴中区",
           },
+        ],
+      },
+    ],
+  },
+];
+
+export default function App() {
+  const [visible, setVisible] = React.useState(false);
+  const print = (list) => {
+    Toast.show({ message: list.map(it => it.value).join('-') });
+    setVisible(false);
+  };
+
+  return (
+    <>
+      <Button block onClick={() => setVisible((pre) => !pre)}>
+        显示
+      </Button>
+      <Cascader
+        visible={visible}
+        options={options}
+        onClose={() => setVisible(false)}
+        onConfirm={print}
+        defaultValue={['浙江', '杭州', '西湖区']}
+      />
+    </>
+  );
+}
+```
+</div>
+
+<div class="block-panel"><h3>设置默认值</h3>
+
+```jsx
+import React from "react";
+import { Dialog, Cascader, Button, Toast } from "f6";
+
+export const options = [
+  {
+    label: "浙江",
+    value: "浙江",
+    children: [
+      {
+        label: "杭州",
+        value: "杭州",
+        children: [
           {
-            label: "相城区",
-            value: "相城区",
+            label: "西湖区",
+            value: "西湖区",
+          },
+          {
+            label: "上城区",
+            value: "上城区",
+          },
+        ],
+      },
+      {
+        label: "温州",
+        value: "温州",
+        children: [
+          {
+            label: "龙湾区",
+            value: "龙湾区",
+            disabled: true,
+          },
+          {
+            label: "瓯海区",
+            value: "瓯海区",
+          },
+        ],
+      },
+      {
+        label: "宁波",
+        value: "宁波",
+        children: [
+          {
+            label: "海曙区",
+            value: "海曙区",
+          },
+          {
+            label: "江北区",
+            value: "江北区",
+          },
+        ]
+      },
+    ],
+  },
+  {
+    label: "安徽",
+    value: "安徽",
+    children: [
+      {
+        label: "合肥",
+        value: "合肥",
+        children: [
+          {
+            label: "包河区",
+            value: "包河区",
+          },
+          {
+            label: "蜀山区",
+            value: "蜀山区",
+          },
+        ],
+      },
+      {
+        label: "芜湖",
+        value: "芜湖",
+        children: [
+          {
+            label: "镜湖区",
+            value: "镜湖区",
+          },
+          {
+            label: "弋江区",
+            value: "弋江区",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "江苏",
+    value: "江苏",
+    children: [
+      {
+        label: "南京",
+        value: "南京",
+        children: [
+          {
+            label: "玄武区",
+            value: "玄武区",
+          },
+          {
+            label: "秦淮区",
+            value: "秦淮区",
+          }
+        ],
+      },
+      {
+        label: "苏州",
+        value: "苏州",
+        children: [
+          {
+            label: "虎丘区",
+            value: "虎丘区",
+          },
+          {
+            label: "吴中区",
+            value: "吴中区",
           },
         ],
       },
@@ -154,21 +276,23 @@ export const options = [
 ];
 
 export default function App() {
-  const [visible2, setVisible2] = React.useState(false);
-  const print = (v) => {
-    console.log(v);
-    setVisible2(false);
+  const [visible, setVisible] = React.useState(false);
+  const print = (list) => {
+    Toast.show({ message: list.map(it => it.value).join('-') });
+    setVisible(false);
   };
+
   return (
     <>
-      <Button block onClick={() => setVisible2((pre) => !pre)}>
+      <Button block onClick={() => setVisible((pre) => !pre)}>
         显示
       </Button>
       <Cascader
-        visible={visible2}
+        visible={visible}
         options={options}
-        onClose={() => setVisible2(false)}
+        onClose={() => setVisible(false)}
         onConfirm={print}
+        defaultValue={['浙江', '杭州', '西湖区']}
       />
     </>
   );
@@ -178,8 +302,26 @@ export default function App() {
 
 ### Props
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| options | 树形选项 | `CascaderViewOption[]` | `[]` |
+| visible | 可见性 | `boolean` | `false` |
+| defaultValue | 默认值，如果不匹配，则无效 | `string[]` | `[]` |
+| onClose | 关闭事件 | `() => void` | - |
+| onConfirm | 确认事件 | `(val: CascaderViewOption[]) => voi` | - |
 
-### API
+```tsx
+export interface CascaderProps {
+  options: CascaderViewOption[]; // 选项列表
+  visible: boolean; // 可见性
+  defaultValue?: string[]; // 初始值
+  onClose?: () => void; // 关闭事件
+  onConfirm?: (val: CascaderViewOption[]) => void; // 确认事件
+}
 
-this is API content
+export interface CascaderViewOption {
+  label: string;
+  value: string;
+  children?: CascaderViewOption[];
+}
+```
