@@ -1,5 +1,5 @@
 import App0 from './check-list/basic';
-import App1 from './check-list/multi';
+import App1 from './check-list/multiple';
 import Demo from '../../components/demo-block';
 export default () => {
   const title = 'check-list';

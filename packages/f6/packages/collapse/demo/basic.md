@@ -9,9 +9,7 @@ import { Collapse, Toast } from "f6";
 export default function App() {
   return (
     <div style={{ backgroundColor: "#fff" }}>
-      <Collapse
-        defaultOpenKeys={["B"]}
-      >
+      <Collapse defaultOpenKeys={["1"]}>
         <Collapse.Item name="1" title="李白">
           天接云涛连晓雾，星河欲转千帆舞。仿佛梦魂归帝所。闻天语，殷勤问我归何处。
         </Collapse.Item>

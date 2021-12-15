@@ -1,5 +1,5 @@
-import { createContext } from 'react'
-import { CheckboxValue } from './checkbox';
+import { createContext } from "react";
+import { CheckboxValue } from "./checkbox";
 
 export interface CheckboxGroupContext {
   value: CheckboxValue[];
@@ -8,4 +8,6 @@ export interface CheckboxGroupContext {
   setValue?: (val: CheckboxValue) => void;
 }
 
-export const CheckboxGroupContext = createContext<CheckboxGroupContext | null>(null);
+export const CheckboxGroupContext = createContext<CheckboxGroupContext | null>(
+  null
+);

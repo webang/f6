@@ -1,13 +1,15 @@
 @import './../style/base.less';
 
-@checkbox-cls: ~'@{prefix}-checkbox';
+@checkbox: ~'@{prefix}-checkbox';
 
-.@{checkbox-cls} {
+.@{checkbox} {
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
   &__icon {
     display: inline-block;
     vertical-align: middle;
+    color: #666;
     .wax-icon {
       font-size: 20px;
       width: 20px;
@@ -19,14 +21,16 @@
     margin-left: 2px;
   }
   &--checked {
-    .@{checkbox-cls}__icon {
+    .@{checkbox}__icon {
       color: var(--f6-primary-color);
     }
   }
   &--disabled {
-    .@{checkbox-cls}__icon,
-    .@{checkbox-cls}__text {
+    cursor: not-allowed;
+    .@{checkbox}__icon,
+    .@{checkbox}__text {
       color: #aaa;
+      fill: #aaa;
     }
   }
 }

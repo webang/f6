@@ -12,7 +12,7 @@ export default () => {
         title: '禁用状态',
         element: App1
       },{
-        title: '单选组',
+        title: '复选框组',
         element: App2
       },{
         title: '自定义图标',

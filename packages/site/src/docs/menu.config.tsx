@@ -113,7 +113,7 @@ export default [
         content: require("../.build/docs/field.md"),
       },
       {
-        title: "Checkbox 单选框",
+        title: "Checkbox 复选框",
         key: 'Checkbox',
         content: require("../.build/docs/checkbox.md"),
       },

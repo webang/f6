@@ -1,10 +1,10 @@
-import classNames from 'classnames';
-import { FC, ReactNode, useContext, useState } from 'react';
-import Icon from 'f6-icons';
-import { defineName } from '../utils/name';
-import { CheckboxGroupContext } from './checkbox-context';
+import classNames from "classnames";
+import { FC, ReactNode, useContext, useState } from "react";
+import Icon from "f6-icons";
+import { defineName } from "../utils/name";
+import { CheckboxGroupContext } from "./checkbox-context";
 
-export type CheckboxValue = string|number;
+export type CheckboxValue = string | number;
 
 export interface CheckboxProps {
   defaultChecked?: boolean;
@@ -14,7 +14,7 @@ export interface CheckboxProps {
   value?: CheckboxValue;
 }
 
-const [prefix] = defineName('checkbox');
+const [prefix] = defineName("checkbox");
 
 const Checkbox: FC<CheckboxProps> = (props) => {
   const {
@@ -51,15 +51,19 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 
   const renderIcon = () => {
     if (icon) {
-      return typeof icon === 'function' ? icon(checked): icon;
+      return typeof icon === "function" ? icon(checked) : icon;
     } else {
-      return checked ? <Icon name="checkbox"/> : <Icon name="checkbox_rect_outline" style={{ color: '#666' }} />;
+      return checked ? (
+        <Icon name="checkbox" />
+      ) : (
+        <Icon name="checkbox_rect_outline" />
+      );
     }
   };
 
   const mCls = classNames([prefix], {
     [`${prefix}--checked`]: checked,
-    [`${prefix}--disabled`]: disabled
+    [`${prefix}--disabled`]: disabled,
   });
 
   return (
@@ -68,6 +72,6 @@ const Checkbox: FC<CheckboxProps> = (props) => {
       <span className={`${prefix}__text`}>{children}</span>
     </label>
   );
-}
-  
+};
+
 export default Checkbox;

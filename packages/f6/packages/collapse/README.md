@@ -1,19 +1,35 @@
 ---
-category: Components
-title: Button
-subTitle: 组件
+category: 展示组件
+title: Collapse
+subTitle: 折叠面板
 ---
 
-### Props
+### CollapseProps
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| type | 按钮类型，可选值为：`primary` `info` `success` `warning` `danger` | string | `default` |
-| size | 按钮大小，可选值为：`large` `middle` `small` `mini` | string | `middle` |
-| square | 按钮形状，可选值为：`square` `round` | string | `square` |
-| block | 是否块级按钮 | boolean | `false` |
-| plain | 是否朴素按钮 | boolean | `false` |
-| loading | 是否加载状态 | boolean | `false` |
-| disabled | 是否禁用状态 | boolean | `false` |
-| title | 按钮文字 | ReactNode | - |
-| onClick |	非必需，点击后触发的回调函数 | `React.MouseEventHandler<Element>` | - |
+| defaultOpenKeys | 默认打开配置 | `[]string` | `[]` |
+| multiple | 是否多个同时打开 | `boolean` | false |
+
+```tsx
+export interface CollapseProps {
+  className?: string;
+  defaultOpenKeys: string[];
+  multiple?: boolean;
+}
+```
+
+### CollapseItemProps
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| name | 名称(唯一) | `string` | - |
+| title | 标题 | `React.ReactNode` | - |
+
+```tsx
+export interface CollapseItemProps {
+  className?: string;
+  name: string;
+  title: React.ReactNode;
+}
+```

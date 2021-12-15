@@ -36,6 +36,8 @@ const CollapseItem: FC<CollapseItemProps> = (p) => {
     }
   };
 
+  console.log(isOpen)
+
   const bodyStyle: CSSProperties = {
     height: isOpen ? state.height : 0,
     overflow: "hidden",
@@ -55,8 +57,8 @@ const CollapseItem: FC<CollapseItemProps> = (p) => {
   }, []);
 
   return (
-    <div className={mCls} onClick={handleClick}>
-      <div className={`${prefix}__head`}>
+    <div className={mCls}>
+      <div className={`${prefix}__head`} onClick={handleClick}>
         <Cell
           title={title}
           value={<Icon className={`${prefix}__icon`} name="arrow-down" style={iconStyle} />}
