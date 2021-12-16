@@ -8,18 +8,41 @@ subTitle: 宫格
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| type | 输入框类型 | boolean | `text` |
+| title | 标题 | `ReactNode` | - |
+| type | 输入框类型 | `string \| number \| textarea` | `text` |
+| value | 当前值 | string | - |
 | defaultValue | 默认值 | string | `''` |
-| clearable | 展示清除按钮 | boolean | `true` |
-| label | 标题 | string | `''` |
-| immediateCheck | 首次挂载是否检验 ｜ boolean | `false` |
-| rules | 匹配规则 | Rule[] | `[]` |
+| disabled | 是否禁用 | `boolean` | `false` |
+| readOnly | 是否只读 | `boolean` | `false` |
+| clearable | 展示清除按钮 | `boolean` | `true` |
+| placeholder | 提示 | `string` | `true` |
+| rules | 校验规则列表 | FieldRule[] | `[]` |
+| immediateCheck | 首次挂载是否检验 | `boolean` | `false` |
+| resetErrorOnClear | 当清空时，清除错误提示 | `boolean` | `true` |
+| onChange | 变化事件 | `(value?: string) => void` | - |
+| onFocus | 聚焦事件 | `() => void` | - |
+| onBlur | 失焦事件 | `() => void` | - |
 
 ```tsx
-export interface Rule {
-  // 校验规则
-  test: (val: string) => boolean;
-  // 当 test 返回 true 时，展示的错误信息
-  message: string;
+export interface FieldProps {
+  title?: ReactNode;
+  type?: string;
+  value?: string;
+  defaultValue?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  clearable?: boolean;
+  placeholder?: string;
+  rules?: FieldRule[];
+  immediateCheck?: boolean;
+  resetErrorOnClear?: boolean;
+  onChange?: (value?: string) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+}
+
+export interface FieldRule {
+  test: (val: string) => boolean;   // 校验规则
+  message: ReactNode;               // 当 test 返回 true，用于展示的错误提示信息
 }
 ```

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { defineName } from "../utils/name";
 
 export const CellGroup: React.FC = ({ children }) => {

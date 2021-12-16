@@ -68,7 +68,7 @@ export default function App() {
 export interface DropdownMenuProps {
   className?: string;
   onClose?: () => void;
-  onClickMenu?: (option: {index: number; action: DropdownMenuItemAction}) => void;
+  onClickItem?: (option: {index: number; action: DropdownMenuItemAction}) => void;
 }
 ```
 

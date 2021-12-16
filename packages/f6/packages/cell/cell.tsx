@@ -6,6 +6,7 @@ import "./index.less";
 export interface CellProps {
   className?: string;
   title: ReactNode;
+  titleClass?: string;
   label?: ReactNode;
   value?: ReactNode;
   icon?: ReactNode;
@@ -20,6 +21,7 @@ const [prefix] = defineName("cell");
 const Cell: React.FC<CellProps> = ({
   className,
   title,
+  titleClass,
   label,
   value,
   link,
@@ -44,8 +46,9 @@ const Cell: React.FC<CellProps> = ({
 
   const renderTitle = () => {
     if (!title && !icon) return null;
+    const cls = classNames([titleClass, `${prefix}__title`])
     return (
-      <div className={prefix + "__title"}>
+      <div className={cls}>
         {renderIcon()}
         <span>{title}</span>
       </div>

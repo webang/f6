@@ -1,36 +1,43 @@
-.wax-field {
-  .wax-cell__title {
+@import './../style/base.less';
+
+@field: ~'@{prefix}-field';
+
+.@{field} {
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 0;
+    text-align: left;
+    background-color: transparent;
+    resize: none;
+    user-select: auto;
+  }
+  .@{field}__title {
+    // 为了覆盖 cell 样式
     flex: none;
     width: 60px;
     color: #666;
   }
-  .wax-cell__value {
-    text-align: left;
-  }
   &__body {
     display: flex;
     align-items: center;
+    text-align: left;
   }
   &__error {
     font-size: 12px;
     line-height: 16px;
     margin-top: 4px;
     color: #ee0a24;
+    text-align: left;
   }
-}
-
-.wax-field__input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-  flex: 1;
-  border: 0;
-  outline: 0;
-  height: 24px;
-  border-radius: 0;
-  text-align: left;
-  background-color: transparent;
-  resize: none;
-  user-select: auto;
+  &__clear {
+    cursor: pointer;
+  }
 }

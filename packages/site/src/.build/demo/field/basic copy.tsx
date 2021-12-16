@@ -7,9 +7,14 @@ export default function () {
   return (
     <>
       <Field placeholder="请输入账户-受控" value={value} onChange={(v) => setValue(v)} />
-      <Field title="账户" placeholder="请输入账户" />
+      <Field placeholder="请输入密码-非受控" />
+
       <div style={{ height: 10 }}></div>
       <Button block onClick={() => setValue(v => v + 1)}>++</Button>
+
+      <div style={{ height: 16 }}></div>
+      <Field title="账户" placeholder="请输入账户" />
+      <Field title="密码" placeholder="请输入密码" />
     </>
   );
 }
