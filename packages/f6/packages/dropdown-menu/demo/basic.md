@@ -5,10 +5,10 @@ title: 普通用法
 
 ```jsx
 import React from "react";
-import { Dialog, Button, DropdownMenu, Toast } from "f6";
+import { DropdownMenu, Toast } from "f6";
 
 export default function App() {
-  const [visible2, setVisible2] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
   const menus = [
     {
       title: "分类",
@@ -36,19 +36,6 @@ export default function App() {
         },
       ],
     },
-    {
-      title: "地区",
-      actions: [
-        {
-          name: "国内",
-          value: "国内",
-        },
-        {
-          name: "国外",
-          value: "国外",
-        },
-      ],
-    },
   ];
   return (
     <div style={{ marginLeft: -16, marginRight: -16 }}>
@@ -57,8 +44,8 @@ export default function App() {
         onClose={() => {
           Toast.show({ message: `close` });
         }}
-        onClickMenu={({ index, value }) => {
-          Toast.show({ message: `${index}-${value}` });
+        onClickItem={({ index, action }) => {
+          Toast.show({ message: `${index}-${action.value}` });
         }}
       >
         {menus.map((it) => (

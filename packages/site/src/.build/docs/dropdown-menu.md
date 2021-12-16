@@ -2,10 +2,10 @@
 
 ```jsx
 import React from "react";
-import { Dialog, Button, DropdownMenu, Toast } from "f6";
+import { DropdownMenu, Toast } from "f6";
 
 export default function App() {
-  const [visible2, setVisible2] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
   const menus = [
     {
       title: "分类",
@@ -33,19 +33,6 @@ export default function App() {
         },
       ],
     },
-    {
-      title: "地区",
-      actions: [
-        {
-          name: "国内",
-          value: "国内",
-        },
-        {
-          name: "国外",
-          value: "国外",
-        },
-      ],
-    },
   ];
   return (
     <div style={{ marginLeft: -16, marginRight: -16 }}>
@@ -54,8 +41,8 @@ export default function App() {
         onClose={() => {
           Toast.show({ message: `close` });
         }}
-        onClickMenu={({ index, value }) => {
-          Toast.show({ message: `${index}-${value}` });
+        onClickItem={({ index, action }) => {
+          Toast.show({ message: `${index}-${action.value}` });
         }}
       >
         {menus.map((it) => (
@@ -70,14 +57,41 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3> Props</h3>
+<h3> DropdownMenuProps</h3>
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| onClose | 关闭时触发 | `() => void` | - |
+| onClickItem | 点击时触发 | `(option: {index: number; action: DropdownMenuItemAction}) => void` | - |
+
+```tsx
+export interface DropdownMenuProps {
+  className?: string;
+  onClose?: () => void;
+  onClickMenu?: (option: {index: number; action: DropdownMenuItemAction}) => void;
+}
+```
 
 
 </div>
 <div class="block-panel">
-<h3> API</h3>
+<h3> DropdownMenuItemProps</h3>
 
-this is API content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| title | 标题 | `ReactNode` | - |
+| actions | 操作项 | `DropdownMenuItemAction[]` | - |
+
+```tsx
+export interface DropdownMenuItemAction {
+  name: ReactNode;
+  value: string;
+}
+
+export interface DropdownMenuItemProps {
+  title: string;
+  className?: string;
+  actions?: DropdownMenuItemAction[];
+}
+```
 </div>

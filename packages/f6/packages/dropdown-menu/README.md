@@ -1,13 +1,40 @@
 ---
-category: Components
-title: Dialog
-subTitle: 弹窗
+category: 操作反馈
+title: DropdownMenu
+subTitle: 下拉菜单
 ---
 
-### Props
+### DropdownMenuProps
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| onClose | 关闭时触发 | `() => void` | - |
+| onClickItem | 点击时触发 | `(option: {index: number; action: DropdownMenuItemAction}) => void` | - |
 
-### API
+```tsx
+export interface DropdownMenuProps {
+  className?: string;
+  onClose?: () => void;
+  onClickItem?: (option: {index: number; action: DropdownMenuItemAction}) => void;
+}
+```
 
-this is API content
+### DropdownMenuItemProps
+
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| title | 标题 | `ReactNode` | - |
+| actions | 操作项 | `DropdownMenuItemAction[]` | - |
+
+```tsx
+export interface DropdownMenuItemAction {
+  name: ReactNode;
+  value: string;
+}
+
+export interface DropdownMenuItemProps {
+  title: string;
+  className?: string;
+  actions?: DropdownMenuItemAction[];
+}
+```

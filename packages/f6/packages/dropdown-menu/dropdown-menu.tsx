@@ -1,25 +1,32 @@
-import { FC, useRef, useEffect, useState, CSSProperties } from "react";
-import { defineName } from "../utils/name";
-import classNames from "classnames";
 import React from "react";
-import { DropdownMenuItemProps } from "packages";
+import { FC, useRef, useEffect, useState, CSSProperties } from "react";
+import classNames from "classnames";
 import Icon from "f6-icons";
+import { defineName } from "../utils/name";
 import CheckList from "../check-list";
+
+import { DropdownMenuItemProps } from "./index";
+import { DropdownMenuItemAction } from "./dropdown-menu-item";
 
 const [prefix] = defineName("dropdown-menu");
 
 export interface DropdownMenuProps {
   className?: string;
-  onClose?: Function;
-  onClickMenu?: (o: {index: number; value: string}) => void;
+  onClose?: () => void;
+  onClickItem?: (o: {index: number; action: DropdownMenuItemAction}) => void;
 }
 
-const DropdownMenu: FC<DropdownMenuProps> = ({ onClickMenu, className, onClose, children }) => {
-  const barRef = useRef<HTMLDivElement>(null);
+const DropdownMenu: FC<DropdownMenuProps> = ({ 
+  onClickItem,
+  className,
+  onClose,
+  children
+}) => {
   const [state, setState] = useState({
     top: 0,
     current: undefined as undefined | number,
   });
+  const barRef = useRef<HTMLDivElement>(null);
   const mChildren = React.Children.toArray(children);
 
   const updatePosition = () => {
@@ -44,9 +51,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ onClickMenu, className, onClose, 
   }, [updatePosition])
 
   const mCls = classNames([className, prefix]);
-  const maskStl: CSSProperties = {
-    top: state.top,
-  };
+  const maskStl: CSSProperties = { top: state.top };
 
   const handleClick = (i: number) => {
     if (i === state.current) {
@@ -78,9 +83,9 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ onClickMenu, className, onClose, 
       return (element.props.actions || []).map((action) => {
         return (
           <CheckList.Item onClick={() => {
-            onClickMenu?.({
-              index: index,
-              value:  action.value
+            onClickItem?.({
+              index,
+              action
             })
           }} value={action.value}>{action.name}</CheckList.Item>
         );

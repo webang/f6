@@ -7,7 +7,7 @@ import Demo from '../../components/demo-block';
 export default () => {
   const title = 'dialog';
   const list = [{
-        title: 'alert 样式',
+        title: '下拉菜单',
         element: App0
       },{
         title: 'confirm',
