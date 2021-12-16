@@ -54,7 +54,8 @@ export default function () {
 ```
 </div>
 
-### FieldProps
+<div class="block-panel">
+<h3> FieldProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -64,3 +65,4 @@ export default function () {
 | label | 标题 | string | `''` |
 | immediateCheck | 首次挂载是否检验 ｜ boolean | `false` |
 | rules | 匹配规则 | Rule[] | `[]` |
+</div>

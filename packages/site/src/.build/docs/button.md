@@ -121,7 +121,8 @@ export default function App() {
 ```
 </div>
 
-### Props
+<div class="block-panel">
+<h3> Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -160,3 +161,4 @@ type NativeButtonProps =
 
 export type ButtonProps = BaseButtonProps & NativeButtonProps;
 ```
+</div>

@@ -1,21 +1,21 @@
 const fs = require("fs");
 const path = require("path");
-const os = require('os')
+const os = require("os");
 
 module.exports = {
   parseDocument,
 };
 
 if (!fs.existsSync(`../site/src/.build`)) {
-  fs.mkdirSync(`../site/src/.build`)
+  fs.mkdirSync(`../site/src/.build`);
 }
 
 if (!fs.existsSync(`../site/src/.build/demo`)) {
-  fs.mkdirSync(`../site/src/.build/demo`)
+  fs.mkdirSync(`../site/src/.build/demo`);
 }
 
 if (!fs.existsSync(`../site/src/.build/docs`)) {
-  fs.mkdirSync(`../site/src/.build/docs`)
+  fs.mkdirSync(`../site/src/.build/docs`);
 }
 
 /**
@@ -33,7 +33,7 @@ function parseDocument(modulePath, name) {
       `../site/src/.build/demo/${name}.tsx`,
       fs.readFileSync(`${pagePath}/index.tsx`)
     );
-    generateMarkdown(modulePath, name)
+    generateMarkdown(modulePath, name);
     return;
   }
 
@@ -53,7 +53,7 @@ function parseDocument(modulePath, name) {
         `${outputPath}/${demos[index].replace("md", "tsx")}`,
         it.code
       );
-    })
+    });
 
   // 依赖列表
   const deps = demos
@@ -86,7 +86,7 @@ function parseDocument(modulePath, name) {
     })
   );
 
-  generateMarkdown(modulePath, name)
+  generateMarkdown(modulePath, name);
 }
 
 /**
@@ -98,14 +98,15 @@ function generateMarkdown(modulePath, name) {
   const pagePath = path.resolve(modulePath, "page");
   const readMeMap = parseReadMeDoc(readMeMd);
 
-  let usageList = '';
+  let usageList = "";
 
   if (fs.existsSync(`${pagePath}/index.tsx`)) {
-    const content = fs.readFileSync(`${pagePath}/index.tsx`, 'utf-8')
+    const content = fs.readFileSync(`${pagePath}/index.tsx`, "utf-8");
     const code = `\`\`\`jsx\n${content}\`\`\``;
     usageList = `<div class="block-panel"><h3>Demos</h3>\n\n${code}\n</div>`;
   } else {
-    usageList = fs.readdirSync(demoPath)
+    usageList = fs
+      .readdirSync(demoPath)
       .filter((it) => it)
       .map((it) => parseDemoDoc(demoPath + "/" + it))
       .sort((a, b) => a.order - b.order)
@@ -162,7 +163,7 @@ function parseDemoDoc(filePath) {
     map.description = s.substr(start + 1, end - start - 1);
 
     return map;
-  } catch (e) { }
+  } catch (e) {}
 }
 
 function parseReadMeDoc(filePath) {
@@ -181,6 +182,31 @@ function parseReadMeDoc(filePath) {
   // description
   let start = metaRes.index + metaRes[0].length;
   map.body = s.substr(start + 1, s.length);
+
+  var mList = [];
+  var reg = /###(.*?)(\r|\n)/g;
+  var res = null;
+  while ((res = reg.exec(map.body))) {
+    mList.push(res);
+  }
+
+  if (mList.length) {
+    let prefix = map.body.substring(0, mList[0].index);
+    let m = mList
+      .map((cur, index) => {
+        let next = mList[index + 1];
+        return (
+          `<h3>${cur[1]}</h3>\n` +
+          map.body.substring(
+            cur.index + cur[0].length,
+            index === mList.length - 1 ? map.body.length : next.index
+          )
+        );
+      })
+      .map((it) => `<div class="block-panel">\n${it}\n</div>`)
+      .join("\n");
+    map.body = prefix + m;
+  }
 
   return map;
 }

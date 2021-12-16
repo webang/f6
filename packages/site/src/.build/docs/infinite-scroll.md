@@ -54,7 +54,8 @@ export default InfiniteScrollDemo;
 ```
 </div>
 
-### Props
+<div class="block-panel">
+<h3> Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -62,8 +63,12 @@ export default InfiniteScrollDemo;
 | onLoad | 滚动到底部后回调 | Function | - |
 | footer | 底部提示，默认情况：加载状态展示 loading，加载完毕后展示 NO MORE | ReactNode |
 
-### API
+
+</div>
+<div class="block-panel">
+<h3> API</h3>
 
 | 属性 | 说明 | 签名 |
 | :-  | :- | :- |
 | finish | 结束加载状态 | - |
+</div>

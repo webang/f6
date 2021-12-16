@@ -48,7 +48,8 @@ export default function App() {
 ```
 </div>
 
-### CollapseProps
+<div class="block-panel">
+<h3> CollapseProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -63,7 +64,10 @@ export interface CollapseProps {
 }
 ```
 
-### CollapseItemProps
+
+</div>
+<div class="block-panel">
+<h3> CollapseItemProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -77,3 +81,4 @@ export interface CollapseItemProps {
   title: React.ReactNode;
 }
 ```
+</div>

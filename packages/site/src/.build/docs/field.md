@@ -40,7 +40,8 @@ export default function () {
 ```
 </div>
 
-### FieldProps
+<div class="block-panel">
+<h3> FieldProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -59,3 +60,4 @@ export interface Rule {
   message: string;
 }
 ```
+</div>

@@ -48,7 +48,8 @@ export default function App() {
 ```
 </div>
 
-### CheckListProps
+<div class="block-panel">
+<h3> CheckListProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -67,7 +68,10 @@ export interface CheckListProps {
 }
 ```
 
-### CheckListItemProps
+
+</div>
+<div class="block-panel">
+<h3> CheckListItemProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -82,3 +86,4 @@ export interface CheckListItemProps {
   onClick?: () => void;
 }
 ```
+</div>

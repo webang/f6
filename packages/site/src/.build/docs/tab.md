@@ -18,10 +18,15 @@ export default function App() {
 ```
 </div>
 
-### Props
+<div class="block-panel">
+<h3> Props</h3>
 
 thi is Props content
 
-### API
+
+</div>
+<div class="block-panel">
+<h3> API</h3>
 
 this is API content
+</div>

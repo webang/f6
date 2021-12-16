@@ -103,7 +103,8 @@ export default function App() {
 ```
 </div>
 
-### Props
+<div class="block-panel">
+<h3> Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -119,7 +120,10 @@ interface IOnChange {
 }
 ```
 
-### API
+
+</div>
+<div class="block-panel">
+<h3> API</h3>
 
 | 属性 | 说明 | 签名 |
 | :-  | :- | :- |
@@ -132,3 +136,4 @@ interface IOnChange {
 | setColumnOptions | 设置某列选项 | `(index: number, options: IPickerColumn) => void` |
 | getColumnOptions | 获取某列选项 | `(index: number) => IPickerColumn` |
 | getValues | 获取选中值 | `() => IPickerColumn` |
+</div>

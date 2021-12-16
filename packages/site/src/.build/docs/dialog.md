@@ -244,7 +244,8 @@ export default function App() {
 ```
 </div>
 
-### DialogProps
+<div class="block-panel">
+<h3> DialogProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -288,3 +289,4 @@ export type DialogShowRef = {
 // Dialog.alert 异步API
 // Dialog.confirm 异步API
 ```
+</div>

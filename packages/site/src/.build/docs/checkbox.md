@@ -111,7 +111,8 @@ export default function App() {
 ```
 </div>
 
-### Props
+<div class="block-panel">
+<h3> Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -133,7 +134,10 @@ export interface CheckboxProps {
 }
 ```
 
-### CheckboxGroupProps
+
+</div>
+<div class="block-panel">
+<h3> CheckboxGroupProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -146,3 +150,4 @@ export interface CheckboxGroupProps {
   onChange?: (val: CheckboxValue[]) => void;
 }
 ```
+</div>

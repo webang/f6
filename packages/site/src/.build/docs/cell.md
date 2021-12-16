@@ -130,7 +130,8 @@ export default function() {
 ```
 </div>
 
-### Props
+<div class="block-panel">
+<h3> Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -140,3 +141,4 @@ export default function() {
 | value | 最右侧内容 | ReactNode | - |
 | border | 是否显示底部边框 | boolean | `true` |
 | onClick |	非必需，点击后触发的回调函数 | `React.MouseEventHandler<Element>` | - |
+</div>

@@ -1,6 +1,7 @@
 .docs-block {
   padding-left: 16px;
   padding-right: 20px;
+  padding-bottom: 20px;
   color: #34495e;
   h3 {
     font-size: 20px;
@@ -15,13 +16,6 @@
   }
 }
 
-.block-panel {
-  pre {
-    padding: 20px !important;
-    border-radius: 2px;
-    background-color: #f6f8fa;
-  }
-}
 
 .block-panel,
 .f6-docs-table {
@@ -31,9 +25,20 @@
 }
 
 .block-panel {
+  pre {
+    padding: 20px !important;
+    border-radius: 2px;
+    background-color: #f6f8fa;
+  }
+}
+
+.block-panel {
   padding: 20px;
   padding-bottom: 12px;
   margin-top: 20px;
+  .f6-docs-table {
+    box-shadow: none;
+  }
 }
 
 .f6-docs-table {

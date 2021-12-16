@@ -66,16 +66,22 @@ export default function App() {
 ```
 </div>
 
-### GridProps
+<div class="block-panel">
+<h3> GridProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
 | border | 是否有边框 | boolean | `true` |
 | columnNum | 每行展示的列数 | number | `4` |
 
-### GridItemProps
+
+</div>
+<div class="block-panel">
+<h3> GridItemProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
 | text | 展示的文字 | ReactNode | - |
 | icon | 展示的图标 | ReactNode | - |
+
+</div>
