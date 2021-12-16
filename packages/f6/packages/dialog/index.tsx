@@ -1,4 +1,7 @@
-import ReactDOM from "react-dom";
+import { show } from './show';
+import { alert } from "./alert";
+import { confirm } from "./confirm";
+
 import OriginDialog, { DialogProps } from './dialog';
 import "./index.less";
 
@@ -6,43 +9,13 @@ export type DialogType = 'alert' | 'confirm';
 export type { DialogProps };
 
 const Dialog = OriginDialog as (typeof OriginDialog) & {
-  alert: (params: DialogProps) => void;
-  confirm: (params: DialogProps) => void;
+  show: typeof show;
+  alert: typeof alert;
+  confirm: typeof confirm;
 }
 
-function createDialog(props: DialogProps, type: DialogType) {
-  const container = document.createElement('div');
-  const mountNode = document.body;
-  const afterClose = () => {
-    mountNode.removeChild(container);
-  }
-  const element = (
-    <OriginDialog
-      {...props}
-      visible={true}
-      afterClose={afterClose}
-    />
-  );
-  mountNode.appendChild(container);
-  ReactDOM.render(element, container);
-}
-
-Dialog.confirm = function (params: DialogProps) {
-  createDialog({
-    ...params,
-    showCancelButton: true,
-    showConfirmButton: true,
-    appear: true,
-  }, 'confirm');
-};
-
-Dialog.alert = function (params: DialogProps) {
-  createDialog({
-    ...params,
-    showCancelButton: false,
-    showConfirmButton: true,
-    appear: true
-  }, 'alert');
-};
+Dialog.show = show;
+Dialog.alert = alert;
+Dialog.confirm = confirm;
 
 export default Dialog;

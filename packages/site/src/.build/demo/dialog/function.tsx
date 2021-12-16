@@ -1,11 +1,12 @@
 import React from 'react';
-import { Dialog, Button } from "f6";
+import { Dialog, Button, Toast } from "f6";
 
-const showConfirm = () => {
-  Dialog.confirm({
+const showConfirm = async () => {
+  const res = await Dialog.confirm({
     title: 'message',
     message: 'hello world'
   })
+  Toast.show({ message: res })
 };
 
 const showAlert = () => {
@@ -16,7 +17,6 @@ const showAlert = () => {
 }
 
 export default function App() {
-  const [visible, setVisible] = React.useState(false);
   return (
     <>
       <Button block color="primary" onClick={() => showConfirm()}>confirm</Button>

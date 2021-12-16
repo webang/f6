@@ -1,115 +1,84 @@
-import React, { ReactNode, useImperativeHandle, ForwardRefRenderFunction, useState, useEffect, forwardRef } from "react";
-import Overlay from "../overlay";
-import "./index.less";
-import Button from "../button";
-import Transition from "../transition";
-import { defineName } from "../utils/name";
+import React, { ReactNode, FC, useEffect } from "react";
 import classNames from "classnames";
+import Overlay from "../overlay";
+import Button from "../button";
+import { defineName } from "../utils/name";
+import "./index.less";
+import Transition from "../transition";
 
 export interface DialogProps {
   visible?: boolean;
-  title?: string;
-  message?: string | React.ReactElement;
+  title?: React.ReactNode;
+  message?: React.ReactNode;
   showConfirmButton?: boolean;
   showCancelButton?: boolean;
   animationDuration?: number;
   okText?: ReactNode;
   cancelText?: ReactNode;
   appear: boolean; // 首次挂载动画
-  onOk?: () => boolean|Promise<boolean>;
-  onCancel?: () => boolean|Promise<boolean>;
-  afterClose?: () => void;
-}
-
-export interface DialogRef {
-  show: () => void,
-  close: () => void
+  onOk?: () => void;
+  onCancel?: () => void;
+  onClose?: () => void;
+  onClosed?: () => void;
 }
 
 const [prefix] = defineName("dialog");
 
-const _Dialog: ForwardRefRenderFunction<DialogRef, DialogProps> = ({
+const Dialog: FC<DialogProps> = ({
   title,
   message,
-  visible: _visible,
+  visible,
   showCancelButton = true,
   showConfirmButton = true,
   animationDuration = 250,
   okText = "确认",
   cancelText = "取消",
   appear = false,
-  onOk,
-  onCancel,
-  afterClose,
-}, ref) => {
-  const [visible, setVisible] = useState(_visible);
-
+  onOk = () => false,
+  onCancel = () => false,
+  onClose,
+  onClosed,
+}) => {
   useEffect(() => {
+    let id: NodeJS.Timeout | null = null;
     if (!visible) {
-      // 这个写法不够优雅
-      const fn = () => afterClose && afterClose();
-      setTimeout(fn, animationDuration)
+      id = setTimeout(() => onClosed?.(), animationDuration);
     }
+    return () => {
+      if (id !== null) clearTimeout(id);
+    };
   }, [visible]);
 
-  useEffect(() => {
-    setVisible(_visible);
-  }, [_visible]);
+  const okHandler = () => {
+    onClose?.();
+    onOk();
+  };
 
-  useImperativeHandle(ref, () => ({
-    show: () => setVisible(true),
-    close: () => setVisible(false),
-  }));
-
-  const handleClickOk = () => {
-    if (onOk) {
-      const res = onOk();
-      if (res instanceof Promise) {
-        res.then().then(res => {
-          setVisible(res);
-        })
-      } else {
-        setVisible(res);
-      }
-    } else {
-      setVisible(false);
-    }
-  }
-
-  const handleClickCancel = () => {
-    if (onCancel) {
-      const res = onCancel();
-      if (res instanceof Promise) {
-        res.then().then(res => {
-          setVisible(res);
-        })
-      } else {
-        setVisible(res);
-      }
-    } else {
-      setVisible(false);
-    }
-  }
+  const cancelHandler = () => {
+    onClose?.();
+    onCancel();
+  };
 
   return (
     <>
       <Overlay visible={visible} timeout={animationDuration + 100} />
-      <Transition type="f6-scale-fade" appear={appear} in={visible} timeout={animationDuration}>
+      <Transition
+        type="f6-scale-fade"
+        appear={appear}
+        in={visible}
+        timeout={animationDuration}
+      >
         <div
           className={prefix}
           style={{ transitionDuration: `${animationDuration}ms` }}
         >
           {title && <div className={prefix + "__header"}>{title}</div>}
           <div className={prefix + "__content"}>{message}</div>
-          <div className={classNames([prefix + "__footer", 'hairline'])}>
+          <div className={classNames([prefix + "__footer", "hairline"])}>
             {showCancelButton && (
-              <Button onClick={handleClickCancel}>
-                {cancelText}
-              </Button>
+              <Button onClick={cancelHandler}>{cancelText}</Button>
             )}
-            {showConfirmButton && (
-              <Button onClick={handleClickOk}>{okText}</Button>
-            )}
+            {showConfirmButton && <Button onClick={okHandler}>{okText}</Button>}
           </div>
         </div>
       </Transition>
@@ -117,4 +86,4 @@ const _Dialog: ForwardRefRenderFunction<DialogRef, DialogProps> = ({
   );
 };
 
-export default forwardRef(_Dialog);
+export default Dialog;
