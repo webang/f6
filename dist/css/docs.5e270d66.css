@@ -1,0 +1,2749 @@
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/docs/App.less ***!
+  \**********************************************************************************************************************************************************************************************/
+.layout-header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.layout-header .item {
+  cursor: pointer;
+  margin-right: 50px;
+}
+.layout-header img {
+  width: 30px;
+  height: 30px;
+}
+.body {
+  display: flex;
+}
+.side {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  bottom: 0;
+  width: 240px;
+  padding: 24 px 0;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0 8px 12px #ebedf0;
+}
+.side .menu-item {
+  line-height: 40px;
+  padding: 0 24px;
+  font-size: 15px;
+}
+.side .menu-item a {
+  color: #455a64;
+  text-decoration: none;
+}
+.side .menu-item--active a {
+  color: #4fc08d;
+}
+.side .menu-title {
+  font-size: 16px;
+  padding: 8px 0 8px 24px;
+  color: #455a64;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 28px;
+}
+.main {
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  margin-left: 240px;
+  margin-right: calc(375px + 20px);
+  padding-top: 60px;
+}
+.docs {
+  flex: 1;
+}
+.preview {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  overflow: auto;
+  width: calc(375px);
+  height: calc(100vh - (60px + 20px + 20px));
+  max-height: 667px;
+  overflow: hidden;
+  background: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #fafafa;
+  box-shadow: 0px 0px 12px #dae0e9;
+}
+.preview iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/components/docs-block.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.docs-block {
+  padding-left: 16px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  color: #34495e;
+}
+.docs-block h3 {
+  font-size: 20px;
+}
+.docs-block h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.docs-block ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.block-panel,
+.f6-docs-table {
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 12px #ebedf0;
+}
+.block-panel pre {
+  padding: 20px !important;
+  border-radius: 2px;
+  background-color: #f6f8fa;
+}
+.block-panel {
+  padding: 20px;
+  padding-bottom: 12px;
+  margin-top: 20px;
+}
+.block-panel .f6-docs-table {
+  box-shadow: none;
+}
+.f6-docs-table {
+  margin-bottom: 12px;
+}
+.f6-docs-table table {
+  width: 100%;
+  color: #34495e;
+  font-size: 14px;
+  line-height: 2;
+  background-color: #fff;
+  border-collapse: collapse;
+}
+.f6-docs-table th {
+  padding: 8px 10px;
+  padding-left: 0;
+  font-weight: 600;
+  text-align: left;
+}
+.f6-docs-table td {
+  padding: 8px;
+  padding-left: 0;
+  border-top: 1px solid #f1f4f8;
+}
+.f6-docs-table code {
+  display: inline-block;
+  padding: 4px 6px;
+  line-height: 14px;
+  color: #009688;
+  border-radius: 2px;
+  background-color: #f7f4f4;
+}
+.code-container {
+  position: relative;
+}
+.code-container pre {
+  padding: 10px 16px;
+  border: 1px solid #fff;
+  max-height: 450px;
+  overflow: auto;
+}
+.code-container .code-input {
+  position: absolute;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0;
+}
+.code-container:hover pre {
+  border: 1px solid #009688;
+}
+.code-container:hover .btn-copy {
+  display: block;
+}
+.code-container .btn-copy {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #009688;
+  color: #fff;
+  border: 0;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../../node_modules/prismjs/themes/prism.css ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  background: none;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0;
+}
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+.token.punctuation {
+  color: #999;
+}
+.token.namespace {
+  opacity: 0.7;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  /* This background color was intended by the author of this theme. */
+  background: hsla(0, 0%, 100%, 0.5);
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+.token.function,
+.token.class-name {
+  color: #DD4A68;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/style/default-theme.less ***!
+  \******************************************************************************************************************************************************************************************************************/
+:root {
+  --f6-overlay-z-index: 999;
+  --f6-dialog-z-index: 1000;
+  --f6-popup-z-index: 1000;
+  --f6-primary-color: #009688;
+  --f6-danger-color: #ee0a24;
+  --f6-warning-color: #ff976a;
+  --f6-success-color: #07c160;
+  --f6-info-color: #00c853;
+  --theme-primary-h: 174;
+  --theme-primary-s: 100%;
+  --theme-primary-l: 29%;
+  --theme-warning-h: 18;
+  --theme-warning-s: 100%;
+  --theme-warning-l: 71%;
+  --theme-danger-h: 353;
+  --theme-danger-s: 92%;
+  --theme-danger-l: 49%;
+  --theme-success-h: 149;
+  --theme-success-s: 93%;
+  --theme-success-l: 39%;
+  --f6-overlay-background-color: rgba(0, 0, 0, 0.6);
+  --popover-arrow-color: #fff;
+  --f6-button-primary-border-color: var(--f6-primary-color);
+  --f6-button-primary-background-color: var(--f6-primary-color);
+  --f6-button-middle-height: 44px;
+  --f6-message-primary-color: var(--f6-primary-color);
+  --f6-message-primary-bg: hsla(var(--theme-primary-h), var(--theme-primary-s), var(--theme-primary-l), 0.1);
+  --f6-message-warning-bg: hsla(var(--theme-warning-h), var(--theme-warning-s), var(--theme-warning-l), 0.1);
+  --f6-message-danger-bg: hsla(var(--theme-danger-h), var(--theme-danger-s), var(--theme-danger-l), 0.1);
+  --f6-message-success-bg: hsla(var(--theme-success-h), var(--theme-success-s), var(--theme-success-l), 0.1);
+  --f6-message-warning-color: var(--f6-warning-color);
+  --f6-message-danger-color: var(--f6-danger-color);
+  --f6-message-success-color: var(--f6-success-color);
+  --f6-message-info-color: var(--f6-info-color);
+}
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-scale-fade-enter {
+  transform: translate(-50%, -50%) scale(0);
+}
+.wax-scale-fade-enter-active {
+  transform: translate(-50%, -50%) scale(1);
+}
+.wax-scale-fade-exit {
+  transform: translate(-50%, -50%) scale(1);
+}
+.wax-scale-fade-exit-active {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/button/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-button {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  -webkit-appearance: none;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: opacity 200ms;
+}
+.wax-button--default {
+  color: #333;
+  background-color: #fff;
+}
+.wax-button--default.wax-button--fill-outline {
+  border-color: #333;
+}
+.wax-button--default.wax-button--fill-none {
+  border-color: transparent;
+  background: transparent;
+}
+.wax-button--primary {
+  color: #fff;
+  border-color: var(--f6-button-primary-border-color);
+  background-color: var(--f6-button-primary-background-color);
+}
+.wax-button--primary.wax-button--fill-outline {
+  color: var(--f6-button-primary-background-color);
+  border-color: var(--f6-button-primary-background-color);
+  background-color: #fff;
+}
+.wax-button--primary.wax-button--fill-none {
+  color: var(--f6-button-primary-background-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--danger {
+  color: #fff;
+  border-color: var(--f6-danger-color);
+  background-color: var(--f6-danger-color);
+}
+.wax-button--danger.wax-button--fill-outline {
+  color: var(--f6-danger-color);
+  border-color: var(--f6-danger-color);
+  background-color: #fff;
+}
+.wax-button--danger.wax-button--fill-none {
+  color: var(--f6-danger-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--warning {
+  color: #fff;
+  border-color: var(--f6-warning-color);
+  background-color: var(--f6-warning-color);
+}
+.wax-button--warning.wax-button--fill-outline {
+  color: var(--f6-warning-color);
+  border-color: var(--f6-warning-color);
+  background-color: #fff;
+}
+.wax-button--warning.wax-button--fill-none {
+  color: var(--f6-warning-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--success {
+  color: #fff;
+  border-color: var(--f6-success-color);
+  background-color: var(--f6-success-color);
+}
+.wax-button--success.wax-button--fill-outline {
+  color: var(--f6-success-color);
+  border-color: var(--f6-success-color);
+  background-color: #fff;
+}
+.wax-button--success.wax-button--fill-none {
+  color: var(--f6-success-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--middle {
+  height: var(--f6-button-middle-height);
+  padding: 0 12px;
+}
+.wax-button--small {
+  height: 32px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.wax-button--mini {
+  height: 24px;
+  padding: 0 4px;
+  font-size: 12px;
+}
+.wax-button--shape-default {
+  border-radius: 2px;
+}
+.wax-button--shape-round {
+  border-radius: 20px;
+}
+.wax-button--shape-square {
+  border-radius: 0;
+}
+.wax-button--block {
+  display: flex;
+  width: 100%;
+}
+.wax-button--loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.wax-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/spinner/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+@keyframes spinner-fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.wax-spinner {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  vertical-align: middle;
+}
+.wax-spinner--lines .item {
+  left: 0px;
+  top: 0px;
+  transform-origin: center center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0px);
+  animation: 1s linear 0s infinite normal none running spinner-fade-out;
+}
+.wax-spinner--lines .line {
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke: currentcolor;
+}
+
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/cell/index.less ***!
+  \*********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-cell {
+  position: relative;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fff;
+}
+.wax-cell__head {
+  display: flex;
+  align-items: flex-start;
+}
+.wax-cell__title {
+  flex: 1;
+  display: flex;
+  font-size: 14px;
+}
+.wax-cell__icon {
+  margin-right: 6px;
+}
+.wax-cell__value {
+  flex: 1;
+  text-align: right;
+}
+.wax-cell__label {
+  font-size: 12px;
+  color: #969799;
+  line-height: 18px;
+  margin-top: 2px;
+}
+.wax-cell__arrow {
+  position: relative;
+  width: 16px;
+  height: 24px;
+  right: -4px;
+  cursor: pointer;
+}
+.wax-cell.hairline-bottom::after {
+  left: 12px;
+}
+.wax-cell-group {
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #fff;
+}
+.wax-cell-group .wax-cell:last-child::after {
+  display: none;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/overlay/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-overlay {
+  z-index: var(--f6-overlay-z-index);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--f6-overlay-background-color);
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity;
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/dialog/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-dialog {
+  z-index: var(--f6-dialog-z-index);
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  overflow: hidden;
+  width: 280px;
+  max-height: 100%;
+  border-radius: 6px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+.wax-dialog__header {
+  padding-top: 20px;
+  text-align: center;
+}
+.wax-dialog__content {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 24px;
+  color: #666;
+}
+.wax-dialog__footer {
+  display: flex;
+}
+.wax-dialog__footer::after {
+  border-top-width: 1px !important;
+}
+.wax-dialog__footer .wax-button {
+  flex: 1;
+  border: 0;
+  position: relative;
+}
+.wax-dialog__footer .wax-button::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.wax-dialog__footer .wax-button.border-b::after {
+  border-bottom-width: 1px;
+}
+.wax-dialog__footer .wax-button.border-t::after {
+  border-top-width: 1px;
+}
+.wax-dialog__footer .wax-button.border-l::after {
+  border-left-width: 1px;
+}
+.wax-dialog__footer .wax-button.border-r::after {
+  border-right-width: 1px;
+}
+.wax-dialog__footer .wax-button::after {
+  border-right-width: 1px;
+}
+.wax-dialog__footer .wax-button:last-child::after {
+  display: none;
+}
+
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/transition/index.less ***!
+  \***************************************************************************************************************************************************************************************************************/
+.f6-scale-fade-appear {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.f6-scale-fade-appear-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-appear-done {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-enter {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.f6-scale-fade-enter-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-enter-done {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-exit {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.f6-scale-fade-exit-active {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition-property: transform opacity;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/loading/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-loading {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  color: #ccc;
+  vertical-align: middle;
+}
+.wax-loading__icon {
+  margin-right: 4px;
+}
+
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/infinite-scroll/index.less ***!
+  \********************************************************************************************************************************************************************************************************************/
+.wax-infinite-scroll-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/popover/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-popover__content {
+  position: absolute;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 2px 12px #ccc;
+}
+.wax-popover__trigger {
+  display: inline-block;
+}
+.wax-popover__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-color: transparent;
+  border-style: solid;
+}
+.wax-popover--bottom-start .wax-popover__arrow,
+.wax-popover--bottom .wax-popover__arrow,
+.wax-popover--bottom-end .wax-popover__arrow {
+  top: -12px;
+  border-bottom-color: var(--popover-arrow-color);
+}
+.wax-popover--top .wax-popover__arrow,
+.wax-popover--top-start .wax-popover__arrow,
+.wax-popover--top-end .wax-popover__arrow {
+  bottom: -12px;
+  border-top-color: var(--popover-arrow-color);
+}
+.wax-popover--right .wax-popover__arrow,
+.wax-popover--right-start .wax-popover__arrow,
+.wax-popover--right-end .wax-popover__arrow {
+  left: -12px;
+  border-right-color: var(--popover-arrow-color);
+}
+.wax-popover--left .wax-popover__arrow,
+.wax-popover--left-end .wax-popover__arrow,
+.wax-popover--left-start .wax-popover__arrow {
+  right: -12px;
+  border-left-color: var(--popover-arrow-color);
+}
+.wax-popover--left .wax-popover__arrow,
+.wax-popover--right .wax-popover__arrow {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wax-popover--left-start .wax-popover__arrow,
+.wax-popover--right-start .wax-popover__arrow {
+  top: 8px;
+}
+.wax-popover--left-end .wax-popover__arrow,
+.wax-popover--right-end .wax-popover__arrow {
+  bottom: 8px;
+}
+.wax-popover--top .wax-popover__arrow,
+.wax-popover--bottom .wax-popover__arrow {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wax-popover--top-end .wax-popover__arrow,
+.wax-popover--bottom-end .wax-popover__arrow {
+  right: 8px;
+}
+.wax-popover--top-start .wax-popover__arrow,
+.wax-popover--bottom-start .wax-popover__arrow {
+  left: 8px;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/picker/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-picker-columns {
+  height: 180px;
+  display: flex;
+  background-color: #fff;
+}
+.wax-picker-option {
+  line-height: 36px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.wax-picker-column {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  flex: 1;
+  text-align: center;
+}
+.wax-picker-column__scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.wax-picker-column__mask {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+  height: 100%;
+  margin: 0 auto;
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)), linear-gradient(0deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6));
+  background-position: top,bottom;
+  background-size: 100% 72px;
+  background-repeat: no-repeat;
+}
+.wax-picker-column__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  top: 72px;
+  box-sizing: border-box;
+  height: 36px;
+}
+.wax-picker-column__line::before,
+.wax-picker-column__line::after {
+  content: "";
+  position: absolute;
+  background-color: #ddd;
+  display: block;
+  z-index: 1;
+  width: 100%;
+  height: 1px;
+  transform-origin: 50% 50%;
+  transform: scaleY(0.5);
+}
+.wax-picker-column__line::before {
+  bottom: 0;
+  right: auto;
+  top: auto;
+  left: 0;
+}
+.wax-picker-column__line::after {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/popup/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-slide-top-enter {
+  transform: translate3d(0%, -100%, 0);
+}
+.wax-slide-top-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-top-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-top-exit-active {
+  transition-property: transform;
+  transform: translate3d(0%, -100%, 0);
+}
+.wax-slide-bottom-enter {
+  transform: translate3d(0%, 100vh, 0);
+}
+.wax-slide-bottom-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-bottom-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-bottom-exit-active {
+  transition-property: transform;
+  transform: translate3d(0%, 100%, 0);
+}
+.wax-slide-left-enter {
+  transform: translate3d(-100%, 0%, 0);
+}
+.wax-slide-left-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-left-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-left-exit-active {
+  transition-property: transform;
+  transform: translate3d(-100%, 0%, 0);
+}
+.wax-slide-right-enter {
+  transform: translate3d(100%, 0%, 0);
+}
+.wax-slide-right-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-right-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-right-exit-active {
+  transition-property: transform;
+  transform: translate3d(100%, 0%, 0);
+}
+.wax-slide-middle-enter {
+  opacity: 0;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-enter-active {
+  transition-property: transform opacity;
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-exit {
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-exit-active {
+  transition-property: transform opacity;
+  opacity: 0;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+}
+.wax-popup {
+  position: fixed;
+  width: 100vw;
+  z-index: var(--f6-popup-z-index);
+  background-color: #fff;
+}
+.wax-popup--middle {
+  width: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.wax-popup--top {
+  left: 0;
+  top: 0;
+}
+.wax-popup--bottom {
+  left: 0;
+  bottom: 0;
+}
+.wax-popup--left {
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+}
+.wax-popup--right {
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 100vh;
+}
+
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/tab/index.less ***!
+  \********************************************************************************************************************************************************************************************************/
+.wax-tab__wrap {
+  position: relative;
+  color: #646566;
+}
+.wax-tab__list {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.wax-tab-item {
+  flex: 1;
+  height: 100%;
+  line-height: 44px;
+  text-align: center;
+}
+.wax-tab__line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  height: 2px;
+  background: rebeccapurple;
+  transform: scaleX(0.2);
+  transition: left 300ms;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/switch/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-switch {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 300ms;
+  background-color: #dcdcdc;
+}
+.wax-switch--on {
+  background-color: #00bc70;
+}
+.wax-switch-node {
+  position: absolute;
+  width: 26px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left 300ms;
+}
+.wax-switch-node--on {
+  left: 22px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/toast/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-toast {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+}
+.wax-toast--top {
+  top: 10px;
+  left: 50%;
+  transform: translate3d(-50%, 0%, 0);
+}
+.wax-toast--bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translate3d(-50%, 0%, 0);
+}
+.wax-toast--middle {
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.wax-toast--text {
+  padding: 8px 12px;
+}
+.wax-toast--fail,
+.wax-toast--loading,
+.wax-toast--warning,
+.wax-toast--success {
+  width: 70px;
+  height: 70px;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 12px;
+}
+.wax-toast--fail .wax-toast__icon,
+.wax-toast--loading .wax-toast__icon,
+.wax-toast--warning .wax-toast__icon,
+.wax-toast--success .wax-toast__icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.wax-toast--fail .wax-toast__icon {
+  font-size: 32px;
+  font-weight: bold;
+}
+.wax-toast--loading .wax-spinner {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 10px;
+}
+.slide-top-enter {
+  opacity: 0;
+  top: -100px;
+}
+.slide-top-enter-active {
+  transition: all;
+  opacity: 1;
+  top: 10px;
+}
+.slide-top-exit {
+  opacity: 1;
+  top: 10px;
+}
+.slide-top-exit-active {
+  opacity: 0;
+  transition: all;
+  top: -100px;
+}
+.slide-bottom-enter {
+  opacity: 0;
+  bottom: -100px;
+}
+.slide-bottom-enter-active {
+  transition: all;
+  opacity: 1;
+  bottom: 10px;
+}
+.slide-bottom-exit {
+  opacity: 1;
+  bottom: 10px;
+}
+.slide-bottom-exit-active {
+  opacity: 0;
+  transition: all;
+  bottom: -100px;
+}
+.slide-middle-enter {
+  opacity: 0;
+}
+.slide-middle-enter-active {
+  transition: all;
+  opacity: 1;
+}
+.slide-middle-exit {
+  opacity: 1;
+}
+.slide-middle-exit-active {
+  opacity: 0;
+  transition: all;
+}
+.wax-toast-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6-icons/iconfont/iconfont.css ***!
+  \************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "yus-icon";
+  /* Project id 1380817 */
+  src: url(../bad3da010b183ba11c20.woff2?t=1638529528644) format('woff2'), url(../f0ce95b7b9eec3295060.woff?t=1638529528644) format('woff'), url(../29b3ba9c43f2c9e22097.ttf?t=1638529528644) format('truetype');
+}
+.yus-icon {
+  font-family: "yus-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.yus-icon-checkbox_rect_outline:before {
+  content: "\e8d5";
+}
+.yus-icon-fail2:before {
+  content: "\e60c";
+}
+.yus-icon-fail4:before {
+  content: "\e663";
+}
+.yus-icon-plus:before {
+  content: "\e8d4";
+}
+.yus-icon-cross:before {
+  content: "\e8d3";
+}
+.yus-icon-success:before {
+  content: "\e8ba";
+}
+.yus-icon-help-circle-o:before {
+  content: "\e8bb";
+}
+.yus-icon-pin-o:before {
+  content: "\e8bc";
+}
+.yus-icon-success1:before {
+  content: "\e8bd";
+}
+.yus-icon-warn:before {
+  content: "\e8be";
+}
+.yus-icon-arrow-down:before {
+  content: "\e8bf";
+}
+.yus-icon-arrow-left-circle:before {
+  content: "\e8c0";
+}
+.yus-icon-arrow-up:before {
+  content: "\e8c1";
+}
+.yus-icon-search:before {
+  content: "\e8c2";
+}
+.yus-icon-success2:before {
+  content: "\e8c3";
+}
+.yus-icon-arrow-left-circle-o:before {
+  content: "\e8c4";
+}
+.yus-icon-arrow-right:before {
+  content: "\e8c5";
+}
+.yus-icon-arrow-left:before {
+  content: "\e8c6";
+}
+.yus-icon-person-o:before {
+  content: "\e8c7";
+}
+.yus-icon-cart-o:before {
+  content: "\e8c8";
+}
+.yus-icon-megaphone-o:before {
+  content: "\e8c9";
+}
+.yus-icon-flame:before {
+  content: "\e8ca";
+}
+.yus-icon-success3:before {
+  content: "\e8cb";
+}
+.yus-icon-pin:before {
+  content: "\e8cc";
+}
+.yus-icon-error:before {
+  content: "\e8cd";
+}
+.yus-icon-trash-o:before {
+  content: "\e8ce";
+}
+.yus-icon-radio-on:before {
+  content: "\e8cf";
+}
+.yus-icon-megaphone:before {
+  content: "\e8d0";
+}
+.yus-icon-trash:before {
+  content: "\e8d1";
+}
+.yus-icon-backtop:before {
+  content: "\e8d2";
+}
+.yus-icon-checkbox-o:before {
+  content: "\e8ad";
+}
+.yus-icon-checkbox:before {
+  content: "\e8ae";
+}
+.yus-icon-close-circle-o:before {
+  content: "\e8af";
+}
+.yus-icon-flame-o:before {
+  content: "\e8b0";
+}
+.yus-icon-checkmark-circle:before {
+  content: "\e8b1";
+}
+.yus-icon-circle:before {
+  content: "\e8b2";
+}
+.yus-icon-home:before {
+  content: "\e8b3";
+}
+.yus-icon-close-circle:before {
+  content: "\e8b4";
+}
+.yus-icon-information-o:before {
+  content: "\e8b5";
+}
+.yus-icon-person:before {
+  content: "\e8b6";
+}
+.yus-icon-home-o:before {
+  content: "\e8b7";
+}
+.yus-icon-information:before {
+  content: "\e8b8";
+}
+.yus-icon-help-circle:before {
+  content: "\e8b9";
+}
+
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/pull-refresh/index.less ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.wax-pull-refresh-indictor {
+  width: 100%;
+  font-size: 12px;
+  height: 30px;
+  margin-top: -30px;
+  color: #999;
+  text-align: center;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/message/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-message {
+  display: flex;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px 10px;
+  border-radius: 2px;
+}
+.wax-message--primary {
+  color: var(--f6-message-primary-color);
+  background: var(--f6-message-primary-bg);
+}
+.wax-message--warning {
+  color: var(--f6-message-warning-color);
+  background-color: var(--f6-message-warning-bg);
+}
+.wax-message--danger {
+  color: var(--f6-message-danger-color);
+  background: var(--f6-message-danger-bg);
+}
+.wax-message--success {
+  color: var(--f6-message-success-color);
+  background-color: var(--f6-message-success-bg);
+}
+.wax-message__icon {
+  margin-right: 4px;
+  margin-top: 1px;
+}
+.wax-message__body {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/grid/index.less ***!
+  \*********************************************************************************************************************************************************************************************************/
+.wax-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wax-grid::after {
+  border-top-width: 1px;
+}
+.wax-grid-item {
+  position: relative;
+  box-sizing: border-box;
+}
+.wax-grid-item::after {
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+.wax-grid-item__body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px 12px;
+  background-color: #fff;
+}
+.wax-grid-item__text {
+  margin-top: 4px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/radio/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-radio {
+  display: inline-block;
+  vertical-align: middle;
+}
+.wax-radio__icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.wax-radio__icon .wax-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+.wax-radio__text {
+  color: #666;
+  margin-left: 2px;
+}
+.wax-radio--checked .wax-radio__icon {
+  color: var(--f6-primary-color);
+}
+.wax-radio--disabled .wax-radio__icon,
+.wax-radio--disabled .wax-radio__text {
+  color: #aaa;
+}
+
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/checkbox/index.less ***!
+  \*************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.wax-checkbox__icon {
+  display: inline-block;
+  vertical-align: middle;
+  color: #666;
+}
+.wax-checkbox__icon .wax-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+.wax-checkbox__text {
+  color: #666;
+  margin-left: 2px;
+}
+.wax-checkbox--checked .wax-checkbox__icon {
+  color: var(--f6-primary-color);
+}
+.wax-checkbox--disabled {
+  cursor: not-allowed;
+}
+.wax-checkbox--disabled .wax-checkbox__icon,
+.wax-checkbox--disabled .wax-checkbox__text {
+  color: #aaa;
+  fill: #aaa;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/field/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-field__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 0;
+  text-align: left;
+  background-color: transparent;
+  resize: none;
+  user-select: auto;
+}
+.wax-field .wax-field__title {
+  flex: none;
+  width: 60px;
+  color: #666;
+}
+.wax-field__body {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.wax-field__error {
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+  color: #ee0a24;
+  text-align: left;
+}
+.wax-field__clear {
+  cursor: pointer;
+}
+.wax-field--title-top .wax-cell__head {
+  flex-direction: column;
+}
+.wax-field--title-top .wax-cell__value {
+  width: 100%;
+}
+
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/textarea/index.less ***!
+  \*************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-textarea__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 0;
+  text-align: left;
+  background-color: transparent;
+  resize: none;
+  user-select: auto;
+}
+.wax-textarea .wax-textarea__title {
+  flex: none;
+  width: 60px;
+  color: #666;
+}
+.wax-textarea__body {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.wax-textarea__error {
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+  color: #ee0a24;
+  text-align: left;
+}
+.wax-textarea__clear {
+  cursor: pointer;
+}
+.wax-textarea--title-top .wax-cell__head {
+  flex-direction: column;
+}
+.wax-textarea--title-top .wax-cell__value {
+  width: 100%;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/password-input/index.less ***!
+  \*******************************************************************************************************************************************************************************************************************/
+.wax-password-input {
+  background-color: #fff;
+}
+.wax-password-input::after {
+  border-top-width: 1px !important;
+  border-left-width: 1px !important;
+  border-bottom-width: 1px !important;
+}
+.wax-password-input__list {
+  display: flex;
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+}
+.wax-password-input__item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.wax-password-input__item::after {
+  border-right-width: 1px !important;
+}
+.wax-password-input__input {
+  z-index: 2;
+  position: absolute;
+  width: 0;
+  height: 0;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  opacity: 0;
+  user-select: none;
+}
+.wax-password-input__token {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+}
+.wax-password-input__cursor {
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  background-color: #a5a5a5;
+  animation: 1000ms wax-password-input-cursor-animate infinite;
+}
+@keyframes wax-password-input-cursor-animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/number-keyboard/index.less ***!
+  \********************************************************************************************************************************************************************************************************************/
+.wax-number-keyboard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.wax-number-keyboard__units {
+  display: flex;
+  flex: 3;
+  flex-wrap: wrap;
+}
+.wax-number-keyboard__unit {
+  position: relative;
+  flex: 1;
+  flex-basis: 33%;
+  box-sizing: border-box;
+  padding: 0 6px 6px 0;
+}
+.wax-number-keyboard__box {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.wax-number-keyboard__keyboard-icon,
+.wax-number-keyboard__delete-icon {
+  width: 32px;
+  height: 22px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/space/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-space-horizontal {
+  flex-direction: row;
+}
+.wax-space-vertical {
+  flex-direction: column;
+}
+.wax-space-item {
+  flex: none;
+}
+.wax-space {
+  display: inline-flex;
+}
+.wax-space-wrap {
+  flex-wrap: wrap;
+}
+.wax-space-horizontal > .wax-space-item {
+  margin-right: 8px;
+}
+.wax-space-vertical > .wax-space-item {
+  margin-bottom: 8px;
+}
+.wax-space-horizontal.wax-space-wrap > .wax-space-item {
+  margin-bottom: 8px;
+}
+
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/cascader/index.less ***!
+  \*************************************************************************************************************************************************************************************************************/
+.wax-cascader-view {
+  overflow: auto;
+  height: 200px;
+}
+.wax-cascader-view-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 12px;
+  cursor: pointer;
+}
+.wax-cascader-view-label {
+  color: #666;
+}
+.wax-cascader-view-label-selected {
+  color: #1677ff;
+}
+.wax-cascader-view-option-icon {
+  font-size: 10px;
+  color: #1677ff;
+}
+.wax-cascader-header {
+  display: flex;
+  justify-content: space-between;
+}
+.wax-cascader__tab {
+  line-height: 40px;
+  font-size: 14px;
+  padding: 0 12px;
+  border-bottom: 1px solid #eaeaea;
+}
+.wax-cascader__tab-item {
+  margin-right: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/check-list/index.less ***!
+  \***************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-check-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 24px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.wax-check-list-item::after {
+  left: 12px;
+}
+.wax-check-list-item__icon {
+  font-size: 12px;
+  color: #1677ff;
+}
+.wax-check-list-item--disabled {
+  color: #ccc;
+}
+.wax-check-list-item:last-child::after {
+  display: none;
+}
+
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/swipe-cell/index.less ***!
+  \***************************************************************************************************************************************************************************************************************/
+.wax-swipe-cell {
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+.wax-swipe-cell__right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  transform: translate3d(100%, 0, 0);
+}
+.wax-swipe-cell__left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transform: translate3d(-100%, 0, 0);
+}
+
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/collapse/index.less ***!
+  \*************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-collapse-item__head {
+  cursor: pointer;
+}
+.wax-collapse-item__content {
+  padding: 12px;
+}
+.wax-collapse-item__icon {
+  font-size: 18px;
+  color: #666;
+}
+
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/slider/index.less ***!
+  \***********************************************************************************************************************************************************************************************************/
+.wax-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
+}
+.wax-slider__inner {
+  position: relative;
+  height: 2px;
+  flex: 1;
+  margin-right: 24px;
+}
+.wax-slider__runway {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  right: -24px;
+  background-color: #EBEBEB;
+}
+.wax-slider__track {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: 100%;
+  background-color: #07c160;
+}
+.wax-slider__thumb {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  cursor: move;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate3d(0, -50%, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/action-sheet/index.less ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.wax-action-sheet-title,
+.wax-action-sheet-item {
+  padding: 12px 12px;
+  line-height: 24px;
+  text-align: center;
+}
+.wax-action-sheet-title {
+  color: #666;
+}
+.wax-action-sheet-title::after {
+  border-bottom-width: 1px;
+}
+.wax-action-sheet-item-name {
+  font-size: 16px;
+  color: #666;
+}
+.wax-action-sheet-gap {
+  height: 8px;
+  background-color: #f5f5f5;
+}
+
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/dropdown-menu/index.less ***!
+  \******************************************************************************************************************************************************************************************************************/
+.hairline {
+  position: relative;
+}
+.hairline::after {
+  z-index: 2;
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid #eee;
+  transform: scale(0.5);
+}
+.hairline.border-b::after {
+  border-bottom-width: 1px;
+}
+.hairline.border-t::after {
+  border-top-width: 1px;
+}
+.hairline.border-l::after {
+  border-left-width: 1px;
+}
+.hairline.border-r::after {
+  border-right-width: 1px;
+}
+.hairline-bottom {
+  position: relative;
+}
+.hairline-bottom::after {
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  transform: scaleY(0.5);
+}
+::placeholder {
+  font-size: 12px;
+  color: #ccc;
+}
+.wax-dropdown-menu-items {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #fff;
+}
+.wax-dropdown-menu-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.wax-dropdown-menu__mask {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.wax-dropdown-menu__content {
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+}
+.wax-dropdown-menu__icon {
+  transition: all 300ms;
+}
+
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/back-top/index.less ***!
+  \*************************************************************************************************************************************************************************************************************/
+.wax-back-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  cursor: pointer;
+}
+.wax-back-top__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 0px;
+}
+.wax-back-top__icon {
+  font-size: 20px;
+  color: #ddd;
+  font-weight: bold;
+}
+
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/notice-bar/index.less ***!
+  \***************************************************************************************************************************************************************************************************************/
+.wax-notice-bar {
+  position: relative;
+  height: 36px;
+  line-height: 36px;
+  color: #ed6a0c;
+  background-color: #fffbe8;
+}
+.wax-notice-bar__inner {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+.wax-notice-bar__content {
+  position: absolute;
+  white-space: nowrap;
+}
+
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/marquee/index.less ***!
+  \************************************************************************************************************************************************************************************************************/
+.wax-marquee,
+.wax-marquee-item {
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+}
+
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/flow/index.less ***!
+  \*********************************************************************************************************************************************************************************************************/
+.wax-flow {
+  position: relative;
+  display: flex;
+}
+.wax-flow--vertical {
+  flex-direction: column;
+}
+.wax-flow-item {
+  position: relative;
+  font-size: 12px;
+  line-height: 18px;
+  color: #969799;
+}
+.wax-flow-item .wax-icon {
+  font-size: 18px;
+}
+.wax-flow-item__icon {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  font-size: 16px;
+  line-height: 16px;
+}
+.wax-flow-item__icon img {
+  width: 100%;
+  height: 100%;
+}
+.wax-flow-item--horizontal {
+  flex: 1;
+  text-align: center;
+}
+.wax-flow-item--horizontal .wax-flow-item__head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+}
+.wax-flow-item--horizontal .wax-flow-item__line {
+  position: absolute;
+  top: 27px;
+  left: 50%;
+  top: 50%;
+  right: -50%;
+  height: 1px;
+  margin-left: 7px;
+  margin-right: 7px;
+  background: #eee;
+}
+.wax-flow-item--horizontal .wax-flow-item__icon {
+  z-index: 2;
+  position: absolute;
+}
+.wax-flow-item--horizontal:last-child .wax-flow-item__line {
+  display: none;
+}
+.wax-flow-item--vertical {
+  display: flex;
+}
+.wax-flow-item--vertical .wax-flow-item__head {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+}
+.wax-flow-item--vertical .wax-flow-item__main {
+  flex: 1;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+.wax-flow-item--vertical .wax-flow-item__line {
+  z-index: 2;
+  position: absolute;
+  width: 1px;
+  left: 50%;
+  top: 16px;
+  bottom: -2px;
+  background: #eee;
+}
+.wax-flow-item--vertical .wax-flow-item__icon {
+  z-index: 3;
+  position: absolute;
+}
+.wax-flow-item--vertical:last-child .wax-flow-item__line {
+  display: none;
+}
+.wax-flow-item--process .wax-flow-item__icon {
+  width: 14px;
+  height: 14px;
+  color: #00c853;
+  border-radius: 50%;
+  background-color: #00c853;
+}
+.wax-flow-item--process .wax-flow-item__icon .wax-icon {
+  display: none;
+}
+.wax-flow-item--finish .wax-flow-item__icon {
+  font-size: 18px;
+  color: #00c853;
+}
+.wax-flow-item--finish .wax-flow-item__line {
+  background-color: #00c853;
+}
+
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!../f6/packages/swipe/index.less ***!
+  \**********************************************************************************************************************************************************************************************************/
+.wax-swipe {
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  height: 180px;
+  line-height: 180px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.wax-swipe-item {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: cadetblue;
+}
+.wax-swipe-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 300ms ease;
+}
+.wax-swipe-dots {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wax-swipe-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  margin: 0 3px;
+  border-radius: 4px;
+  transition: all 300ms;
+}
+.wax-swipe-dot--active {
+  background: #fff;
+}
+/* vertical */
+.wax-swipe.is-vertical .wax-swipe-container {
+  flex-direction: column;
+}
+.wax-swipe-dots--vertical {
+  flex-direction: column;
+  right: 4px;
+  width: 18px;
+  height: 100%;
+}
+.wax-swipe-dots--vertical .wax-swipe-dot {
+  margin: 4px 0;
+}
+/* effect slide */
+.effect-scale .wax-swipe-item {
+  transform: scale3d(0.92, 0.8, 1);
+  transition: transform 300ms;
+}
+.effect-scale .swipe-item-active {
+  transform: scale3d(1, 1, 1);
+}
+
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!../../node_modules/postcss-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./src/docs/index.less ***!
+  \************************************************************************************************************************************************************************************************/
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f7f8fa;
+}
+code {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  background: #d7d3d3;
+  padding: 2px 4px;
+  color: #2c46db;
+  border-radius: 2px;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 14px;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #fff;
+  margin-top: 16px;
+}
+.block-panel {
+  position: relative;
+}
+.block-panel :not(pre) > code[class*="language-"],
+.block-panel pre[class*="language-"] {
+  background: #f6f8fa;
+}
+.block-panel .to-github-link {
+  position: absolute;
+  right: 24px;
+  top: 26px;
+  color: #607d8b;
+}
+.block-panel > h3 {
+  margin-top: 0px;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #6983b7;
+  background-color: transparent;
+}
+.code-container {
+  border-radius: 10px;
+  background-color: #fff;
+}
+.code-container code {
+  padding: 0;
+}
+
