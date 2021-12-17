@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+Loading 用于展示加载状态，包括加载动画和描述，它基于 spinner。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/loading/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 

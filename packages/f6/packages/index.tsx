@@ -60,6 +60,8 @@ export type { CheckboxProps, CheckboxGroupProps } from './checkbox';
 export { default as Field } from './field';
 export type { FieldProps } from './field';
 
+export { default as TextArea } from './textarea';
+
 export { default as PasswordInput } from './password-input';
 export type { PasswordInputProps } from './password-input'; 
 

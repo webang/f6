@@ -43,7 +43,7 @@ export default [
         content: require("../.build/docs/cell.md"),
       },
       {
-        title: "Spinner 转圈圈",
+        title: "Spinner 旋转",
         key: 'Spinner',
         content: require("../.build/docs/spinner.md"),
       },

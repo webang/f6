@@ -5,7 +5,7 @@ title: Field
 
 ### 介绍
 
-Field 的实现依赖 Cell。
+Field 基于 `html input` 包装了一层，用于自定义一些功能以及样式美化。
 
 ### FieldProps
 

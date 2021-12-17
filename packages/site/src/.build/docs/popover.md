@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+Popover 已轻微弹窗的方式，呈现在所触发元素的周围，弹窗内容可以是任意的，通常是提示文本或者菜单列表。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/popover/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 

@@ -1,6 +1,6 @@
 @header-height: 60px;
-@sidebar-width: 220px;
-@preview-width: 350px;
+@sidebar-width: 240px;
+@preview-width: 375px;
 
 .layout-header {
   position: fixed;
@@ -38,9 +38,9 @@
   background-color: #fff;
   box-shadow: 0 8px 12px #ebedf0;
   .menu-item {
-    line-height: 38px;
+    line-height: 40px;
     padding: 0 24px;
-    font-size: 14px;
+    font-size: 15px;
     a {
       color: #455a64;
       text-decoration: none;
@@ -66,7 +66,7 @@
   position: relative;
   flex: 1;
   margin-left: @sidebar-width;
-  margin-right: 370px;
+  margin-right: calc(@preview-width + 20px);
   padding-top: @header-height;
 }
 
@@ -79,12 +79,12 @@
   right: 20px;
   top: @header-height + 20px;
   overflow: auto;
-  width: @preview-width;
+  width: calc(@preview-width);
   height: calc(100vh - (@header-height + 20px + 20px));
   max-height: 667px;
   overflow: hidden;
   background: #fafafa;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid #fafafa;
   box-shadow: 0px 0px 12px #dae0e9;
   iframe {

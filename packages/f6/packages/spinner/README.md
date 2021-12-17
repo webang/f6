@@ -1,8 +1,11 @@
 ---
 category: Components
 title: Spinner
-subTitle: 组件
 ---
+
+### 介绍
+
+Spinner 用于表明应用正在加载内容，或者处理耗时的任务，需要用户等待。
 
 ### Props
 

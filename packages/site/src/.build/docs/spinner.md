@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+Spinner 用于表明应用正在加载内容，或者处理耗时的任务，需要用户等待。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/spinner/demo/basic.md>更新此演示代码</a>
         <h3>动画类型</h3>
 
