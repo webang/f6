@@ -22,9 +22,16 @@ pre[class*="language-"] {
 }
 
 .block-panel {
+  position: relative;
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
     background: #f6f8fa;
+  }
+  .to-github-link {
+    position: absolute;
+    right: 24px;
+    top: 26px;
+    color: #607d8b;
   }
 }
 

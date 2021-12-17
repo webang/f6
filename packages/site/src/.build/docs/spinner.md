@@ -1,5 +1,6 @@
 <div class="block-panel">
-<h3>动画类型</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/spinner/demo/basic.md>更新此演示代码</a>
+        <h3>动画类型</h3>
 
 ```jsx
 import { Spinner, Cell } from "f6";
@@ -27,7 +28,8 @@ export default App;
 </div>
 
 <div class="block-panel">
-<h3>自定义大小</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/spinner/demo/size.md>更新此演示代码</a>
+        <h3>自定义大小</h3>
 
 ```jsx
 import { Spinner, Cell } from "f6";

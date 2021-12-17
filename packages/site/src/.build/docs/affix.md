@@ -7,7 +7,8 @@ Affix 与 `position: sticky` 实现的效果一致，当组件在容器范围内
 
 </div>
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/affix/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import { Affix, Button } from "f6";
@@ -27,7 +28,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>设置容器</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/affix/demo/container.md>更新此演示代码</a>
+        <h3>设置容器</h3>
 
 ```jsx
 import React from "react";

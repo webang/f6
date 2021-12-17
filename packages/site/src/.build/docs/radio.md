@@ -1,5 +1,6 @@
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/radio/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import React from 'react';
@@ -21,7 +22,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>禁用状态</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/radio/demo/disabled.md>更新此演示代码</a>
+        <h3>禁用状态</h3>
 
 ```jsx
 import React from 'react';
@@ -43,7 +45,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>单选组</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/radio/demo/group.md>更新此演示代码</a>
+        <h3>单选组</h3>
 
 ```jsx
 import React from 'react';
@@ -64,7 +67,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>自定义图标</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/radio/demo/icon.md>更新此演示代码</a>
+        <h3>自定义图标</h3>
 
 ```jsx
 import React from 'react';

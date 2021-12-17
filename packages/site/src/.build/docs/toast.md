@@ -1,5 +1,6 @@
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/toast/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -43,7 +44,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>加载动画</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/toast/demo/spinner.md>更新此演示代码</a>
+        <h3>加载动画</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -79,7 +81,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>清除所有</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/toast/demo/clear.md>更新此演示代码</a>
+        <h3>清除所有</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -97,7 +100,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>持续时长</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/toast/demo/duration.md>更新此演示代码</a>
+        <h3>持续时长</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -135,7 +139,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>提示位置</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/toast/demo/position.md>更新此演示代码</a>
+        <h3>提示位置</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -168,7 +173,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>内容更新</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/toast/demo/content.md>更新此演示代码</a>
+        <h3>内容更新</h3>
 
 ```jsx
 import { Cell, Button, Toast } from "f6";

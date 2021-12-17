@@ -1,5 +1,6 @@
 <div class="block-panel">
-<h3>下拉菜单</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/alert.md>更新此演示代码</a>
+        <h3>下拉菜单</h3>
 
 ```jsx
 import React from "react";
@@ -27,7 +28,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>confirm</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/confirm.md>更新此演示代码</a>
+        <h3>confirm</h3>
 
 ```jsx
 import React from 'react';
@@ -56,7 +58,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>alert 函数调用</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/alfterFunction.md>更新此演示代码</a>
+        <h3>alert 函数调用</h3>
 
 ```jsx
 import React from 'react';
@@ -126,7 +129,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>confirm 函数调用</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/confirmFunction.md>更新此演示代码</a>
+        <h3>confirm 函数调用</h3>
 
 ```jsx
 import React from 'react';
@@ -207,7 +211,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>show 函数调用</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/showFunction.md>更新此演示代码</a>
+        <h3>show 函数调用</h3>
 
 ```jsx
 import React from "react";

@@ -1,5 +1,6 @@
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cascader/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import React from "react";
@@ -151,7 +152,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>设置默认值</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cascader/demo/value.md>更新此演示代码</a>
+        <h3>设置默认值</h3>
 
 ```jsx
 import React from "react";

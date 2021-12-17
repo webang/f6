@@ -56,10 +56,8 @@ const DocsBlock: React.FC<IDocsBlock> = ({ content }) => {
     <div
       ref={ref}
       className="docs-block"
-      dangerouslySetInnerHTML={{
-        __html: html,
-      }}
-    ></div>
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 };
 

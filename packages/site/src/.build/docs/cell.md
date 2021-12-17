@@ -7,7 +7,8 @@ Cell 常用于列表中的展示项。
 
 </div>
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -31,7 +32,8 @@ export default function() {
 </div>
 
 <div class="block-panel">
-<h3>底部边框</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/border.md>更新此演示代码</a>
+        <h3>底部边框</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -60,7 +62,8 @@ export default function() {
 </div>
 
 <div class="block-panel">
-<h3>展示图标</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/icon.md>更新此演示代码</a>
+        <h3>展示图标</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -87,7 +90,8 @@ export default function() {
 </div>
 
 <div class="block-panel">
-<h3>使用分组</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/group.md>更新此演示代码</a>
+        <h3>使用分组</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -116,7 +120,8 @@ export default function() {
 </div>
 
 <div class="block-panel">
-<h3>长副标题</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/label.md>更新此演示代码</a>
+        <h3>长副标题</h3>
 
 ```jsx
 import { Cell, Button } from "f6";

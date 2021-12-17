@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
+const packagesUrl = 'https://github.com/Webang/f6/tree/master/packages/f6/packages'
+
 module.exports = {
   parseDocument,
 };
@@ -18,7 +20,7 @@ if (!fs.existsSync(`../site/src/.build/docs`)) {
   fs.mkdirSync(`../site/src/.build/docs`);
 }
 
-parseDocument("../f6/packages/button", "button")
+// parseDocument("../f6/packages/button", "button")
 
 /**
  * modulePath = "../f6/packages/button", name = "button"
@@ -101,11 +103,14 @@ function generateMarkdown(modulePath, name) {
   const readMeMap = parseReadMeDoc(readMeMd);
 
   let usageList = "";
+  let linkText = "更新此演示代码"
 
   if (fs.existsSync(`${pagePath}/index.tsx`)) {
     const content = fs.readFileSync(`${pagePath}/index.tsx`, "utf-8");
     const code = `\`\`\`jsx\n${content}\`\`\``;
-    usageList = `<div class="block-panel"><h3>Demos</h3>\n\n${code}\n</div>`;
+    usageList = `<div class="block-panel">
+    <a class="to-github-link" target="_blank" href=${packagesUrl + '/' + name + '/page/index.tsx'}>${linkText}</a>
+    <h3>Demos</h3>\n\n${code}\n</div>`;
   } else {
     usageList = fs
       .readdirSync(demoPath)
@@ -114,7 +119,9 @@ function generateMarkdown(modulePath, name) {
       .sort((a, b) => a.order - b.order)
       .map((it) => {
         const code = `\`\`\`jsx\n${it.code}\`\`\``;
-        return `<div class="block-panel">\n<h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`;
+        return `<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=${packagesUrl + '/' + name + '/demo/' + it.fileName}>${linkText}</a>
+        <h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`;
       })
       .join("\n\n");
   }
@@ -141,9 +148,12 @@ export default () => {
  * @returns
  */
 function parseDemoDoc(filePath) {
+  console.log(filePath)
   try {
     const s = fs.readFileSync(filePath, "utf8");
-    const map = {};
+    const map = {
+      fileName: path.basename(filePath)
+    };
 
     // metaData
     const metaReg = new RegExp(`---${os.EOL}([\\s\\S]*?)---`);

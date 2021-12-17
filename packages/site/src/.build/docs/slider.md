@@ -1,5 +1,6 @@
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/slider/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import { Slider, Toast } from 'f6';
@@ -18,7 +19,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>使用插槽</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/slider/demo/slot.md>更新此演示代码</a>
+        <h3>使用插槽</h3>
 
 ```jsx
 import { Slider, Toast } from 'f6';

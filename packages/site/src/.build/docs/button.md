@@ -7,7 +7,8 @@ Button 用于点击触发一个操作，常用于增删改查等操作。
 
 </div>
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -27,7 +28,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>禁用状态</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/disabled.md>更新此演示代码</a>
+        <h3>禁用状态</h3>
 
 ```jsx
 import { Button } from 'f6';
@@ -39,7 +41,8 @@ export default function App () {
 </div>
 
 <div class="block-panel">
-<h3>填充模式</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/fill.md>更新此演示代码</a>
+        <h3>填充模式</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -73,7 +76,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>加载按钮</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/loading.md>更新此演示代码</a>
+        <h3>加载按钮</h3>
 
 ```jsx
 import { Button } from 'f6';
@@ -85,7 +89,8 @@ export default function App() {
 </div>
 
 <div class="block-panel">
-<h3>块级按钮</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/block.md>更新此演示代码</a>
+        <h3>块级按钮</h3>
 
 块级按钮：占据占据父元素的所有宽度。
 
@@ -99,7 +104,8 @@ export default function App () {
 </div>
 
 <div class="block-panel">
-<h3>按钮大小</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/size.md>更新此演示代码</a>
+        <h3>按钮大小</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -119,7 +125,8 @@ export default App;
 </div>
 
 <div class="block-panel">
-<h3>按钮形状</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/button/demo/shape.md>更新此演示代码</a>
+        <h3>按钮形状</h3>
 
 ```jsx
 import { Button, Space } from 'f6';

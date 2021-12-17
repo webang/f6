@@ -7,7 +7,8 @@ Field 的实现依赖 Cell。
 
 </div>
 <div class="block-panel">
-<h3>基本用法</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/basic.md>更新此演示代码</a>
+        <h3>基本用法</h3>
 
 ```jsx
 import { useState } from 'react';
@@ -29,7 +30,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>禁止输入</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/disabled.md>更新此演示代码</a>
+        <h3>禁止输入</h3>
 
 ```jsx
 import { useState } from 'react';
@@ -49,7 +51,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>只读状态</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/readOnly.md>更新此演示代码</a>
+        <h3>只读状态</h3>
 
 ```jsx
 import { useState } from 'react';
@@ -69,7 +72,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>输入校验</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/rules.md>更新此演示代码</a>
+        <h3>输入校验</h3>
 
 ```jsx
 import { Field, Toast } from "f6";
@@ -92,7 +96,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>校验时机</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/validateWhen.md>更新此演示代码</a>
+        <h3>校验时机</h3>
 
 ```jsx
 import { Field, Toast } from "f6";
@@ -115,7 +120,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>响应事件</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/event.md>更新此演示代码</a>
+        <h3>响应事件</h3>
 
 ```jsx
 import { Field, Toast } from "f6";
@@ -142,7 +148,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>输入密码</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/password.md>更新此演示代码</a>
+        <h3>输入密码</h3>
 
 ```jsx
 import { useState } from 'react';
@@ -159,7 +166,8 @@ export default function () {
 </div>
 
 <div class="block-panel">
-<h3>上下布局</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/titlePosition.md>更新此演示代码</a>
+        <h3>上下布局</h3>
 
 ```jsx
 import { useState } from 'react';
