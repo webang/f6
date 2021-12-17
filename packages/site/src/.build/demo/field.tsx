@@ -5,7 +5,6 @@ import App3 from './field/password';
 import App4 from './field/readOnly';
 import App5 from './field/rules';
 import App6 from './field/titlePosition';
-import App7 from './field/validateWhen';
 import Demo from '../../components/demo-block';
 export default () => {
   const title = 'field';
@@ -16,23 +15,20 @@ export default () => {
         title: '禁止输入',
         element: App1
       },{
-        title: '只读状态',
+        title: '响应事件',
         element: App2
       },{
-        title: '输入校验',
+        title: '只读状态',
         element: App3
       },{
-        title: '校验时机',
+        title: '输入校验',
         element: App4
       },{
-        title: '响应事件',
+        title: '输入密码',
         element: App5
       },{
-        title: '输入密码',
-        element: App6
-      },{
         title: '上下布局',
-        element: App7
+        element: App6
       },];
   return <Demo list={list} title={title}/>;
 }

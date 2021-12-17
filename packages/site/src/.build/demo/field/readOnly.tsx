@@ -1,4 +1,4 @@
-import { Field, Toast } from "f6";
+import { Cell, Field, Toast } from "f6";
 
 export default function () {
   const rules = [
@@ -9,8 +9,17 @@ export default function () {
   ];
   return (
     <>
-      <Field title="账户" validateOnChange={false} placeholder="blur时检验" rules={rules} />
-      <Field title="账户" placeholder="请输入密码" placeholder="blur & change 都检验" rules={rules} />
+      <Cell title="账户">
+        <Field placeholder="请输入账户" rules={rules} />
+      </Cell>
+      <Cell title="账户">
+        <Field
+          validateOnBlur={true}
+          validateOnChange={false}
+          placeholder="blur时检验"
+          rules={rules}
+        />
+      </Cell>
     </>
   );
 }

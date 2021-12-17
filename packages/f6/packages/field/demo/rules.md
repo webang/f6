@@ -4,7 +4,7 @@ title: 输入校验
 ---
 
 ```jsx
-import { Field, Toast } from "f6";
+import { Cell, Field, Toast } from "f6";
 
 export default function () {
   const rules = [
@@ -15,8 +15,17 @@ export default function () {
   ];
   return (
     <>
-      <Field title="账户" placeholder="请输入账户" rules={rules} />
-      <Field title="密码" placeholder="请输入密码" />
+      <Cell title="账户">
+        <Field placeholder="请输入账户" rules={rules} />
+      </Cell>
+      <Cell title="账户">
+        <Field
+          validateOnBlur={true}
+          validateOnChange={false}
+          placeholder="blur时检验"
+          rules={rules}
+        />
+      </Cell>
     </>
   );
 }

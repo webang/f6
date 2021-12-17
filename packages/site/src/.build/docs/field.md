@@ -2,7 +2,7 @@
 
 <h3>介绍</h3>
 
-Field 基于 `html input` 包装了一层，用于自定义一些功能以及样式美化。
+`Field` 基于 `HTMLInputElement` 封装了一层，用于自定义一些功能以及样式美化，它常常和 `Cell` 组件搭配使用。
 
 
 </div>
@@ -11,18 +11,27 @@ Field 基于 `html input` 包装了一层，用于自定义一些功能以及样
         <h3>基本用法</h3>
 
 ```jsx
-import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
+import { useState } from "react";
+import { Field, Cell, Toast, Button } from "f6";
 
 export default function () {
-  const [value, setValue] = useState('')
-
+  const [value, setValue] = useState("");
   return (
     <>
-      <Field placeholder="请输入账户-受控" value={value} onChange={(v) => setValue(v)} />
-      <Field title="账户" placeholder="请输入账户" />
-      <div style={{ height: 10 }}></div>
-      <Button block onClick={() => setValue(v => v + 1)}>++</Button>
+      <Cell title="账户">
+        <Field
+          placeholder="请输入账户"
+          value={value}
+          onChange={(v) => setValue(v)}
+        />
+      </Cell>
+      <Cell title="账户">
+        <Field title="账户" placeholder="请输入账户" />
+      </Cell>
+      <div style={{ height: 8 }}></div>
+      <Button block onClick={() => setValue((v) => v + 1)}>
+        ++
+      </Button>
     </>
   );
 }
@@ -34,85 +43,19 @@ export default function () {
         <h3>禁止输入</h3>
 
 ```jsx
-import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
+import { useState } from "react";
+import { Cell, Field, Toast, Button } from "f6";
 
 export default function () {
-  const [value, setValue] = useState('hello world')
-
+  const [value, setValue] = useState("hello world");
   return (
     <>
-      <Field title="账户" disabled placeholder="请输入账户" />
-      <Field title="账户" value={value} disabled placeholder="请输入账户" />
-    </>
-  );
-}
-```
-</div>
-
-<div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/readOnly.md>更新此演示代码</a>
-        <h3>只读状态</h3>
-
-```jsx
-import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
-
-export default function () {
-  const [value, setValue] = useState('hello world')
-
-  return (
-    <>
-      <Field title="账户" readOnly placeholder="请输入账户" />
-      <Field title="账户" value={value} readOnly placeholder="请输入账户" />
-    </>
-  );
-}
-```
-</div>
-
-<div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/rules.md>更新此演示代码</a>
-        <h3>输入校验</h3>
-
-```jsx
-import { Field, Toast } from "f6";
-
-export default function () {
-  const rules = [
-    {
-      test: (val: string) => val.length < 3,
-      message: "长度不能小于3",
-    },
-  ];
-  return (
-    <>
-      <Field title="账户" placeholder="请输入账户" rules={rules} />
-      <Field title="密码" placeholder="请输入密码" />
-    </>
-  );
-}
-```
-</div>
-
-<div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/validateWhen.md>更新此演示代码</a>
-        <h3>校验时机</h3>
-
-```jsx
-import { Field, Toast } from "f6";
-
-export default function () {
-  const rules = [
-    {
-      test: (val: string) => val.length < 3,
-      message: "长度不能小于3",
-    },
-  ];
-  return (
-    <>
-      <Field title="账户" validateOnChange={false} placeholder="blur时检验" rules={rules} />
-      <Field title="账户" placeholder="请输入密码" placeholder="blur & change 都检验" rules={rules} />
+      <Cell title="账户">
+        <Field title="账户" disabled placeholder="请输入账户" />
+      </Cell>
+      <Cell title="账户">
+        <Field title="账户" value={value} disabled placeholder="请输入账户" />
+      </Cell>
     </>
   );
 }
@@ -124,13 +67,13 @@ export default function () {
         <h3>响应事件</h3>
 
 ```jsx
-import { Field, Toast } from "f6";
+import { Cell, Field, Toast } from "f6";
 
 export default function () {
   return (
-    <>
+    <Cell title="相应事件">
       <Field
-        placeholder="focus-blur-change"
+        placeholder="focus change blur"
         onChange={() => {
           Toast.show({ message: "change", duration: 2000 });
         }}
@@ -141,6 +84,64 @@ export default function () {
           Toast.show({ message: "blur", duration: 2000 });
         }}
       />
+    </Cell>
+  );
+}
+```
+</div>
+
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/readOnly.md>更新此演示代码</a>
+        <h3>只读状态</h3>
+
+```jsx
+import { useState } from "react";
+import { Cell, Field } from "f6";
+
+export default function () {
+  const [value, setValue] = useState("hello world");
+
+  return (
+    <>
+      <Cell title="账户">
+        <Field readOnly placeholder="请输入账户" />
+      </Cell>
+      <Cell title="账户">
+        <Field title="账户" value={value} readOnly placeholder="请输入账户" />
+      </Cell>
+    </>
+  );
+}
+```
+</div>
+
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/field/demo/rules.md>更新此演示代码</a>
+        <h3>输入校验</h3>
+
+```jsx
+import { Cell, Field, Toast } from "f6";
+
+export default function () {
+  const rules = [
+    {
+      test: (val: string) => val.length < 3,
+      message: "长度不能小于3",
+    },
+  ];
+  return (
+    <>
+      <Cell title="账户">
+        <Field placeholder="请输入账户" rules={rules} />
+      </Cell>
+      <Cell title="账户">
+        <Field
+          validateOnBlur={true}
+          validateOnChange={false}
+          placeholder="blur时检验"
+          rules={rules}
+        />
+      </Cell>
     </>
   );
 }
@@ -153,13 +154,15 @@ export default function () {
 
 ```jsx
 import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
+import { Cell, Field, Toast, Button } from "f6";
 
 export default function () {
   const [value, setValue] = useState('')
 
   return (
-    <Field title="密码" type="password" placeholder="请输入密码" />
+    <Cell title="密码">
+      <Field type="password" placeholder="请输入密码" />
+    </Cell>
   );
 }
 ```
@@ -170,16 +173,24 @@ export default function () {
         <h3>上下布局</h3>
 
 ```jsx
-import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
+import { useState } from "react";
+import { Cell, Field, Toast, Button } from "f6";
 
 export default function () {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
   return (
     <>
-      <Field titlePosition="top" title="密码" placeholder="请输入账户" value={value} onChange={(v) => setValue(v)} />
-      <Field titlePosition="top" title="账户" placeholder="请输入账户" />
+      <Cell titleAlign="top" title="密码">
+        <Field
+          placeholder="请输入账户"
+          value={value}
+          onChange={(v) => setValue(v)}
+        />
+      </Cell>
+      <Cell titleAlign="top" title="密码">
+        <Field placeholder="请输入账户" />
+      </Cell>
     </>
   );
 }
@@ -191,8 +202,6 @@ export default function () {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| title | 标题 | `ReactNode` | - |
-| titlePosition | 标题位置 | `FieldTitlePosition` | - |
 | type | 输入框类型 | `string \| number \| textarea` | `text` |
 | value | 当前值 | string | - |
 | defaultValue | 默认值 | string | `''` |
@@ -209,11 +218,8 @@ export default function () {
 | onFocus | 聚焦事件 | `() => void` | - |
 | onBlur | 失焦事件 | `() => void` | - |
 
-
 ```tsx
 export interface FieldProps {
-  title?: ReactNode;
-  titlePosition: FieldTitlePosition;
   type?: FieldType;
   value?: string;
   defaultValue?: string;
@@ -235,7 +241,7 @@ export type FieldType = "text" | "number" | "password";
 export type FieldTitlePosition = 'top' | 'left';
 export interface FieldRule {
   test: (val: string) => boolean;   // 校验规则
-  message: ReactNode;               // 当 test 返回 true，用于展示的错误提示信息
+  message: string;                  // 当 test 返回 true，用于展示的错误提示信息
 }
 ```
 </div>

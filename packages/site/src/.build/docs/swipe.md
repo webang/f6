@@ -1,4 +1,6 @@
-<div class="block-panel"><h3>Demos</h3>
+<div class="block-panel">
+    <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/swipe/page/index.tsx>更新此演示代码</a>
+    <h3>Demos</h3>
 
 ```jsx
 import { Swipe } from "f6";
@@ -31,9 +33,9 @@ const Page = () => {
 export default Page;
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

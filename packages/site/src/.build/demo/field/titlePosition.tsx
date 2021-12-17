@@ -1,10 +1,21 @@
-import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
+import { useState } from "react";
+import { Cell, Field, Toast, Button } from "f6";
 
 export default function () {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
   return (
-    <Field title="密码" type="password" placeholder="请输入密码" />
+    <>
+      <Cell titleAlign="top" title="密码">
+        <Field
+          placeholder="请输入账户"
+          value={value}
+          onChange={(v) => setValue(v)}
+        />
+      </Cell>
+      <Cell titleAlign="top" title="密码">
+        <Field placeholder="请输入账户" />
+      </Cell>
+    </>
   );
 }

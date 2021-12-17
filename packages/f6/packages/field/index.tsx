@@ -8,13 +8,12 @@ import {
   ChangeEventHandler,
 } from "react";
 import Icon from "f6-icons";
-import Cell from "../cell";
 import { usePropsValue } from "../utils/useValue";
 import "./index.less";
 import classNames from "classnames";
 
 export type FieldType = "text" | "number" | "password";
-export type FieldTitlePosition = 'top' | 'left';
+export type FieldTitlePosition = "top" | "left";
 
 export interface FieldRule {
   test: (val: string) => boolean;
@@ -22,8 +21,6 @@ export interface FieldRule {
 }
 
 export interface FieldProps {
-  title?: ReactNode;
-  titlePosition: FieldTitlePosition;
   type?: FieldType;
   value?: string;
   defaultValue?: string;
@@ -45,10 +42,8 @@ const [prefix] = defineName("field");
 
 const Field: FC<FieldProps> = (props) => {
   const {
-    title,
     type = "text",
     placeholder,
-    titlePosition = "left",
     clearable = true,
     rules = [],
     immediateCheck,
@@ -124,7 +119,13 @@ const Field: FC<FieldProps> = (props) => {
   };
 
   const renderInput = () => (
-    <>
+    <div
+      className={classNames({
+        [prefix]: true,
+        [`${prefix}--disabled`]: restProps.disabled,
+        [`${prefix}--readonly`]: restProps.readOnly,
+      })}
+    >
       <div className={`${prefix}__body`}>
         <input
           {...restProps}
@@ -140,17 +141,10 @@ const Field: FC<FieldProps> = (props) => {
         {renderIcon()}
       </div>
       {error && <div className={`${prefix}__error`}>{error}</div>}
-    </>
+    </div>
   );
 
-  return (
-    <Cell
-      className={classNames([prefix, `${prefix}--title-${titlePosition}`])}
-      titleClass={`${prefix}__title`}
-      title={title}
-      value={renderInput()}
-    />
-  );
+  return renderInput();
 };
 
 export default Field;

@@ -6,6 +6,7 @@ import "./index.less";
 export interface CellProps {
   className?: string;
   title: ReactNode;
+  titleAlign: "left" | "top";
   titleClass?: string;
   label?: ReactNode;
   value?: ReactNode;
@@ -29,10 +30,13 @@ const Cell: React.FC<CellProps> = ({
   icon,
   border = true,
   bodyStyle = {},
+  children,
+  titleAlign = "left",
 }) => {
   const mCls = classNames([className], {
     [prefix]: true,
     [`hairline-bottom`]: border,
+    [`${prefix}--title-${titleAlign}`]: true,
   });
 
   const handleClick: React.MouseEventHandler<Element> = (event) => {
@@ -44,13 +48,15 @@ const Cell: React.FC<CellProps> = ({
     return <div className={`${prefix}__icon`}>{icon}</div>;
   };
 
-  const renderTitle = () => {
-    if (!title && !icon) return null;
-    const cls = classNames([titleClass, `${prefix}__title`])
+  const renderMain = () => {
+    const cls = classNames([titleClass, `${prefix}__main`]);
     return (
       <div className={cls}>
-        {renderIcon()}
-        <span>{title}</span>
+        <div className={`${prefix}__title`}>
+          {renderIcon()}
+          <span>{title}</span>
+        </div>
+        <div className={`${prefix}__content`}>{children}</div>
       </div>
     );
   };
@@ -58,7 +64,7 @@ const Cell: React.FC<CellProps> = ({
   return (
     <div className={mCls} onClick={handleClick}>
       <div className={`${prefix}__head`}>
-        {renderTitle()}
+        {renderMain()}
         <div className={prefix + "__value"}>{value}</div>
         {link && (
           <img

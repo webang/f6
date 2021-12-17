@@ -1,16 +1,16 @@
 ---
-order: 2
+order: 1
 title: 响应事件
 ---
 
 ```jsx
-import { Field, Toast } from "f6";
+import { Cell, Field, Toast } from "f6";
 
 export default function () {
   return (
-    <>
+    <Cell title="相应事件">
       <Field
-        placeholder="focus-blur-change"
+        placeholder="focus change blur"
         onChange={() => {
           Toast.show({ message: "change", duration: 2000 });
         }}
@@ -21,7 +21,7 @@ export default function () {
           Toast.show({ message: "blur", duration: 2000 });
         }}
       />
-    </>
+    </Cell>
   );
 }
 ```

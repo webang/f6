@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import { Field, Toast, Button } from "f6";
+import { Cell, Field, Toast } from "f6";
 
 export default function () {
-  const [value, setValue] = useState('hello world')
-
   return (
-    <>
-      <Field title="账户" readOnly placeholder="请输入账户" />
-      <Field title="账户" value={value} readOnly placeholder="请输入账户" />
-    </>
+    <Cell title="相应事件">
+      <Field
+        placeholder="focus change blur"
+        onChange={() => {
+          Toast.show({ message: "change", duration: 2000 });
+        }}
+        onFocus={() => {
+          Toast.show({ message: "focus", duration: 2000 });
+        }}
+        onBlur={() => {
+          Toast.show({ message: "blur", duration: 2000 });
+        }}
+      />
+    </Cell>
   );
 }

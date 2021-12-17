@@ -5,14 +5,12 @@ title: Field
 
 ### 介绍
 
-Field 基于 `html input` 包装了一层，用于自定义一些功能以及样式美化。
+`Field` 基于 `HTMLInputElement` 封装了一层，用于自定义一些功能以及样式美化，它常常和 `Cell` 组件搭配使用。
 
 ### FieldProps
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| title | 标题 | `ReactNode` | - |
-| titlePosition | 标题位置 | `FieldTitlePosition` | - |
 | type | 输入框类型 | `string \| number \| textarea` | `text` |
 | value | 当前值 | string | - |
 | defaultValue | 默认值 | string | `''` |
@@ -29,11 +27,8 @@ Field 基于 `html input` 包装了一层，用于自定义一些功能以及样
 | onFocus | 聚焦事件 | `() => void` | - |
 | onBlur | 失焦事件 | `() => void` | - |
 
-
 ```tsx
 export interface FieldProps {
-  title?: ReactNode;
-  titlePosition: FieldTitlePosition;
   type?: FieldType;
   value?: string;
   defaultValue?: string;
@@ -55,6 +50,6 @@ export type FieldType = "text" | "number" | "password";
 export type FieldTitlePosition = 'top' | 'left';
 export interface FieldRule {
   test: (val: string) => boolean;   // 校验规则
-  message: ReactNode;               // 当 test 返回 true，用于展示的错误提示信息
+  message: string;                  // 当 test 返回 true，用于展示的错误提示信息
 }
 ```
