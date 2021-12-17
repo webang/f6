@@ -1,4 +1,13 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+
+<h3>介绍</h3>
+
+Affix 与 `position: sticky` 实现的效果一致，当组件在容器范围内时，会按照正常的布局排列，当组件滚出容器范围时，始终会固定在容器的指定位置。
+
+
+</div>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Affix, Button } from "f6";
@@ -17,7 +26,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>设置容器</h3>
+<div class="block-panel">
+<h3>设置容器</h3>
 
 ```jsx
 import React from "react";
@@ -47,9 +57,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

@@ -1,8 +1,11 @@
 ---
 category: 基本组件
 title: Cell
-subTitle: 单元格
 ---
+
+### 介绍
+
+Cell 常用于列表中的展示项。
 
 ### Props
 

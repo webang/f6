@@ -1,7 +1,6 @@
 ---
 category: 表单组件
 title: Cascader
-subTitle: 联动选择
 ---
 
 ### Props

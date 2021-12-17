@@ -1,8 +1,11 @@
 ---
 category: 布局组件
 title: Affix
-subTitle: 固钉
 ---
+
+### 介绍
+
+Affix 与 `position: sticky` 实现的效果一致，当组件在容器范围内时，会按照正常的布局排列，当组件滚出容器范围时，始终会固定在容器的指定位置。
 
 ### Props
 

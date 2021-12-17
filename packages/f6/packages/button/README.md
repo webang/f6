@@ -1,8 +1,11 @@
 ---
 category: 基础组件
 title: Button
-subTitle: 按钮
 ---
+
+### 介绍
+
+Button 用于点击触发一个操作，常用于增删改查等操作。
 
 ### Props
 

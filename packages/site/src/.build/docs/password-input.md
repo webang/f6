@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { PasswordInput, Toast } from "f6";
@@ -16,9 +17,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

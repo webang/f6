@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Grid } from 'f6';
@@ -15,7 +16,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>边框配置</h3>
+<div class="block-panel">
+<h3>边框配置</h3>
 
 ```jsx
 import { Grid } from 'f6';
@@ -40,7 +42,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>列数配置</h3>
+<div class="block-panel">
+<h3>列数配置</h3>
 
 ```jsx
 import { Grid } from 'f6';
@@ -65,9 +68,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> GridProps</h3>
+
+<h3>GridProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -77,7 +80,8 @@ export default function App() {
 
 </div>
 <div class="block-panel">
-<h3> GridItemProps</h3>
+
+<h3>GridItemProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

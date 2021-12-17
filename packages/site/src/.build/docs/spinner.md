@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>动画类型</h3>
+<div class="block-panel">
+<h3>动画类型</h3>
 
 ```jsx
 import { Spinner, Cell } from "f6";
@@ -25,7 +26,8 @@ export default App;
 ```
 </div>
 
-<div class="block-panel"><h3>自定义大小</h3>
+<div class="block-panel">
+<h3>自定义大小</h3>
 
 ```jsx
 import { Spinner, Cell } from "f6";
@@ -51,9 +53,9 @@ function App() {
 export default App;
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

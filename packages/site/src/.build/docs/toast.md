@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -41,7 +42,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>加载动画</h3>
+<div class="block-panel">
+<h3>加载动画</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -76,7 +78,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>清除所有</h3>
+<div class="block-panel">
+<h3>清除所有</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -93,7 +96,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>持续时长</h3>
+<div class="block-panel">
+<h3>持续时长</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -130,7 +134,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>提示位置</h3>
+<div class="block-panel">
+<h3>提示位置</h3>
 
 ```jsx
 import { Cell, Button, Toast } from 'f6';
@@ -162,7 +167,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>内容更新</h3>
+<div class="block-panel">
+<h3>内容更新</h3>
 
 ```jsx
 import { Cell, Button, Toast } from "f6";
@@ -189,16 +195,17 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 thi is Props content
 
 
 </div>
 <div class="block-panel">
-<h3> API</h3>
+
+<h3>API</h3>
 
 this is API content
 </div>

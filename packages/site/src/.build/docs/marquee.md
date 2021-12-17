@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Marquee, Toast, Button } from "f6";
@@ -28,16 +29,17 @@ export default function () {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 thi is Props content
 
 
 </div>
 <div class="block-panel">
-<h3> API</h3>
+
+<h3>API</h3>
 
 this is API content
 </div>

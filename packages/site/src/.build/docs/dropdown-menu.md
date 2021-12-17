@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>普通用法</h3>
+<div class="block-panel">
+<h3>普通用法</h3>
 
 ```jsx
 import React from "react";
@@ -55,9 +56,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> DropdownMenuProps</h3>
+
+<h3>DropdownMenuProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -75,7 +76,8 @@ export interface DropdownMenuProps {
 
 </div>
 <div class="block-panel">
-<h3> DropdownMenuItemProps</h3>
+
+<h3>DropdownMenuItemProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import React from "react";
@@ -27,7 +28,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>禁用状态</h3>
+<div class="block-panel">
+<h3>禁用状态</h3>
 
 ```jsx
 import React from "react";
@@ -56,7 +58,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>复选框组</h3>
+<div class="block-panel">
+<h3>复选框组</h3>
 
 ```jsx
 import React from "react";
@@ -78,7 +81,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>自定义图标</h3>
+<div class="block-panel">
+<h3>自定义图标</h3>
 
 ```jsx
 import React from "react";
@@ -110,9 +114,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -137,7 +141,8 @@ export interface CheckboxProps {
 
 </div>
 <div class="block-panel">
-<h3> CheckboxGroupProps</h3>
+
+<h3>CheckboxGroupProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

@@ -1,4 +1,13 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+
+<h3>介绍</h3>
+
+Cell 常用于列表中的展示项。
+
+
+</div>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -21,7 +30,8 @@ export default function() {
 ```
 </div>
 
-<div class="block-panel"><h3>底部边框</h3>
+<div class="block-panel">
+<h3>底部边框</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -49,7 +59,8 @@ export default function() {
 ```
 </div>
 
-<div class="block-panel"><h3>展示图标</h3>
+<div class="block-panel">
+<h3>展示图标</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -75,7 +86,8 @@ export default function() {
 ```
 </div>
 
-<div class="block-panel"><h3>使用分组</h3>
+<div class="block-panel">
+<h3>使用分组</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -103,7 +115,8 @@ export default function() {
 ```
 </div>
 
-<div class="block-panel"><h3>长副标题</h3>
+<div class="block-panel">
+<h3>长副标题</h3>
 
 ```jsx
 import { Cell, Button } from "f6";
@@ -129,9 +142,9 @@ export default function() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

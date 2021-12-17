@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>下拉菜单</h3>
+<div class="block-panel">
+<h3>下拉菜单</h3>
 
 ```jsx
 import React from "react";
@@ -25,7 +26,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>confirm</h3>
+<div class="block-panel">
+<h3>confirm</h3>
 
 ```jsx
 import React from 'react';
@@ -53,7 +55,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>alert 函数调用</h3>
+<div class="block-panel">
+<h3>alert 函数调用</h3>
 
 ```jsx
 import React from 'react';
@@ -122,7 +125,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>confirm 函数调用</h3>
+<div class="block-panel">
+<h3>confirm 函数调用</h3>
 
 ```jsx
 import React from 'react';
@@ -202,7 +206,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>show 函数调用</h3>
+<div class="block-panel">
+<h3>show 函数调用</h3>
 
 ```jsx
 import React from "react";
@@ -243,9 +248,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> DialogProps</h3>
+
+<h3>DialogProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

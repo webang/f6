@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Slider, Toast } from 'f6';
@@ -16,7 +17,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>使用插槽</h3>
+<div class="block-panel">
+<h3>使用插槽</h3>
 
 ```jsx
 import { Slider, Toast } from 'f6';

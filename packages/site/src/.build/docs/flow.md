@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { useState } from 'react';
@@ -22,7 +23,8 @@ export default function () {
 ```
 </div>
 
-<div class="block-panel"><h3>排列方向</h3>
+<div class="block-panel">
+<h3>排列方向</h3>
 
 ```jsx
 import { Cell, Flow, Field, Toast, Button } from "f6";
@@ -53,9 +55,9 @@ export default function () {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> FieldProps</h3>
+
+<h3>FieldProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

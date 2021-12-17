@@ -1,4 +1,13 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+
+<h3>介绍</h3>
+
+Button 用于点击触发一个操作，常用于增删改查等操作。
+
+
+</div>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -17,7 +26,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>禁用状态</h3>
+<div class="block-panel">
+<h3>禁用状态</h3>
 
 ```jsx
 import { Button } from 'f6';
@@ -28,7 +38,8 @@ export default function App () {
 ```
 </div>
 
-<div class="block-panel"><h3>填充模式</h3>
+<div class="block-panel">
+<h3>填充模式</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -61,7 +72,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>加载按钮</h3>
+<div class="block-panel">
+<h3>加载按钮</h3>
 
 ```jsx
 import { Button } from 'f6';
@@ -72,7 +84,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>块级按钮</h3>
+<div class="block-panel">
+<h3>块级按钮</h3>
 
 块级按钮：占据占据父元素的所有宽度。
 
@@ -85,7 +98,8 @@ export default function App () {
 ```
 </div>
 
-<div class="block-panel"><h3>按钮大小</h3>
+<div class="block-panel">
+<h3>按钮大小</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -104,7 +118,8 @@ export default App;
 ```
 </div>
 
-<div class="block-panel"><h3>按钮形状</h3>
+<div class="block-panel">
+<h3>按钮形状</h3>
 
 ```jsx
 import { Button, Space } from 'f6';
@@ -120,9 +135,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

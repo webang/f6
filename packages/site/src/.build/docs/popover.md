@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Button, Popover, Cell } from "f6";
@@ -50,7 +51,8 @@ export default App;
 ```
 </div>
 
-<div class="block-panel"><h3>顶部对其</h3>
+<div class="block-panel">
+<h3>顶部对其</h3>
 
 ```jsx
 import { Button, Popover, Cell } from "f6";
@@ -102,7 +104,8 @@ export default App;
 ```
 </div>
 
-<div class="block-panel"><h3>左侧对其</h3>
+<div class="block-panel">
+<h3>左侧对其</h3>
 
 ```jsx
 import { Button, Popover, Cell } from "f6";
@@ -154,7 +157,8 @@ export default App;
 ```
 </div>
 
-<div class="block-panel"><h3>右侧对其</h3>
+<div class="block-panel">
+<h3>右侧对其</h3>
 
 ```jsx
 import { Button, Popover, Cell } from "f6";
@@ -205,16 +209,17 @@ function App() {
 export default App;
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 thi is Props content
 
 
 </div>
 <div class="block-panel">
-<h3> API</h3>
+
+<h3>API</h3>
 
 this is API content
 </div>

@@ -18,6 +18,8 @@ if (!fs.existsSync(`../site/src/.build/docs`)) {
   fs.mkdirSync(`../site/src/.build/docs`);
 }
 
+parseDocument("../f6/packages/button", "button")
+
 /**
  * modulePath = "../f6/packages/button", name = "button"
  */
@@ -112,14 +114,14 @@ function generateMarkdown(modulePath, name) {
       .sort((a, b) => a.order - b.order)
       .map((it) => {
         const code = `\`\`\`jsx\n${it.code}\`\`\``;
-        return `<div class="block-panel"><h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`;
+        return `<div class="block-panel">\n<h3>${it.title}</h3>\n${it.description}\n${code}\n</div>`;
       })
       .join("\n\n");
   }
 
   fs.writeFileSync(
     `../site/src/.build/docs/${name}.md`,
-    usageList + "\n" + readMeMap.body
+    (readMeMap.introduce || '') + usageList + "\n" + readMeMap.body
   );
 }
 
@@ -191,21 +193,36 @@ function parseReadMeDoc(filePath) {
   }
 
   if (mList.length) {
-    let prefix = map.body.substring(0, mList[0].index);
+    // 有标题的部分
     let m = mList
       .map((cur, index) => {
         let next = mList[index + 1];
-        return (
-          `<h3>${cur[1]}</h3>\n` +
-          map.body.substring(
+        return {
+          title: cur[1].trim(),
+          content: map.body.substring(
             cur.index + cur[0].length,
             index === mList.length - 1 ? map.body.length : next.index
           )
-        );
+        }
       })
+
+    // 开头没有标题的部分
+    const prefix = map.body.substring(0, mList[0].index);
+    const others = m.filter(it => it.title !== '介绍');
+    const introduce = m.find(it => it.title === '介绍');
+
+    const format = (it => {
+      return (`\n<h3>${it.title}</h3>\n${it.content || ''}`)
+    })
+
+    map.body = others
+      .map(it => format(it))
       .map((it) => `<div class="block-panel">\n${it}\n</div>`)
       .join("\n");
-    map.body = prefix + m;
+
+    if (introduce) {
+      map.introduce = `<div class="block-panel">\n${format(introduce)}\n</div>\n`
+    }
   }
 
   return map;

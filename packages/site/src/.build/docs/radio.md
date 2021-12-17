@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import React from 'react';
@@ -19,7 +20,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>禁用状态</h3>
+<div class="block-panel">
+<h3>禁用状态</h3>
 
 ```jsx
 import React from 'react';
@@ -40,7 +42,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>单选组</h3>
+<div class="block-panel">
+<h3>单选组</h3>
 
 ```jsx
 import React from 'react';
@@ -60,7 +63,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>自定义图标</h3>
+<div class="block-panel">
+<h3>自定义图标</h3>
 
 ```jsx
 import React from 'react';
@@ -87,9 +91,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

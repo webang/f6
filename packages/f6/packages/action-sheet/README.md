@@ -1,8 +1,11 @@
 ---
 category: 操作反馈
 title: ActionSheet
-subTitle: 动作面板
 ---
+
+### 介绍
+
+ActionSheet 用于从底部弹起一个可操作清单。
 
 ### Props
 

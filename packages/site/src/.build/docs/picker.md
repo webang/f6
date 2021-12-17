@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Picker, Toast } from 'f6';
@@ -22,7 +23,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>相关方法</h3>
+<div class="block-panel">
+<h3>相关方法</h3>
 
 ```jsx
 import { Picker, Toast } from 'f6';
@@ -63,7 +65,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>联动效果</h3>
+<div class="block-panel">
+<h3>联动效果</h3>
 
 ```jsx
 import { Picker, Toast } from 'f6';
@@ -102,9 +105,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -123,7 +126,8 @@ interface IOnChange {
 
 </div>
 <div class="block-panel">
-<h3> API</h3>
+
+<h3>API</h3>
 
 | 属性 | 说明 | 签名 |
 | :-  | :- | :- |

@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { useRef, useState } from 'react';
@@ -53,9 +54,9 @@ const InfiniteScrollDemo = () => {
 export default InfiniteScrollDemo;
 ```
 </div>
-
 <div class="block-panel">
-<h3> Props</h3>
+
+<h3>Props</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -66,7 +67,8 @@ export default InfiniteScrollDemo;
 
 </div>
 <div class="block-panel">
-<h3> API</h3>
+
+<h3>API</h3>
 
 | 属性 | 说明 | 签名 |
 | :-  | :- | :- |

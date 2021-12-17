@@ -1,4 +1,5 @@
-<div class="block-panel"><h3>基本用法</h3>
+<div class="block-panel">
+<h3>基本用法</h3>
 
 ```jsx
 import { Affix, CheckList, Toast } from "f6";
@@ -23,7 +24,8 @@ export default function App() {
 ```
 </div>
 
-<div class="block-panel"><h3>设置多选</h3>
+<div class="block-panel">
+<h3>设置多选</h3>
 
 ```jsx
 import { Affix, CheckList, Toast } from "f6";
@@ -47,9 +49,9 @@ export default function App() {
 }
 ```
 </div>
-
 <div class="block-panel">
-<h3> CheckListProps</h3>
+
+<h3>CheckListProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -71,7 +73,8 @@ export interface CheckListProps {
 
 </div>
 <div class="block-panel">
-<h3> CheckListItemProps</h3>
+
+<h3>CheckListItemProps</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

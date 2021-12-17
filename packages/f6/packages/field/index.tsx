@@ -1,38 +1,41 @@
 import { defineName } from "../utils/name";
 import {
   ChangeEventHandler,
-  CSSProperties,
   FC,
   ReactNode,
   useEffect,
   useRef,
   useState,
 } from "react";
-import Cell from "../cell";
-import "./index.less";
 import Icon from "f6-icons";
+import Cell from "../cell";
 import { usePropsValue } from "../utils/useValue";
+import "./index.less";
+import classNames from "classnames";
 
-export type FiledType = "text" | "number" | "textarea" | "password";
+export type FieldType = "text" | "number" | "password";
+export type FieldTitlePosition = 'top' | 'left';
 
-export interface FiledRule {
+export interface FieldRule {
   test: (val: string) => boolean;
   message: string;
 }
 
 export interface FieldProps {
   title?: ReactNode;
-  type?: FiledType;
+  titlePosition: FieldTitlePosition;
+  type?: FieldType;
   value?: string;
   defaultValue?: string;
   disabled?: boolean;
   readOnly?: boolean;
   clearable?: boolean;
   placeholder?: string;
-  rules?: FiledRule[];
+  rules?: FieldRule[];
   immediateCheck?: boolean;
   resetErrorOnClear?: boolean;
-  autoSize?: boolean;
+  validateOnChange?: boolean;
+  validateOnBlur?: boolean;
   onChange?: (value?: string) => void;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -43,25 +46,26 @@ const [prefix] = defineName("field");
 const Field: FC<FieldProps> = (props) => {
   const {
     title,
+    type = "text",
     placeholder,
+    titlePosition = "left",
     clearable = true,
     rules = [],
     immediateCheck,
-    type = "text",
     onFocus,
     onChange,
     onBlur,
-    autoSize = true,
+    validateOnBlur = true,
+    validateOnChange = true,
     resetErrorOnClear = true,
+    ...restProps
   } = props;
   const [value, setValue] = usePropsValue<string>({
     value: props.value,
     defaultValue: props.defaultValue || "",
   });
   const [error, setError] = useState("");
-  const ref = useRef<HTMLInputElement|HTMLTextAreaElement>(null);
-  const hRef = useRef<number>(0);
-  const [h, setH] = useState(0);
+  const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (immediateCheck) {
@@ -72,7 +76,9 @@ const Field: FC<FieldProps> = (props) => {
   const mSetValue = (val: string) => {
     setValue(val);
     onChange?.(val);
-    doCheck(val);
+    if (validateOnChange) {
+      doCheck(val);
+    }
     if (resetErrorOnClear && val.length === 0) {
       setError("");
     }
@@ -81,11 +87,6 @@ const Field: FC<FieldProps> = (props) => {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const nVal = e.target.value;
     mSetValue(nVal);
-    if (ref.current) {
-      // ref.current.style.height = 'auto';
-      setH(ref.current!.scrollHeight)
-      // hRef.current = ref.current!.scrollHeight;
-    }
   };
 
   const handleFocus: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -94,6 +95,9 @@ const Field: FC<FieldProps> = (props) => {
 
   const blurHandle = () => {
     onBlur?.();
+    if (validateOnBlur) {
+      doCheck(value);
+    }
   };
 
   const doCheck = (val: string) => {
@@ -107,7 +111,10 @@ const Field: FC<FieldProps> = (props) => {
   };
 
   const renderIcon = () => {
-    return clearable && value.length ? (
+    return clearable &&
+      !restProps.disabled &&
+      !restProps.readOnly &&
+      value.length ? (
       <Icon
         className={`${prefix}__clear`}
         name="close-circle-o"
@@ -120,6 +127,7 @@ const Field: FC<FieldProps> = (props) => {
     <>
       <div className={`${prefix}__body`}>
         <input
+          {...restProps}
           ref={ref}
           className={`${prefix}__input`}
           value={value}
@@ -135,41 +143,12 @@ const Field: FC<FieldProps> = (props) => {
     </>
   );
 
-  const renderTextarea = () => {
-    const style: CSSProperties = h ? {
-      height: (h) + 'px'
-    } : {}
-    return (
-      <>
-        <div className={`${prefix}__body`}>
-          <textarea
-            ref={ref}
-            style={style}
-            className={`${prefix}__input`}
-            value={value}
-            type={type}
-            placeholder={placeholder}
-            onFocus={handleFocus}
-            onBlur={blurHandle}
-            onChange={handleChange}
-          />
-          {renderIcon()}
-        </div>
-        {error && <div className={`${prefix}__error`}>{error}</div>}
-      </>
-    );
-  };
-
-  const body = () => {
-    return type === "textarea" ? renderTextarea() : renderInput();
-  };
-
   return (
     <Cell
-      className={prefix}
+      className={classNames([prefix, `${prefix}--title-${titlePosition}`])}
       titleClass={`${prefix}__title`}
       title={title}
-      value={body()}
+      value={renderInput()}
     />
   );
 };
