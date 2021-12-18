@@ -5,7 +5,7 @@ title: 基本用法
 
 ```jsx
 import { useState } from 'react';
-import { Cell, Flow, Input, Toast, Button } from "f6";
+import { Flow, Button } from "f6";
 
 export default function () {
   const [current, setCurrent] = useState(0);
@@ -18,7 +18,7 @@ export default function () {
         <Flow.Item index={2} title='标题2' description='描述'></Flow.Item>
       </Flow>
       <div style={{ height: 16 }}></div>
-      <Button color="primary" block onClick={next}>next</Button>
+      <Button block onClick={next}>next</Button>
     </>
   );
 }

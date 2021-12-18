@@ -188,6 +188,11 @@ export default [
         content: require("../.build/docs/collapse.md"),
       },
       {
+        title: "Flow 步骤条",
+        key: 'Flow',
+        content: require("../.build/docs/flow.md"),
+      },
+      {
         title: "Message 提示消息",
         key: 'Message',
         content: require("../.build/docs/message.md"),
@@ -206,11 +211,6 @@ export default [
         title: "NoticeBar 通知栏",
         key: 'NoticeBar',
         content: require("../.build/docs/notice-bar.md"),
-      },
-      {
-        title: "Flow",
-        key: 'Flow',
-        content: require("../.build/docs/flow.md"),
       },
       {
         title: "Marquee",

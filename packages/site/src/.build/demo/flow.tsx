@@ -7,7 +7,7 @@ export default () => {
         title: '基本用法',
         element: App0
       },{
-        title: '排列方向',
+        title: '基本用法',
         element: App1
       },];
   return <Demo list={list} title={title}/>;
