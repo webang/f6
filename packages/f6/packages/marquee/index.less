@@ -1,6 +1,16 @@
-.wax-marquee,
-.wax-marquee-item {
-  height: 30px;
-  line-height: 30px;
+@import './../style/base.less';
+
+@marquee: ~'@{prefix}-marquee';
+
+.@{marquee} {
   overflow: hidden;
+  padding: 0 12px;
+  background-color: #f5e341;
+}
+
+.@{marquee}-item {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

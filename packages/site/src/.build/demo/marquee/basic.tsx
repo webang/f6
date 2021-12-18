@@ -1,18 +1,6 @@
-import { Marquee, Toast, Button } from "f6";
-
-const button = (
-  <Button size="mini" color="primary">
-    详情
-  </Button>
-);
+import { Marquee, } from "f6";
 
 export default function () {
-  const rules = [
-    {
-      test: (val: string) => val.length < 3,
-      message: "长度不能小于3",
-    },
-  ];
   return (
     <>
       <Marquee>

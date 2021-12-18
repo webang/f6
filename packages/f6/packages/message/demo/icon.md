@@ -5,7 +5,7 @@ title: 自定义ICON
 
 ```jsx
 import React from 'react';
-import { Button, Overlay, Loading, Message } from 'f6';
+import { Message } from 'f6';
 
 const style = {
   marginBottom: 10

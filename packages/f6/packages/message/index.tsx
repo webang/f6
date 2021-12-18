@@ -6,14 +6,11 @@ import Icon from "f6-icons";
 
 export interface MessageProps {
   type?: 'primary' |  'success' | 'warning' | 'danger';
-  size?: 'sm' | 'md' | 'lg'
   icon?: ReactNode;
   link?: boolean;
-
   className?: string;
   style?: CSSProperties;
   onClick?: () => void;
-  children?: ReactNode;
 }
 
 const [prefix] = defineName('message');
@@ -31,7 +28,7 @@ const Message: FC<MessageProps> = ({
     `${prefix}--${type}`,
     className
   ], {
-    [`${prefix}--${link}`]: link
+    [`${prefix}--link`]: link
   });
 
   const renderIcon = () => {

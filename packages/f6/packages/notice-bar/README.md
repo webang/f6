@@ -1,13 +1,25 @@
 ---
-category: Components
+category: 展示组件
 title: NoticeBar
-subTitle: 组件
+subTitle: 通知栏
 ---
+
+### 介绍
+
+`NoticeBar` 常用于滚动的展示一段长文本。
 
 ### Props
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| text | 内容 | ReactNode | - |
+| step | 每帧进度大小 | `number` | `2` |
+| start | 初始偏移距离 | `number` | `100` |
 
-### API
-
-this is API content
+```tsx
+export interface NoticeBarProps {
+  text?: ReactNode;
+  step?: number;
+  start?: number;
+}
+```

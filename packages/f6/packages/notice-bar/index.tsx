@@ -1,29 +1,37 @@
 import { defineName } from "../utils/name";
-import { FC, ReactNode, useRef, useState, useEffect, CSSProperties } from "react";
-import './index.less';
+import {
+  FC,
+  ReactNode,
+  useRef,
+  useState,
+  useEffect,
+  CSSProperties,
+} from "react";
+import "./index.less";
 
 export interface NoticeBarProps {
   text?: ReactNode;
   step?: number;
+  start?: number;
 }
 
-const [prefix] = defineName('notice-bar')
+const [prefix] = defineName("notice-bar");
 
-const NoticeBar: FC<NoticeBarProps> = ({
-  text,
-  step = 1
-}) => {
+const NoticeBar: FC<NoticeBarProps> = ({ text, start = 100, step = 1 }) => {
   const [state, setState] = useState({
-    offset: -100,
-    running: true
+    offset: -start,
+    running: true,
   });
 
   const mRef = useRef<HTMLDivElement>(null);
   const oRef = useRef<HTMLDivElement>(null);
 
   const stop = () => {
-    setState(prev => ({ ...prev, running: !prev.running }))
-  }
+    setState((prev) => ({
+      ...prev,
+      running: !prev.running
+    }));
+  };
 
   useEffect(() => {
     if (!state.running) return;
@@ -31,25 +39,25 @@ const NoticeBar: FC<NoticeBarProps> = ({
     if (!oRef.current) return;
 
     let id = setTimeout(() => {
-      setState(prev => {
+      setState((prev) => {
         // const oWidth = oRef.current!.offsetWidth;
         const iWidth = mRef.current!.offsetWidth;
         const isFinished = iWidth <= prev.offset;
-        const offset = isFinished ? -100 : (prev.offset + step);
+        const offset = isFinished ? -100 : prev.offset + step;
         return {
           ...prev,
-          offset
-        }
-      })
-    }, 25)
+          offset,
+        };
+      });
+    }, 25);
     return () => {
-      clearTimeout(id)
-    }
-  })
+      clearTimeout(id);
+    };
+  });
 
   const style: CSSProperties = {
-    left: -state.offset
-  }
+    left: -state.offset,
+  };
 
   return (
     <div className={prefix}>
@@ -59,7 +67,7 @@ const NoticeBar: FC<NoticeBarProps> = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default NoticeBar;

@@ -128,14 +128,14 @@ export default [
         content: require("../.build/docs/input.md"),
       },
       {
-        title: "PasswordInput 密码输入",
-        key: 'PasswordInput',
-        content: require("../.build/docs/password-input.md"),
-      },
-      {
         title: "NumberKeyboard 数字键盘",
         key: 'NumberKeyboard',
         content: require("../.build/docs/number-keyboard.md"),
+      },
+      {
+        title: "PasswordInput 密码输入",
+        key: 'PasswordInput',
+        content: require("../.build/docs/password-input.md"),
       },
       {
         title: "Picker 选择器",
@@ -193,19 +193,19 @@ export default [
         content: require("../.build/docs/flow.md"),
       },
       {
-        title: "Message 提示消息",
-        key: 'Message',
-        content: require("../.build/docs/message.md"),
-      },
-      {
         title: "InfiniteScroll 滚动组件",
         key: 'InfiniteScroll',
         content: require("../.build/docs/infinite-scroll.md"),
       },
       {
-        title: "PullRefresh 下拉刷新",
-        key: 'PullRefresh',
-        content: require("../.build/docs/pull-refresh.md"),
+        title: "Marquee 滚动",
+        key: 'Marquee',
+        content: require("../.build/docs/marquee.md"),
+      },
+      {
+        title: "Message 提示消息",
+        key: 'Message',
+        content: require("../.build/docs/message.md"),
       },
       {
         title: "NoticeBar 通知栏",
@@ -213,9 +213,9 @@ export default [
         content: require("../.build/docs/notice-bar.md"),
       },
       {
-        title: "Marquee",
-        key: 'Marquee',
-        content: require("../.build/docs/marquee.md"),
+        title: "PullRefresh 下拉刷新",
+        key: 'PullRefresh',
+        content: require("../.build/docs/pull-refresh.md"),
       },
       {
         title: "Swipe",

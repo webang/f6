@@ -1,4 +1,8 @@
-.wax-message {
+@import './../style/base.less';
+
+@message: ~'@{prefix}-message';
+
+.@{message} {
   display: flex;
   align-items: flex-start;
   font-size: 12px;
@@ -20,6 +24,9 @@
   &--success {
     color: var(--f6-message-success-color);
     background-color: var(--f6-message-success-bg);
+  }
+  &--link {
+    cursor: pointer;
   }
   &__icon {
     margin-right: 4px;

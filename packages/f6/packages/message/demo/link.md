@@ -4,20 +4,26 @@ title: 基本用法
 ---
 
 ```jsx
-import React from 'react';
-import { Button, Overlay, Loading, Message } from 'f6';
-
-const style = {
-  marginBottom: 10
-}
+import React from "react";
+import { Space, Toast, Message } from "f6";
 
 function App() {
   return (
-    <>
-      <Message color="primary" style={style} link>这是一段默认的普通文字描述</Message>
-      <Message type="warning" style={style} link>这是一段默认的普通文字描述</Message>
-    </>
-  )
+    <Space direction="vertical">
+      <Message
+        onClick={() => {
+          Toast.show({ message: "别点我啊 💋" });
+        }}
+        color="primary"
+        link
+      >
+        这是一段默认的普通文字描述
+      </Message>
+      <Message type="warning" link>
+        这是一段默认的普通文字描述
+      </Message>
+    </Space>
+  );
 }
 
 export default App;

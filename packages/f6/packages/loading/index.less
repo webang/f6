@@ -1,8 +1,8 @@
 @import './../style/base.less';
 
-@button-cls: ~'@{prefix}-loading';
+@loading: ~'@{prefix}-loading';
 
-.@{button-cls} {
+.@{loading} {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -11,5 +11,12 @@
   vertical-align: middle;
   &__icon {
     margin-right: 4px;
+  }
+  &--vertical {
+    flex-direction: column;
+    .@{loading}__icon {
+      margin-right: 0;
+      margin-bottom: 8px;
+    }
   }
 }

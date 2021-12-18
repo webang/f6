@@ -12,19 +12,15 @@ Loading 用于展示加载状态，包括加载动画和描述，它基于 spinn
 
 ```jsx
 import React from 'react';
-import { Button, Overlay, Loading } from 'f6';
-
-const style = {
-  marginRight: 10
-}
+import { Button, Space, Overlay, Loading } from 'f6';
 
 function App() {
   return (
-    <>
-      <Loading style={style} spinnerType="lines">Loading</Loading>
-      <Loading style={style} spinnerType="oval">Loading</Loading>
-      <Loading style={style} spinnerType="crescent">Loading</Loading>
-    </>
+    <Space>
+      <Loading spinnerType="lines">Loading</Loading>
+      <Loading spinnerType="oval">Loading</Loading>
+      <Loading spinnerType="crescent">Loading</Loading>
+    </Space>
   )
 }
 
@@ -38,19 +34,35 @@ export default App;
 
 ```jsx
 import React from 'react';
-import { Button, Overlay, Loading } from 'f6';
-
-const style = {
-  marginRight: 10
-}
+import { Button, Space, Overlay, Loading } from 'f6';
 
 export default function App() {
   return (
-    <>
-      <Loading spinnerSize={20} style={style} spinnerType="oval">Loading</Loading>
-      <Loading spinnerSize={24} style={style} spinnerType="oval">Loading</Loading>
-      <Loading spinnerSize={30} style={style} spinnerType="lines">Loading</Loading>
-    </>
+    <Space>
+      <Loading spinnerSize={20} spinnerType="oval">Loading</Loading>
+      <Loading spinnerSize={24} spinnerType="oval">Loading</Loading>
+      <Loading spinnerSize={30} spinnerType="lines">Loading</Loading>
+    </Space>
+  )
+}
+```
+</div>
+
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/loading/demo/vertical.md>更新此演示代码</a>
+        <h3>垂直排列</h3>
+
+```jsx
+import React from 'react';
+import { Button, Space, Overlay, Loading } from 'f6';
+
+export default function App() {
+  return (
+    <Space>
+      <Loading vertical spinnerSize={24} spinnerType="oval">加载中</Loading>
+      <Loading vertical spinnerSize={24} spinnerType="oval">加载中</Loading>
+      <Loading vertical spinnerSize={24} spinnerType="lines">加载中</Loading>
+    </Space>
   )
 }
 ```
@@ -77,13 +89,21 @@ export default function App() {
 
 <h3>Props</h3>
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| spinnerType | spinner 类型 | `lines \| oval \| crescent` | `crescent` |
+| spinnerSize | spinner 大小 | `string \| number` | `24` |
+| vertical | 是否垂直排列 | `boolean` | `false` |
+| message | 文字 | `ReactNode` | `Loading` |
 
-
-</div>
-<div class="block-panel">
-
-<h3>API</h3>
-
-this is API content
+```tsx
+export interface LoadingProps {
+  spinnerType?: SpinnerType;
+  spinnerSize?: string|number;
+  className?: string;
+  style?: React.CSSProperties;
+  vertical?: boolean;
+  message?: ReactNode;
+}
+```
 </div>

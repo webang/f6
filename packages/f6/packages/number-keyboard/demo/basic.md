@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <div>
-      <Button color="primary" onClick={show}>点击显示</Button>
+      <Button block color="primary" onClick={show}>点击显示</Button>
       <NumberKeyboard visible={visible} onInput={onInput} />
     </div>
   )
