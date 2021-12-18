@@ -1,95 +1,98 @@
-import { getScrollTarget } from '../utils/dom';
-import React, { FC, forwardRef, ForwardRefRenderFunction, ReactNode, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import Loading from '../loading';
-import { defineName } from '../utils/name';
-import './index.less';
+import { getScrollTarget } from "../utils/dom";
+import {
+  forwardRef,
+  ReactNode,
+  useEffect,
+  useRef,
+  useImperativeHandle,
+  ForwardRefRenderFunction,
+} from "react";
 
-// export interface ListProp {
-//   onLoad?: (finish: Function) => void;
-//   offset?: number;
-//   loading?: boolean;
-//   finished?: boolean;
-//   autoCheck?: boolean;
-//   immediateCheck?: boolean;
-// }
+import Loading from "../loading";
+import { defineName } from "../utils/name";
+import "./index.less";
 
 export interface InfiniteScrollProps {
-  hasMore?: boolean;
-  footer?: (params: {
-    loading: boolean;
-    hasMore: boolean;
-  }) => ReactNode
-  onLoad?: () => void;
-  children?: ReactNode;
+  disabled?: boolean;
+  loading?: boolean;
+  onLoad?: (finish?: () => void) => void;
+  footer?: (params: { loading: boolean; disabled: boolean }) => ReactNode;
 }
 
 export interface InfiniteScrollMethods {
   finish: () => void;
 }
 
-const [prefix] = defineName('infinite-scroll')
+const [prefix] = defineName("infinite-scroll");
 
-const _InfiniteScroll: ForwardRefRenderFunction<InfiniteScrollMethods, InfiniteScrollProps> = ({
-  children,
-  onLoad,
-  footer,
-  hasMore = true
-}, ref) => {
+const InfiniteScroll: ForwardRefRenderFunction<
+  InfiniteScrollMethods,
+  InfiniteScrollProps
+> = (props, ref) => {
+  const lockRef = useRef({ isLocked: false });
   const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState(false);
+  const { children, onLoad, footer, loading = false, disabled = true } = props;
 
-  useImperativeHandle(ref, () => ({
-    finish: () => {
-      setLoading(false);
-    }
-  }))
+  const finish = () => {
+    lockRef.current.isLocked = false;
+  }
+
+  useImperativeHandle(ref, () => ({ finish }));
 
   useEffect(() => {
     const target = getScrollTarget(wrapperRef.current!);
     const handleScroll = () => {
+      const isWin = target === window;
       const container = containerRef.current!;
 
-      let wrapperHeight = target === window
+      let wrapperHeight = isWin
         ? target.innerHeight
         : (target as HTMLDivElement).offsetHeight;
 
-      let scrollTop = target === window
+      let scrollTop = isWin
         ? document.documentElement.scrollTop
         : (target as HTMLDivElement).scrollTop;
 
-      const bottomed = container.offsetHeight === wrapperHeight + scrollTop;
-      if (!loading && bottomed && hasMore) {
-        setLoading(true);
-        onLoad && onLoad()
+      let offsetHeight = isWin
+        ? document.documentElement.offsetHeight
+        : container.offsetHeight;
+
+      // !TODO target 只能是当前容器 或者 window
+      // 不然这里的 container 是错误的
+
+      // console.log(offsetHeight, wrapperHeight, scrollTop);
+      const bottomed = offsetHeight === wrapperHeight + scrollTop;
+
+      if (!loading && !lockRef.current.isLocked && bottomed && !disabled) {
+        onLoad && onLoad();
       }
-    }
-    target.addEventListener('scroll', handleScroll);
-    return () => {
-      target.removeEventListener('scroll', handleScroll);
-    }
-  }, [loading, hasMore]);
+    };
+
+    target.addEventListener("scroll", handleScroll);
+    return () => target.removeEventListener("scroll", handleScroll);
+  }, [props]);
 
   const mFooter = () => {
-    if (footer) return footer({ loading, hasMore });
+    if (footer) return footer({ loading, disabled });
     if (loading) {
       return (
-        <div style={{ lineHeight: '40px', textAlign: 'center' }}>
+        <div style={{ lineHeight: "40px", textAlign: "center" }}>
           <Loading />
         </div>
-      )
+      );
     } else {
-      if (hasMore) {
-        return null;
-      } else {
+      if (disabled) {
         return (
-          <div style={{ lineHeight: '40px', textAlign: 'center' }}>
-            <span style={{ color: '#ccc' }}>NO MORE</span>
+          <div style={{ lineHeight: "40px", textAlign: "center" }}>
+            <span style={{ color: "#ccc" }}>NO MORE</span>
           </div>
-        )
+        );
+      } else {
+        return null;
       }
     }
-  }
+  };
 
   return (
     <div ref={wrapperRef} className={`${prefix}-wrapper`}>
@@ -98,9 +101,7 @@ const _InfiniteScroll: ForwardRefRenderFunction<InfiniteScrollMethods, InfiniteS
         {mFooter()}
       </div>
     </div>
-  )
-}
+  );
+};
 
-const InfiniteScroll = forwardRef(_InfiniteScroll);
-
-export default InfiniteScroll;
+export default forwardRef(InfiniteScroll);

@@ -61,7 +61,9 @@ const GridItem: FC<GridItemProps> = (props) => {
   } = props;
   const [prefix] = defineName('grid-item');
   const mCls = classNames([prefix, className], {
-    hairline: (restProps as any)['border']
+    hairline: (restProps as any)['border'],
+    ['border-b']: (restProps as any)['border'],
+    ['border-r']: (restProps as any)['border'],
   });
 
   return (

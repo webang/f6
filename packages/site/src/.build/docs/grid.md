@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Grid` 格子布局，将容器分为多个单元格。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/grid/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 
@@ -77,8 +85,8 @@ export default function App() {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| border | 是否有边框 | boolean | `true` |
-| columnNum | 每行展示的列数 | number | `4` |
+| border | 是否有边框 | `boolean` | `true` |
+| columnNum | 每行展示的列数 | `number` | `4` |
 
 
 </div>
@@ -88,7 +96,6 @@ export default function App() {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| text | 展示的文字 | ReactNode | - |
-| icon | 展示的图标 | ReactNode | - |
-
+| text | 展示的文字 | `ReactNode` | - |
+| icon | 展示的图标 | `ReactNode` | - |
 </div>
