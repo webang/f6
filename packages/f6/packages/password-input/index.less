@@ -1,10 +1,9 @@
-.wax-password-input {
+@import './../style/base.less';
+
+@password-input: ~'@{prefix}-password-input';
+
+.@{password-input} {
   background-color: #fff;
-  &::after {
-    border-top-width: 1px !important;
-    border-left-width: 1px !important;
-    border-bottom-width: 1px !important;
-  }
   &__list {
     display: flex;
     width: 100%;
@@ -45,15 +44,14 @@
     width: 1px;
     height: 18px;
     background-color: #a5a5a5;
-    animation: 1000ms wax-password-input-cursor-animate infinite;
+    animation: 1000ms password-input-cursor-animate infinite;
   }
-}
-
-@keyframes wax-password-input-cursor-animate {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  @keyframes password-input-cursor-animate {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }

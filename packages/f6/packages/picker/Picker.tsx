@@ -1,6 +1,6 @@
-import { useImperativeHandle, ForwardRefRenderFunction, useEffect, useRef, useState, forwardRef, ReactNode } from "react";
+import { useImperativeHandle, ForwardRefRenderFunction, useEffect, useRef, useState, forwardRef } from "react";
+import { IOnChange, IOnColumnChange, IPickerColumn, IPickerColumns, OptionRender } from "./interface";
 import { defineName } from "../utils/name";
-import { IOnChange, IOnColumnChange, IPickerColumn, IPickerColumns, IPickerOption, OptionRender } from "./interface";
 import PickerColumn from "./PickerColumn";
 
 export interface PickerProps {

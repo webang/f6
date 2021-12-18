@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Picker` 仿 IOS 客户端 `Picker` 的效果，以便 IOS 和 Android 统一。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/picker/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 
@@ -121,16 +129,51 @@ export default function App() {
 | onChange | 某列选中值发生变化时调用 | `IOnChange` | - |
 
 ```tsx
-interface IOnChange {
-  (index: number, value: number, columns: IPickerOption[], picker: IPickerMethods): void;
+export interface PickerProps {
+  columns: IPickerColumns;
+  onChange?: IOnChange;
+  defaultIndex?: number[];
+  cascade?: boolean;
+  maxLength?: number;
+  optionRender?: OptionRender;
 }
+
+export interface IOnMounted {
+  (pickerColumn: PickerColumn, index: number): void;
+}
+
+export interface IOnDestroyed {
+  (pickerColumn: PickerColumn, index: number): void;
+}
+
+export interface IOnChange {
+  (index: number, value: number, columns: IPickerOption[], picker: PickerRef): void;
+}
+
+export interface IOnColumnChange {
+  (index: number, value: number, columns: IPickerOption[], picker: PickerColumn): void;
+}
+
+export interface IPickerOption {
+  label: string;
+  value: string | number;
+  children?: IPickerOption[];
+}
+
+export interface OptionRender {
+  (option: { option: IPickerOption, selected: boolean; }): ReactNode;
+}
+
+export type IPickerColumn = IPickerOption[];
+
+export type IPickerColumns = IPickerColumn[];
 ```
 
 
 </div>
 <div class="block-panel">
 
-<h3>API</h3>
+<h3>Refs</h3>
 
 | 属性 | 说明 | 签名 |
 | :-  | :- | :- |
@@ -143,4 +186,19 @@ interface IOnChange {
 | setColumnOptions | 设置某列选项 | `(index: number, options: IPickerColumn) => void` |
 | getColumnOptions | 获取某列选项 | `(index: number) => IPickerColumn` |
 | getValues | 获取选中值 | `() => IPickerColumn` |
+
+```tsx
+export interface PickerRef {
+  slideTo: (index: number, value: number, animation: boolean) => void;
+  setOptions: (columns: IPickerColumns) => void;
+  getOptions: () => IPickerColumns;
+  setColumnOptions: (index: number, options: IPickerColumn) => void;
+  getColumnOptions: (index: number) => IPickerColumn;
+  setIndex: (list: number[]) => void;
+  getIndex: () => number[];
+  setColumnIndex: (index: number, value: number) => void;
+  getColumnIndex: (index: number) => number;
+  getValues: () => IPickerColumn;
+}
+```
 </div>

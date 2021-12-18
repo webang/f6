@@ -64,13 +64,19 @@ export default function App() {
 
 <h3>Props</h3>
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| visible | 可见行 | boolean | `false` |
+| timeout | 完成动画的时间 | `number` | `200` |
+| transitionName | 动画名称 | `string` | `fade` |
+| onClick | 点击事件 | `() => void` | - |
 
-
-</div>
-<div class="block-panel">
-
-<h3>API</h3>
-
-this is API content
+```tsx
+export interface OverlayProps {
+  visible?: boolean;
+  timeout?: number;
+  transitionName?: string;
+  onClick?: () => void;
+}
+```
 </div>

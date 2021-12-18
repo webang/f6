@@ -1,4 +1,8 @@
-.wax-number-keyboard {
+@import './../style/base.less';
+
+@number-keyboard: ~'@{prefix}-number-keyboard';
+
+.@{number-keyboard} {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -28,10 +32,9 @@
     cursor: pointer;
     font-size: 24px;
   }
-}
-
-.wax-number-keyboard__keyboard-icon,
-.wax-number-keyboard__delete-icon {
-  width: 32px;
-  height: 22px;
+  &__keyboard-icon,
+  &__delete-icon {
+    width: 32px;
+    height: 22px;
+  }
 }

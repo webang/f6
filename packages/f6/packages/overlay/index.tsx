@@ -17,7 +17,7 @@ const Overlay: React.FC<OverlayProps> = ({
   timeout = 300,
   transitionName = "fade",
   children,
-  onClick
+  onClick,
 }) => {
   const style = {
     transitionDuration: `${timeout}ms`,
@@ -30,7 +30,7 @@ const Overlay: React.FC<OverlayProps> = ({
       classNames={transitionName}
       unmountOnExit
     >
-      <div onClick={() => onClick && onClick()} className={prefix} style={style}>
+      <div onClick={() => onClick?.()} className={prefix} style={style}>
         {children}
       </div>
     </CSSTransition>

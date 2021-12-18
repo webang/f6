@@ -21,7 +21,11 @@ const PasswordInput: FC<PasswordInputProps> = ({
   const [cursorIndex, setIndex] = useState(0);
 
   const mRef = useRef<HTMLDivElement>(null);
-  const mCls = classNames([className, prefix, "hairline"]);
+  const mCls = classNames([
+    className,
+    prefix,
+    "hairline",
+  ]);
 
   const setCursorIndex = (index: number) => {
     if (index > state.length - 1 || index < -1) {
@@ -88,8 +92,12 @@ const PasswordInput: FC<PasswordInputProps> = ({
     const callBack = (e: any) => {
       if (e.keyCode === 8) {
         if (!focus || cursorIndex === 0) return;
-        let index = cursorIndex === -1 ? state.length - 1 : cursorIndex;
-        index = !state[index] ? index - 1 : index;
+        let index = cursorIndex;
+        if (cursorIndex === -1) {
+          index = state.length - 1;
+        } else {
+          index = index - 1;
+        }
         setState((prev) => {
           return prev.map((it, i) => (i < index ? it : ""));
         });

@@ -1,10 +1,14 @@
-.wax-picker-columns {
+@import "./../style/base.less";
+
+@picker: ~"@{prefix}-picker";
+
+.@{picker}-columns {
   height: 180px;
   display: flex;
   background-color: #fff;
 }
 
-.wax-picker-option {
+.@{picker}-option {
   line-height: 36px;
   width: 100%;
   overflow: hidden;
@@ -12,7 +16,7 @@
   text-overflow: ellipsis;
 }
 
-.wax-picker-column {
+.@{picker}-column {
   overflow: hidden;
   position: relative;
   height: 100%;
@@ -32,11 +36,14 @@
     height: 100%;
     margin: 0 auto;
     background-image: linear-gradient(
-  180deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)), linear-gradient(
-  0deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6));
-      background-position: top,bottom;
-      background-size: 100% 72px;
-      background-repeat: no-repeat;
+        180deg,
+        hsla(0, 0%, 100%, 0.95),
+        hsla(0, 0%, 100%, 0.6)
+      ),
+      linear-gradient(0deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6));
+    background-position: top, bottom;
+    background-size: 100% 72px;
+    background-repeat: no-repeat;
   }
   &__line {
     position: absolute;

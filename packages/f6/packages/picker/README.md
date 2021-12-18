@@ -4,6 +4,10 @@ title: Picker
 subTitle: 选择器
 ---
 
+### 介绍
+
+`Picker` 仿 IOS 客户端 `Picker` 的效果，以便 IOS 和 Android 统一。
+
 ### Props
 
 | 属性 | 说明 | 类型 | 默认值 |
@@ -15,12 +19,47 @@ subTitle: 选择器
 | onChange | 某列选中值发生变化时调用 | `IOnChange` | - |
 
 ```tsx
-interface IOnChange {
-  (index: number, value: number, columns: IPickerOption[], picker: IPickerMethods): void;
+export interface PickerProps {
+  columns: IPickerColumns;
+  onChange?: IOnChange;
+  defaultIndex?: number[];
+  cascade?: boolean;
+  maxLength?: number;
+  optionRender?: OptionRender;
 }
+
+export interface IOnMounted {
+  (pickerColumn: PickerColumn, index: number): void;
+}
+
+export interface IOnDestroyed {
+  (pickerColumn: PickerColumn, index: number): void;
+}
+
+export interface IOnChange {
+  (index: number, value: number, columns: IPickerOption[], picker: PickerRef): void;
+}
+
+export interface IOnColumnChange {
+  (index: number, value: number, columns: IPickerOption[], picker: PickerColumn): void;
+}
+
+export interface IPickerOption {
+  label: string;
+  value: string | number;
+  children?: IPickerOption[];
+}
+
+export interface OptionRender {
+  (option: { option: IPickerOption, selected: boolean; }): ReactNode;
+}
+
+export type IPickerColumn = IPickerOption[];
+
+export type IPickerColumns = IPickerColumn[];
 ```
 
-### API
+### Refs
 
 | 属性 | 说明 | 签名 |
 | :-  | :- | :- |
@@ -33,3 +72,18 @@ interface IOnChange {
 | setColumnOptions | 设置某列选项 | `(index: number, options: IPickerColumn) => void` |
 | getColumnOptions | 获取某列选项 | `(index: number) => IPickerColumn` |
 | getValues | 获取选中值 | `() => IPickerColumn` |
+
+```tsx
+export interface PickerRef {
+  slideTo: (index: number, value: number, animation: boolean) => void;
+  setOptions: (columns: IPickerColumns) => void;
+  getOptions: () => IPickerColumns;
+  setColumnOptions: (index: number, options: IPickerColumn) => void;
+  getColumnOptions: (index: number) => IPickerColumn;
+  setIndex: (list: number[]) => void;
+  getIndex: () => number[];
+  setColumnIndex: (index: number, value: number) => void;
+  getColumnIndex: (index: number) => number;
+  getValues: () => IPickerColumn;
+}
+```
