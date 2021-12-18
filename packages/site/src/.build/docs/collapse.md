@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Collapse` 提供折叠的功能，以便减少垂直空间。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/collapse/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 

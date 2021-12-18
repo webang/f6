@@ -1,11 +1,11 @@
 ---
 category: 表单组件
-title: Field
+title: Input
 ---
 
 ### 介绍
 
-Field 基于 `html input` 包装了一层，用于自定义一些功能以及样式美化。
+Input 基于 `html input` 包装了一层，用于自定义一些功能以及样式美化。
 
 ### FieldProps
 

@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`DropdownMenu` 下拉菜单，常用于多组条件筛选。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dropdown-menu/demo/basic.md>更新此演示代码</a>
         <h3>普通用法</h3>
 

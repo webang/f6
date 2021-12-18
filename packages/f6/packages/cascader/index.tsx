@@ -6,11 +6,11 @@ import "./index.less";
 import Button from "../button";
 
 export interface CascaderProps {
-  options: CascaderViewOption[]; // 选项列表
-  visible: boolean; // 可见性
-  defaultValue?: string[]; // 初始值
-  onClose?: () => void; // 关闭事件
-  onConfirm?: (val: CascaderViewOption[]) => void; // 确认事件
+  options: CascaderViewOption[];
+  visible?: boolean;
+  defaultValue?: string[];
+  onClose?: () => void;
+  onConfirm?: (val: CascaderViewOption[]) => void;
 }
 
 const [prefix] = defineName("cascader");

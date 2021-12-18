@@ -1,9 +1,12 @@
 import { DialogProps } from ".";
 import { show } from "./show";
 
-export type AlertDialogProps = Omit<DialogProps, "visible">;
+export type ConfirmDialogProps = Omit<
+  DialogProps,
+  "visible" | "showCancelButton" | "showConfirmButton"
+>;
 
-export function confirm(props: AlertDialogProps) {
+export function confirm(props: ConfirmDialogProps) {
   return new Promise((resolve, _) => {
     return show({
       ...props,

@@ -4,6 +4,10 @@ title: Collapse
 subTitle: 折叠面板
 ---
 
+### 介绍
+
+`Collapse` 提供折叠的功能，以便减少垂直空间。
+
 ### CollapseProps
 
 | 属性 | 说明 | 类型 | 默认值 |

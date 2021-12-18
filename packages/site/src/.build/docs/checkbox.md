@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Checkbox` 模拟实现 `HTMLInputElement` `type = checkbox`，美化样式和增强功能。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/checkbox/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 

@@ -1,27 +1,152 @@
 <div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/alert.md>更新此演示代码</a>
-        <h3>下拉菜单</h3>
+
+<h3>介绍</h3>
+
+`Dialog` 用于展示弹窗，它实现了 `window.alert` 和 `window.confirm` 的功能。主要提供以下使用方式：
+- `<Dialog />` 声明式
+- Dialog.show 同步 API
+- Dialog.alert 异步 API
+- Dialog.confirm 异步 API
+
+
+</div>
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/basic.md>更新此演示代码</a>
+        <h3>基本使用</h3>
+
+组件式调用。
 
 ```jsx
 import React from "react";
-import { Dialog, Button } from "f6";
+import { Dialog, Toast, Button } from "f6";
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
   return (
     <>
-      <div>
-        <Button onClick={() => setVisible(true)}>显示</Button>
-      </div>
+      <Button block onClick={() => setVisible(true)}>显示弹窗</Button>
       <Dialog
-        showCancelButton={false}
-        onOk={(index) => {
-          setVisible(false)
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+        onClose={() => {
+          Toast.show({ message: '我要走了，毋念' })
+        }}
+        onClosed={() => {
+          Toast.show({ message: '我无了' })
         }}
         visible={visible}
-        message="山有木兮木有枝，心悦君兮君不知。"
+        title="元气"
+        content="山有木兮木有枝，心悦君兮君不知。"
       />
     </>
+  );
+}
+```
+</div>
+
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/show.md>更新此演示代码</a>
+        <h3>Dialog.show</h3>
+
+```jsx
+import React from "react";
+import { Dialog, Button, Toast } from "f6";
+
+const showBasic = () => {
+  const res = Dialog.show({
+    title: "惊喜",
+    content: "新时代农民工又一次胜利了 ✌️",
+    onClose: () => true,
+  });
+};
+
+export default function App() {
+  return (
+    <Button block onClick={() => showBasic()}>
+      简单使用
+    </Button>
+  );
+}
+```
+</div>
+
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/alert.md>更新此演示代码</a>
+        <h3>Dialog.alert</h3>
+
+```jsx
+import React from "react";
+import { Dialog, Space, Button, Toast } from "f6";
+
+export default function App() {
+  return (
+    <Space direction="vertical">
+      <Button
+        block
+        onClick={async () => {
+          const res = await Dialog.alert({
+            title: "元气",
+            content: "窈窕淑女，君子说好逑",
+          });
+          Toast.show({ message: res });
+        }}
+      >
+        默认返回
+      </Button>
+
+      <Button
+        block
+        onClick={async () => {
+          const res = await Dialog.alert({
+            title: "木兰花·拟古决绝词柬友",
+            content: "人生若只如初见，何事秋风悲画扇。",
+            onOk: () => "😁",
+          });
+          Toast.show({ message: res });
+        }}
+      >
+        自定义返回值
+      </Button>
+
+      <Button
+        block
+        onClick={async () => {
+          const res = await Dialog.alert({
+            title: "木兰花·拟古决绝词柬友",
+            content: "人生若只如初见，何事秋风悲画扇。",
+            onOk: () => {
+              return new Promise((resolve) => {
+                setTimeout(() => resolve("😁"), 200);
+              });
+            },
+          });
+          Toast.show({ message: res });
+        }}
+      >
+        异步回调
+      </Button>
+
+      <Button
+        block
+        onClick={async () => {
+          let count = 0;
+          const res = await Dialog.alert({
+            title: "木兰花·拟古决绝词柬友",
+            content: "人生若只如初见，何事秋风悲画扇。",
+            onOk: () => {
+              return "😁";
+            },
+            onClose: () => {
+              count++;
+              return count > 2;
+            },
+          });
+          Toast.show({ message: res });
+        }}
+      >
+        控制是否关闭
+      </Button>
+    </Space>
   );
 }
 ```
@@ -29,226 +154,118 @@ export default function App() {
 
 <div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/confirm.md>更新此演示代码</a>
-        <h3>confirm</h3>
-
-```jsx
-import React from 'react';
-import { Dialog, Button } from "f6";
-
-export default function App() {
-  const [visible, setVisible] = React.useState(false);
-  return (
-    <>
-      <Button onClick={() => setVisible((pre) => !pre)}>显示</Button>
-      <Dialog
-        onOk={(index) => {
-          setVisible(false);
-        }}
-        onCancel={(index) => {
-          setVisible(false);
-        }}
-        visible={visible}
-        title="提示"
-        message="山有木兮木有枝，心悦君兮君不知。"
-      />
-    </>
-  );
-}
-```
-</div>
-
-<div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/alfterFunction.md>更新此演示代码</a>
-        <h3>alert 函数调用</h3>
-
-```jsx
-import React from 'react';
-import { Dialog, Button, Toast } from "f6";
-
-const alertDefault = async () => {
-  const res = await Dialog.alert({
-    title: 'message',
-    message: 'hello world'
-  });
-  Toast.show({ message: res })
-}
-
-const alertWithOnOk = async () => {
-  const res = await Dialog.alert({
-    title: 'message',
-    message: 'hello world',
-    onOk: () => {
-      // 如果没有返回值，则返回 ok
-      return '你点击了 ok'
-    }
-  });
-  Toast.show({ message: res })
-}
-
-const alertWithSyncOnOk = async () => {
-  const res = await Dialog.alert({
-    title: 'message',
-    message: 'hello world',
-    onOk: () => {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve('😁'), 500)
-      })
-    }
-  });
-  Toast.show({ message: res })
-}
-
-const alertWithOnClose = async () => {
-  const res = await Dialog.alert({
-    title: 'message',
-    message: 'hello world',
-    onOk: () => {
-      return '😁'
-    },
-    onClose: () => {
-      return true
-    }
-  });
-  Toast.show({ message: res })
-}
-
-export default function App() {
-  return (
-    <>
-      <Button block  onClick={() => alertDefault()}>默认返回 ok</Button>
-      <div style={{height: 10 }}></div>
-      <Button block  onClick={() => alertWithOnOk()}>自定义 onOk 返回值</Button>
-      <div style={{height: 10 }}></div>
-      <Button block  onClick={() => alertWithSyncOnOk()}>是用异步的 onOk</Button>
-      <div style={{height: 10 }}></div>
-      <Button block  onClick={() => alertWithOnClose()}>onClose 控制是否关闭</Button>
-    </>
-  );
-}
-```
-</div>
-
-<div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/confirmFunction.md>更新此演示代码</a>
         <h3>confirm 函数调用</h3>
 
 ```jsx
-import React from 'react';
-import { Dialog, Button, Toast } from "f6";
+import React from "react";
+import { Dialog, Space, Button, Toast } from "f6";
 
 const showDefault = async () => {
   const res = await Dialog.confirm({
-    title: 'message',
-    message: 'hello world'
+    title: "惊喜",
+    content: "新时代农民工又一次胜利了 ✌️",
   });
-  Toast.show({ message: res })
-}
+  Toast.show({ message: res });
+};
 
 const showWithOnOk = async () => {
   const res = await Dialog.confirm({
-    title: 'message',
-    message: 'hello world',
+    title: "惊喜",
+    content: "新时代农民工又一次胜利了 ✌️",
     onOk: () => {
-      // 如果没有返回值，则返回 ok
-      return '你点击了 ok'
+      return "你点击了 ok";
     },
     onCancel: () => {
-      // 如果没有返回值，则返回 cancel
-      return '你点击了 cancel'
-    }
+      return "你点击了 cancel";
+    },
   });
-  Toast.show({ message: res })
-}
+  Toast.show({ message: res });
+};
 
 const showWithSyncOnOk = async () => {
   const res = await Dialog.confirm({
-    title: 'message',
-    message: 'hello world',
+    title: "惊喜",
+    content: "新时代农民工又一次胜利了 ✌️",
     onOk: () => {
       return new Promise((resolve) => {
-        setTimeout(() => resolve('onOk 😁'), 500)
-      })
+        setTimeout(() => resolve("onOk 😁"), 500);
+      });
     },
     onCancel: () => {
       return new Promise((resolve) => {
-        setTimeout(() => resolve('onCancel 😁'), 500)
-      })
-    }
+        setTimeout(() => resolve("onCancel 😁"), 500);
+      });
+    },
   });
-  Toast.show({ message: res })
-}
+  Toast.show({ message: res });
+};
 
 const showWithOnClose = async () => {
   let count = 0;
   const res = await Dialog.confirm({
-    title: 'message',
-    message: 'hello world',
+    title: "惊喜",
+    content: "新时代农民工又一次胜利了 ✌️",
     onOk: () => {
-      return '😁'
+      return "😁";
     },
     onClose: () => {
       count++;
-      return count > 2
-    }
+      return count > 2;
+    },
   });
-  Toast.show({ message: res })
-}
+  Toast.show({ message: res });
+};
 
 export default function App() {
   return (
-    <>
-      <Button block  onClick={() => showDefault()}>简单调用</Button>
-      <div style={{height: 10 }}></div>
-      <Button block  onClick={() => showWithOnOk()}>自定义 onOk</Button>
-      <div style={{height: 10 }}></div>
-      <Button block  onClick={() => showWithSyncOnOk()}>异步 onOk</Button>
-      <div style={{height: 10 }}></div>
-      <Button block  onClick={() => showWithOnClose()}>onClose 控制是否关闭</Button>
-    </>
+    <Space direction="vertical">
+      <Button block onClick={() => showDefault()}>
+        简单调用
+      </Button>
+      <Button block onClick={() => showWithOnOk()}>
+        自定义返回
+      </Button>
+      <Button block onClick={() => showWithSyncOnOk()}>
+        异步调用
+      </Button>
+      <Button block onClick={() => showWithOnClose()}>
+        控制是否关闭
+      </Button>
+    </Space>
   );
 }
 ```
 </div>
 
 <div class="block-panel">
-        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/showFunction.md>更新此演示代码</a>
-        <h3>show 函数调用</h3>
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/dialog/demo/content.md>更新此演示代码</a>
+        <h3>自定义content</h3>
 
 ```jsx
 import React from "react";
 import { Dialog, Button, Toast } from "f6";
 
-const showDefault = () => {
+const showBasic = () => {
   const res = Dialog.show({
-    title: "message",
-    message: "hello world",
+    title: "惊喜",
+    content: (
+      <div>
+        <img
+          width="100%"
+          src="https://img2.baidu.com/it/u=1191421309,3524520139&fm=26&fmt=auto"
+        />
+        <Button block color="primary" title="立即前往" />
+      </div>
+    ),
     onClose: () => true,
-  });
-};
-
-const forceClose = () => {
-  const res = Dialog.show({
-    title: "message",
-    message: "hello world",
-    onClose: () => false,
-    onOk: () => {
-      res.forceClose();
-      Toast.show({ message: "你点击了 ok" });
-    },
   });
 };
 
 export default function App() {
   return (
-    <>
-      <Button block onClick={() => showDefault()}>
-        简单使用
-      </Button>
-      <div style={{ height: 10 }}></div>
-      <Button block onClick={() => forceClose()}>
-        forceClose
-      </Button>
-    </>
+    <Button block onClick={() => showBasic()}>
+      简单使用
+    </Button>
   );
 }
 ```
@@ -261,7 +278,7 @@ export default function App() {
 | :-  | :- | :- | :- |
 | visible | visibility | `boolean` | `false` |
 | title | 标题 | `ReactNode` | - |
-| message | 内容 | `ReactNode` | - |
+| content | 内容 | `ReactNode` | - |
 | showCancelButton | 展示 cancel 按钮 | `boolean` | `false` |
 | showConfirmButton | 展示 ok 按钮 | `boolean` | `false` | 
 | okText | ok 按钮文字 | `ReactNode` | `ok` |
@@ -269,14 +286,14 @@ export default function App() {
 | appear | 首次挂载动画 | `boolean` | `true` |
 | onOk | ok 点击事件 | `() => void` | `-` |
 | onCancel | cancel 点击事件 | `() => void` | `-` |
-| onClosed | 关闭完成后触发 | `() => void` | `-` |
-| onClose | 关闭前触发，返回 false 表示不关闭，返回 true 表示关闭 | `() => void` | `-` |
+| onClosed | 关闭完成后(动画结束)后触发 | `() => void` | `-` |
+| onClose | 关闭前触发，返回 false 表示不关闭，返回 true 表示关闭，通过方法调用时有用 | `() => void` | `-` |
 
 ```tsx
 export interface DialogProps {
   visible?: boolean;
   title?: React.ReactNode;
-  message?: React.ReactNode;
+  content?: React.ReactNode;
   showConfirmButton?: boolean;
   showCancelButton?: boolean;
   animationDuration?: number;
@@ -288,15 +305,45 @@ export interface DialogProps {
   onClose?: () => void;
   onClosed?: () => void;
 }
+```
 
-// Dialog.show 同步API
+
+</div>
+<div class="block-panel">
+
+<h3>Dialog.show</h3>
+
+```tsx
 export type DialogShowProps = Omit<DialogProps, "visible">;
 export type DialogShowRef = {
-  close: () => void;       // 关闭，会走 onClose
-  forceClose: () => void;  // 强制关闭，不走 onClose 
+  close: () => void;
+  forceClose: () => void;
 };
+```
 
-// Dialog.alert 异步API
-// Dialog.confirm 异步API
+
+</div>
+<div class="block-panel">
+
+<h3>Dialog.alert</h3>
+
+```tsx
+export type AlertDialogProps = Omit<
+  DialogProps,
+  "visible" | "showCancelButton" | "showConfirmButton" | "onCancel" | "cancelText"
+>;
+```
+
+
+</div>
+<div class="block-panel">
+
+<h3>Dialog.confirm</h3>
+
+```tsx
+export type ConfirmDialogProps = Omit<
+  DialogProps,
+  "visible" | "showCancelButton" | "showConfirmButton"
+>;
 ```
 </div>

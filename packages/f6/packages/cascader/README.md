@@ -1,7 +1,12 @@
 ---
 category: 表单组件
 title: Cascader
+subTitle: 联动选择
 ---
+
+### 介绍
+
+`Cascader` 无限联动选择器，它的实现依赖 `Popup`。
 
 ### Props
 
@@ -9,17 +14,17 @@ title: Cascader
 | :-  | :- | :- | :- |
 | options | 树形选项 | `CascaderViewOption[]` | `[]` |
 | visible | 可见性 | `boolean` | `false` |
-| defaultValue | 默认值，如果不匹配，则无效 | `string[]` | `[]` |
+| defaultValue | 默认值，value数组，如果不匹配，则无效 | `string[]` | `[]` |
+| onConfirm | 确认事件 | `(val: CascaderViewOption[]) => void` | - |
 | onClose | 关闭事件 | `() => void` | - |
-| onConfirm | 确认事件 | `(val: CascaderViewOption[]) => voi` | - |
 
 ```tsx
 export interface CascaderProps {
-  options: CascaderViewOption[]; // 选项列表
-  visible: boolean; // 可见性
-  defaultValue?: string[]; // 初始值
-  onClose?: () => void; // 关闭事件
-  onConfirm?: (val: CascaderViewOption[]) => void; // 确认事件
+  options: CascaderViewOption[];
+  visible?: boolean;
+  defaultValue?: string[];
+  onClose?: () => void;
+  onConfirm?: (val: CascaderViewOption[]) => void;
 }
 
 export interface CascaderViewOption {

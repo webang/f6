@@ -18,7 +18,7 @@ export type DialogShowRef = {
 export function show(props: DialogShowProps) {
   const instanceRef = createRef<DialogShowRef>();
 
-  const context = {
+  const methods = {
     unmount: () => {},
     close: () => {
       instanceRef.current?.close();
@@ -52,20 +52,26 @@ export function show(props: DialogShowProps) {
     return (
       <Dialog
         {...props}
-        onClose={closeHandler}
         visible={visible}
+        onCancel={async () => {
+          await props.onCancel?.()
+          methods.close();
+        }}
+        onOk={async () => {
+          await props.onOk?.()
+          methods.close();
+        }}
         onClosed={() => {
-          context.unmount();
-          props.onClosed?.();
+          methods.unmount();
         }}
       />
     );
   });
 
-  context.unmount = mountTo(<Wrapper ref={instanceRef} />);
+  methods.unmount = mountTo(<Wrapper ref={instanceRef} />);
 
   return {
-    close: context.close,
-    forceClose: context.forceClose
+    close: methods.close,
+    forceClose: methods.forceClose
   };
 }

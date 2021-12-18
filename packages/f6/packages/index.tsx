@@ -57,8 +57,8 @@ export type { RadioProps, RadioGroupProps, RadioValue } from './radio';
 export { default as Checkbox } from './checkbox';
 export type { CheckboxProps, CheckboxGroupProps } from './checkbox';
 
-export { default as Field } from './field';
-export type { FieldProps } from './field';
+export { default as Input } from './input';
+export type { InputProps } from './input';
 
 export { default as TextArea } from './text-area';
 

@@ -1,20 +1,23 @@
 import React from "react";
-import { Dialog, Button } from "f6";
+import { Dialog, Toast, Button } from "f6";
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
   return (
     <>
-      <div>
-        <Button onClick={() => setVisible(true)}>显示</Button>
-      </div>
+      <Button block onClick={() => setVisible(true)}>显示弹窗</Button>
       <Dialog
-        showCancelButton={false}
-        onOk={(index) => {
-          setVisible(false)
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+        onClose={() => {
+          Toast.show({ message: '我要走了，毋念' })
+        }}
+        onClosed={() => {
+          Toast.show({ message: '我无了' })
         }}
         visible={visible}
-        message="山有木兮木有枝，心悦君兮君不知。"
+        title="元气"
+        content="山有木兮木有枝，心悦君兮君不知。"
       />
     </>
   );

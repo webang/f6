@@ -5,7 +5,7 @@ title: 基本用法
 
 ```jsx
 import { useState } from 'react';
-import { Cell, Flow, Field, Toast, Button } from "f6";
+import { Cell, Flow, Input, Toast, Button } from "f6";
 
 export default function () {
   const [current, setCurrent] = useState(0);

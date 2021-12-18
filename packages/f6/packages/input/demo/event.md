@@ -4,12 +4,12 @@ title: 响应事件
 ---
 
 ```jsx
-import { Cell, Field, Toast } from "f6";
+import { Cell, Input, Toast } from "f6";
 
 export default function () {
   return (
     <Cell title="相应事件">
-      <Field
+      <Input
         placeholder="focus change blur"
         onChange={() => {
           Toast.show({ message: "change", duration: 2000 });

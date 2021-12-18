@@ -36,8 +36,6 @@ const CollapseItem: FC<CollapseItemProps> = (p) => {
     }
   };
 
-  console.log(isOpen)
-
   const bodyStyle: CSSProperties = {
     height: isOpen ? state.height : 0,
     overflow: "hidden",

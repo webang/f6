@@ -3,6 +3,8 @@ order: 0
 title: 基本用法
 ---
 
+尝试滚动页面。
+
 ```jsx
 import { BackTop } from 'f6';
 

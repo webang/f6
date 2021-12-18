@@ -1,5 +1,5 @@
 import React from "react";
-import { Cascader, Button, Toast } from "f6";
+import { Cascader, Cell, Button, Toast } from "f6";
 
 export const options = [
   {
@@ -47,7 +47,7 @@ export const options = [
             label: "江北区",
             value: "江北区",
           },
-        ]
+        ],
       },
     ],
   },
@@ -100,7 +100,7 @@ export const options = [
           {
             label: "秦淮区",
             value: "秦淮区",
-          }
+          },
         ],
       },
       {
@@ -123,16 +123,23 @@ export const options = [
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
+  const [value, setValue] = React.useState(['浙江', '杭州', '西湖区']);
+
   const print = (list) => {
-    Toast.show({ message: list.map(it => it.value).join('-') });
+    setValue(list.map((it) => it.value));
     setVisible(false);
   };
 
+  const address = value.map((it) => it).join("-");
+
   return (
     <>
-      <Button block onClick={() => setVisible((pre) => !pre)}>
-        显示
-      </Button>
+      <Cell
+        title="取件地址"
+        value={address}
+        link
+        onClick={() => setVisible((pre) => !pre)}
+      />
       <Cascader
         visible={visible}
         options={options}

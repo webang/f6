@@ -4,6 +4,10 @@ title: Checkbox
 subTitle: 复选框
 ---
 
+### 介绍
+
+`Checkbox` 模拟实现 `HTMLInputElement` `type = checkbox`，美化样式和增强功能。
+
 ### Props
 
 | 属性 | 说明 | 类型 | 默认值 |

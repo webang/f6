@@ -1,9 +1,3 @@
----
-order: 2
-title: confirm 函数调用
----
-
-```jsx
 import React from 'react';
 import { Dialog, Button, Toast } from "f6";
 
@@ -78,4 +72,3 @@ export default function App() {
     </>
   );
 }
-```

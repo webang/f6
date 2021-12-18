@@ -17,20 +17,16 @@ export default function App() {
     hide();
   };
 
-  const mButton = (
-    <Button size="mini" color="primary" onClick={show}>
-      显示
-    </Button>
-  );
-
   return (
     <div>
-      <Cell title="标题" value={mButton} />
+      <Button block onClick={show}>
+        基本用法
+      </Button>
       <ActionSheet
         visible={visible}
         onClose={hide}
         callback={callback}
-        actions={[{ name: "相机" }, { name: "相册" }]}
+        actions={[{ title: "相机" }, { title: "相册" }]}
       />
     </div>
   );

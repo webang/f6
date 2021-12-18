@@ -12,23 +12,23 @@ import { usePropsValue } from "../utils/useValue";
 import "./index.less";
 import classNames from "classnames";
 
-export type FieldType = "text" | "number" | "password";
-export type FieldTitlePosition = "top" | "left";
+export type InputType = "text" | "number" | "password";
+export type InputTitlePosition = "top" | "left";
 
-export interface FieldRule {
+export interface InputRule {
   test: (val: string) => boolean;
   message: string;
 }
 
-export interface FieldProps {
-  type?: FieldType;
+export interface InputProps {
+  type?: InputType;
   value?: string;
   defaultValue?: string;
   disabled?: boolean;
   readOnly?: boolean;
   clearable?: boolean;
   placeholder?: string;
-  rules?: FieldRule[];
+  rules?: InputRule[];
   immediateCheck?: boolean;
   resetErrorOnClear?: boolean;
   validateOnChange?: boolean;
@@ -38,9 +38,9 @@ export interface FieldProps {
   onBlur?: () => void;
 }
 
-const [prefix] = defineName("field");
+const [prefix] = defineName("input");
 
-const Field: FC<FieldProps> = (props) => {
+const Input: FC<InputProps> = (props) => {
   const {
     type = "text",
     placeholder,
@@ -147,4 +147,4 @@ const Field: FC<FieldProps> = (props) => {
   return renderInput();
 };
 
-export default Field;
+export default Input;

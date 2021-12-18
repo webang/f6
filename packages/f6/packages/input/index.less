@@ -1,8 +1,8 @@
 @import './../style/base.less';
 
-@field: ~'@{prefix}-field';
+@input: ~'@{prefix}-input';
 
-.@{field} {
+.@{input} {
   &__input {
     display: block;
     box-sizing: border-box;
@@ -19,7 +19,7 @@
     resize: none;
     user-select: auto;
   }
-  .@{field}__title {
+  .@{input}__title {
     flex: none;
     width: 60px;
     color: #666;
@@ -41,7 +41,7 @@
   }
   &--disabled,
   &--readonly {
-    .@{field}__input {
+    .@{input}__input {
       color: #888;
     }
   }

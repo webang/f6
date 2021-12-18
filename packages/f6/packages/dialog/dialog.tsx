@@ -1,4 +1,4 @@
-import React, { ReactNode, FC, useEffect } from "react";
+import React, { ReactNode, FC, useEffect, useRef } from "react";
 import classNames from "classnames";
 import Overlay from "../overlay";
 import Button from "../button";
@@ -9,7 +9,7 @@ import Transition from "../transition";
 export interface DialogProps {
   visible?: boolean;
   title?: React.ReactNode;
-  message?: React.ReactNode;
+  content?: React.ReactNode;
   showConfirmButton?: boolean;
   showCancelButton?: boolean;
   animationDuration?: number;
@@ -18,7 +18,7 @@ export interface DialogProps {
   appear: boolean; // 首次挂载动画
   onOk?: () => void;
   onCancel?: () => void;
-  onClose?: () => void;
+  onClose?: () => (void|boolean);
   onClosed?: () => void;
 }
 
@@ -26,37 +26,45 @@ const [prefix] = defineName("dialog");
 
 const Dialog: FC<DialogProps> = ({
   title,
-  message,
+  content,
   visible,
   showCancelButton = true,
   showConfirmButton = true,
   animationDuration = 250,
-  okText = "确认",
-  cancelText = "取消",
+  okText = "ok",
+  cancelText = "cancel",
   appear = false,
   onOk = () => false,
   onCancel = () => false,
-  onClose,
+  onClose = () => true,
   onClosed,
 }) => {
+  const initRef = useRef({ state: false });
+
   useEffect(() => {
+    if (initRef.current.state === false) {
+      initRef.current.state = true;
+      return;
+    }
     let id: NodeJS.Timeout | null = null;
     if (!visible) {
-      id = setTimeout(() => onClosed?.(), animationDuration);
+      id = setTimeout(() => {
+        onClosed?.()
+      }, animationDuration);
     }
     return () => {
       if (id !== null) clearTimeout(id);
     };
   }, [visible]);
 
-  const okHandler = () => {
+  const okHandler = async () => {
+    await onOk();
     onClose?.();
-    onOk();
   };
 
-  const cancelHandler = () => {
+  const cancelHandler = async () => {
+    await onCancel();
     onClose?.();
-    onCancel();
   };
 
   return (
@@ -73,7 +81,7 @@ const Dialog: FC<DialogProps> = ({
           style={{ transitionDuration: `${animationDuration}ms` }}
         >
           {title && <div className={prefix + "__header"}>{title}</div>}
-          <div className={prefix + "__content"}>{message}</div>
+          <div className={prefix + "__content"}>{content}</div>
           <div className={classNames([prefix + "__footer", "hairline"])}>
             {showCancelButton && (
               <Button onClick={cancelHandler}>{cancelText}</Button>

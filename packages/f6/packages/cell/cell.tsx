@@ -6,7 +6,7 @@ import "./index.less";
 export interface CellProps {
   className?: string;
   title: ReactNode;
-  titleAlign: "left" | "top";
+  titleAlign?: "left" | "top";
   titleClass?: string;
   label?: ReactNode;
   value?: ReactNode;
@@ -35,6 +35,7 @@ const Cell: React.FC<CellProps> = ({
 }) => {
   const mCls = classNames([className], {
     [prefix]: true,
+    [`${prefix}--link`]: link,
     [`hairline-bottom`]: border,
     [`${prefix}--title-${titleAlign}`]: true,
   });

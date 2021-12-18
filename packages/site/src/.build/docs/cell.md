@@ -2,7 +2,7 @@
 
 <h3>介绍</h3>
 
-Cell 常包含标题、图标以及描述，充当列表中的展示项。
+Cell 充当列表中的展示项，常包含标题、图标以及描述。
 
 
 </div>
@@ -11,23 +11,29 @@ Cell 常包含标题、图标以及描述，充当列表中的展示项。
         <h3>基本用法</h3>
 
 ```jsx
-import { Cell, Button } from "f6";
+import { Cell, Button, Toast } from "f6";
 
-const button = (<Button size="mini" color="primary">详情</Button>);
+const button = (
+  <Button size="mini" color="primary">
+    详情
+  </Button>
+);
 
-export default function() {
+export default function () {
   return (
     <Cell.Group>
       <Cell title={"单元格"} value={"100"} link />
+      <Cell title={"单元格"} value={button} link />
+      <Cell title={"单元格"} label={"描述信息"} value={"100"} link />
       <Cell
-        title={"单元格"}
-        value={button}
+        onClick={() => Toast.show({ message: "😄" })}
+        title={"点我试试"}
+        value={"100"}
         link
       />
-      <Cell title={"单元格"} label={"描述信息"} value={"100"} link />
     </Cell.Group>
-  )
-};
+  );
+}
 ```
 </div>
 
@@ -159,5 +165,21 @@ export default function() {
 | icon | 左侧图标 | `ReactNode` | - |
 | value | 最右侧内容 | `ReactNode` | - |
 | border | 是否显示底部边框 | `boolean` | `true` |
-| onClick |	非必需，点击后触发的回调函数 | `React.MouseEventHandler<Element>` | - |
+| onClick |	点击后触发的回调函数 | `React.MouseEventHandler<Element>` | - |
+
+```tsx
+export interface CellProps {
+  className?: string;
+  title: ReactNode;
+  titleAlign?: "left" | "top";
+  titleClass?: string;
+  label?: ReactNode;
+  value?: ReactNode;
+  icon?: ReactNode;
+  bodyStyle?: React.CSSProperties;
+  border?: boolean;
+  link?: boolean;
+  onClick?: React.MouseEventHandler<Element>;
+}
+```
 </div>

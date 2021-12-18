@@ -58,6 +58,26 @@ export default [
     title: '操作反馈',
     menus: [
       {
+        title: "ActionSheet 动作面板",
+        key: 'ActionSheet',
+        content: require("../.build/docs/action-sheet.md"),
+      },
+      {
+        title: "BackTop 回到顶部",
+        key: 'BackTop',
+        content: require("../.build/docs/back-top.md"),
+      },
+      {
+        title: "Dialog 对话框",
+        key: 'Dialog',
+        content: require("../.build/docs/dialog.md"),
+      },
+      {
+        title: "DropdownMenu 下拉菜单",
+        key: 'DropdownMenu',
+        content: require("../.build/docs/dropdown-menu.md"),
+      },
+      {
         title: "Overlay 遮罩层",
         key: 'Overlay',
         content: require("../.build/docs/overlay.md"),
@@ -78,29 +98,9 @@ export default [
         content: require("../.build/docs/toast.md"),
       },
       {
-        title: "Dialog 对话框",
-        key: 'Dialog',
-        content: require("../.build/docs/dialog.md"),
-      },
-      {
         title: "SwipeCell 滑动操作",
         key: 'SwipeCell',
         content: require("../.build/docs/swipe-cell.md"),
-      },
-      {
-        title: "ActionSheet 动作面板",
-        key: 'ActionSheet',
-        content: require("../.build/docs/action-sheet.md"),
-      },
-      {
-        title: "DropdownMenu 下拉菜单",
-        key: 'DropdownMenu',
-        content: require("../.build/docs/dropdown-menu.md"),
-      },
-      {
-        title: "BackTop 回到顶部",
-        key: 'BackTop',
-        content: require("../.build/docs/back-top.md"),
       }
     ]
   },
@@ -108,9 +108,9 @@ export default [
     title: '表单组件',
     menus: [
       {
-        title: "Field 输入框",
-        key: 'Field',
-        content: require("../.build/docs/field.md"),
+        title: "Cascader 联动选择",
+        key: 'Cascader',
+        content: require("../.build/docs/cascader.md"),
       },
       {
         title: "Checkbox 复选框",
@@ -123,6 +123,11 @@ export default [
         content: require("../.build/docs/check-list.md"),
       },
       {
+        title: "Input 输入框",
+        key: 'Input',
+        content: require("../.build/docs/input.md"),
+      },
+      {
         title: "PasswordInput 密码输入",
         key: 'PasswordInput',
         content: require("../.build/docs/password-input.md"),
@@ -131,11 +136,6 @@ export default [
         title: "NumberKeyboard 数字键盘",
         key: 'NumberKeyboard',
         content: require("../.build/docs/number-keyboard.md"),
-      },
-      {
-        title: "Cascader 联动选择",
-        key: 'Cascader',
-        content: require("../.build/docs/cascader.md"),
       },
       {
         title: "Picker 选择器",

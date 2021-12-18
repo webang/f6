@@ -8,37 +8,54 @@ export interface CheckListItemProps {
   value: string;
   disabled?: boolean;
   onClick?: () => void;
+  renderIcon?: (checked: boolean) => React.ReactNode;
 }
 
 const [prefix] = defineName('check-list-item')
 
 const CheckListItem: FC<CheckListItemProps> = p => {
-  const { children, value, disabled, onClick } = p;
+  const { children, value, disabled, onClick, renderIcon } = p;
   const context = useContext(CheckListContext);
-  const isChecked = context?.value.includes(value);
+
+  if (!context) return null;
+
+  const isChecked = context?.value.includes(value) || false;
 
   const handleClick: React.MouseEventHandler = () => {
-    if (disabled) {
-      return;
-    }
+    if (disabled) return;
 
     onClick?.();
 
     if (isChecked) {
-      context?.uncheck(value);
+      context.uncheck(value);
     } else {
-      context?.check(value);
+      context.check(value);
+    }
+  }
+
+  const mRenderIcon = () => {
+    if (renderIcon) {
+      return renderIcon(isChecked);
+    }
+    if (context.renderIcon) {
+      return context.renderIcon(isChecked);
+    }
+    if (isChecked) {
+      return <Icon name="success3" style={{ fontSize: 14 }} />
     }
   }
 
   const mCls = classNames([prefix, 'hairline-bottom'], {
-    [`${prefix}--disabled`]: disabled
+    [`${prefix}--disabled`]: disabled,
+    [`${prefix}--label-${context.labelPosition}`]: true
   })
 
   return (
     <div className={mCls} onClick={handleClick}>
       <div>{children}</div>
-      {isChecked && <Icon className={`${prefix}__icon`} name="success3" /> }
+      <div className={`${prefix}__icon`}>
+        {mRenderIcon()}
+      </div>
     </div>
   )
 }

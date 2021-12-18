@@ -4,7 +4,7 @@
 
 ```jsx
 import { useState } from 'react';
-import { Cell, Flow, Field, Toast, Button } from "f6";
+import { Cell, Flow, Input, Toast, Button } from "f6";
 
 export default function () {
   const [current, setCurrent] = useState(0);
@@ -29,7 +29,7 @@ export default function () {
         <h3>排列方向</h3>
 
 ```jsx
-import { Cell, Flow, Field, Toast, Button } from "f6";
+import { Cell, Flow, Input, Toast, Button } from "f6";
 
 const button = (
   <Button size="mini" color="primary">

@@ -5,7 +5,7 @@ import classNames from "classnames";
 import Popup from "../popup";
 
 export interface ActionItem {
-  name: ReactNode;
+  title: ReactNode;
   desc?: ReactNode;
   render?: () => ReactNode;
 }
@@ -18,6 +18,7 @@ export interface ActionSheetProps {
   borderRadiusSize: number;
   onClose?: () => void;
   callback?: (index: number) => void;
+  cancelText?: string;
 }
 
 const [prefix] = defineName("action-sheet");
@@ -30,6 +31,7 @@ const ActionSheet: FC<ActionSheetProps> = ({
   title,
   borderRadiusSize = 12,
   onClose,
+  cancelText = "cancel",
 }) => {
   const renderAction = (it: ActionItem, index: number) => {
     const content =
@@ -37,7 +39,7 @@ const ActionSheet: FC<ActionSheetProps> = ({
         it.render()
       ) : (
         <>
-          <div className={`${prefix}-item-name`}>{it.name}</div>
+          <div className={`${prefix}-item-name`}>{it.title}</div>
           <div className={`${prefix}-item-desc`}>{it.desc}</div>
         </>
       );
@@ -45,7 +47,11 @@ const ActionSheet: FC<ActionSheetProps> = ({
       <div
         onClick={() => callback?.(index)}
         key={index}
-        className={classNames([`${prefix}-item`, "hairline"])}
+        className={classNames([
+          `${prefix}-item`,
+          `hairline-bottom`,
+          `${prefix}-action`,
+        ])}
       >
         {content}
       </div>
@@ -61,16 +67,20 @@ const ActionSheet: FC<ActionSheetProps> = ({
       visible={visible}
       position="bottom"
     >
-      {title && <div className={classNames([`${prefix}-title`, 'hairline'])}>{title}</div>}
       <div className={classNames([className, prefix])}>
+        {title && (
+          <div className={classNames([`${prefix}-title`, "hairline-bottom"])}>
+            {title}
+          </div>
+        )}
         <div className={`${prefix}-items`}>{actions?.map(renderAction)}</div>
-      </div>
-      <div className={classNames([`${prefix}-gap`])}></div>
-      <div
-        className={classNames([`${prefix}-item`])}
-        onClick={() => onClose?.()}
-      >
-        <div className={`${prefix}-item-name`}>取消</div>
+        <div className={classNames([`${prefix}-gap`])}></div>
+        <div
+          className={classNames([`${prefix}-item`, `${prefix}-action`])}
+          onClick={() => onClose?.()}
+        >
+          <div className={`${prefix}-item-name`}>{cancelText}</div>
+        </div>
       </div>
     </Popup>
   );

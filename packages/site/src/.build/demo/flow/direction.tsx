@@ -1,4 +1,4 @@
-import { Cell, Flow, Field, Toast, Button } from "f6";
+import { Cell, Flow, Input, Toast, Button } from "f6";
 
 const button = (
   <Button size="mini" color="primary">

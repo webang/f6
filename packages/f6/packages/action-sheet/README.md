@@ -17,10 +17,11 @@ ActionSheet 用于从底部弹起一个可操作清单。
 | borderRadiusSize | 圆角大小 | `number` | `12` |
 | onClose | 关闭事件 | `() => void` | - |
 | callback | 选项点击事件 | `(index: number) => void` | - |
+| cancelText | 取消文字 | `string` | `cancel` |
 
 ```ts
 export interface ActionItem {
-  name: ReactNode;
+  title: ReactNode;
   desc?: ReactNode;
   render?: () => ReactNode;
 }

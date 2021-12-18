@@ -4,6 +4,10 @@ title: DropdownMenu
 subTitle: 下拉菜单
 ---
 
+### 介绍
+
+`DropdownMenu` 下拉菜单，常用于多组条件筛选。
+
 ### DropdownMenuProps
 
 | 属性 | 说明 | 类型 | 默认值 |

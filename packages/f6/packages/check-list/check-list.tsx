@@ -7,20 +7,22 @@ export interface CheckListProps {
   value?: string[];
   defaultValue?: string[];
   multiple?: boolean;
-  activeIcon?: ReactNode;
+  renderIcon?: (checked: boolean) => ReactNode;
   onChange?: (value: string[]) => void;
+  labelPosition?: 'left' | 'right'
 }
 
 const defaultProps = {
   multiple: false,
   defaultValue: [],
+  labelPosition: 'left' as 'left' | 'right'
 }
 
 const [prefix] = defineName('check-list');
 
 const CheckList: FC<CheckListProps> = (p) => {
   const props = { ...defaultProps, ...p };
-  const { children, multiple } = props;
+  const { children, multiple, renderIcon, labelPosition  } = props;
   const [value, setValue] = usePropsValue<string[]>(props);
 
   const check: CheckListContext["check"] = (val) => {
@@ -45,7 +47,9 @@ const CheckList: FC<CheckListProps> = (p) => {
         value={{
           value,
           check,
-          uncheck
+          uncheck,
+          renderIcon,
+          labelPosition
         }}
       >
         {children}

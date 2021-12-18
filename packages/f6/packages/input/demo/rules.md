@@ -4,7 +4,7 @@ title: 输入校验
 ---
 
 ```jsx
-import { Cell, Field, Toast } from "f6";
+import { Cell, Input, Toast } from "f6";
 
 export default function () {
   const rules = [
@@ -16,10 +16,10 @@ export default function () {
   return (
     <>
       <Cell title="账户">
-        <Field placeholder="请输入账户" rules={rules} />
+        <Input placeholder="请输入账户" rules={rules} />
       </Cell>
       <Cell title="账户">
-        <Field
+        <Input
           validateOnBlur={true}
           validateOnChange={false}
           placeholder="blur时检验"

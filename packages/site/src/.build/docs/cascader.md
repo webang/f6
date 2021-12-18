@@ -1,10 +1,18 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Cascader` 无限联动选择器，它的实现依赖 `Popup`。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cascader/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 
 ```jsx
 import React from "react";
-import { Cascader, Button, Toast } from "f6";
+import { Cascader, Cell, Button, Toast } from "f6";
 
 export const options = [
   {
@@ -52,7 +60,7 @@ export const options = [
             label: "江北区",
             value: "江北区",
           },
-        ]
+        ],
       },
     ],
   },
@@ -105,7 +113,7 @@ export const options = [
           {
             label: "秦淮区",
             value: "秦淮区",
-          }
+          },
         ],
       },
       {
@@ -128,22 +136,25 @@ export const options = [
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
+  const [value, setValue] = React.useState("");
   const print = (list) => {
-    Toast.show({ message: list.map(it => it.value).join('-') });
+    setValue(list.map((it) => it.value).join("-"));
     setVisible(false);
   };
 
   return (
     <>
-      <Button block onClick={() => setVisible((pre) => !pre)}>
-        显示
-      </Button>
+      <Cell
+        title="取件地址"
+        value={value}
+        link
+        onClick={() => setVisible((pre) => !pre)}
+      />
       <Cascader
         visible={visible}
         options={options}
         onClose={() => setVisible(false)}
         onConfirm={print}
-        defaultValue={['浙江', '杭州', '西湖区']}
       />
     </>
   );
@@ -157,7 +168,7 @@ export default function App() {
 
 ```jsx
 import React from "react";
-import { Cascader, Button, Toast } from "f6";
+import { Cascader, Cell, Button, Toast } from "f6";
 
 export const options = [
   {
@@ -205,7 +216,7 @@ export const options = [
             label: "江北区",
             value: "江北区",
           },
-        ]
+        ],
       },
     ],
   },
@@ -258,7 +269,7 @@ export const options = [
           {
             label: "秦淮区",
             value: "秦淮区",
-          }
+          },
         ],
       },
       {
@@ -281,16 +292,23 @@ export const options = [
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
+  const [value, setValue] = React.useState(['浙江', '杭州', '西湖区']);
+
   const print = (list) => {
-    Toast.show({ message: list.map(it => it.value).join('-') });
+    setValue(list.map((it) => it.value));
     setVisible(false);
   };
 
+  const address = value.map((it) => it).join("-");
+
   return (
     <>
-      <Button block onClick={() => setVisible((pre) => !pre)}>
-        显示
-      </Button>
+      <Cell
+        title="取件地址"
+        value={address}
+        link
+        onClick={() => setVisible((pre) => !pre)}
+      />
       <Cascader
         visible={visible}
         options={options}
@@ -311,17 +329,17 @@ export default function App() {
 | :-  | :- | :- | :- |
 | options | 树形选项 | `CascaderViewOption[]` | `[]` |
 | visible | 可见性 | `boolean` | `false` |
-| defaultValue | 默认值，如果不匹配，则无效 | `string[]` | `[]` |
+| defaultValue | 默认值，value数组，如果不匹配，则无效 | `string[]` | `[]` |
+| onConfirm | 确认事件 | `(val: CascaderViewOption[]) => void` | - |
 | onClose | 关闭事件 | `() => void` | - |
-| onConfirm | 确认事件 | `(val: CascaderViewOption[]) => voi` | - |
 
 ```tsx
 export interface CascaderProps {
-  options: CascaderViewOption[]; // 选项列表
-  visible: boolean; // 可见性
-  defaultValue?: string[]; // 初始值
-  onClose?: () => void; // 关闭事件
-  onConfirm?: (val: CascaderViewOption[]) => void; // 确认事件
+  options: CascaderViewOption[];
+  visible?: boolean;
+  defaultValue?: string[];
+  onClose?: () => void;
+  onConfirm?: (val: CascaderViewOption[]) => void;
 }
 
 export interface CascaderViewOption {
