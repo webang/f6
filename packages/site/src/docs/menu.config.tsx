@@ -78,6 +78,11 @@ export default [
         content: require("../.build/docs/dropdown-menu.md"),
       },
       {
+        title: "InfiniteScroll 滚动组件",
+        key: 'InfiniteScroll',
+        content: require("../.build/docs/infinite-scroll.md"),
+      },
+      {
         title: "Overlay 遮罩层",
         key: 'Overlay',
         content: require("../.build/docs/overlay.md"),
@@ -91,6 +96,11 @@ export default [
         title: "Popup 弹出层",
         key: 'Popup',
         content: require("../.build/docs/popup.md"),
+      },
+      {
+        title: "PullRefresh 下拉刷新",
+        key: 'PullRefresh',
+        content: require("../.build/docs/pull-refresh.md"),
       },
       {
         title: "Toast 轻提示",
@@ -193,11 +203,6 @@ export default [
         content: require("../.build/docs/flow.md"),
       },
       {
-        title: "InfiniteScroll 滚动组件",
-        key: 'InfiniteScroll',
-        content: require("../.build/docs/infinite-scroll.md"),
-      },
-      {
         title: "Marquee 滚动",
         key: 'Marquee',
         content: require("../.build/docs/marquee.md"),
@@ -211,11 +216,6 @@ export default [
         title: "NoticeBar 通知栏",
         key: 'NoticeBar',
         content: require("../.build/docs/notice-bar.md"),
-      },
-      {
-        title: "PullRefresh 下拉刷新",
-        key: 'PullRefresh',
-        content: require("../.build/docs/pull-refresh.md"),
       },
       {
         title: "Swipe",

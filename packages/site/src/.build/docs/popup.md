@@ -1,9 +1,17 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Popup` 常用于从四周弹出弹窗。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/popup/demo/basic.md>更新此演示代码</a>
         <h3>基础用法</h3>
 
 ```jsx
-import { Button, Popup, Popover, Cell  } from 'f6';
+import { Popup, Cell } from "f6";
 import { useState } from "react";
 
 export default function App() {
@@ -14,91 +22,70 @@ export default function App() {
   const [v4, setV4] = useState(false);
 
   return (
-    <div style={{ padding: 10 }}>
+    <div>
       <Cell
-        title="position"
-        value="top"
+        title="bottom"
         onClick={() => setV0((prev) => !prev)}
         link
       />
       <Cell
-        title="position"
-        value="bottom"
+        title="top"
         onClick={() => setV1((prev) => !prev)}
         link
       />
       <Cell
-        title="position"
-        value="left"
+        title="left"
         onClick={() => setV2((prev) => !prev)}
         link
       />
       <Cell
-        title="position"
-        value="right"
+        title="right"
         onClick={() => setV3((prev) => !prev)}
         link
       />
-          <Cell
-        title="position"
-        value="middle"
+      <Cell
+        title="middle"
         onClick={() => setV4((prev) => !prev)}
         link
       />
 
-      <Popup visible={v0}>
-        <Cell
-          title="单元格"
-          value="100"
-          onClick={() => setV0(false)}
-          link
-        />
+      <Popup visible={v0} onMaskClick={() => setV0(false)}>
+        <div style={{ padding: 20 }}>
+          日出而作，日入而息。<br />
+          凿井而饮，耕田而食。<br />
+          帝力于我何有哉！
+        </div>
+      </Popup>
+
+      <Popup visible={v1} position="top" onMaskClick={() => setV1(false)} >
+        <Cell title="单元格" value="100" link />
         <Cell title="单元格" value="100" link />
         <Cell title="单元格" value="100" link />
       </Popup>
 
-      <Popup visible={v1} position="bottom">
-        <Cell
-          title="单元格"
-          value="100"
-          onClick={() => setV1(false)}
-          link
-        />
-        <Cell title="单元格" value="100" link />
-        <Cell title="单元格" value="100" link />
+      <Popup visible={v2} position="left" onMaskClick={() => setV2(false)} >
+        <div style={{ padding: 20, width: 140 }}>
+          关关雎鸠，在河之洲。<br />
+          窈窕淑女，君子好逑。<br />
+          参差荇菜，左右流之。<br />
+          窈窕淑女，寤寐求之。<br />
+        </div>
       </Popup>
 
-      <Popup visible={v2} position="left">
-        <Cell
-          title="单元格"
-          value="100"
-          onClick={() => setV2(false)}
-          link
-        />
-        <Cell title="单元格" value="100" link />
-        <Cell title="单元格" value="100" link />
+      <Popup visible={v3} position="right" onMaskClick={() => setV3(false)} >
+       <div style={{ padding: 20, width: 140 }}>
+          关关雎鸠，在河之洲。<br />
+          窈窕淑女，君子好逑。<br />
+          参差荇菜，左右流之。<br />
+          窈窕淑女，寤寐求之。<br />
+        </div>
       </Popup>
 
-      <Popup visible={v3} position="right">
-        <Cell
-          title="单元格"
-          value="100"
-          onClick={() => setV3(false)}
-          link
-        />
-        <Cell title="单元格" value="100" link />
-        <Cell title="单元格" value="100" link />
-      </Popup>
-
-      <Popup visible={v4} position="middle">
-        <Cell
-          title="单元格"
-          value="100"
-          onClick={() => setV4(false)}
-          link
-        />
-        <Cell title="单元格" value="100" link />
-        <Cell title="单元格" value="100" link />
+      <Popup visible={v4} position="middle" onMaskClick={() => setV4(false)}>
+        <div style={{ padding: 20 }}>
+          日出而作，日入而息。<br />
+          凿井而饮，耕田而食。<br />
+        </div>
       </Popup>
     </div>
   );
@@ -109,13 +96,23 @@ export default function App() {
 
 <h3>Props</h3>
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| visible | 可见性 | boolean | `false` |
+| position | 弹出位置 | `Direction` | `bottom` |
+| animationDuration | 动画消耗时间 | `number` | `300` |
+| onMaskClick | 幕布点击事件 | `() => void` | - |
 
+```tsx
+export interface PopupProps {
+  visible?: boolean;
+  position?: Direction;
+  animationDuration?: number;
+  onMaskClick: () => void;
+  style?: CSSProperties;
+  className?: string;
+}
 
-</div>
-<div class="block-panel">
-
-<h3>API</h3>
-
-this is API content
+export type Direction = "top" | "bottom" | "left" | "right" | "middle";
+```
 </div>

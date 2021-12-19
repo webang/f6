@@ -225,13 +225,33 @@ export default App;
 
 <h3>Props</h3>
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| reference | 触发元素 | boolean | `false` |
+| placement | 弹窗位置 | `PlacementType` ｜ - |
+| verticalDistance | 垂直距离 | `number` | `8` |
+| horizontalDistance | 水平距离 | `number` | `8` |
 
+```tsx
+export interface PopoverProps {
+  reference: React.ReactElement;
+  placement?: PlacementType;
+  verticalDistance?: number;
+  horizontalDistance?: number;
+}
 
-</div>
-<div class="block-panel">
-
-<h3>API</h3>
-
-this is API content
+export type PlacementType =
+  | "top"
+  | "top-start"
+  | "top-end"
+  | "left"
+  | "left-start"
+  | "left-end"
+  | "right"
+  | "right-start"
+  | "right-end"
+  | "bottom"
+  | "bottom-start"
+  | "bottom-end";
+```
 </div>

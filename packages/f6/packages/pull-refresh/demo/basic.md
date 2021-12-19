@@ -5,7 +5,7 @@ title: 基本用法
 
 ```jsx
 import { FC, useState, useRef } from "react";
-import { PullRefresh, PullRefreshRef } from "f6";
+import { PullRefresh, Button, PullRefreshRef } from "f6";
 
 function loadData(len: number, start = 0) {
   return new Array(len).fill(0).map((_, index) => {
@@ -49,6 +49,14 @@ const App: FC = () => {
       style={{ overflow: "scroll", height: "300px", background: "#fff" }}
     >
       <PullRefresh ref={ref} onLoad={onLoad}>
+        <Button
+          block
+          onClick={() => {
+            ref.current.refresh();
+          }}
+        >
+          接口触发刷新
+        </Button>
         {renderItem()}
       </PullRefresh>
     </div>

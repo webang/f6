@@ -2,7 +2,6 @@ import { defineName } from "../utils/name";
 import React, {
   forwardRef,
   ForwardRefRenderFunction,
-  useEffect,
   useImperativeHandle,
   useRef,
   useState,
@@ -12,16 +11,17 @@ import Loading from "../loading";
 import { getPosition, getScrollTarget, getScrollTop } from "../utils/dom";
 
 export interface PullRefreshProps {
-  onLoad?: Function;
   topPullDistance?: number;
   loadingText?: number;
   pullText?: string;
   looseText?: string;
   topMaxPullDistance?: number;
+  onLoad?: () => void;
 }
 
 export interface PullRefreshRef {
-  finish: Function;
+  finish: () => void;
+  refresh: () => void;
 }
 
 type _PullRefresh = ForwardRefRenderFunction<PullRefreshRef, PullRefreshProps>;
@@ -61,6 +61,18 @@ const _PullRefresh: _PullRefresh = (
         loading: false,
       }));
     },
+    refresh: () => {
+      setState((prev) => ({
+        ...prev,
+        touchStartTranslateY: 0,
+        touchStartScreenY: 0,
+        touched: false,
+        useAnimation: true,
+        loading: true,
+        translate: topPullDistance + 10
+      }));
+      onLoad && onLoad();
+    }
   }));
 
   const handleStart: any = (event: any) => {

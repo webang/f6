@@ -1,7 +1,7 @@
 ---
-category: Components
+category: 操作反馈
 title: Popover
-subTitle: 组件
+subTitle: 气泡
 ---
 
 ### 介绍
@@ -10,8 +10,32 @@ Popover 已轻微弹窗的方式，呈现在所触发元素的周围，弹窗内
 
 ### Props
 
-thi is Props content
+| 属性 | 说明 | 类型 | 默认值 |
+| :-  | :- | :- | :- |
+| reference | 触发元素 | boolean | `false` |
+| placement | 弹窗位置 | `PlacementType` ｜ - |
+| verticalDistance | 垂直距离 | `number` | `8` |
+| horizontalDistance | 水平距离 | `number` | `8` |
 
-### API
+```tsx
+export interface PopoverProps {
+  reference: React.ReactElement;
+  placement?: PlacementType;
+  verticalDistance?: number;
+  horizontalDistance?: number;
+}
 
-this is API content
+export type PlacementType =
+  | "top"
+  | "top-start"
+  | "top-end"
+  | "left"
+  | "left-start"
+  | "left-end"
+  | "right"
+  | "right-start"
+  | "right-end"
+  | "bottom"
+  | "bottom-start"
+  | "bottom-end";
+```

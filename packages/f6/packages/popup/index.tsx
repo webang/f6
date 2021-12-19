@@ -11,6 +11,7 @@ export interface PopupProps {
   position?: Direction;
   className?: string;
   animationDuration?: number;
+  onMaskClick: () => void;
 }
 
 export type Direction = "top" | "bottom" | "left" | "right" | "middle";
@@ -21,13 +22,14 @@ const Popup: React.FC<PopupProps> = ({
   children,
   visible,
   animationDuration = 300,
-  position = "top",
+  position = "bottom",
   style = {},
-  className
+  className,
+  onMaskClick
 }) => {
   return (
     <>
-      <Overlay visible={visible} />
+      <Overlay visible={visible} onClick={onMaskClick}/>
       <CSSTransition
         classNames={"wax-slide-" + position}
         in={visible}

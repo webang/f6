@@ -23,7 +23,6 @@ export interface PopoverProps {
   placement?: PlacementType;
   verticalDistance?: number;
   horizontalDistance?: number;
-  onClickTrigger?: () => void;
 }
 
 const [prefix] = defineName("popover");
@@ -33,8 +32,7 @@ const Popover: React.FC<PopoverProps> = ({
   children,
   placement = "bottom",
   verticalDistance = 8,
-  horizontalDistance = 8,
-  onClickTrigger,
+  horizontalDistance = 8
 }) => {
   const [visible, setVisible] = useState(false);
   const [rect, setRect] = useState({ width: 0, height: 0, x: 0, y: 0 });

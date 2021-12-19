@@ -157,7 +157,6 @@ class PickerColumn extends React.Component<{
         wrapper.addEventListener('mousedown', onTouchStart as any, options)
         wrapper.addEventListener('mousemove', onTouchMove as any, options)
         wrapper.addEventListener('mouseup', onTouchEnd, options)
-        wrapper.addEventListener('mouseleave', onTouchEnd, options)
       }
     }
   }
