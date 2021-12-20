@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useUpdate from "./useUpdate";
 
 type UseValueParams<T> = {
@@ -17,6 +17,7 @@ export function usePropsValue<T>(p: UseValueParams<T>) {
   }
 
   const setState = (v: T) => {
+    // const isChanged = stateRef.current !== v;
     if (value === undefined) {
       stateRef.current = v;
       update();

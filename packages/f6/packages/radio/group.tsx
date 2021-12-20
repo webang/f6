@@ -1,28 +1,31 @@
 import { FC, useState } from "react";
 import { RadioValue } from "./radio";
 import { RadioGroupContext } from "./context";
+import { usePropsValue } from "../utils/useValue";
 
 export interface RadioGroupProps {
   defaultValue?: RadioValue|null;
-  onChange?: (val: RadioValue) => void;
+  value?: RadioValue|null;
+  disabled?: boolean;
+  onChange?: (val: RadioValue|null) => void;
 }
 
-const Group: FC<RadioGroupProps> = props => {
-  const { children, defaultValue, onChange } = props;
-  const [ value, setValue ]= useState(defaultValue || null);
+const defaultProps = {
+  disabled: false,
+  defaultValue: null
+}
 
-  const mSetValue = (v: RadioValue | null) => {
-    setValue(v);
-    if (v !== value) {
-      onChange && onChange(v as RadioValue);
-    }
-  }
+const Group: FC<RadioGroupProps> = p => {
+  const props = { ...defaultProps, ...p };
+  const { children, disabled } = props;
+  const [value, setValue]= usePropsValue(props);
 
   return (
     <RadioGroupContext.Provider
       value={{
-        value: value,
-        setValue: mSetValue,
+        value,
+        setValue,
+        disabled
       }}
     >
       {children}

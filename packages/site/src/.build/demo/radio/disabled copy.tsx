@@ -1,9 +1,3 @@
----
-order: 1
-title: 单选组
----
-
-```jsx
 import React from 'react';
 import { Radio, Space, Toast } from 'f6';
 
@@ -12,7 +6,7 @@ export default function App() {
     Toast.show({ message: v })
   }
   return (
-    <Radio.Group defaultValue="1" onChange={onChange}>
+    <Radio.Group disable defaultValue="1" onChange={onChange}>
       <Space>
         <Radio value={"1"}>北京</Radio>
         <Radio value={"2"}>深圳</Radio>
@@ -20,4 +14,3 @@ export default function App() {
     </Radio.Group>
   )
 }
-```

@@ -5,6 +5,7 @@
 .@{radio-cls} {
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
   &__icon {
     display: inline-block;
     vertical-align: middle;
@@ -28,5 +29,9 @@
     .@{radio-cls}__text {
       color: #aaa;
     }
+  }
+  &--block {
+    display: flex;
+    align-items: center;
   }
 }

@@ -1,47 +1,66 @@
-import { FC, ReactNode, useContext, useState } from "react";
+import { FC, ReactNode, useContext } from "react";
 import classNames from "classnames";
 import Icon from "f6-icons";
 
 import { defineName } from "../utils/name";
 import { RadioGroupContext } from "./context";
 import './index.less';
+import { usePropsValue } from "../utils/useValue";
 
 export type RadioValue = string|number;
 
 export interface RadioProps {
   defaultChecked?: boolean;
+  checked?: boolean;
   disabled?: boolean;
   value?: RadioValue;
   onChange: (checked: boolean) => void;
-  icon: ReactNode | ((checked: boolean) => ReactNode);
+  icon: (checked: boolean) => ReactNode;
+  block?: boolean;
 }
 
 const [prefix] = defineName('radio');
 
-const Radio: FC<RadioProps> = (props) => {
+const defaultProps = {
+  disabled: false,
+  defaultChecked: false,
+  block: false,
+}
+
+const Radio: FC<RadioProps> = p=> {
+  const props = {...defaultProps, ...p };
   const {
     children,
-    defaultChecked = false,
-    disabled = false,
     onChange,
+    value,
     icon,
+    block,
     ...restProps
   } = props;
 
   const context = useContext(RadioGroupContext);
-  let [checked, setChecked] = useState(defaultChecked);
+
+  let [checked, setChecked] = usePropsValue({
+    defaultValue: props.defaultChecked,
+    value: props.checked,
+    onChange: props.onChange
+  });
+  let disabled = props.disabled
+
+  if (context && value !== undefined) {
+    checked = context.value === props.value;
+    if (context.disabled !== undefined) {
+      disabled = disabled || context.disabled;
+    }
+  }
 
   const renderIcon = () => {
     if (icon) {
-      return typeof icon === 'function' ? icon(checked): icon;
+      return icon(checked);
     } else {
       return checked ? <Icon name="success" /> : <Icon name="circle" />;
     }
   };
-
-  if (context) {
-    checked = context.value === props.value;
-  }
 
   const handleClick = () => {
     if (disabled) return;
@@ -49,13 +68,13 @@ const Radio: FC<RadioProps> = (props) => {
       context.setValue(props.value || null);
     } else {
       setChecked(!checked);
-      onChange && onChange(!checked);
     }
   };
 
   const mCls = classNames([prefix], {
     [`${prefix}--checked`]: checked,
-    [`${prefix}--disabled`]: disabled
+    [`${prefix}--disabled`]: disabled,
+    [`${prefix}--block`]: block
   });
 
   return (
