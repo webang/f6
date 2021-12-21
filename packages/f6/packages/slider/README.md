@@ -1,10 +1,16 @@
 ---
-category: Components
+category: 表单组件
 title: Slider
-subTitle: 组件
+subTitle: 滑动输入
 ---
 
-## Props
+### 介绍
+
+`Slider` 用于滑动输入，常用于从某个范围中选择一个值。
+
+> 该组件在 PC 上不可用，快速拖动时，会导致 mouseMove 失去焦点，而不再触发回调。
+
+### Props
 
 | 属性 | 描述 | 类型 | 默认值 |
 | - | - | - | - |

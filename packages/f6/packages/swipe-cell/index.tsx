@@ -4,8 +4,6 @@ import classNames from "classnames";
 import './index.less';
 import { getPosition, isMobile, isParent } from "../utils/dom";
 
-// https://youzan.github.io/vant/#/zh-CN/swipe-cell
-
 export interface SwipeCellProps {
   className?: string;
   right?: React.ReactNode;
@@ -114,7 +112,7 @@ const SwipeCell: FC<SwipeCellProps> = (p) => {
     });
   }
 
-  const events = isMobile() ? {
+  const events: any = isMobile() ? {
     onTouchStart: startHandler,
     onTouchMove: moveHandler,
     onTouchEnd: endHandler

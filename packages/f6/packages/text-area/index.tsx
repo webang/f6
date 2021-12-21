@@ -7,22 +7,17 @@ import {
   useState,
   ChangeEventHandler,
 } from "react";
+import classNames from "classnames";
 import Icon from "f6-icons";
-import Cell from "../cell";
 import { usePropsValue } from "../utils/useValue";
 import "./index.less";
-import classNames from "classnames";
-
-export type FieldTitlePosition = "top" | "left";
 
 export interface FieldRule {
   test: (val: string) => boolean;
   message: string;
 }
 
-export interface FieldProps {
-  title?: ReactNode;
-  titlePosition: FieldTitlePosition;
+export interface TextAreaProps {
   value?: string;
   defaultValue?: string;
   disabled?: boolean;
@@ -38,15 +33,14 @@ export interface FieldProps {
   onFocus?: () => void;
   onBlur?: () => void;
   showCount?: boolean;
+  autoSize?: { minRows: number; maxRows: number } | boolean;
 }
 
 const [prefix] = defineName("textarea");
 
-const TextArea: FC<FieldProps> = (props) => {
+const TextArea: FC<TextAreaProps> = (props) => {
   const {
-    title,
     placeholder,
-    titlePosition = "left",
     clearable = true,
     rules = [],
     immediateCheck,
@@ -57,6 +51,7 @@ const TextArea: FC<FieldProps> = (props) => {
     validateOnChange = true,
     resetErrorOnClear = true,
     showCount = true,
+    autoSize = false,
     ...restProps
   } = props;
   const [value, setValue] = usePropsValue<string>({
@@ -85,6 +80,7 @@ const TextArea: FC<FieldProps> = (props) => {
 
   useEffect(() => {
     if (!ref.current) return;
+    if (!autoSize) return;
     const textArea = ref.current;
     textArea.style.height = "auto";
     const height = textArea.scrollHeight;
@@ -131,37 +127,28 @@ const TextArea: FC<FieldProps> = (props) => {
   };
 
   const renderInput = () => (
-    <div>
-      <div>
-        <div className={`${prefix}__body`}>
-          <textarea
-            {...restProps}
-            ref={ref}
-            className={`${prefix}__input`}
-            value={value}
-            placeholder={placeholder}
-            onFocus={handleFocus}
-            onBlur={blurHandle}
-            onChange={handleChange}
-          />
-          {renderIcon()}
-        </div>
-        {error && <div className={`${prefix}__error`}>{error}</div>}
+    <div className={classNames([prefix])}>
+      <div className={`${prefix}__body`}>
+        <textarea
+          {...restProps}
+          ref={ref}
+          className={`${prefix}__input`}
+          value={value}
+          placeholder={placeholder}
+          onFocus={handleFocus}
+          onBlur={blurHandle}
+          onChange={handleChange}
+        />
+        {renderIcon()}
       </div>
-      <div className={`${prefix}__count`}>{value.length}</div>
+      {error && <div className={`${prefix}__error`}>{error}</div>}
+      {value.length ? (
+        <div className={`${prefix}__count`}>{value.length}</div>
+      ) : null}
     </div>
   );
 
-  // return renderInput();
-
-  return (
-    <Cell
-      className={classNames([prefix, `${prefix}--title-${titlePosition}`])}
-      titleClass={`${prefix}__title`}
-      title={title}
-      value={renderInput()}
-    />
-  );
+  return renderInput();
 };
 
 export default TextArea;

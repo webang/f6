@@ -1,8 +1,8 @@
 @import './../style/base.less';
 
-@radio-cls: ~'@{prefix}-radio';
+@radio: ~'@{prefix}-radio';
 
-.@{radio-cls} {
+.@{radio} {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
@@ -20,13 +20,13 @@
     margin-left: 2px;
   }
   &--checked {
-    .@{radio-cls}__icon {
+    .@{radio}__icon {
       color: var(--f6-primary-color);
     }
   }
   &--disabled {
-    .@{radio-cls}__icon,
-    .@{radio-cls}__text {
+    .@{radio}__icon,
+    .@{radio}__text {
       color: #aaa;
     }
   }

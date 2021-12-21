@@ -5,15 +5,12 @@ title: Input
 
 ### 介绍
 
-Input 基于 `html input` 包装了一层，用于自定义一些功能以及样式美化。
+`TextArea` 文本域输入。
 
 ### FieldProps
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| title | 标题 | `ReactNode` | - |
-| titlePosition | 标题位置 | `FieldTitlePosition` | - |
-| type | 输入框类型 | `string \| number \| textarea` | `text` |
 | value | 当前值 | string | - |
 | defaultValue | 默认值 | string | `''` |
 | disabled | 是否禁用 | `boolean` | `false` |
@@ -28,13 +25,16 @@ Input 基于 `html input` 包装了一层，用于自定义一些功能以及样
 | onChange | 变化事件 | `(value?: string) => void` | - |
 | onFocus | 聚焦事件 | `() => void` | - |
 | onBlur | 失焦事件 | `() => void` | - |
-
+| showCount | 是否显示计数器 | `boolean` | `true` |
+| autoSize | 是否自适应高度 | `boolean` | `false` |
 
 ```tsx
-export interface FieldProps {
-  title?: ReactNode;
-  titlePosition: FieldTitlePosition;
-  type?: FieldType;
+export interface FieldRule {
+  test: (val: string) => boolean;
+  message: string;
+}
+
+export interface TextAreaProps {
   value?: string;
   defaultValue?: string;
   disabled?: boolean;
@@ -42,19 +42,14 @@ export interface FieldProps {
   clearable?: boolean;
   placeholder?: string;
   rules?: FieldRule[];
-  validateOnBlur?: boolean;
-  validateOnChange?: boolean;
   immediateCheck?: boolean;
   resetErrorOnClear?: boolean;
+  validateOnChange?: boolean;
+  validateOnBlur?: boolean;
   onChange?: (value?: string) => void;
   onFocus?: () => void;
   onBlur?: () => void;
-}
-
-export type FieldType = "text" | "number" | "password";
-export type FieldTitlePosition = 'top' | 'left';
-export interface FieldRule {
-  test: (val: string) => boolean;   // 校验规则
-  message: ReactNode;               // 当 test 返回 true，用于展示的错误提示信息
+  showCount?: boolean;
+  autoSize?: { minRows: number; maxRows: number } | boolean;
 }
 ```

@@ -4,15 +4,16 @@ title: 基本用法
 ---
 
 ```jsx
-import { Switch } from 'f6';
+import { Space, Switch } from 'f6';
 
 export default function App() {
   return (
-    <>
+    <Space direction="vertical">
       <Switch></Switch>
-      <div style={{ height: 20 }}></div>
       <Switch defaultValue={true}></Switch>
-    </>
+      <Switch disabled></Switch>
+      <Switch disabled defaultValue={true}></Switch>
+    </Space>
   )
 }
 ```

@@ -1,13 +1,16 @@
 ---
 category: Components
-title: Swicth
-subTitle: 组件
+title: Switch
+subTitle: 开关
 ---
-
-### Props
-
-thi is Props content
 
 ### API
 
-this is API content
+```tsx
+export interface SwitchProps {
+  defaultValue?: boolean;
+  value?: boolean;
+  disabled?: boolean;
+  onChange?: (checked: boolean) => void;
+}
+```

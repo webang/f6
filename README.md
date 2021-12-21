@@ -28,3 +28,5 @@ npm run dev
 - [ ] DatetimePicker 时间选择
 - [ ] TabBar 标签栏
 - [ ] NavBar 导航栏
+- [ ] Slider 在 PC 上需要优化
+- [ ] Picker 优化

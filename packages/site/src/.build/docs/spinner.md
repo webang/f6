@@ -65,10 +65,24 @@ export default App;
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
+
+```tsx
+// crescent 月牙形
+// oval 椭圆形
+// lines 线性
+export type SpinnerType = "lines" | "crescent" | "oval";
+
+export interface SpinnerProps {
+  size?: number | string;
+  type?: SpinnerType;
+  className?: string;
+  style?: CSSProperties;
+}
+```
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| type | 动画类型，可选值为 `lines` `oval` `crescent` | string | `crescent` |
-| size | 大小 | number / string | - |
+| type | 动画类型 | `SpinnerType` | `crescent` |
+| size | 大小 | `number \| string` | - |
 </div>

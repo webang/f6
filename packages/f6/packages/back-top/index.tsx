@@ -1,19 +1,24 @@
 import Icon from "f6-icons";
 import { getScrollTop } from "../utils/dom";
-import { FC, useEffect, useState } from "react";
+import { FC, forwardRef, ForwardRefRenderFunction, useEffect, useState } from "react";
 import { defineName } from "../utils/name";
 import './index.less';
 
 const[prefix] = defineName('back-top');
 
+export interface BackTopRef {
+  show: () => void;
+  close: () => void;
+}
+
 export interface BackTopProps {
   distance?: number;
 }
 
-const BackTop: FC<BackTopProps> = ({
+const BackTop: ForwardRefRenderFunction<BackTopRef, BackTopProps> = ({
   children,
   distance = 10
-}) => {
+}, ref) => {
   const [visible, setVisible] = useState(false);
   const updateVisible = () => {
     setVisible(() => getScrollTop(window) > distance)
@@ -42,4 +47,4 @@ const BackTop: FC<BackTopProps> = ({
   )
 }
 
-export default BackTop;
+export default forwardRef(BackTop);

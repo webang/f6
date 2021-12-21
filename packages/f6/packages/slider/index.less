@@ -1,4 +1,6 @@
-.wax-slider {
+@import './../style/base.less';
+
+.@{prefix}-slider {
   position: relative;
   display: flex;
   align-items: center;
@@ -7,7 +9,6 @@
   &__inner {
     position: relative;
     height: 2px;
-    // height: 100%;
     flex: 1;
     margin-right: 24px;
   }
@@ -26,15 +27,33 @@
     max-width: 100%;
     background-color: #07c160;
   }
+  &__thumb-inner {
+    width: 24px;
+    height: 24px;
+    padding: 12px;
+    margin-top: -12px;
+    margin-left: -12px;
+  }
   &__thumb {
+    touch-action: none;
+    overflow: hidden;
     position: absolute;
     width: 24px;
     height: 24px;
     top: 50%;
-    cursor: move;
     background-color: #fff;
     border-radius: 50%;
     transform: translate3d(0, -50%, 0);
     box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
+  }
+  &__tooltip {
+    top: -50px;
+    position: absolute;
+    line-height: 20px;
+    padding: 4px 8px;
+    color: #fff;
+    margin-left: -6px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, .6);
   }
 }

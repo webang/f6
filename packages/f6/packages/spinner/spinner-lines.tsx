@@ -27,7 +27,7 @@ const SpinnerLines: FC<SpinnerProps> = ({ ...restProps }) => {
               transform="translate(32,32)"
               y1="17"
               y2="29"
-            ></line>
+            />
           </svg>
         );
       })}

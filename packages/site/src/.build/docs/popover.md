@@ -11,28 +11,20 @@ Popover 已轻微弹窗的方式，呈现在所触发元素的周围，弹窗内
         <h3>基本用法</h3>
 
 ```jsx
+import React from "react";
 import { Button, Popover, Cell } from "f6";
 
 function App() {
+  const [visible, setVisible] = React.useState(true);
   return (
     <Cell.Group>
-      <Cell
-        title="bottom-start"
-        link
-        value={
-          <Popover
-            placement="bottom-start"
-            reference={<Button size={"mini"}>显示</Button>}
-          >
-            <div style={{ width: 100 }}>hello world</div>
-          </Popover>
-        }
-      />
       <Cell
         title="bottom"
         link
         value={
           <Popover
+            visible={visible}
+            onVisibleChange={setVisible}
             placement="bottom"
             reference={<Button size={"mini"}>显示</Button>}
           >
@@ -100,6 +92,60 @@ function App() {
         value={
           <Popover
             placement="top-end"
+            reference={<Button size={"mini"}>显示</Button>}
+          >
+            <div style={{ width: 100 }}>this is a long tip</div>
+          </Popover>
+        }
+      />
+    </Cell.Group>
+  );
+}
+
+export default App;
+```
+</div>
+
+<div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/popover/demo/bottom.md>更新此演示代码</a>
+        <h3>底部对齐</h3>
+
+```jsx
+import { Button, Popover, Cell } from "f6";
+
+function App() {
+  return (
+    <Cell.Group>
+      <Cell
+        title="bottom-start"
+        link
+        value={
+          <Popover
+            placement="bottom-start"
+            reference={<Button size={"mini"}>显示</Button>}
+          >
+            <div style={{ width: 100 }}>hello world</div>
+          </Popover>
+        }
+      />
+      <Cell
+        title="bottom"
+        link
+        value={
+          <Popover
+            placement="bottom"
+            reference={<Button size={"mini"}>显示</Button>}
+          >
+            <div style={{ width: 100 }}>hello world</div>
+          </Popover>
+        }
+      />
+      <Cell
+        title="bottom-end"
+        link
+        value={
+          <Popover
+            placement="bottom-end"
             reference={<Button size={"mini"}>显示</Button>}
           >
             <div style={{ width: 100 }}>this is a long tip</div>
@@ -223,23 +269,20 @@ export default App;
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| reference | 触发元素 | boolean | `false` |
-| placement | 弹窗位置 | `PlacementType` ｜ - |
+| reference | 触发元素 | `React.ReactElement` | `false` |
+| placement | 弹窗位置 | `PlacementType` | - |
 | verticalDistance | 垂直距离 | `number` | `8` |
 | horizontalDistance | 水平距离 | `number` | `8` |
+| trigger | 触发方式（目前只有`click`） | `click` | `click` |
+| visible | 可见性(受控) | `boolean` | - |
+| defaultVisible | 默认可见性 | `boolean` | `false` |
+| onVisibleChange | 可见性变化，受控状态有用 | `(visible: boolean) => void` | - |
 
 ```tsx
-export interface PopoverProps {
-  reference: React.ReactElement;
-  placement?: PlacementType;
-  verticalDistance?: number;
-  horizontalDistance?: number;
-}
-
 export type PlacementType =
   | "top"
   | "top-start"
@@ -253,5 +296,16 @@ export type PlacementType =
   | "bottom"
   | "bottom-start"
   | "bottom-end";
+
+export interface PopoverProps {
+  reference: React.ReactElement;
+  placement?: PlacementType;
+  verticalDistance?: number;
+  horizontalDistance?: number;
+  trigger?: "click";
+  visible?: boolean;
+  defaultVisible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
+}
 ```
 </div>

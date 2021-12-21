@@ -3,30 +3,30 @@
         <h3>基本用法</h3>
 
 ```jsx
-import { Switch } from 'f6';
+import { Space, Switch } from 'f6';
 
 export default function App() {
   return (
-    <>
+    <Space direction="vertical">
       <Switch></Switch>
-      <div style={{ height: 20 }}></div>
       <Switch defaultValue={true}></Switch>
-    </>
+      <Switch disabled></Switch>
+      <Switch disabled defaultValue={true}></Switch>
+    </Space>
   )
 }
 ```
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
-
-thi is Props content
-
-
-</div>
-<div class="block-panel">
-
 <h3>API</h3>
 
-this is API content
+```tsx
+export interface SwitchProps {
+  defaultValue?: boolean;
+  value?: boolean;
+  disabled?: boolean;
+  onChange?: (checked: boolean) => void;
+}
+```
 </div>

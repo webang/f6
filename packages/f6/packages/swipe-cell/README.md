@@ -1,24 +1,24 @@
 ---
-category: Components
-title: Space
-subTitle: 组件
+category: 操作反馈
+title: SwipeCell
+subTitle: 滑动操作
 ---
 
-### Props
+### 介绍
+
+`SwipeCell` 滑动操作。
+
+### API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| direction | 布局方向 | `vertical` \| `horzontal` | `horzontal` |
-| wrap | 是否换行 | boolean | `true` |
-| align | 副轴对其方式 | - | `start` |
-| justify | 主轴对其方式 | - | `start` |
+| right | 右侧插槽 | `React.ReactNode` | - |
+| left | 左侧插槽 | `React.ReactNode` | - |
 
 ```tsx
-export interface SpaceProps {
-  direction?: 'vertical' | 'horizontal',
-  align?: 'start' | 'end' | 'center' | 'baseline';
-  justify?: 'start' | 'end' | 'center' | 'between' | 'around';
-  wrap?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+export interface SwipeCellProps {
+  className?: string;
+  right?: React.ReactNode;
+  left?: React.ReactNode;
 }
 ```

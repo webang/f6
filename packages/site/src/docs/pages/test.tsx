@@ -1,71 +1,52 @@
-import Button from "f6/packages/button";
-import Dialog from "f6/packages/dialog";
-import Popover from "f6/packages/popover";
-import Toast from "f6/packages/toast";
-import { Route, Routes } from "react-router";
-import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
+import React, { Component, FC, forwardRef, ReactElement, useEffect } from "react";
 
-const Home = () => {
+const Parent: FC<{
+  child: ReactElement
+}> = ({
+  child
+}) => {
+  console.log(child)
+  const childRef = React.createRef();
+
+  class M extends React.Component {
+    render(): React.ReactNode {
+      return child;
+    }
+  }
+
+  useEffect(() => {
+    console.log(ReactDOM.findDOMNode(childRef.current))
+  })
+
   return (
     <div>
-      <Popover placement="bottom" reference={<span>hello</span>}></Popover>
-      <div>Home</div>
+      <h1>Hello World!</h1>
+      {/* {cloned} */}
+      {<M ref={childRef}/>}
     </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div>
-      <span>About</span>
-
-      <Button
-        title={"Toast"}
-        onClick={() => {
-          Toast.show({
-            message: "hello world",
-            duration: 300,
-            type: "loading",
-          });
-        }}
-      />
-
-      <Button
-        title="confirm"
-        onClick={() => {
-          Dialog.confirm({
-            message: "订单将会在30分钟后取消",
-            onOk: () => {
-              return false;
-            },
-          }); 
-        }}
-      />
-
-      <Button
-        title="alert"
-        onClick={() => {
-          Dialog.alert({
-            message: "订单将会在30分钟后取消",
-            onOk: () => {
-              return false;
-            },
-          }); 
-        }}
-      />
-    </div>
-  );
-};
-
-export default function () {
-  return (
-    <div>
-      <Link to="home">home</Link>
-      <Link to="about">about</Link>
-      <Routes>
-        <Route path={"home"} element={<Home></Home>}></Route>
-        <Route path={"about"} element={<About></About>}></Route>
-      </Routes>
-    </div>
-  );
+  )
 }
+
+class CButton extends Component {
+  render() {
+    return <div>I am CButton</div>;
+  }
+}
+
+function FButton() {
+  return (
+    <div>I am FButton</div>
+  )
+}
+
+const App = () => {
+  return (
+    <div>
+      <Parent child={<CButton />} />
+      <Parent child={<FButton />} />
+    </div>
+  )
+}
+
+export default App;

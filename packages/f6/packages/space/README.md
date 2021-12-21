@@ -4,21 +4,20 @@ title: Space
 subTitle: 组件
 ---
 
-### Props
+### 介绍
+
+`Space` 用于设置多个组件之间的间距。
+
+### API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| direction | 布局方向 | `vertical` \| `horzontal` | `horzontal` |
+| direction | 布局方向 | `vertical` \| `horizontal` | `horizontal` |
 | wrap | 是否换行 | boolean | `true` |
-| align | 副轴对其方式 | - | `start` |
-| justify | 主轴对其方式 | - | `start` |
 
 ```tsx
 export interface SpaceProps {
   direction?: 'vertical' | 'horizontal',
-  align?: 'start' | 'end' | 'center' | 'baseline';
-  justify?: 'start' | 'end' | 'center' | 'between' | 'around';
   wrap?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 ```

@@ -1,4 +1,12 @@
 <div class="block-panel">
+
+<h3>介绍</h3>
+
+`Space` 用于设置多个组件之间的间距。
+
+
+</div>
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/space/demo/basic.md>更新此演示代码</a>
         <h3>基本用法</h3>
 
@@ -59,22 +67,17 @@ export default function App() {
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
-| direction | 布局方向 | `vertical` \| `horzontal` | `horzontal` |
+| direction | 布局方向 | `vertical` \| `horizontal` | `horizontal` |
 | wrap | 是否换行 | boolean | `true` |
-| align | 副轴对其方式 | - | `start` |
-| justify | 主轴对其方式 | - | `start` |
 
 ```tsx
 export interface SpaceProps {
   direction?: 'vertical' | 'horizontal',
-  align?: 'start' | 'end' | 'center' | 'baseline';
-  justify?: 'start' | 'end' | 'center' | 'between' | 'around';
   wrap?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 ```
 </div>

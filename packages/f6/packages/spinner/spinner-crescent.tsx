@@ -22,7 +22,7 @@ const SpinnerCrescent: FC<SpinnerProps> = ({ className, ...restProps }) => {
                 to="360 18 18"
                 dur="1s"
                 repeatCount="indefinite"
-              ></animateTransform>
+              />
             </path>
           </g>
         </g>

@@ -158,14 +158,19 @@ export default [
         content: require("../.build/docs/radio.md"),
       },
       {
-        title: "Switch 标签页",
+        title: "Slider 滑动输入",
+        key: 'Slider',
+        content: require("../.build/docs/slider.md"),
+      },
+      {
+        title: "Switch 开关",
         key: 'Switch',
         content: require("../.build/docs/switch.md"),
       },
       {
-        title: "Slider 输入条",
-        key: 'Slider',
-        content: require("../.build/docs/slider.md"),
+        title: "TextArea 文本域",
+        key: 'TextArea',
+        content: require("../.build/docs/text-area.md"),
       }
     ]
   },

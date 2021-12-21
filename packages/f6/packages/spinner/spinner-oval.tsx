@@ -17,7 +17,7 @@ const OvalSpinner: FC<SpinnerProps> = ({ className, style, ...restProps }) => {
               cy="18"
               r="17.5"
               style={{ stroke: "currentcolor" }}
-            ></circle>
+            />
             <path d="M17.5,0 a17.5,17.5 0 0 1 17.5 17.5" style={{ stroke: "currentcolor" }}>
               <animateTransform
                 attributeName="transform"
@@ -26,7 +26,7 @@ const OvalSpinner: FC<SpinnerProps> = ({ className, style, ...restProps }) => {
                 to="360 18 18"
                 dur="1s"
                 repeatCount="indefinite"
-              ></animateTransform>
+              />
             </path>
           </g>
         </g>

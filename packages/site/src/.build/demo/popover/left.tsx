@@ -4,11 +4,11 @@ function App() {
   return (
     <Cell.Group>
       <Cell
-        title="top-start"
+        title="bottom-start"
         link
         value={
           <Popover
-            placement="top-start"
+            placement="bottom-start"
             reference={<Button size={"mini"}>显示</Button>}
           >
             <div style={{ width: 100 }}>hello world</div>
@@ -16,11 +16,11 @@ function App() {
         }
       />
       <Cell
-        title="top"
+        title="bottom"
         link
         value={
           <Popover
-            placement="top"
+            placement="bottom"
             reference={<Button size={"mini"}>显示</Button>}
           >
             <div style={{ width: 100 }}>hello world</div>
@@ -28,11 +28,11 @@ function App() {
         }
       />
       <Cell
-        title="top-end"
+        title="bottom-end"
         link
         value={
           <Popover
-            placement="top-end"
+            placement="bottom-end"
             reference={<Button size={"mini"}>显示</Button>}
           >
             <div style={{ width: 100 }}>this is a long tip</div>

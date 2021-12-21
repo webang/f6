@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import { TextArea, Toast, Button } from "f6";
+import { Cell, TextArea, Input, Toast } from "f6";
 
 export default function () {
-  const [value, setValue] = useState('')
-
+  const rules = [
+    {
+      test: (val: string) => val.length < 3,
+      message: "长度不能小于3",
+    },
+  ];
   return (
-    <>
-      <TextArea title="账户" placeholder="请输入账户" />
-    </>
+    <div style={{ padding: 10,  background: '#fff' }}>
+      <TextArea autoSize placeholder="请输入账户" rules={rules} />
+    </div>
   );
 }

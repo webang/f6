@@ -1,31 +1,29 @@
-.wax-space-horizontal {
-  flex-direction: row;
-}
+@import './../style/base.less';
 
-.wax-space-vertical {
-  flex-direction: column;
-}
+@space: ~"@{prefix}-space";
+@space-gap: 8px;
 
-.wax-space-item {
-  flex: none;
-}
-
-.wax-space {
+.@{space} {
   display: flex;
-}
-
-.wax-space-wrap {
-  flex-wrap: wrap;
-}
-
-.wax-space-horizontal > .wax-space-item {
-  margin-right: 8px;
-}
-
-.wax-space-vertical>.wax-space-item {
-  margin-bottom: 8px;
-}
-
-.wax-space-horizontal.wax-space-wrap>.wax-space-item {
-  margin-bottom: 8px;
+  &-item {
+    flex: none;
+  }
+  &-horizontal {
+    flex-direction: row;
+    .@{space}-item {
+      margin-right: @space-gap;
+    }
+  }
+  &-vertical {
+    flex-direction: column;
+    .@{space}-item {
+      margin-bottom: @space-gap;
+    }
+  }
+  &-wrap&-horizontal {
+    flex-wrap: wrap;
+    .@{space}-item {
+      margin-bottom: @space-gap;
+    }
+  }
 }
