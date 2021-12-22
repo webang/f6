@@ -15,7 +15,7 @@ import React from "react";
 import { Button, Popover, Cell } from "f6";
 
 function App() {
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
   return (
     <Cell.Group>
       <Cell
@@ -26,21 +26,9 @@ function App() {
             visible={visible}
             onVisibleChange={setVisible}
             placement="bottom"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
-          </Popover>
-        }
-      />
-      <Cell
-        title="bottom-end"
-        link
-        value={
-          <Popover
-            placement="bottom-end"
-            reference={<Button size={"mini"}>显示</Button>}
-          >
-            <div style={{ width: 100 }}>this is a long tip</div>
+            <Button size={"mini"} title="显示" />
           </Popover>
         }
       />
@@ -68,9 +56,9 @@ function App() {
         value={
           <Popover
             placement="top-start"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"} title="显示" />
           </Popover>
         }
       />
@@ -80,9 +68,9 @@ function App() {
         value={
           <Popover
             placement="top"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"} title="显示" />
           </Popover>
         }
       />
@@ -92,9 +80,9 @@ function App() {
         value={
           <Popover
             placement="top-end"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>this is a long tip</div>
+            <Button size={"mini"} title="显示" />
           </Popover>
         }
       />
@@ -122,9 +110,9 @@ function App() {
         value={
           <Popover
             placement="bottom-start"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -134,9 +122,9 @@ function App() {
         value={
           <Popover
             placement="bottom"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -146,9 +134,9 @@ function App() {
         value={
           <Popover
             placement="bottom-end"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>this is a long tip</div>}
           >
-            <div style={{ width: 100 }}>this is a long tip</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -176,9 +164,11 @@ function App() {
         value={
           <Popover
             placement="left-start"
-            reference={<Button size={"mini"}>显示</Button>}
-          >
+            content={
             <div style={{ width: 100 }}>hello world</div>
+            }
+          >
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -188,9 +178,11 @@ function App() {
         value={
           <Popover
             placement="left"
-            reference={<Button size={"mini"}>显示</Button>}
-          >
+            content={
             <div style={{ width: 100 }}>hello world</div>
+            }
+          >
+          <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -200,9 +192,11 @@ function App() {
         value={
           <Popover
             placement="left-end"
-            reference={<Button size={"mini"}>显示</Button>}
-          >
+            content={
             <div style={{ width: 100 }}>this is a long tip</div>
+            }
+          >
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -230,9 +224,9 @@ function App() {
         value={
           <Popover
             placement="right-start"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -242,9 +236,10 @@ function App() {
         value={
           <Popover
             placement="right"
+            content={<div style={{ width: 100 }}>hello world</div>}
             reference={<Button size={"mini"}>显示</Button>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -254,9 +249,10 @@ function App() {
         value={
           <Popover
             placement="right-end"
+            content={<div style={{ width: 100 }}>this is a long tip</div>}
             reference={<Button size={"mini"}>显示</Button>}
           >
-            <div style={{ width: 100 }}>this is a long tip</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />

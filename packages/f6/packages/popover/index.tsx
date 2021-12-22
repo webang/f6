@@ -1,9 +1,16 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import "./index.less";
 import ReactDOM from "react-dom";
 import classNames from "classnames";
 import { defineName } from "../utils/name";
 import { usePropsValue } from "../utils/useValue";
+import Trigger from "./trigger";
 
 export type PlacementType =
   | "top"
@@ -20,14 +27,20 @@ export type PlacementType =
   | "bottom-end";
 
 export interface PopoverProps {
-  reference: React.ReactElement;
+  children: React.ReactElement;
+  content?: React.ReactNode;
   placement?: PlacementType;
   verticalDistance?: number;
   horizontalDistance?: number;
   trigger?: "click";
   visible?: boolean;
   defaultVisible?: boolean;
+  contentStyle: React.CSSProperties;
   onVisibleChange?: (visible: boolean) => void;
+}
+
+export interface PopoverRef {
+  resetPosition: () => void;
 }
 
 const [prefix] = defineName("popover");
@@ -38,10 +51,13 @@ const defaultProps = {
   defaultVisible: false,
 };
 
-const Popover: React.FC<PopoverProps> = (p) => {
+const Popover: React.ForwardRefRenderFunction<PopoverRef, PopoverProps> = (
+  p,
+  ref
+) => {
   const props = { ...defaultProps, ...p };
   const {
-    reference,
+    content,
     children,
     placement,
     verticalDistance = 8,
@@ -54,11 +70,11 @@ const Popover: React.FC<PopoverProps> = (p) => {
   });
   const [rect, setRect] = useState({ width: 0, height: 0, x: 0, y: 0 });
   const [contentSize, setContentSize] = useState({ width: 0, height: 0 });
-  const triggerRef = useRef<HTMLSpanElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<React.ReactInstance>(null);
 
   useEffect(() => {
-    const findParent = (node: Element, target: Element) => {
+    const isParent = (node: Element, target: Element) => {
       if (node === target) {
         return true;
       }
@@ -70,9 +86,12 @@ const Popover: React.FC<PopoverProps> = (p) => {
       return false;
     };
     function onClick(event: any) {
-      var element: Element = triggerRef.current as Element;
-      if (!findParent(event.target, element)) {
-        setVisible(false);
+      const triggerInstance = triggerRef.current!;
+      const element = ReactDOM.findDOMNode(triggerInstance) as Element;
+      if (element) {
+        if (!isParent(event.target, element)) {
+          setVisible(false);
+        }
       }
     }
     window.addEventListener("click", onClick);
@@ -83,7 +102,9 @@ const Popover: React.FC<PopoverProps> = (p) => {
 
   const initRect = () => {
     if (!triggerRef.current) return;
-    const element = triggerRef.current;
+    const triggerInstance = triggerRef.current;
+    const element = ReactDOM.findDOMNode(triggerInstance) as Element;
+    if (!element) return;
     const rect = element.getBoundingClientRect();
     setRect({
       width: rect.width,
@@ -100,7 +121,11 @@ const Popover: React.FC<PopoverProps> = (p) => {
     }
   };
 
-  useEffect(() => initRect(), []);
+  useImperativeHandle(ref, () => ({
+    resetPosition: initRect,
+  }));
+
+  useEffect(initRect, [visible]);
 
   const getContainer = () => {
     return document.body;
@@ -161,31 +186,33 @@ const Popover: React.FC<PopoverProps> = (p) => {
   const style = { left: getX(placement), top: getY(placement) };
 
   const portal = ReactDOM.createPortal(
-    <div
-      ref={contentRef}
-      className={classNames([prefix + "__content", prefix + "--" + placement])}
-      style={style}
-    >
-      <div className="wax-popover__arrow"></div>
-      <div className="wax-popover__body">{children}</div>
+    <div className={classNames([prefix])} ref={contentRef} style={style}>
+      <div
+        style={p.contentStyle}
+        className={classNames([
+          prefix + "__content",
+          prefix + "--" + placement,
+        ])}
+      >
+        <div className="wax-popover__arrow"></div>
+        <div className="wax-popover__body">{content}</div>
+      </div>
     </div>,
     getContainer()
   );
 
+  const clonedReference = React.cloneElement(children, {
+    onClick: () => {
+      setVisible(!visible);
+    },
+  });
+
   return (
     <>
-      <span
-        className={`${prefix}__trigger`}
-        ref={triggerRef}
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      >
-        {reference}
-      </span>
+      <Trigger ref={triggerRef as any}>{clonedReference}</Trigger>
       {visible && portal}
     </>
   );
 };
 
-export default Popover;
+export default forwardRef(Popover);

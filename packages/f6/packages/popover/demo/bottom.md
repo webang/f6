@@ -15,9 +15,9 @@ function App() {
         value={
           <Popover
             placement="bottom-start"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -27,9 +27,9 @@ function App() {
         value={
           <Popover
             placement="bottom"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />
@@ -39,9 +39,9 @@ function App() {
         value={
           <Popover
             placement="bottom-end"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>this is a long tip</div>}
           >
-            <div style={{ width: 100 }}>this is a long tip</div>
+            <Button size={"mini"}>显示</Button>
           </Popover>
         }
       />

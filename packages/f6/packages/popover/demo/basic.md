@@ -8,7 +8,7 @@ import React from "react";
 import { Button, Popover, Cell } from "f6";
 
 function App() {
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
   return (
     <Cell.Group>
       <Cell
@@ -19,21 +19,9 @@ function App() {
             visible={visible}
             onVisibleChange={setVisible}
             placement="bottom"
-            reference={<Button size={"mini"}>显示</Button>}
+            content={<div style={{ width: 100 }}>hello world</div>}
           >
-            <div style={{ width: 100 }}>hello world</div>
-          </Popover>
-        }
-      />
-      <Cell
-        title="bottom-end"
-        link
-        value={
-          <Popover
-            placement="bottom-end"
-            reference={<Button size={"mini"}>显示</Button>}
-          >
-            <div style={{ width: 100 }}>this is a long tip</div>
+            <Button size={"mini"} title="显示" />
           </Popover>
         }
       />

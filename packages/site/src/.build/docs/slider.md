@@ -4,8 +4,6 @@
 
 `Slider` 用于滑动输入，常用于从某个范围中选择一个值。
 
-> 该组件在 PC 上不可用，快速拖动时，会导致 mouseMove 失去焦点，而不再触发回调。
-
 
 </div>
 <div class="block-panel">
@@ -27,7 +25,7 @@ export default function App() {
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
 
 | 属性 | 描述 | 类型 | 默认值 |
 | - | - | - | - |

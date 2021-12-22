@@ -3,7 +3,7 @@ import { defineName } from "../utils/name";
 import React, { useState, useRef, useEffect } from "react";
 import { getPosition, isMobile } from "../utils/dom";
 import "./index.less";
-import Popover from "../popover";
+import Popover, { PopoverRef } from "../popover";
 
 type MEvent =
   | React.MouseEvent<HTMLDivElement>
@@ -46,12 +46,14 @@ const Slider: React.FC<SliderProps> = ({
   });
   const [range, setRange] = useState([0, 0]);
   const innerRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<PopoverRef>(null);
 
   useEffect(() => {
     setRange([0, innerRef.current?.offsetWidth || 0]);
   }, []);
 
   useEffect(() => {
+    popoverRef.current?.resetPosition();
     // 将 move 事件挂载在 window 上
     // 避免快速拖动导致 move 元素失焦
     const move = isMobile() ? "touchmove" : "mousemove";
@@ -124,7 +126,7 @@ const Slider: React.FC<SliderProps> = ({
   const events = {
     onTouchStart: startHandler as THandler,
     onMouseDown: startHandler as MHandler,
-  }
+  };
 
   return (
     <div className={mCls}>
@@ -135,17 +137,17 @@ const Slider: React.FC<SliderProps> = ({
           className={`${prefix}__track`}
           style={{ width: state.translate }}
         />
-        <Popover visible={state.isTouched} reference={(
+        <Popover
+          ref={popoverRef}
+          visible={state.isTouched}
+          placement="top"
+          contentStyle={{ padding: '4px 8px', minWidth: 36, textAlign: 'center', boxSizing: 'border-box' }}
+          content={<span>{getValue().toString()}</span>}
+        >
           <div className={`${prefix}__thumb`} style={{ left: state.translate }}>
-          <div {...events} className={`${prefix}__thumb-inner`}></div>
-        </div>
-        )}>
-          {getValue()}
+            <div {...events} className={`${prefix}__thumb-inner`}></div>
+          </div>
         </Popover>
-        {/* <div className={`${prefix}__tooltip`} style={{
-          left: state.translate,
-          display: state.isTouched ? 'block' : 'none'
-        }}>{getValue()}</div> */}
       </div>
       {right}
     </div>
