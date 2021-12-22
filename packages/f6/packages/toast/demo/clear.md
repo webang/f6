@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 99
 title: 清除所有
 ---
 

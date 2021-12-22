@@ -11,19 +11,19 @@ export default () => {
         title: '基本用法',
         element: App0
       },{
-        title: '加载动画',
+        title: '持续时长',
         element: App1
       },{
-        title: '清除所有',
+        title: '提示位置',
         element: App2
       },{
-        title: '持续时长',
+        title: '清除所有',
         element: App3
       },{
-        title: '提示位置',
+        title: '内容更新',
         element: App4
       },{
-        title: '内容更新',
+        title: '加载动画',
         element: App5
       },];
   return <Demo list={list} title={title}/>;

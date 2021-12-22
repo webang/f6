@@ -3,8 +3,23 @@ import { Cell, Button, Toast } from 'f6';
 export default function App() {
   return (
     <Cell.Group>
-      <Cell title={"主动清除"} link onClick={() => {
-        Toast.clear();
+      <Cell title={"top"} link onClick={() => {
+        Toast.show({
+          position: 'top',
+          message: '请求成功',
+        });
+      }} />
+      <Cell title={"middle"} link onClick={() => {
+        Toast.show({
+          position: 'middle',
+          message: '请求成功'
+        });
+      }} />
+      <Cell title={"bottom"} link onClick={() => {
+        Toast.show({
+          position: 'bottom',
+          message: '请求成功'
+        });
       }} />
     </Cell.Group>
   )

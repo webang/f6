@@ -3,25 +3,27 @@ import { Cell, Button, Toast } from 'f6';
 export default function App() {
   return (
     <Cell.Group>
-      <Cell title={"oval"} link onClick={() => {
-        Toast.show({
-          type: 'loading',
-          spinner: 'oval',
-          message: 'Loading',
+      <Cell title={"不主动关闭"} link onClick={() => {
+        const ref = Toast.show({
+          position: 'middle',
+          message: '请求成功',
+          duration: 0
         });
+        let count = 0
+        const t = setInterval(() => {
+          count++;
+          ref.setContent(count)
+          if (count > 10) {
+            ref.close();
+            clearInterval(t);
+          }
+        }, 1000)
       }} />
-      <Cell title={"lines"} link onClick={() => {
-        Toast.show({
-          type: 'loading',
-          spinner: 'lines',
-          message: 'Loading',
-        });
-      }} />
-      <Cell title={"crescent"} link onClick={() => {
-        Toast.show({
-          type: 'loading',
-          spinner: 'crescent',
-          message: 'Loading',
+      <Cell title={"一段时间后关闭"} link onClick={() => {
+        const ref = Toast.show({
+          position: 'top',
+          message: '请求成功',
+          duration: 1000
         });
       }} />
     </Cell.Group>

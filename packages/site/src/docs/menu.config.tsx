@@ -103,15 +103,15 @@ export default [
         content: require("../.build/docs/pull-refresh.md"),
       },
       {
+        title: "SwipeCell 滑动操作",
+        key: 'SwipeCell',
+        content: require("../.build/docs/swipe-cell.md"),
+      },
+      {
         title: "Toast 轻提示",
         key: 'Toast',
         content: require("../.build/docs/toast.md"),
       },
-      {
-        title: "SwipeCell 滑动操作",
-        key: 'SwipeCell',
-        content: require("../.build/docs/swipe-cell.md"),
-      }
     ]
   },
   {

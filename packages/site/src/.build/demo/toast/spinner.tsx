@@ -1,22 +1,29 @@
-import { Cell, Button, Toast } from "f6";
+import { Cell, Button, Toast } from 'f6';
 
 export default function App() {
   return (
     <Cell.Group>
-      <Cell
-        title={"更新内容"}
-        link
-        onClick={() => {
-          const ref = Toast.show({
-            position: "top",
-            message: "请求成功",
-            duration: 1000,
-          });
-          setTimeout(() => {
-            ref.setContent("我不是我了");
-          }, 500);
-        }}
-      />
+      <Cell title={"oval"} link onClick={() => {
+        Toast.show({
+          type: 'loading',
+          spinner: 'oval',
+          message: 'Loading',
+        });
+      }} />
+      <Cell title={"lines"} link onClick={() => {
+        Toast.show({
+          type: 'loading',
+          spinner: 'lines',
+          message: 'Loading',
+        });
+      }} />
+      <Cell title={"crescent"} link onClick={() => {
+        Toast.show({
+          type: 'loading',
+          spinner: 'crescent',
+          message: 'Loading',
+        });
+      }} />
     </Cell.Group>
-  );
+  )
 }

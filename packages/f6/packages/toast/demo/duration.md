@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 1
 title: 持续时长
 ---
 
@@ -27,7 +27,7 @@ export default function App() {
       }} />
       <Cell title={"一段时间后关闭"} link onClick={() => {
         const ref = Toast.show({
-          position: 'bottom',
+          position: 'top',
           message: '请求成功',
           duration: 1000
         });

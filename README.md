@@ -23,10 +23,11 @@ npm run dev
 
 ## TODO
 
+- [ ] 编译脚本
 - [ ] Uploader 文件上传
 - [ ] Calendar 日历
 - [ ] DatetimePicker 时间选择
 - [ ] TabBar 标签栏
 - [ ] NavBar 导航栏
-- [ ] Slider 在 PC 上需要优化
 - [ ] Picker 优化
+- [ ] swipe 优化

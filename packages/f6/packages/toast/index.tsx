@@ -12,22 +12,25 @@ import "./index.less";
 import Icon from "f6-icons";
 import Spinner, { SpinnerType } from "../spinner";
 
+export type ToastPosition = "top" | "bottom" | "middle";
+export type ToastType = "text" | "loading" | "success" | "fail" | "warning";
+
 export interface ToastProps {
+  type?: ToastType;
+  position?: ToastPosition;
   message: string;
   duration?: number;
-  position?: "top" | "bottom" | "middle";
-  type?: "text" | "loading" | "success" | "fail" | "warning";
   spinner?: SpinnerType
 }
 
-interface IToastRef {
+interface ToastRef {
   close: (force?: boolean) => void;
   setContent: (message: string) => void;
 }
 
 const [prefix] = defineName("toast");
 
-let instances = [] as IToastRef[];
+let instances = [] as ToastRef[];
 let defaultAnimationTime = 300;
 let single = true;
 
@@ -35,7 +38,7 @@ let single = true;
  * @description
  */
 let AnimateWrapper: ForwardRefRenderFunction<
-  IToastRef,
+  ToastRef,
   Required<ToastProps>
 > = ({
   position,
@@ -89,7 +92,7 @@ class Toast extends React.Component<ToastProps> {
 
     let type = getField(params, 'type', 'text');
     let message = getField(params, 'message', '');
-    let duration = getField(params, 'duration', 1000);
+    let duration = getField(params, 'duration', 1500);
     let position = getField(params, 'position', 'middle');
     let spinner = getField(params, 'spinner', undefined);
     return { duration, position, message, type, spinner };
@@ -100,7 +103,7 @@ class Toast extends React.Component<ToastProps> {
    */
   static show(params: ToastProps | string) {
     const { type, duration, position, message, spinner } = Toast.formatParams(params);
-    const ref = React.createRef<IToastRef>();
+    const ref = React.createRef<ToastRef>();
 
     const result = {
       mountNode: Toast.createSlot() as HTMLDivElement | null,
@@ -161,6 +164,10 @@ class Toast extends React.Component<ToastProps> {
       const it = instances.pop();
       it?.close();
     }
+  }
+
+  static config(option: { single: boolean }) {
+    single = option.single;
   }
 
   static hide() {
