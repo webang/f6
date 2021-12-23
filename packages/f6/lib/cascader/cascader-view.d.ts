@@ -9,6 +9,7 @@ export interface CascaderViewProps {
     options?: CascaderViewOption[];
     onClick?: (option: CascaderViewOption) => void;
     optionRender?: (option: CascaderViewOption) => ReactNode;
+    value?: CascaderViewOption;
 }
 declare const CascaderView: FC<CascaderViewProps>;
 export default CascaderView;

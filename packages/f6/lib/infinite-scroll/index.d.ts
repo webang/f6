@@ -1,16 +1,16 @@
-import React, { ReactNode } from 'react';
-import './index.less';
+import { ReactNode } from "react";
+import "./index.less";
 export interface InfiniteScrollProps {
-    hasMore?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
+    onLoad?: (finish?: () => void) => void;
     footer?: (params: {
         loading: boolean;
-        hasMore: boolean;
+        disabled: boolean;
     }) => ReactNode;
-    onLoad?: () => void;
-    children?: ReactNode;
 }
 export interface InfiniteScrollMethods {
     finish: () => void;
 }
-declare const InfiniteScroll: React.ForwardRefExoticComponent<InfiniteScrollProps & React.RefAttributes<InfiniteScrollMethods>>;
-export default InfiniteScroll;
+declare const _default: import("react").ForwardRefExoticComponent<InfiniteScrollProps & import("react").RefAttributes<InfiniteScrollMethods>>;
+export default _default;

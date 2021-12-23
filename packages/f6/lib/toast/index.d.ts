@@ -1,11 +1,13 @@
 import React from "react";
 import "./index.less";
 import { SpinnerType } from "../spinner";
+export declare type ToastPosition = "top" | "bottom" | "middle";
+export declare type ToastType = "text" | "loading" | "success" | "fail" | "warning";
 export interface ToastProps {
+    type?: ToastType;
+    position?: ToastPosition;
     message: string;
     duration?: number;
-    position?: "top" | "bottom" | "middle";
-    type?: "text" | "loading" | "success" | "fail" | "warning";
     spinner?: SpinnerType;
 }
 declare class Toast extends React.Component<ToastProps> {
@@ -26,6 +28,9 @@ declare class Toast extends React.Component<ToastProps> {
     };
     private static forceClear;
     static clear(): void;
+    static config(option: {
+        single: boolean;
+    }): void;
     static hide(): void;
     static createSlot(): HTMLDivElement;
     renderIcon(): JSX.Element | undefined;

@@ -6,7 +6,11 @@ var react_1 = require("react");
 var checkbox_context_1 = require("./checkbox-context");
 var Group = function (props) {
     var children = props.children, defaultValue = props.defaultValue, onChange = props.onChange;
-    var _a = (0, react_1.useState)(defaultValue ? (Array.isArray(defaultValue) ? defaultValue : [defaultValue]) : []), value = _a[0], setValue = _a[1];
+    var _a = (0, react_1.useState)(defaultValue
+        ? Array.isArray(defaultValue)
+            ? defaultValue
+            : [defaultValue]
+        : []), value = _a[0], setValue = _a[1];
     var check = function (val) {
         setValue(function (prev) {
             var nVal = (0, tslib_1.__spreadArray)((0, tslib_1.__spreadArray)([], prev, true), [val], false);

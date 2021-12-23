@@ -146,7 +146,6 @@ var PickerColumn = /** @class */ (function (_super) {
                 wrapper.addEventListener('mousedown', onTouchStart, options);
                 wrapper.addEventListener('mousemove', onTouchMove, options);
                 wrapper.addEventListener('mouseup', onTouchEnd, options);
-                wrapper.addEventListener('mouseleave', onTouchEnd, options);
             }
         }
     };

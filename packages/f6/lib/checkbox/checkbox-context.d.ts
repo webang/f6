@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { CheckboxValue } from './checkbox';
+import { CheckboxValue } from "./checkbox";
 export interface CheckboxGroupContext {
     value: CheckboxValue[];
     check: (val: CheckboxValue) => void;

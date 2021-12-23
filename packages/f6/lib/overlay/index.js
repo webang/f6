@@ -11,7 +11,7 @@ var Overlay = function (_a) {
     var style = {
         transitionDuration: "".concat(timeout, "ms")
     };
-    return ((0, jsx_runtime_1.jsx)(react_transition_group_1.CSSTransition, (0, tslib_1.__assign)({ "in": visible, timeout: timeout, classNames: transitionName, unmountOnExit: true }, { children: (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ onClick: function () { return onClick && onClick(); }, className: prefix, style: style }, { children: children }), void 0) }), void 0));
+    return ((0, jsx_runtime_1.jsx)(react_transition_group_1.CSSTransition, (0, tslib_1.__assign)({ "in": visible, timeout: timeout, classNames: transitionName, unmountOnExit: true }, { children: (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ onClick: function () { return onClick === null || onClick === void 0 ? void 0 : onClick(); }, className: prefix, style: style }, { children: children }), void 0) }), void 0));
 };
 exports["default"] = Overlay;
 //# sourceMappingURL=index.js.map

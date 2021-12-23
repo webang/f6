@@ -1,18 +1,17 @@
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import "./index.less";
-export declare type ButtonType = "primary" | "info" | "success" | "warning" | "danger";
+export declare type ButtonColor = "primary" | "info" | "success" | "warning" | "danger";
 export declare type ButtonSize = "large" | "small" | "mini" | "middle";
-export declare type ButtonShape = 'round' | 'square';
+export declare type ButtonShape = 'round' | 'square' | 'default';
+export declare type ButtonFill = 'solid' | 'outline' | 'none';
 interface BaseButtonProps {
     className?: string;
     title?: ReactNode;
     shape?: ButtonShape;
-    type?: ButtonType;
+    color?: ButtonColor;
     size?: ButtonSize;
-    text?: string;
-    color?: string;
+    fill?: ButtonFill;
     block?: boolean;
-    plain?: boolean;
     loading?: boolean;
     disabled?: boolean;
 }

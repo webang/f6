@@ -3,10 +3,12 @@ import './index.less';
 export declare type RadioValue = string | number;
 export interface RadioProps {
     defaultChecked?: boolean;
+    checked?: boolean;
     disabled?: boolean;
     value?: RadioValue;
     onChange: (checked: boolean) => void;
-    icon: ReactNode | ((checked: boolean) => ReactNode);
+    icon: (checked: boolean) => ReactNode;
+    block?: boolean;
 }
 declare const Radio: FC<RadioProps>;
 export default Radio;

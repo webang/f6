@@ -1,21 +1,9 @@
-import React, { ReactNode } from "react";
+import Cell from './cell';
+import Group from './group';
 import "./index.less";
-export interface CellProps {
-    className?: string;
-    title: ReactNode;
-    label?: ReactNode;
-    value?: ReactNode;
-    icon?: ReactNode;
-    bodyStyle?: React.CSSProperties;
-    border?: boolean;
-    link?: boolean;
-    url?: string;
-    onClick?: React.MouseEventHandler<Element>;
-}
-declare const Cell: React.FC<CellProps>;
-export declare const CellGroup: React.FC;
+export type { CellProps } from './cell';
 declare type ICell = typeof Cell & {
-    Group: typeof CellGroup;
+    Group: typeof Group;
 };
 declare const _default: ICell;
 export default _default;

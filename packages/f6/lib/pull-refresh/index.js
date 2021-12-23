@@ -25,6 +25,10 @@ var _PullRefresh = function (_a, ref) {
     (0, react_1.useImperativeHandle)(ref, function () { return ({
         finish: function () {
             setState(function (prev) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { translate: 0, loading: false })); });
+        },
+        refresh: function () {
+            setState(function (prev) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { touchStartTranslateY: 0, touchStartScreenY: 0, touched: false, useAnimation: true, loading: true, translate: topPullDistance + 10 })); });
+            onLoad && onLoad();
         }
     }); });
     var handleStart = function (event) {

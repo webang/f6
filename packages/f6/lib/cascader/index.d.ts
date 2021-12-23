@@ -3,10 +3,10 @@ import { CascaderViewOption } from "./cascader-view";
 import "./index.less";
 export interface CascaderProps {
     options: CascaderViewOption[];
-    visible: boolean;
+    visible?: boolean;
+    defaultValue?: string[];
     onClose?: () => void;
-    onConfirm?: () => void;
-    value?: string[];
+    onConfirm?: (val: CascaderViewOption[]) => void;
 }
 declare const Cascader: FC<CascaderProps>;
 export default Cascader;

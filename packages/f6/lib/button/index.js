@@ -10,18 +10,18 @@ var spinner_1 = (0, tslib_1.__importDefault)(require("../spinner"));
 var prefix = (0, name_1.defineName)("button")[0];
 var Button = function (_a) {
     var _b;
-    var _c = _a.size, size = _c === void 0 ? "middle" : _c, _d = _a.type, type = _d === void 0 ? "default" : _d, _e = _a.shape, shape = _e === void 0 ? "square" : _e, _f = _a.block, block = _f === void 0 ? false : _f, _g = _a.plain, plain = _g === void 0 ? false : _g, _h = _a.loading, loading = _h === void 0 ? false : _h, _j = _a.disabled, disabled = _j === void 0 ? false : _j, className = _a.className, children = _a.children, title = _a.title, onClick = _a.onClick, restProps = (0, tslib_1.__rest)(_a, ["size", "type", "shape", "block", "plain", "loading", "disabled", "className", "children", "title", "onClick"]);
+    var _c = _a.size, size = _c === void 0 ? "middle" : _c, _d = _a.color, color = _d === void 0 ? "default" : _d, _e = _a.shape, shape = _e === void 0 ? "default" : _e, _f = _a.fill, fill = _f === void 0 ? 'solid' : _f, _g = _a.block, block = _g === void 0 ? false : _g, _h = _a.loading, loading = _h === void 0 ? false : _h, _j = _a.disabled, disabled = _j === void 0 ? false : _j, className = _a.className, children = _a.children, title = _a.title, onClick = _a.onClick, restProps = (0, tslib_1.__rest)(_a, ["size", "color", "shape", "fill", "block", "loading", "disabled", "className", "children", "title", "onClick"]);
     var _k = (0, react_1.useState)(false), active = _k[0], setActive = _k[1];
     var cls = (0, classnames_1["default"])([
         prefix,
         className,
         "".concat(prefix, "--").concat(size),
-        "".concat(prefix, "--").concat(type),
-        "".concat(prefix, "--").concat(shape),
+        "".concat(prefix, "--").concat(color),
+        "".concat(prefix, "--shape-").concat(shape),
+        "".concat(prefix, "--fill-").concat(fill),
         (_b = {},
-            _b["".concat(prefix, "--active")] = active,
             _b["".concat(prefix, "--block")] = block,
-            _b["".concat(prefix, "--plain")] = plain,
+            _b["".concat(prefix, "--active")] = active,
             _b["".concat(prefix, "--loading")] = loading,
             _b["".concat(prefix, "--disabled")] = disabled,
             _b),

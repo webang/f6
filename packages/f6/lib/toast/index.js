@@ -48,7 +48,7 @@ var Toast = /** @class */ (function (_super) {
         };
         var type = getField(params, 'type', 'text');
         var message = getField(params, 'message', '');
-        var duration = getField(params, 'duration', 1000);
+        var duration = getField(params, 'duration', 1500);
         var position = getField(params, 'position', 'middle');
         var spinner = getField(params, 'spinner', undefined);
         return { duration: duration, position: position, message: message, type: type, spinner: spinner };
@@ -105,6 +105,9 @@ var Toast = /** @class */ (function (_super) {
             var it = instances.pop();
             it === null || it === void 0 ? void 0 : it.close();
         }
+    };
+    Toast.config = function (option) {
+        single = option.single;
     };
     Toast.hide = function () {
         Toast.clear();

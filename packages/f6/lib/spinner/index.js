@@ -13,7 +13,7 @@ var Spinner = function (_a) {
     var prefix = (0, name_1.defineName)("spinner")[0];
     var mCls = (0, classnames_1["default"])([prefix, "".concat(prefix, "--").concat(type), className], {});
     var mStyle = (0, tslib_1.__assign)({}, (style || {}));
-    var unitValue = typeof size === 'number' ? "".concat(size, "px") : size;
+    var unitValue = typeof size === "number" ? "".concat(size, "px") : size;
     if (size) {
         Object.assign(mStyle, {
             width: unitValue,

@@ -1,22 +1,19 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC } from "react";
 import "./index.less";
 export interface DialogProps {
     visible?: boolean;
-    title?: string;
-    message?: string | React.ReactElement;
+    title?: React.ReactNode;
+    content?: React.ReactNode;
     showConfirmButton?: boolean;
     showCancelButton?: boolean;
     animationDuration?: number;
     okText?: ReactNode;
     cancelText?: ReactNode;
     appear: boolean;
-    onOk?: () => boolean | Promise<boolean>;
-    onCancel?: () => boolean | Promise<boolean>;
-    afterClose?: () => void;
+    onOk?: () => void;
+    onCancel?: () => void;
+    onClose?: () => (void | boolean);
+    onClosed?: () => void;
 }
-export interface DialogRef {
-    show: () => void;
-    close: () => void;
-}
-declare const _default: React.ForwardRefExoticComponent<DialogProps & React.RefAttributes<DialogRef>>;
-export default _default;
+declare const Dialog: FC<DialogProps>;
+export default Dialog;

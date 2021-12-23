@@ -24,11 +24,15 @@ var Grid = function (_a) {
     return ((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: mCls }, restProps, { children: mChildren }), void 0));
 };
 var GridItem = function (props) {
+    var _a;
     var className = props.className, children = props.children, icon = props.icon, text = props.text, restProps = (0, tslib_1.__rest)(props, ["className", "children", "icon", "text"]);
     var prefix = (0, name_1.defineName)('grid-item')[0];
-    var mCls = (0, classnames_1["default"])([prefix, className], {
-        hairline: restProps['border']
-    });
+    var mCls = (0, classnames_1["default"])([prefix, className], (_a = {
+            hairline: restProps['border']
+        },
+        _a['border-b'] = restProps['border'],
+        _a['border-r'] = restProps['border'],
+        _a));
     return ((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: mCls }, restProps, { children: (0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__body") }, { children: [(0, jsx_runtime_1.jsx)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__icon") }, { children: icon }), void 0), (0, jsx_runtime_1.jsx)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__text") }, { children: text }), void 0)] }), void 0) }), void 0));
 };
 Grid.Item = GridItem;

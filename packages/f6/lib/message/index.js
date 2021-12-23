@@ -15,7 +15,7 @@ var Message = function (_a) {
         "".concat(prefix, "--").concat(type),
         className
     ], (_b = {},
-        _b["".concat(prefix, "--").concat(link)] = link,
+        _b["".concat(prefix, "--link")] = link,
         _b));
     var renderIcon = function () {
         if (icon)

@@ -13,7 +13,11 @@ var PasswordInput = function (_a) {
     var _d = (0, react_1.useState)(true), focus = _d[0], setFocus = _d[1];
     var _e = (0, react_1.useState)(0), cursorIndex = _e[0], setIndex = _e[1];
     var mRef = (0, react_1.useRef)(null);
-    var mCls = (0, classnames_1["default"])([className, prefix, "hairline"]);
+    var mCls = (0, classnames_1["default"])([
+        className,
+        prefix,
+        "hairline",
+    ]);
     var setCursorIndex = function (index) {
         if (index > state.length - 1 || index < -1) {
             setIndex(-1);
@@ -61,8 +65,13 @@ var PasswordInput = function (_a) {
             if (e.keyCode === 8) {
                 if (!focus || cursorIndex === 0)
                     return;
-                var index_1 = cursorIndex === -1 ? state.length - 1 : cursorIndex;
-                index_1 = !state[index_1] ? index_1 - 1 : index_1;
+                var index_1 = cursorIndex;
+                if (cursorIndex === -1) {
+                    index_1 = state.length - 1;
+                }
+                else {
+                    index_1 = index_1 - 1;
+                }
                 setState(function (prev) {
                     return prev.map(function (it, i) { return (i < index_1 ? it : ""); });
                 });
