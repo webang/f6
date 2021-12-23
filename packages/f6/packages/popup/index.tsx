@@ -11,7 +11,7 @@ export interface PopupProps {
   position?: Direction;
   className?: string;
   animationDuration?: number;
-  onMaskClick: () => void;
+  onMaskClick?: () => void;
 }
 
 export type Direction = "top" | "bottom" | "left" | "right" | "middle";

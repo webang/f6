@@ -1,0 +1,106 @@
+.wax-slide-top-enter {
+  transform: translate3d(0%, -100%, 0);
+}
+.wax-slide-top-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-top-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-top-exit-active {
+  transition-property: transform;
+  transform: translate3d(0%, -100%, 0);
+}
+.wax-slide-bottom-enter {
+  transform: translate3d(0%, 100vh, 0);
+}
+.wax-slide-bottom-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-bottom-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-bottom-exit-active {
+  transition-property: transform;
+  transform: translate3d(0%, 100%, 0);
+}
+.wax-slide-left-enter {
+  transform: translate3d(-100%, 0%, 0);
+}
+.wax-slide-left-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-left-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-left-exit-active {
+  transition-property: transform;
+  transform: translate3d(-100%, 0%, 0);
+}
+.wax-slide-right-enter {
+  transform: translate3d(100%, 0%, 0);
+}
+.wax-slide-right-enter-active {
+  transition-property: transform;
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-right-exit {
+  transform: translate3d(0%, 0%, 0);
+}
+.wax-slide-right-exit-active {
+  transition-property: transform;
+  transform: translate3d(100%, 0%, 0);
+}
+.wax-slide-middle-enter {
+  opacity: 0;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-enter-active {
+  transition-property: transform opacity;
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-exit {
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
+}
+.wax-slide-middle-exit-active {
+  transition-property: transform opacity;
+  opacity: 0;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+}
+.wax-popup {
+  position: fixed;
+  width: 100vw;
+  z-index: var(--f6-popup-z-index);
+  background-color: #fff;
+}
+.wax-popup--middle {
+  width: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.wax-popup--top {
+  left: 0;
+  top: 0;
+}
+.wax-popup--bottom {
+  left: 0;
+  bottom: 0;
+}
+.wax-popup--left {
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+}
+.wax-popup--right {
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 100vh;
+}

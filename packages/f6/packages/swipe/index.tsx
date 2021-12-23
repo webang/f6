@@ -2,7 +2,7 @@ import SwipeItem from "./swipe-item";
 import Swipe from "./swipe";
 import './index.less';
 
-export type { SwipeProps } from './swipe'
+export type { SwipeProps } from './interface'
 export type { SwipeItemProps } from './swipe-item';
 
 type ISwipe = typeof Swipe & {

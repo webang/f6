@@ -1,0 +1,30 @@
+.wax-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.wax-checkbox__icon {
+  display: inline-block;
+  vertical-align: middle;
+  color: #666;
+}
+.wax-checkbox__icon .wax-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+.wax-checkbox__text {
+  color: #666;
+  margin-left: 2px;
+}
+.wax-checkbox--checked .wax-checkbox__icon {
+  color: var(--f6-primary-color);
+}
+.wax-checkbox--disabled {
+  cursor: not-allowed;
+}
+.wax-checkbox--disabled .wax-checkbox__icon,
+.wax-checkbox--disabled .wax-checkbox__text {
+  color: #aaa;
+  fill: #aaa;
+}

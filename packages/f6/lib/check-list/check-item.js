@@ -1,12 +1,25 @@
-import { defineName } from '../utils/name';
-import { useContext } from 'react';
-import Icon from 'f6-icons';
-import classNames from 'classnames';
-import { CheckListContext } from './context';
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName('check-list-item'),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+var _f6Icons = _interopRequireDefault(require("f6-icons"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _context = require("./context");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)('check-list-item'),
     prefix = _defineName[0];
 
 var CheckListItem = function CheckListItem(p) {
@@ -17,7 +30,7 @@ var CheckListItem = function CheckListItem(p) {
       disabled = p.disabled,
       onClick = p.onClick,
       renderIcon = p.renderIcon;
-  var context = useContext(CheckListContext);
+  var context = (0, _react.useContext)(_context.CheckListContext);
   if (!context) return null;
   var isChecked = (context == null ? void 0 : context.value.includes(value)) || false;
 
@@ -42,7 +55,7 @@ var CheckListItem = function CheckListItem(p) {
     }
 
     if (isChecked) {
-      return /*#__PURE__*/_jsx(Icon, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
         name: "success3",
         style: {
           fontSize: 14
@@ -51,17 +64,18 @@ var CheckListItem = function CheckListItem(p) {
     }
   };
 
-  var mCls = classNames([prefix, 'hairline-bottom'], (_classNames = {}, _classNames[prefix + "--disabled"] = disabled, _classNames[prefix + "--label-" + context.labelPosition] = true, _classNames));
-  return /*#__PURE__*/_jsxs("div", {
+  var mCls = (0, _classnames["default"])([prefix, 'hairline-bottom'], (_classNames = {}, _classNames[prefix + "--disabled"] = disabled, _classNames[prefix + "--label-" + context.labelPosition] = true, _classNames));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: mCls,
     onClick: handleClick,
-    children: [/*#__PURE__*/_jsx("div", {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       children: children
-    }), /*#__PURE__*/_jsx("div", {
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: prefix + "__icon",
       children: mRenderIcon()
     })]
   });
 };
 
-export default CheckListItem;
+var _default = CheckListItem;
+exports["default"] = _default;

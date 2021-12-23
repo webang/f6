@@ -1,14 +1,27 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import classNames from "classnames";
-import { defineName } from "../utils/name";
-import "./index.css";
-import SpinnerLines from "./spinner-lines";
-import OvalSpinner from "./spinner-oval";
-import SpinnerCrescent from "./spinner-crescent"; // 1. 月牙形 crescent
-// 2. 椭圆形 oval
-// 3. 线性  lines
+"use strict";
 
-import { jsx as _jsx } from "react/jsx-runtime";
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _name = require("../utils/name");
+
+require("./index.css");
+
+var _spinnerLines = _interopRequireDefault(require("./spinner-lines"));
+
+var _spinnerOval = _interopRequireDefault(require("./spinner-oval"));
+
+var _spinnerCrescent = _interopRequireDefault(require("./spinner-crescent"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 var Spinner = function Spinner(_ref) {
   var _ref$type = _ref.type,
@@ -17,10 +30,10 @@ var Spinner = function Spinner(_ref) {
       style = _ref.style,
       size = _ref.size;
 
-  var _defineName = defineName("spinner"),
+  var _defineName = (0, _name.defineName)("spinner"),
       prefix = _defineName[0];
 
-  var mCls = classNames([prefix, prefix + "--" + type, className], {});
+  var mCls = (0, _classnames["default"])([prefix, prefix + "--" + type, className], {});
 
   var mStyle = _extends({}, style || {});
 
@@ -36,7 +49,7 @@ var Spinner = function Spinner(_ref) {
   switch (type) {
     case "oval":
       {
-        return /*#__PURE__*/_jsx(OvalSpinner, {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_spinnerOval["default"], {
           style: mStyle,
           className: mCls
         });
@@ -44,18 +57,19 @@ var Spinner = function Spinner(_ref) {
 
     case "lines":
       {
-        return /*#__PURE__*/_jsx(SpinnerLines, {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_spinnerLines["default"], {
           style: mStyle,
           className: mCls
         });
       }
 
     case "crescent":
-      return /*#__PURE__*/_jsx(SpinnerCrescent, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_spinnerCrescent["default"], {
         style: mStyle,
         className: mCls
       });
   }
 };
 
-export default Spinner;
+var _default = Spinner;
+exports["default"] = _default;

@@ -1,20 +1,33 @@
-import { getScrollTarget } from "../utils/dom";
-import { forwardRef, useEffect, useRef, useImperativeHandle } from "react";
-import Loading from "../loading";
-import { defineName } from "../utils/name";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("infinite-scroll"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _dom = require("../utils/dom");
+
+var _react = require("react");
+
+var _loading = _interopRequireDefault(require("../loading"));
+
+var _name = require("../utils/name");
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)("infinite-scroll"),
     prefix = _defineName[0];
 
 var InfiniteScroll = function InfiniteScroll(props, ref) {
-  var lockRef = useRef({
+  var lockRef = (0, _react.useRef)({
     isLocked: false
   });
-  var wrapperRef = useRef(null);
-  var containerRef = useRef(null);
+  var wrapperRef = (0, _react.useRef)(null);
+  var containerRef = (0, _react.useRef)(null);
   var children = props.children,
       onLoad = props.onLoad,
       footer = props.footer,
@@ -27,13 +40,13 @@ var InfiniteScroll = function InfiniteScroll(props, ref) {
     lockRef.current.isLocked = false;
   };
 
-  useImperativeHandle(ref, function () {
+  (0, _react.useImperativeHandle)(ref, function () {
     return {
       finish: finish
     };
   });
-  useEffect(function () {
-    var target = getScrollTarget(wrapperRef.current);
+  (0, _react.useEffect)(function () {
+    var target = (0, _dom.getScrollTarget)(wrapperRef.current);
 
     var handleScroll = function handleScroll() {
       var isWin = target === window;
@@ -64,21 +77,21 @@ var InfiniteScroll = function InfiniteScroll(props, ref) {
     });
 
     if (loading) {
-      return /*#__PURE__*/_jsx("div", {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         style: {
           lineHeight: "40px",
           textAlign: "center"
         },
-        children: /*#__PURE__*/_jsx(Loading, {})
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_loading["default"], {})
       });
     } else {
       if (disabled) {
-        return /*#__PURE__*/_jsx("div", {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           style: {
             lineHeight: "40px",
             textAlign: "center"
           },
-          children: /*#__PURE__*/_jsx("span", {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
             style: {
               color: "#ccc"
             },
@@ -91,10 +104,10 @@ var InfiniteScroll = function InfiniteScroll(props, ref) {
     }
   };
 
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     ref: wrapperRef,
     className: prefix + "-wrapper",
-    children: /*#__PURE__*/_jsxs("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "-container",
       ref: containerRef,
       children: [children, mFooter()]
@@ -102,4 +115,6 @@ var InfiniteScroll = function InfiniteScroll(props, ref) {
   });
 };
 
-export default /*#__PURE__*/forwardRef(InfiniteScroll);
+var _default = /*#__PURE__*/(0, _react.forwardRef)(InfiniteScroll);
+
+exports["default"] = _default;

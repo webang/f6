@@ -1,16 +1,35 @@
-import _extends from "@babel/runtime/helpers/extends";
-import React, { useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
-import "./index.css";
-import ReactDOM from "react-dom";
-import classNames from "classnames";
-import { defineName } from "../utils/name";
-import { usePropsValue } from "../utils/useValue";
-import Trigger from "./trigger";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
-import { Fragment as _Fragment } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("popover"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("./index.css");
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _name = require("../utils/name");
+
+var _useValue = require("../utils/useValue");
+
+var _trigger = _interopRequireDefault(require("./trigger"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var _defineName = (0, _name.defineName)("popover"),
     prefix = _defineName[0];
 
 var defaultProps = {
@@ -30,7 +49,7 @@ var Popover = function Popover(p, ref) {
       _props$horizontalDist = props.horizontalDistance,
       horizontalDistance = _props$horizontalDist === void 0 ? 8 : _props$horizontalDist;
 
-  var _usePropsValue = usePropsValue({
+  var _usePropsValue = (0, _useValue.usePropsValue)({
     value: props.visible,
     defaultValue: props.defaultVisible,
     onChange: props.onVisibleChange
@@ -38,7 +57,7 @@ var Popover = function Popover(p, ref) {
       visible = _usePropsValue[0],
       setVisible = _usePropsValue[1];
 
-  var _useState = useState({
+  var _useState = (0, _react.useState)({
     width: 0,
     height: 0,
     x: 0,
@@ -47,16 +66,16 @@ var Popover = function Popover(p, ref) {
       rect = _useState[0],
       setRect = _useState[1];
 
-  var _useState2 = useState({
+  var _useState2 = (0, _react.useState)({
     width: 0,
     height: 0
   }),
       contentSize = _useState2[0],
       setContentSize = _useState2[1];
 
-  var contentRef = useRef(null);
-  var triggerRef = useRef(null);
-  useEffect(function () {
+  var contentRef = (0, _react.useRef)(null);
+  var triggerRef = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
     var isParent = function isParent(node, target) {
       if (node === target) {
         return true;
@@ -75,7 +94,8 @@ var Popover = function Popover(p, ref) {
 
     function onClick(event) {
       var triggerInstance = triggerRef.current;
-      var element = ReactDOM.findDOMNode(triggerInstance);
+
+      var element = _reactDom["default"].findDOMNode(triggerInstance);
 
       if (element) {
         if (!isParent(event.target, element)) {
@@ -93,7 +113,9 @@ var Popover = function Popover(p, ref) {
   var initRect = function initRect() {
     if (!triggerRef.current) return;
     var triggerInstance = triggerRef.current;
-    var element = ReactDOM.findDOMNode(triggerInstance);
+
+    var element = _reactDom["default"].findDOMNode(triggerInstance);
+
     if (!element) return;
     var rect = element.getBoundingClientRect();
     setRect({
@@ -113,12 +135,12 @@ var Popover = function Popover(p, ref) {
     }
   };
 
-  useImperativeHandle(ref, function () {
+  (0, _react.useImperativeHandle)(ref, function () {
     return {
       resetPosition: initRect
     };
   });
-  useEffect(initRect, [visible]);
+  (0, _react.useEffect)(initRect, [visible]);
 
   var getContainer = function getContainer() {
     return document.body;
@@ -180,32 +202,37 @@ var Popover = function Popover(p, ref) {
     left: getX(placement),
     top: getY(placement)
   };
-  var portal = /*#__PURE__*/ReactDOM.createPortal( /*#__PURE__*/_jsx("div", {
-    className: classNames([prefix]),
+
+  var portal = /*#__PURE__*/_reactDom["default"].createPortal( /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    className: (0, _classnames["default"])([prefix]),
     ref: contentRef,
     style: style,
-    children: /*#__PURE__*/_jsxs("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       style: p.contentStyle,
-      className: classNames([prefix + "__content", prefix + "--" + placement]),
-      children: [/*#__PURE__*/_jsx("div", {
+      className: (0, _classnames["default"])([prefix + "__content", prefix + "--" + placement]),
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: "wax-popover__arrow"
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: "wax-popover__body",
         children: content
       })]
     })
   }), getContainer());
-  var clonedReference = /*#__PURE__*/React.cloneElement(children, {
+
+  var clonedReference = /*#__PURE__*/_react["default"].cloneElement(children, {
     onClick: function onClick() {
       setVisible(!visible);
     }
   });
-  return /*#__PURE__*/_jsxs(_Fragment, {
-    children: [/*#__PURE__*/_jsx(Trigger, {
+
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_trigger["default"], {
       ref: triggerRef,
       children: clonedReference
     }), visible && portal]
   });
 };
 
-export default /*#__PURE__*/forwardRef(Popover);
+var _default = /*#__PURE__*/(0, _react.forwardRef)(Popover);
+
+exports["default"] = _default;

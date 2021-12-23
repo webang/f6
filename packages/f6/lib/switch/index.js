@@ -1,10 +1,23 @@
-import classNames from "classnames";
-import { usePropsValue } from "../utils/useValue";
-import { defineName } from "../utils/name";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("switch"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _useValue = require("../utils/useValue");
+
+var _name = require("../utils/name");
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)("switch"),
     prefix = _defineName[0];
 
 var Switch = function Switch(_ref) {
@@ -16,7 +29,7 @@ var Switch = function Switch(_ref) {
       disabled = _ref.disabled,
       onChange = _ref.onChange;
 
-  var _usePropsValue = usePropsValue({
+  var _usePropsValue = (0, _useValue.usePropsValue)({
     value: value,
     defaultValue: defaultValue,
     onChange: onChange
@@ -30,13 +43,14 @@ var Switch = function Switch(_ref) {
     }
   };
 
-  return /*#__PURE__*/_jsx("div", {
-    className: classNames(prefix, (_classNames = {}, _classNames[prefix + "--on"] = checked, _classNames[prefix + "--disabled"] = disabled, _classNames)),
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    className: (0, _classnames["default"])(prefix, (_classNames = {}, _classNames[prefix + "--on"] = checked, _classNames[prefix + "--disabled"] = disabled, _classNames)),
     onClick: handleClick,
-    children: /*#__PURE__*/_jsx("div", {
-      className: classNames(prefix + "-node", (_classNames2 = {}, _classNames2[prefix + "-node--on"] = checked, _classNames2))
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      className: (0, _classnames["default"])(prefix + "-node", (_classNames2 = {}, _classNames2[prefix + "-node--on"] = checked, _classNames2))
     })
   });
 };
 
-export default Switch;
+var _default = Switch;
+exports["default"] = _default;

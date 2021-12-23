@@ -1,15 +1,27 @@
-import _extends from "@babel/runtime/helpers/extends";
-import { usePropsValue } from "../utils/useValue";
-import { CheckListContext } from "./context";
-import { defineName } from "../utils/name";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _useValue = require("../utils/useValue");
+
+var _context = require("./context");
+
+var _name = require("../utils/name");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var defaultProps = {
   multiple: false,
   defaultValue: [],
   labelPosition: 'left'
 };
 
-var _defineName = defineName('check-list'),
+var _defineName = (0, _name.defineName)('check-list'),
     prefix = _defineName[0];
 
 var CheckList = function CheckList(p) {
@@ -20,7 +32,7 @@ var CheckList = function CheckList(p) {
       renderIcon = props.renderIcon,
       labelPosition = props.labelPosition;
 
-  var _usePropsValue = usePropsValue(props),
+  var _usePropsValue = (0, _useValue.usePropsValue)(props),
       value = _usePropsValue[0],
       setValue = _usePropsValue[1];
 
@@ -42,9 +54,9 @@ var CheckList = function CheckList(p) {
     }
   };
 
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: prefix,
-    children: /*#__PURE__*/_jsx(CheckListContext.Provider, {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_context.CheckListContext.Provider, {
       value: {
         value: value,
         check: check,
@@ -57,4 +69,5 @@ var CheckList = function CheckList(p) {
   });
 };
 
-export default CheckList;
+var _default = CheckList;
+exports["default"] = _default;

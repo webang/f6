@@ -1,0 +1,12 @@
+.wax-scale-fade-enter {
+  transform: translate(-50%, -50%) scale(0);
+}
+.wax-scale-fade-enter-active {
+  transform: translate(-50%, -50%) scale(1);
+}
+.wax-scale-fade-exit {
+  transform: translate(-50%, -50%) scale(1);
+}
+.wax-scale-fade-exit-active {
+  transform: translate(-50%, -50%) scale(0);
+}

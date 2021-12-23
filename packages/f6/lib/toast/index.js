@@ -1,19 +1,45 @@
-import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
-import _extends from "@babel/runtime/helpers/extends";
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
-var _excluded = ["position", "message"];
-import classNames from "classnames";
-import React, { useState, useEffect, useImperativeHandle } from "react";
-import ReactDOM from "react-dom";
-import { defineName } from "../utils/name";
-import { CSSTransition } from "react-transition-group";
-import "./index.css";
-import Icon from "f6-icons";
-import Spinner from "../spinner";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("toast"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _name = require("../utils/name");
+
+var _reactTransitionGroup = require("react-transition-group");
+
+require("./index.css");
+
+var _f6Icons = _interopRequireDefault(require("f6-icons"));
+
+var _spinner = _interopRequireDefault(require("../spinner"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _excluded = ["position", "message"];
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var _defineName = (0, _name.defineName)("toast"),
     prefix = _defineName[0];
 
 var instances = [];
@@ -29,18 +55,18 @@ var AnimateWrapper = function AnimateWrapper(_ref, ref) {
       message = _ref$message === void 0 ? '' : _ref$message,
       restProps = _objectWithoutPropertiesLoose(_ref, _excluded);
 
-  var _useState = useState(false),
+  var _useState = (0, _react.useState)(false),
       visible = _useState[0],
       setVisible = _useState[1];
 
-  var _useState2 = useState(message),
+  var _useState2 = (0, _react.useState)(message),
       content = _useState2[0],
       _setContent = _useState2[1];
 
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     setVisible(true);
   }, []);
-  useImperativeHandle(ref, function () {
+  (0, _react.useImperativeHandle)(ref, function () {
     return {
       close: function close() {
         setVisible(false);
@@ -50,19 +76,19 @@ var AnimateWrapper = function AnimateWrapper(_ref, ref) {
       }
     };
   }, []);
-  return /*#__PURE__*/_jsx(CSSTransition, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactTransitionGroup.CSSTransition, {
     "in": visible,
     timeout: defaultAnimationTime,
     classNames: "slide-" + position,
     unmountOnExit: true,
-    children: /*#__PURE__*/_jsx(Toast, _extends({
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Toast, _extends({
       position: position,
       message: content
     }, restProps))
   });
 };
 
-var AnimateWrapperRefed = /*#__PURE__*/React.forwardRef(AnimateWrapper);
+var AnimateWrapperRefed = /*#__PURE__*/_react["default"].forwardRef(AnimateWrapper);
 
 var Toast = /*#__PURE__*/function (_React$Component) {
   _inheritsLoose(Toast, _React$Component);
@@ -103,7 +129,8 @@ var Toast = /*#__PURE__*/function (_React$Component) {
         message = _Toast$formatParams.message,
         spinner = _Toast$formatParams.spinner;
 
-    var ref = /*#__PURE__*/React.createRef();
+    var ref = /*#__PURE__*/_react["default"].createRef();
+
     var result = {
       mountNode: Toast.createSlot(),
       close: function close(force) {
@@ -138,7 +165,8 @@ var Toast = /*#__PURE__*/function (_React$Component) {
     }
 
     instances.push(result);
-    ReactDOM.render( /*#__PURE__*/_jsx(AnimateWrapperRefed, {
+
+    _reactDom["default"].render( /*#__PURE__*/(0, _jsxRuntime.jsx)(AnimateWrapperRefed, {
       spinner: spinner,
       type: type,
       position: position,
@@ -187,28 +215,28 @@ var Toast = /*#__PURE__*/function (_React$Component) {
 
   _proto.renderIcon = function renderIcon() {
     if (this.props.type === 'success') {
-      return /*#__PURE__*/_jsx(Icon, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
         className: prefix + "__icon",
         name: "success3"
       });
     }
 
     if (this.props.type === 'fail') {
-      return /*#__PURE__*/_jsx(Icon, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
         className: prefix + "__icon",
         name: "close-circle-o"
       });
     }
 
     if (this.props.type === 'warning') {
-      return /*#__PURE__*/_jsx(Icon, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
         className: prefix + "__icon",
         name: "warn"
       });
     }
 
     if (this.props.type === 'loading') {
-      return /*#__PURE__*/_jsx(Spinner, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_spinner["default"], {
         type: this.props.spinner || "oval"
       });
     }
@@ -218,12 +246,12 @@ var Toast = /*#__PURE__*/function (_React$Component) {
     var _this$props = this.props,
         position = _this$props.position,
         type = _this$props.type;
-    return /*#__PURE__*/_jsxs("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       style: {
         transitionDuration: defaultAnimationTime + "ms"
       },
-      className: classNames([prefix, prefix + "--" + type, prefix + "--" + position]),
-      children: [this.renderIcon(), /*#__PURE__*/_jsx("div", {
+      className: (0, _classnames["default"])([prefix, prefix + "--" + type, prefix + "--" + position]),
+      children: [this.renderIcon(), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__content",
         children: this.props.message
       })]
@@ -231,6 +259,7 @@ var Toast = /*#__PURE__*/function (_React$Component) {
   };
 
   return Toast;
-}(React.Component);
+}(_react["default"].Component);
 
-export default Toast;
+var _default2 = Toast;
+exports["default"] = _default2;

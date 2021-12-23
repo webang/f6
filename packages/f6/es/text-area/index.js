@@ -1,16 +1,33 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
-var _excluded = ["placeholder", "clearable", "rules", "immediateCheck", "onFocus", "onChange", "onBlur", "validateOnBlur", "validateOnChange", "resetErrorOnClear", "showCount", "autoSize"];
-import { defineName } from "../utils/name";
-import { useEffect, useRef, useState } from "react";
-import classNames from "classnames";
-import Icon from "f6-icons";
-import { usePropsValue } from "../utils/useValue";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("textarea"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _f6Icons = _interopRequireDefault(require("f6-icons"));
+
+var _useValue = require("../utils/useValue");
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _excluded = ["placeholder", "clearable", "rules", "immediateCheck", "onFocus", "onChange", "onBlur", "validateOnBlur", "validateOnChange", "resetErrorOnClear", "showCount", "autoSize"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var _defineName = (0, _name.defineName)("textarea"),
     prefix = _defineName[0];
 
 var TextArea = function TextArea(props) {
@@ -35,19 +52,19 @@ var TextArea = function TextArea(props) {
       autoSize = _props$autoSize === void 0 ? false : _props$autoSize,
       restProps = _objectWithoutPropertiesLoose(props, _excluded);
 
-  var _usePropsValue = usePropsValue({
+  var _usePropsValue = (0, _useValue.usePropsValue)({
     value: props.value,
     defaultValue: props.defaultValue || ""
   }),
       value = _usePropsValue[0],
       setValue = _usePropsValue[1];
 
-  var _useState = useState(""),
+  var _useState = (0, _react.useState)(""),
       error = _useState[0],
       setError = _useState[1];
 
-  var ref = useRef(null);
-  useEffect(function () {
+  var ref = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
     if (immediateCheck) {
       doCheck(value);
     }
@@ -66,7 +83,7 @@ var TextArea = function TextArea(props) {
     }
   };
 
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     if (!ref.current) return;
     if (!autoSize) return;
     var textArea = ref.current;
@@ -107,7 +124,7 @@ var TextArea = function TextArea(props) {
   };
 
   var renderIcon = function renderIcon() {
-    return clearable && !restProps.disabled && !restProps.readOnly && value.length ? /*#__PURE__*/_jsx(Icon, {
+    return clearable && !restProps.disabled && !restProps.readOnly && value.length ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
       className: prefix + "__clear",
       name: "close-circle-o",
       onClick: clearVal
@@ -115,11 +132,11 @@ var TextArea = function TextArea(props) {
   };
 
   var renderInput = function renderInput() {
-    return /*#__PURE__*/_jsxs("div", {
-      className: classNames([prefix]),
-      children: [/*#__PURE__*/_jsxs("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: (0, _classnames["default"])([prefix]),
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: prefix + "__body",
-        children: [/*#__PURE__*/_jsx("textarea", _extends({}, restProps, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("textarea", _extends({}, restProps, {
           ref: ref,
           className: prefix + "__input",
           value: value,
@@ -128,10 +145,10 @@ var TextArea = function TextArea(props) {
           onBlur: blurHandle,
           onChange: handleChange
         })), renderIcon()]
-      }), error && /*#__PURE__*/_jsx("div", {
+      }), error && /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__error",
         children: error
-      }), value.length ? /*#__PURE__*/_jsx("div", {
+      }), value.length ? /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__count",
         children: value.length
       }) : null]
@@ -141,4 +158,5 @@ var TextArea = function TextArea(props) {
   return renderInput();
 };
 
-export default TextArea;
+var _default = TextArea;
+exports["default"] = _default;

@@ -1,14 +1,33 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import classNames from "classnames";
-import { defineName } from "../utils/name";
-import React, { useState, useRef, useEffect } from "react";
-import { getPosition, isMobile } from "../utils/dom";
-import "./index.css";
-import Popover from "../popover";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("slider"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _name = require("../utils/name");
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _dom = require("../utils/dom");
+
+require("./index.css");
+
+var _popover = _interopRequireDefault(require("../popover"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var _defineName = (0, _name.defineName)("slider"),
     prefix = _defineName[0];
 
 var Slider = function Slider(_ref) {
@@ -21,7 +40,7 @@ var Slider = function Slider(_ref) {
       right = _ref.right,
       onChange = _ref.onChange;
 
-  var _useState = useState({
+  var _useState = (0, _react.useState)({
     diff: 0,
     translate: 0,
     startTranslate: 0,
@@ -31,25 +50,25 @@ var Slider = function Slider(_ref) {
       state = _useState[0],
       setState = _useState[1];
 
-  var _useState2 = useState([0, 0]),
+  var _useState2 = (0, _react.useState)([0, 0]),
       range = _useState2[0],
       setRange = _useState2[1];
 
-  var innerRef = useRef(null);
-  var popoverRef = useRef(null);
-  useEffect(function () {
+  var innerRef = (0, _react.useRef)(null);
+  var popoverRef = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
     var _innerRef$current;
 
     setRange([0, ((_innerRef$current = innerRef.current) == null ? void 0 : _innerRef$current.offsetWidth) || 0]);
   }, []);
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     var _popoverRef$current;
 
     (_popoverRef$current = popoverRef.current) == null ? void 0 : _popoverRef$current.resetPosition(); // 将 move 事件挂载在 window 上
     // 避免快速拖动导致 move 元素失焦
 
-    var move = isMobile() ? "touchmove" : "mousemove";
-    var end = isMobile() ? "touchend" : "mouseup";
+    var move = (0, _dom.isMobile)() ? "touchmove" : "mousemove";
+    var end = (0, _dom.isMobile)() ? "touchend" : "mouseup";
     window.addEventListener(move, moveHandler);
     window.addEventListener(end, endHandler);
     return function () {
@@ -74,7 +93,7 @@ var Slider = function Slider(_ref) {
   };
 
   var startHandler = function startHandler(event) {
-    var touch = getPosition(event.type, event);
+    var touch = (0, _dom.getPosition)(event.type, event);
     setState(function (prev) {
       return _extends({}, prev, {
         useAnimation: false,
@@ -88,7 +107,7 @@ var Slider = function Slider(_ref) {
   var moveHandler = function moveHandler(event) {
     if (!state.isTouched) return;
     event.preventDefault();
-    var touch = getPosition(event.type, event);
+    var touch = (0, _dom.getPosition)(event.type, event);
     var diff = touch.clientX - state.startScreen;
     setState(function (prev) {
       return _extends({}, prev, {
@@ -110,26 +129,26 @@ var Slider = function Slider(_ref) {
     });
   };
 
-  var mCls = classNames((_classNames = {
+  var mCls = (0, _classnames["default"])((_classNames = {
     className: className
   }, _classNames[prefix] = true, _classNames[prefix + "--disabled"] = disabled, _classNames));
   var events = {
     onTouchStart: startHandler,
     onMouseDown: startHandler
   };
-  return /*#__PURE__*/_jsxs("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: mCls,
-    children: [left, /*#__PURE__*/_jsxs("div", {
+    children: [left, /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "__inner",
       ref: innerRef,
-      children: [/*#__PURE__*/_jsx("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__runway"
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__track",
         style: {
           width: state.translate
         }
-      }), /*#__PURE__*/_jsx(Popover, {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_popover["default"], {
         ref: popoverRef,
         visible: state.isTouched,
         placement: "top",
@@ -139,15 +158,15 @@ var Slider = function Slider(_ref) {
           textAlign: 'center',
           boxSizing: 'border-box'
         },
-        content: /*#__PURE__*/_jsx("span", {
+        content: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
           children: getValue().toString()
         }),
-        children: /*#__PURE__*/_jsx("div", {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           className: prefix + "__thumb",
           style: {
             left: state.translate
           },
-          children: /*#__PURE__*/_jsx("div", _extends({}, events, {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", _extends({}, events, {
             className: prefix + "__thumb-inner"
           }))
         })
@@ -156,4 +175,5 @@ var Slider = function Slider(_ref) {
   });
 };
 
-export default Slider;
+var _default = Slider;
+exports["default"] = _default;

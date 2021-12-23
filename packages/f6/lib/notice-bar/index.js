@@ -1,10 +1,21 @@
-import _extends from "@babel/runtime/helpers/extends";
-import { defineName } from "../utils/name";
-import { useRef, useState, useEffect } from "react";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("notice-bar"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var _defineName = (0, _name.defineName)("notice-bar"),
     prefix = _defineName[0];
 
 var NoticeBar = function NoticeBar(_ref) {
@@ -14,15 +25,15 @@ var NoticeBar = function NoticeBar(_ref) {
       _ref$step = _ref.step,
       step = _ref$step === void 0 ? 1 : _ref$step;
 
-  var _useState = useState({
+  var _useState = (0, _react.useState)({
     offset: -start,
     running: true
   }),
       state = _useState[0],
       setState = _useState[1];
 
-  var mRef = useRef(null);
-  var oRef = useRef(null);
+  var mRef = (0, _react.useRef)(null);
+  var oRef = (0, _react.useRef)(null);
 
   var stop = function stop() {
     setState(function (prev) {
@@ -32,7 +43,7 @@ var NoticeBar = function NoticeBar(_ref) {
     });
   };
 
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     if (!state.running) return;
     if (!mRef.current) return;
     if (!oRef.current) return;
@@ -54,12 +65,12 @@ var NoticeBar = function NoticeBar(_ref) {
   var style = {
     left: -state.offset
   };
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: prefix,
-    children: /*#__PURE__*/_jsx("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: prefix + "__inner",
       ref: oRef,
-      children: /*#__PURE__*/_jsx("div", {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__content",
         style: style,
         ref: mRef,
@@ -69,4 +80,5 @@ var NoticeBar = function NoticeBar(_ref) {
   });
 };
 
-export default NoticeBar;
+var _default = NoticeBar;
+exports["default"] = _default;

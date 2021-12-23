@@ -1,16 +1,32 @@
-import _assertThisInitialized from "@babel/runtime/helpers/esm/assertThisInitialized";
-import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
-import React from "react";
-import { defineName } from "../utils/name";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _name = require("../utils/name");
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 var itemHeight = 36;
 var maxY = itemHeight * 2;
 var longTouch = 300;
 var DURATION = 300;
 
-var _defineName = defineName('picker-column'),
+var _defineName = (0, _name.defineName)('picker-column'),
     prefix = _defineName[0];
 
 var PickerColumn = /*#__PURE__*/function (_React$Component) {
@@ -29,7 +45,7 @@ var PickerColumn = /*#__PURE__*/function (_React$Component) {
       offset: -((_this.props.defaultIndex || 0) - 2) * itemHeight,
       columns: []
     };
-    _this.ref = /*#__PURE__*/React.createRef();
+    _this.ref = /*#__PURE__*/_react["default"].createRef();
     _this.startY = undefined;
     _this.startTime = undefined;
     _this.currentY = undefined;
@@ -236,7 +252,7 @@ var PickerColumn = /*#__PURE__*/function (_React$Component) {
     var renderList = function renderList() {
       var optionRender = _this3.props.optionRender;
       return columns.map(function (it, index) {
-        return /*#__PURE__*/_jsx("div", {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           onClick: function onClick() {
             return _this3.slideTo(index);
           },
@@ -244,7 +260,7 @@ var PickerColumn = /*#__PURE__*/function (_React$Component) {
           children: optionRender ? optionRender({
             option: it,
             selected: _this3.state.currentIndex === index
-          }) : /*#__PURE__*/_jsx("span", {
+          }) : /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
             className: "wax-picker-option--selected",
             children: it.label
           })
@@ -252,14 +268,14 @@ var PickerColumn = /*#__PURE__*/function (_React$Component) {
       });
     };
 
-    return /*#__PURE__*/_jsxs("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       ref: this.ref,
       className: prefix,
-      children: [/*#__PURE__*/_jsx("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__mask"
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__line"
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         style: style,
         className: prefix + "__scroll",
         children: renderList()
@@ -268,6 +284,7 @@ var PickerColumn = /*#__PURE__*/function (_React$Component) {
   };
 
   return PickerColumn;
-}(React.Component);
+}(_react["default"].Component);
 
-export default PickerColumn;
+var _default = PickerColumn;
+exports["default"] = _default;

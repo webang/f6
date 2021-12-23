@@ -1,14 +1,31 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import React from "react";
-import { useRef, useEffect, useState } from "react";
-import classNames from "classnames";
-import Icon from "f6-icons";
-import { defineName } from "../utils/name";
-import CheckList from "../check-list";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("dropdown-menu"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _f6Icons = _interopRequireDefault(require("f6-icons"));
+
+var _name = require("../utils/name");
+
+var _checkList = _interopRequireDefault(require("../check-list"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var _defineName = (0, _name.defineName)("dropdown-menu"),
     prefix = _defineName[0];
 
 var DropdownMenu = function DropdownMenu(_ref) {
@@ -17,15 +34,16 @@ var DropdownMenu = function DropdownMenu(_ref) {
       onClose = _ref.onClose,
       children = _ref.children;
 
-  var _useState = useState({
+  var _useState = (0, _react.useState)({
     top: 0,
     current: undefined
   }),
       state = _useState[0],
       setState = _useState[1];
 
-  var barRef = useRef(null);
-  var mChildren = React.Children.toArray(children);
+  var barRef = (0, _react.useRef)(null);
+
+  var mChildren = _react["default"].Children.toArray(children);
 
   var updatePosition = function updatePosition() {
     if (barRef.current) {
@@ -38,16 +56,16 @@ var DropdownMenu = function DropdownMenu(_ref) {
     }
   };
 
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     updatePosition();
   }, []);
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     window.addEventListener('scroll', updatePosition);
     return function () {
       window.removeEventListener('scroll', updatePosition);
     };
   }, [updatePosition]);
-  var mCls = classNames([className, prefix]);
+  var mCls = (0, _classnames["default"])([className, prefix]);
   var maskStl = {
     top: state.top
   };
@@ -74,15 +92,15 @@ var DropdownMenu = function DropdownMenu(_ref) {
     var style = {
       transform: "rotate(" + (state.current == index ? 180 : 0) + "deg)"
     };
-    return /*#__PURE__*/_jsxs("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "-item",
       onClick: function onClick() {
         return handleClick(index);
       },
-      children: [/*#__PURE__*/_jsx("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "-item-name",
         children: element.props.title
-      }), /*#__PURE__*/_jsx(Icon, {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
         style: style,
         className: prefix + "__icon",
         name: "arrow-down"
@@ -95,7 +113,7 @@ var DropdownMenu = function DropdownMenu(_ref) {
       if (index !== state.current) return null;
       var element = it;
       return (element.props.actions || []).map(function (action) {
-        return /*#__PURE__*/_jsx(CheckList.Item, {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_checkList["default"].Item, {
           onClick: function onClick() {
             onClickItem == null ? void 0 : onClickItem({
               index: index,
@@ -111,21 +129,21 @@ var DropdownMenu = function DropdownMenu(_ref) {
 
   var renderMask = function renderMask() {
     if (state.current === undefined) return null;
-    return /*#__PURE__*/_jsx("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: prefix + "__mask",
       style: maskStl,
-      children: /*#__PURE__*/_jsx("div", {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__content",
-        children: /*#__PURE__*/_jsx(CheckList, {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_checkList["default"], {
           children: renderAction()
         })
       })
     });
   };
 
-  return /*#__PURE__*/_jsxs("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: mCls,
-    children: [/*#__PURE__*/_jsx("div", {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       ref: barRef,
       className: prefix + "-items",
       children: menus
@@ -133,4 +151,5 @@ var DropdownMenu = function DropdownMenu(_ref) {
   });
 };
 
-export default DropdownMenu;
+var _default = DropdownMenu;
+exports["default"] = _default;

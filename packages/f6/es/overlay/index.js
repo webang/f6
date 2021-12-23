@@ -1,10 +1,23 @@
-import React from "react";
-import "./index.css";
-import { CSSTransition } from "react-transition-group";
-import { defineName } from "../utils/name";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("overlay"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./index.css");
+
+var _reactTransitionGroup = require("react-transition-group");
+
+var _name = require("../utils/name");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)("overlay"),
     prefix = _defineName[0];
 
 var Overlay = function Overlay(_ref) {
@@ -19,12 +32,12 @@ var Overlay = function Overlay(_ref) {
   var style = {
     transitionDuration: timeout + "ms"
   };
-  return /*#__PURE__*/_jsx(CSSTransition, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactTransitionGroup.CSSTransition, {
     "in": visible,
     timeout: timeout,
     classNames: transitionName,
     unmountOnExit: true,
-    children: /*#__PURE__*/_jsx("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       onClick: function onClick() {
         return _onClick == null ? void 0 : _onClick();
       },
@@ -35,4 +48,5 @@ var Overlay = function Overlay(_ref) {
   });
 };
 
-export default Overlay;
+var _default = Overlay;
+exports["default"] = _default;

@@ -1,11 +1,23 @@
-import React from "react";
-import classNames from "classnames";
-import { defineName } from "../utils/name";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("cell"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _name = require("../utils/name");
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)("cell"),
     prefix = _defineName[0];
 
 var Cell = function Cell(_ref) {
@@ -26,7 +38,7 @@ var Cell = function Cell(_ref) {
       children = _ref.children,
       _ref$titleAlign = _ref.titleAlign,
       titleAlign = _ref$titleAlign === void 0 ? "left" : _ref$titleAlign;
-  var mCls = classNames([className], (_classNames = {}, _classNames[prefix] = true, _classNames[prefix + "--link"] = link, _classNames["hairline-bottom"] = border, _classNames[prefix + "--title-" + titleAlign] = true, _classNames));
+  var mCls = (0, _classnames["default"])([className], (_classNames = {}, _classNames[prefix] = true, _classNames[prefix + "--link"] = link, _classNames["hairline-bottom"] = border, _classNames[prefix + "--title-" + titleAlign] = true, _classNames));
 
   var handleClick = function handleClick(event) {
     onClick && onClick(event);
@@ -34,45 +46,45 @@ var Cell = function Cell(_ref) {
 
   var renderIcon = function renderIcon() {
     if (!icon) return null;
-    return /*#__PURE__*/_jsx("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: prefix + "__icon",
       children: icon
     });
   };
 
   var renderMain = function renderMain() {
-    var cls = classNames([titleClass, prefix + "__main"]);
-    return /*#__PURE__*/_jsxs("div", {
+    var cls = (0, _classnames["default"])([titleClass, prefix + "__main"]);
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: cls,
-      children: [/*#__PURE__*/_jsxs("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: prefix + "__title",
-        children: [renderIcon(), /*#__PURE__*/_jsx("span", {
+        children: [renderIcon(), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
           children: title
         })]
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__content",
         children: children
       })]
     });
   };
 
-  return /*#__PURE__*/_jsxs("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: mCls,
     onClick: handleClick,
-    children: [/*#__PURE__*/_jsxs("div", {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "__head",
-      children: [renderMain(), /*#__PURE__*/_jsx("div", {
+      children: [renderMain(), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__value",
         children: value
-      }), link && /*#__PURE__*/_jsx("img", {
+      }), link && /*#__PURE__*/(0, _jsxRuntime.jsx)("img", {
         className: prefix + "__arrow",
         src: require("../svg/arrow_right.svg")["default"],
         alt: ""
       })]
-    }), /*#__PURE__*/_jsx("div", {
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: prefix + "__body",
       style: bodyStyle,
-      children: label && /*#__PURE__*/_jsx("div", {
+      children: label && /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__label",
         children: label
       })
@@ -80,4 +92,5 @@ var Cell = function Cell(_ref) {
   });
 };
 
-export default Cell;
+var _default = Cell;
+exports["default"] = _default;

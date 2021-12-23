@@ -1,16 +1,35 @@
-import _extends from "@babel/runtime/helpers/extends";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
-import React from "react";
-import { defineName } from "../utils/name";
-import { getPosition, isMobile } from "../utils/dom";
-import Button from "../button";
-import classNames from "classnames";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _name = require("../utils/name");
+
+var _dom = require("../utils/dom");
+
+var _button = _interopRequireDefault(require("../button"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 var SHORT_TOUCH = 250;
 
-var _defineName = defineName("swipe"),
+var _defineName = (0, _name.defineName)("swipe"),
     prefix = _defineName[0];
 
 var Swipe = /*#__PURE__*/function (_React$Component) {
@@ -49,11 +68,11 @@ var Swipe = /*#__PURE__*/function (_React$Component) {
       isHorizontal: _this.props.direction === "horizontal",
       rectProp: _this.props.direction === 'horizontal' ? "width" : "height"
     };
-    _this.wrapperRef = /*#__PURE__*/React.createRef();
-    _this.containerRef = /*#__PURE__*/React.createRef();
+    _this.wrapperRef = /*#__PURE__*/_react["default"].createRef();
+    _this.containerRef = /*#__PURE__*/_react["default"].createRef();
 
     _this.moveHandler = function (event) {
-      var touch = getPosition(event.type, event);
+      var touch = (0, _dom.getPosition)(event.type, event);
       var store = _this.store;
       if (!store.isTouched) return;
       event.preventDefault();
@@ -70,7 +89,7 @@ var Swipe = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.startHandler = function (event) {
-      var touch = getPosition(event.type, event);
+      var touch = (0, _dom.getPosition)(event.type, event);
       var store = _this.store;
       var state = _this.state;
       store.startX = touch.clientX;
@@ -254,7 +273,7 @@ var Swipe = /*#__PURE__*/function (_React$Component) {
           passive: false
         };
 
-        if (isMobile()) {
+        if ((0, _dom.isMobile)()) {
           el.addEventListener('touchstart', startHandler, options);
           el.addEventListener('touchmove', moveHandler, options);
           el.addEventListener('touchend', endHandler, options);
@@ -316,32 +335,32 @@ var Swipe = /*#__PURE__*/function (_React$Component) {
     var containerStl = (_containerStl = {
       transitionDuration: (store.useAnimate ? props.duration : 0) + "ms"
     }, _containerStl[store.rectProp] = store.maxTranslate + store.size + "px", _containerStl.transform = store.isHorizontal ? "translate3d(" + state.translate + "px, 0, 0)" : "translate3d(0, " + state.translate + "px, 0)", _containerStl);
-    var wrapperCls = classNames((_classNames = {}, _classNames[prefix] = true, _classNames['effect-' + this.props.effect] = true, _classNames["is-" + this.props.direction] = true, _classNames));
-    return /*#__PURE__*/_jsxs("div", {
-      children: [/*#__PURE__*/_jsx(Button, {
+    var wrapperCls = (0, _classnames["default"])((_classNames = {}, _classNames[prefix] = true, _classNames['effect-' + this.props.effect] = true, _classNames["is-" + this.props.direction] = true, _classNames));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_button["default"], {
         onClick: function onClick() {
           return _this2.slideNext();
         },
         children: "next"
-      }), /*#__PURE__*/_jsx(Button, {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_button["default"], {
         onClick: function onClick() {
           return _this2.slidePrev();
         },
         children: "prev"
-      }), /*#__PURE__*/_jsx(Button, {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_button["default"], {
         onClick: function onClick() {
           return _this2.stop();
         },
         children: "stop"
-      }), /*#__PURE__*/_jsx(Button, {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_button["default"], {
         onClick: function onClick() {
           return _this2.play();
         },
         children: "play"
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: wrapperCls,
         ref: wrapperRef,
-        children: /*#__PURE__*/_jsx("div", {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           style: containerStl,
           className: prefix + "-container",
           ref: containerRef,
@@ -352,7 +371,7 @@ var Swipe = /*#__PURE__*/function (_React$Component) {
   };
 
   return Swipe;
-}(React.Component);
+}(_react["default"].Component);
 
 Swipe.defaultProps = {
   direction: "horizontal",
@@ -360,4 +379,5 @@ Swipe.defaultProps = {
   loop: true,
   duration: 300
 };
-export default Swipe;
+var _default = Swipe;
+exports["default"] = _default;

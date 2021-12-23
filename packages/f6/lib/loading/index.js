@@ -1,13 +1,29 @@
-import _extends from "@babel/runtime/helpers/extends";
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _name = require("../utils/name");
+
+require("./index.css");
+
+var _spinner = _interopRequireDefault(require("../spinner"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
 var _excluded = ["vertical", "spinnerType", "spinnerSize", "className", "children", "message"];
-import classNames from "classnames";
-import React from "react";
-import { defineName } from "../utils/name";
-import "./index.css";
-import Spinner from '../spinner';
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var Loading = function Loading(_ref) {
   var _classNames;
@@ -24,22 +40,23 @@ var Loading = function Loading(_ref) {
       message = _ref$message === void 0 ? 'Loading' : _ref$message,
       restProps = _objectWithoutPropertiesLoose(_ref, _excluded);
 
-  var _defineName = defineName("loading"),
+  var _defineName = (0, _name.defineName)("loading"),
       prefix = _defineName[0];
 
-  var mCls = classNames([prefix, className], (_classNames = {}, _classNames[prefix + "--vertical"] = vertical, _classNames));
-  return /*#__PURE__*/_jsxs("div", _extends({
+  var mCls = (0, _classnames["default"])([prefix, className], (_classNames = {}, _classNames[prefix + "--vertical"] = vertical, _classNames));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", _extends({
     className: mCls
   }, restProps, {
-    children: [/*#__PURE__*/_jsx(Spinner, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_spinner["default"], {
       className: prefix + "__icon",
       type: spinnerType,
       size: spinnerSize
-    }), /*#__PURE__*/_jsx("div", {
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: prefix + "__text",
       children: children || message
     })]
   }));
 };
 
-export default Loading;
+var _default = Loading;
+exports["default"] = _default;

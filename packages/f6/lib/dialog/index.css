@@ -1,0 +1,40 @@
+.wax-dialog {
+  z-index: var(--f6-dialog-z-index);
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  overflow: hidden;
+  width: 280px;
+  max-height: 100%;
+  border-radius: 6px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+.wax-dialog__header {
+  padding-top: 20px;
+  text-align: center;
+}
+.wax-dialog__content {
+  text-align: center;
+  padding-top: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  color: #666;
+}
+.wax-dialog__footer {
+  display: flex;
+}
+.wax-dialog__footer::after {
+  border-top-width: 1px !important;
+}
+.wax-dialog__footer .wax-button {
+  flex: 1;
+  border: 0;
+}
+.wax-dialog__footer .wax-button::after {
+  border-right-width: 1px;
+}
+.wax-dialog__footer .wax-button:last-child::after {
+  display: none;
+}

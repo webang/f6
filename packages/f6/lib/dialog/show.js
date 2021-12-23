@@ -1,11 +1,28 @@
-import _extends from "@babel/runtime/helpers/extends";
-import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
-import { createRef, forwardRef, useEffect, useImperativeHandle, useState } from "react";
-import { mountTo } from "../utils/mountTo";
-import Dialog from ".";
-import { jsx as _jsx } from "react/jsx-runtime";
-export function show(props) {
-  var instanceRef = /*#__PURE__*/createRef();
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.show = show;
+
+var _react = require("react");
+
+var _mountTo = require("../utils/mountTo");
+
+var _2 = _interopRequireDefault(require("."));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function show(props) {
+  var instanceRef = /*#__PURE__*/(0, _react.createRef)();
   var methods = {
     unmount: function unmount() {},
     close: function close() {
@@ -19,12 +36,12 @@ export function show(props) {
       (_instanceRef$current2 = instanceRef.current) == null ? void 0 : _instanceRef$current2.forceClose();
     }
   };
-  var Wrapper = /*#__PURE__*/forwardRef(function (_, ref) {
-    var _useState = useState(false),
+  var Wrapper = /*#__PURE__*/(0, _react.forwardRef)(function (_, ref) {
+    var _useState = (0, _react.useState)(false),
         visible = _useState[0],
         setVisible = _useState[1];
 
-    useEffect(function () {
+    (0, _react.useEffect)(function () {
       return setVisible(true);
     }, []);
 
@@ -41,13 +58,13 @@ export function show(props) {
       setVisible(false);
     }
 
-    useImperativeHandle(ref, function () {
+    (0, _react.useImperativeHandle)(ref, function () {
       return {
         close: closeHandler,
         forceClose: forceClose
       };
     });
-    return /*#__PURE__*/_jsx(Dialog, _extends({}, props, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_2["default"], _extends({}, props, {
       visible: visible,
       onCancel: /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -90,7 +107,7 @@ export function show(props) {
       }
     }));
   });
-  methods.unmount = mountTo( /*#__PURE__*/_jsx(Wrapper, {
+  methods.unmount = (0, _mountTo.mountTo)( /*#__PURE__*/(0, _jsxRuntime.jsx)(Wrapper, {
     ref: instanceRef
   }));
   return {

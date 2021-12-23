@@ -1,0 +1,24 @@
+.wax-space {
+  display: flex;
+}
+.wax-space-item {
+  flex: none;
+}
+.wax-space-horizontal {
+  flex-direction: row;
+}
+.wax-space-horizontal .wax-space-item {
+  margin-right: 8px;
+}
+.wax-space-vertical {
+  flex-direction: column;
+}
+.wax-space-vertical .wax-space-item {
+  margin-bottom: 8px;
+}
+.wax-space-wrap.wax-space-horizontal {
+  flex-wrap: wrap;
+}
+.wax-space-wrap.wax-space-horizontal .wax-space-item {
+  margin-bottom: 8px;
+}

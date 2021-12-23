@@ -17,15 +17,16 @@ module.exports = function (api) {
       ["@babel/preset-react", { runtime: "automatic" }],
     ],
     plugins: [
-      [
-        "@babel/plugin-transform-runtime",
-        {
-          corejs: false,
-          helpers: true,
-          regenerator: false,
-          useESModules,
-        },
-      ],
+      // [
+      //   "@babel/plugin-transform-runtime",
+      //   {
+      //     corejs: false,
+      //     helpers: true,
+      //     regenerator: false,
+      //     useESModules: true
+      //   },
+      // ],
+      "@babel/plugin-transform-modules-commonjs",
       "@babel/plugin-syntax-dynamic-import",
       "@babel/plugin-transform-object-assign",
       "./scripts/babel-transform-less-to-css",

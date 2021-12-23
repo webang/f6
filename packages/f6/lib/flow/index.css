@@ -1,0 +1,92 @@
+.wax-flow {
+  position: relative;
+  display: flex;
+}
+.wax-flow--vertical {
+  flex-direction: column;
+}
+.wax-flow--horizontal {
+  flex-direction: row;
+}
+.wax-flow-item {
+  position: relative;
+  font-size: 12px;
+  line-height: 18px;
+  color: #969799;
+}
+.wax-flow-item__icon {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  font-size: 16px;
+  line-height: 16px;
+  z-index: 2;
+  position: absolute;
+}
+.wax-flow-item__icon img {
+  width: 100%;
+  height: 100%;
+}
+.wax-flow-item:last-child .wax-flow-item__line {
+  display: none;
+}
+.wax-flow-item--horizontal {
+  flex: 1;
+  text-align: center;
+}
+.wax-flow-item--horizontal .wax-flow-item__head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+}
+.wax-flow-item--horizontal .wax-flow-item__line {
+  position: absolute;
+  top: 27px;
+  left: 50%;
+  top: 50%;
+  right: -50%;
+  height: 1px;
+  margin-left: 7px;
+  margin-right: 7px;
+  background: #eee;
+}
+.wax-flow-item--vertical {
+  display: flex;
+}
+.wax-flow-item--vertical .wax-flow-item__head {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+}
+.wax-flow-item--vertical .wax-flow-item__main {
+  flex: 1;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+.wax-flow-item--vertical .wax-flow-item__line {
+  z-index: 2;
+  position: absolute;
+  width: 1px;
+  left: 50%;
+  top: 16px;
+  bottom: -2px;
+  background: #eee;
+}
+.wax-flow-item--process .wax-flow-item__icon {
+  width: 14px;
+  height: 14px;
+  color: #00c853;
+  border-radius: 50%;
+  background-color: #00c853;
+}
+.wax-flow-item--finish .wax-flow-item__icon {
+  font-size: 18px;
+  color: #00c853;
+}
+.wax-flow-item--finish .wax-flow-item__line {
+  background-color: #00c853;
+}

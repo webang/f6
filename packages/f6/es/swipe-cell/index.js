@@ -1,13 +1,27 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import { defineName } from "../utils/name";
-import { useEffect, useRef, useState } from "react";
-import classNames from "classnames";
-import "./index.css";
-import { getPosition, isMobile, isParent } from "../utils/dom";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("swipe-cell"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+require("./index.css");
+
+var _dom = require("../utils/dom");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var _defineName = (0, _name.defineName)("swipe-cell"),
     prefix = _defineName[0];
 
 var SwipeCell = function SwipeCell(p) {
@@ -15,16 +29,16 @@ var SwipeCell = function SwipeCell(p) {
       children = p.children,
       right = p.right,
       left = p.left;
-  var mCls = classNames([prefix, className]);
-  var mRef = useRef(null);
-  var rRef = useRef(null);
-  var lRef = useRef(null);
-  useEffect(function () {
+  var mCls = (0, _classnames["default"])([prefix, className]);
+  var mRef = (0, _react.useRef)(null);
+  var rRef = (0, _react.useRef)(null);
+  var lRef = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
     var handleClick = function handleClick(e) {
       if (mRef.current) {
         console.log(e.target, mRef.current);
 
-        if (!isParent(e.target, mRef.current)) {
+        if (!(0, _dom.isParent)(e.target, mRef.current)) {
           setState(function (prev) {
             return _extends({}, prev, {
               translate: 0
@@ -34,14 +48,14 @@ var SwipeCell = function SwipeCell(p) {
       }
     };
 
-    var event = isMobile() ? 'touchstart' : 'mousedown';
+    var event = (0, _dom.isMobile)() ? 'touchstart' : 'mousedown';
     document.addEventListener(event, handleClick);
     return function () {
       document.removeEventListener(event, handleClick);
     };
   }, []);
 
-  var _useState = useState({
+  var _useState = (0, _react.useState)({
     diff: 0,
     translate: 0,
     startScreen: 0,
@@ -53,7 +67,7 @@ var SwipeCell = function SwipeCell(p) {
       setState = _useState[1];
 
   var startHandler = function startHandler(event) {
-    var touch = getPosition(event.type, event);
+    var touch = (0, _dom.getPosition)(event.type, event);
     setState(function (prev) {
       return _extends({}, prev, {
         useAnimation: false,
@@ -82,7 +96,7 @@ var SwipeCell = function SwipeCell(p) {
 
   var moveHandler = function moveHandler(event) {
     if (!state.touched) return;
-    var touch = getPosition(event.type, event);
+    var touch = (0, _dom.getPosition)(event.type, event);
     var diff = touch.clientX - state.startScreen;
     var delta = diff * 1;
     setState(function (prev) {
@@ -116,7 +130,7 @@ var SwipeCell = function SwipeCell(p) {
     });
   };
 
-  var events = isMobile() ? {
+  var events = (0, _dom.isMobile)() ? {
     onTouchStart: startHandler,
     onTouchMove: moveHandler,
     onTouchEnd: endHandler
@@ -129,18 +143,18 @@ var SwipeCell = function SwipeCell(p) {
     transform: "translate3d(" + state.translate + "px, 0, 0)",
     transitionDuration: state.useAnimation ? "300ms" : "0ms"
   };
-  return /*#__PURE__*/_jsx("div", _extends({
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", _extends({
     className: mCls,
     ref: mRef
   }, events, {
-    children: /*#__PURE__*/_jsxs("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "-wrapper",
       style: style,
-      children: [/*#__PURE__*/_jsx("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__left",
         ref: lRef,
         children: left
-      }), children, /*#__PURE__*/_jsx("div", {
+      }), children, /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__right",
         ref: rRef,
         children: right
@@ -149,4 +163,5 @@ var SwipeCell = function SwipeCell(p) {
   }));
 };
 
-export default SwipeCell;
+var _default = SwipeCell;
+exports["default"] = _default;

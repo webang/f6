@@ -1,10 +1,23 @@
-import { defineName } from "../utils/name";
-import { useState } from "react";
-import classNames from "classnames";
-import { CollapseContext } from "./collapse-context";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName('collapse'),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _collapseContext = require("./collapse-context");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)('collapse'),
     prefix = _defineName[0];
 
 var Collapse = function Collapse(p) {
@@ -12,9 +25,9 @@ var Collapse = function Collapse(p) {
       multiple = p.multiple,
       children = p.children,
       defaultOpenKeys = p.defaultOpenKeys;
-  var mCls = classNames([className, prefix]);
+  var mCls = (0, _classnames["default"])([className, prefix]);
 
-  var _useState = useState(defaultOpenKeys ? defaultOpenKeys : []),
+  var _useState = (0, _react.useState)(defaultOpenKeys ? defaultOpenKeys : []),
       openKeys = _useState[0],
       setOpenKeys = _useState[1];
 
@@ -40,9 +53,9 @@ var Collapse = function Collapse(p) {
     }
   };
 
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: mCls,
-    children: /*#__PURE__*/_jsx(CollapseContext.Provider, {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_collapseContext.CollapseContext.Provider, {
       value: {
         openKeys: openKeys,
         check: check,
@@ -53,4 +66,5 @@ var Collapse = function Collapse(p) {
   });
 };
 
-export default Collapse;
+var _default = Collapse;
+exports["default"] = _default;

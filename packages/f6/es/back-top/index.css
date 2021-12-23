@@ -1,0 +1,20 @@
+.wax-back-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  cursor: pointer;
+}
+.wax-back-top__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 0px;
+}
+.wax-back-top__icon {
+  font-size: 20px;
+  color: #ddd;
+  font-weight: bold;
+}

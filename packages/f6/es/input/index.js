@@ -1,16 +1,33 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
-var _excluded = ["type", "placeholder", "clearable", "rules", "immediateCheck", "onFocus", "onChange", "onBlur", "validateOnBlur", "validateOnChange", "resetErrorOnClear"];
-import { defineName } from "../utils/name";
-import { useEffect, useRef, useState } from "react";
-import Icon from "f6-icons";
-import { usePropsValue } from "../utils/useValue";
-import "./index.css";
-import classNames from "classnames";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("input"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+var _f6Icons = _interopRequireDefault(require("f6-icons"));
+
+var _useValue = require("../utils/useValue");
+
+require("./index.css");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _excluded = ["type", "placeholder", "clearable", "rules", "immediateCheck", "onFocus", "onChange", "onBlur", "validateOnBlur", "validateOnChange", "resetErrorOnClear"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var _defineName = (0, _name.defineName)("input"),
     prefix = _defineName[0];
 
 var Input = function Input(props) {
@@ -33,19 +50,19 @@ var Input = function Input(props) {
       resetErrorOnClear = _props$resetErrorOnCl === void 0 ? true : _props$resetErrorOnCl,
       restProps = _objectWithoutPropertiesLoose(props, _excluded);
 
-  var _usePropsValue = usePropsValue({
+  var _usePropsValue = (0, _useValue.usePropsValue)({
     value: props.value,
     defaultValue: props.defaultValue || ""
   }),
       value = _usePropsValue[0],
       setValue = _usePropsValue[1];
 
-  var _useState = useState(""),
+  var _useState = (0, _react.useState)(""),
       error = _useState[0],
       setError = _useState[1];
 
-  var ref = useRef(null);
-  useEffect(function () {
+  var ref = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
     if (immediateCheck) {
       doCheck(value);
     }
@@ -96,7 +113,7 @@ var Input = function Input(props) {
   };
 
   var renderIcon = function renderIcon() {
-    return clearable && !restProps.disabled && !restProps.readOnly && value.length ? /*#__PURE__*/_jsx(Icon, {
+    return clearable && !restProps.disabled && !restProps.readOnly && value.length ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
       className: prefix + "__clear",
       name: "close-circle-o",
       onClick: clearVal
@@ -106,11 +123,11 @@ var Input = function Input(props) {
   var renderInput = function renderInput() {
     var _classNames;
 
-    return /*#__PURE__*/_jsxs("div", {
-      className: classNames((_classNames = {}, _classNames[prefix] = true, _classNames[prefix + "--disabled"] = restProps.disabled, _classNames[prefix + "--readonly"] = restProps.readOnly, _classNames)),
-      children: [/*#__PURE__*/_jsxs("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: (0, _classnames["default"])((_classNames = {}, _classNames[prefix] = true, _classNames[prefix + "--disabled"] = restProps.disabled, _classNames[prefix + "--readonly"] = restProps.readOnly, _classNames)),
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: prefix + "__body",
-        children: [/*#__PURE__*/_jsx("input", _extends({}, restProps, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("input", _extends({}, restProps, {
           ref: ref,
           className: prefix + "__input",
           value: value,
@@ -120,7 +137,7 @@ var Input = function Input(props) {
           onBlur: blurHandle,
           onChange: handleChange
         })), renderIcon()]
-      }), error && /*#__PURE__*/_jsx("div", {
+      }), error && /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__error",
         children: error
       })]
@@ -130,4 +147,5 @@ var Input = function Input(props) {
   return renderInput();
 };
 
-export default Input;
+var _default = Input;
+exports["default"] = _default;

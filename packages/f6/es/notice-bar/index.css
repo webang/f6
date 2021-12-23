@@ -1,0 +1,17 @@
+.wax-notice-bar {
+  position: relative;
+  height: 36px;
+  line-height: 36px;
+  color: #ed6a0c;
+  background-color: #fffbe8;
+}
+.wax-notice-bar__inner {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+.wax-notice-bar__content {
+  position: absolute;
+  white-space: nowrap;
+}

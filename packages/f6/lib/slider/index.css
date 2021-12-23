@@ -1,0 +1,57 @@
+.wax-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
+}
+.wax-slider__inner {
+  position: relative;
+  height: 2px;
+  flex: 1;
+  margin-right: 24px;
+}
+.wax-slider__runway {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  right: -24px;
+  background-color: #EBEBEB;
+}
+.wax-slider__track {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: 100%;
+  background-color: #07c160;
+}
+.wax-slider__thumb-inner {
+  width: 24px;
+  height: 24px;
+  padding: 12px;
+  margin-top: -12px;
+  margin-left: -12px;
+}
+.wax-slider__thumb {
+  touch-action: none;
+  overflow: hidden;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate3d(0, -50%, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.wax-slider__tooltip {
+  top: -50px;
+  position: absolute;
+  line-height: 20px;
+  padding: 4px 8px;
+  color: #fff;
+  margin-left: -6px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.6);
+}

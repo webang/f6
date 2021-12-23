@@ -1,12 +1,25 @@
-import { defineName } from "../utils/name";
-import { useContext } from "react";
-import { FlowContext } from "./flow-context";
-import Icon from "f6-icons";
-import classNames from "classnames";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName("flow-item"),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _name = require("../utils/name");
+
+var _react = require("react");
+
+var _flowContext = require("./flow-context");
+
+var _f6Icons = _interopRequireDefault(require("f6-icons"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)("flow-item"),
     prefix = _defineName[0];
 
 var FlowItem = function FlowItem(_ref) {
@@ -15,7 +28,7 @@ var FlowItem = function FlowItem(_ref) {
   var title = _ref.title,
       index = _ref.index,
       description = _ref.description;
-  var context = useContext(FlowContext);
+  var context = (0, _react.useContext)(_flowContext.FlowContext);
   var activeIndex = context.current;
   var direction = context.direction;
   var isFinish = index < activeIndex;
@@ -37,7 +50,7 @@ var FlowItem = function FlowItem(_ref) {
       if (context.finishIcon) {
         return context.finishIcon;
       } else {
-        return /*#__PURE__*/_jsx(Icon, {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
           name: "checkmark-circle"
         });
       }
@@ -45,7 +58,7 @@ var FlowItem = function FlowItem(_ref) {
       if (context.processIcon) {
         return context.processIcon;
       } else {
-        return /*#__PURE__*/_jsx(Icon, {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
           name: "checkmark-circle"
         });
       }
@@ -53,30 +66,30 @@ var FlowItem = function FlowItem(_ref) {
       if (context.waitingIcon) {
         return context.waitingIcon;
       } else {
-        return /*#__PURE__*/_jsx(Icon, {
+        return /*#__PURE__*/(0, _jsxRuntime.jsx)(_f6Icons["default"], {
           name: "checkmark-circle"
         });
       }
     }
   }();
 
-  var mCls = classNames((_classNames = {}, _classNames[prefix] = true, _classNames[prefix + "--" + status] = true, _classNames[prefix + "--" + direction] = true, _classNames));
-  return /*#__PURE__*/_jsxs("div", {
+  var mCls = (0, _classnames["default"])((_classNames = {}, _classNames[prefix] = true, _classNames[prefix + "--" + status] = true, _classNames[prefix + "--" + direction] = true, _classNames));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: mCls,
-    children: [/*#__PURE__*/_jsxs("div", {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "__head",
-      children: [/*#__PURE__*/_jsx("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__icon",
         children: icon
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__line"
       })]
-    }), /*#__PURE__*/_jsxs("div", {
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: prefix + "__main",
-      children: [/*#__PURE__*/_jsx("div", {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__title",
         children: title
-      }), /*#__PURE__*/_jsx("div", {
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: prefix + "__description",
         children: description
       })]
@@ -100,4 +113,5 @@ var FlowItem = function FlowItem(_ref) {
 // };
 
 
-export default FlowItem;
+var _default = FlowItem;
+exports["default"] = _default;

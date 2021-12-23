@@ -51,6 +51,6 @@ fs.copySync(srcDir, esDir);
 compile(esDir);
 
 // compile lib dir
-process.env.BABEL_MODULE = "commonjs";
+// process.env.BABEL_MODULE = "commonjs";
 fs.copySync(srcDir, libDir);
 compile(libDir);

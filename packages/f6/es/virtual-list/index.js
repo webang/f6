@@ -1,13 +1,26 @@
-import React from "react";
-import "./index.css";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./index.css");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 var prefix = "virtual-list";
 
 var VirtualList = function VirtualList() {
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: prefix,
-    children: /*#__PURE__*/_jsx("div", {})
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {})
   });
 };
 
-export default VirtualList;
+var _default = VirtualList;
+exports["default"] = _default;

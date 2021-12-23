@@ -1,9 +1,21 @@
-import { useImperativeHandle, useEffect, useRef, useState, forwardRef } from "react";
-import { defineName } from "../utils/name";
-import PickerColumn from "./PickerColumn";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
 
-var _defineName = defineName('picker'),
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = require("react");
+
+var _name = require("../utils/name");
+
+var _PickerColumn = _interopRequireDefault(require("./PickerColumn"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _defineName = (0, _name.defineName)('picker'),
     prefix = _defineName[0];
 
 var Picker = function Picker(_ref, ref) {
@@ -17,12 +29,12 @@ var Picker = function Picker(_ref, ref) {
       defaultIndex = _ref.defaultIndex,
       onChange = _ref.onChange;
 
-  var _useState = useState([]),
+  var _useState = (0, _react.useState)([]),
       mColumns = _useState[0],
       setMColumns = _useState[1];
 
-  var childrenRef = useRef([]);
-  useEffect(function () {
+  var childrenRef = (0, _react.useRef)([]);
+  (0, _react.useEffect)(function () {
     setMColumns(columns);
   }, []);
 
@@ -113,7 +125,7 @@ var Picker = function Picker(_ref, ref) {
     getColumnIndex: getColumnIndex,
     getValues: getValues
   };
-  useImperativeHandle(ref, function () {
+  (0, _react.useImperativeHandle)(ref, function () {
     return context;
   });
 
@@ -137,7 +149,7 @@ var Picker = function Picker(_ref, ref) {
 
   var renderColumns = function renderColumns() {
     return mColumns.map(function (it, index) {
-      return /*#__PURE__*/_jsx(PickerColumn, {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_PickerColumn["default"], {
         onMounted: function onMounted(child, index) {
           var children = childrenRef.current;
           children[index] = child;
@@ -155,10 +167,12 @@ var Picker = function Picker(_ref, ref) {
     });
   };
 
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: prefix + "-columns",
     children: renderColumns()
   });
 };
 
-export default /*#__PURE__*/forwardRef(Picker);
+var _default = /*#__PURE__*/(0, _react.forwardRef)(Picker);
+
+exports["default"] = _default;

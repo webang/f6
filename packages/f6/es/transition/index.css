@@ -1,0 +1,37 @@
+.f6-scale-fade-appear {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.f6-scale-fade-appear-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-appear-done {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-enter {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.f6-scale-fade-enter-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-enter-done {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: opacity transform;
+}
+.f6-scale-fade-exit {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.f6-scale-fade-exit-active {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition-property: transform opacity;
+}

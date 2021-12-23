@@ -1,13 +1,22 @@
-import { useState } from "react";
-import { CheckboxGroupContext } from "./checkbox-context";
-import { jsx as _jsx } from "react/jsx-runtime";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = require("react");
+
+var _checkboxContext = require("./checkbox-context");
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var Group = function Group(props) {
   var children = props.children,
       defaultValue = props.defaultValue,
       onChange = props.onChange;
 
-  var _useState = useState(defaultValue ? Array.isArray(defaultValue) ? defaultValue : [defaultValue] : []),
+  var _useState = (0, _react.useState)(defaultValue ? Array.isArray(defaultValue) ? defaultValue : [defaultValue] : []),
       value = _useState[0],
       setValue = _useState[1];
 
@@ -29,7 +38,7 @@ var Group = function Group(props) {
     });
   };
 
-  return /*#__PURE__*/_jsx(CheckboxGroupContext.Provider, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_checkboxContext.CheckboxGroupContext.Provider, {
     value: {
       value: value,
       check: check,
@@ -39,4 +48,5 @@ var Group = function Group(props) {
   });
 };
 
-export default Group;
+var _default = Group;
+exports["default"] = _default;

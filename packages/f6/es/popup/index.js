@@ -1,14 +1,29 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import React from "react";
-import "./index.css";
-import { CSSTransition } from "react-transition-group";
-import Overlay from "../overlay";
-import classNames from "classnames";
-import { defineName } from "../utils/name";
-import { jsx as _jsx } from "react/jsx-runtime";
-import { Fragment as _Fragment } from "react/jsx-runtime";
-import { jsxs as _jsxs } from "react/jsx-runtime";
-var prefix = defineName("popup");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./index.css");
+
+var _reactTransitionGroup = require("react-transition-group");
+
+var _overlay = _interopRequireDefault(require("../overlay"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _name = require("../utils/name");
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var prefix = (0, _name.defineName)("popup");
 
 var Popup = function Popup(_ref) {
   var children = _ref.children,
@@ -21,24 +36,25 @@ var Popup = function Popup(_ref) {
       style = _ref$style === void 0 ? {} : _ref$style,
       className = _ref.className,
       onMaskClick = _ref.onMaskClick;
-  return /*#__PURE__*/_jsxs(_Fragment, {
-    children: [/*#__PURE__*/_jsx(Overlay, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_overlay["default"], {
       visible: visible,
       onClick: onMaskClick
-    }), /*#__PURE__*/_jsx(CSSTransition, {
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_reactTransitionGroup.CSSTransition, {
       classNames: "wax-slide-" + position,
       "in": visible,
       unmountOnExit: true,
       timeout: animationDuration,
-      children: /*#__PURE__*/_jsx("div", {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         style: _extends({}, style, {
           transitionDuration: animationDuration + "ms"
         }),
-        className: classNames([prefix, className, prefix + "--" + position]),
+        className: (0, _classnames["default"])([prefix, className, prefix + "--" + position]),
         children: children
       })
     })]
   });
 };
 
-export default Popup;
+var _default = Popup;
+exports["default"] = _default;

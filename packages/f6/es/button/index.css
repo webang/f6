@@ -1,0 +1,122 @@
+.wax-button {
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  -webkit-appearance: none;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: opacity 200ms;
+}
+.wax-button--default {
+  color: #333;
+  background-color: #fff;
+}
+.wax-button--default.wax-button--fill-outline {
+  border-color: #333;
+}
+.wax-button--default.wax-button--fill-none {
+  border-color: transparent;
+  background: transparent;
+}
+.wax-button--primary {
+  color: #fff;
+  border-color: var(--f6-button-primary-border-color);
+  background-color: var(--f6-button-primary-background-color);
+}
+.wax-button--primary.wax-button--fill-outline {
+  color: var(--f6-button-primary-background-color);
+  border-color: var(--f6-button-primary-background-color);
+  background-color: #fff;
+}
+.wax-button--primary.wax-button--fill-none {
+  color: var(--f6-button-primary-background-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--danger {
+  color: #fff;
+  border-color: var(--f6-danger-color);
+  background-color: var(--f6-danger-color);
+}
+.wax-button--danger.wax-button--fill-outline {
+  color: var(--f6-danger-color);
+  border-color: var(--f6-danger-color);
+  background-color: #fff;
+}
+.wax-button--danger.wax-button--fill-none {
+  color: var(--f6-danger-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--warning {
+  color: #fff;
+  border-color: var(--f6-warning-color);
+  background-color: var(--f6-warning-color);
+}
+.wax-button--warning.wax-button--fill-outline {
+  color: var(--f6-warning-color);
+  border-color: var(--f6-warning-color);
+  background-color: #fff;
+}
+.wax-button--warning.wax-button--fill-none {
+  color: var(--f6-warning-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--success {
+  color: #fff;
+  border-color: var(--f6-success-color);
+  background-color: var(--f6-success-color);
+}
+.wax-button--success.wax-button--fill-outline {
+  color: var(--f6-success-color);
+  border-color: var(--f6-success-color);
+  background-color: #fff;
+}
+.wax-button--success.wax-button--fill-none {
+  color: var(--f6-success-color);
+  border-color: transparent;
+  background-color: transparent;
+}
+.wax-button--middle {
+  height: var(--f6-button-middle-height);
+  padding: 0 12px;
+}
+.wax-button--small {
+  height: 32px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.wax-button--mini {
+  height: 24px;
+  padding: 0 4px;
+  font-size: 12px;
+}
+.wax-button--shape-default {
+  border-radius: 2px;
+}
+.wax-button--shape-round {
+  border-radius: 20px;
+}
+.wax-button--shape-square {
+  border-radius: 0;
+}
+.wax-button--block {
+  display: flex;
+  width: 100%;
+}
+.wax-button--loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.wax-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,7 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isParent = exports.isMobile = exports.getScrollTop = exports.getScrollTarget = exports.getPosition = void 0;
+
 /**
  * 获取元素所属的滚动容器
  */
-export var getScrollTarget = function getScrollTarget(element) {
+var getScrollTarget = function getScrollTarget(element) {
   var currentElement = element;
 
   while (currentElement && ["HTML", "BODY"].indexOf(currentElement.tagName) === -1) {
@@ -20,7 +27,10 @@ export var getScrollTarget = function getScrollTarget(element) {
  * 获取 window scrollTop
  */
 
-export var getScrollTop = function getScrollTop(element) {
+
+exports.getScrollTarget = getScrollTarget;
+
+var getScrollTop = function getScrollTop(element) {
   if (element === window) {
     return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
   } else {
@@ -31,7 +41,10 @@ export var getScrollTop = function getScrollTop(element) {
  * 获取鼠标事件的当前坐标点
  */
 
-export var getPosition = function getPosition(type, event) {
+
+exports.getScrollTop = getScrollTop;
+
+var getPosition = function getPosition(type, event) {
   if (["mousedown", "mousemove"].includes(type)) {
     return {
       clientX: event.clientX,
@@ -45,7 +58,10 @@ export var getPosition = function getPosition(type, event) {
  * 判断 target 是否为 node 的父元素
  */
 
-export var isParent = function isParent(node, target) {
+
+exports.getPosition = getPosition;
+
+var isParent = function isParent(node, target) {
   if (node === target) {
     return true;
   }
@@ -64,6 +80,11 @@ export var isParent = function isParent(node, target) {
  * is mobile
  */
 
-export var isMobile = function isMobile() {
+
+exports.isParent = isParent;
+
+var isMobile = function isMobile() {
   return "ontouchstart" in window;
 };
+
+exports.isMobile = isMobile;

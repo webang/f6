@@ -1,7 +1,14 @@
-import { useState } from "react";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = require("react");
 
 var useUpdate = function useUpdate() {
-  var _useState = useState({}),
+  var _useState = (0, _react.useState)({}),
       setState = _useState[1];
 
   return function () {
@@ -9,4 +16,5 @@ var useUpdate = function useUpdate() {
   };
 };
 
-export default useUpdate;
+var _default = useUpdate;
+exports["default"] = _default;
