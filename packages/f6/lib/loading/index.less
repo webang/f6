@@ -1,0 +1,22 @@
+@import './../style/base.less';
+
+@loading: ~'@{prefix}-loading';
+
+.@{loading} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  color: #ccc;
+  vertical-align: middle;
+  &__icon {
+    margin-right: 4px;
+  }
+  &--vertical {
+    flex-direction: column;
+    .@{loading}__icon {
+      margin-right: 0;
+      margin-bottom: 8px;
+    }
+  }
+}

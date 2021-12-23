@@ -1,3 +1,6 @@
 node_modules
 .DS_Store
 *.log
+
+pacckages/f6/lib
+pacckages/f6/es

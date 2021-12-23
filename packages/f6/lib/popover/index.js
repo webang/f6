@@ -1,140 +1,211 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var react_1 = (0, tslib_1.__importStar)(require("react"));
-require("./index.less");
-var react_dom_1 = (0, tslib_1.__importDefault)(require("react-dom"));
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-var name_1 = require("../utils/name");
-var useValue_1 = require("../utils/useValue");
-var trigger_1 = (0, tslib_1.__importDefault)(require("./trigger"));
-var prefix = (0, name_1.defineName)("popover")[0];
+import _extends from "@babel/runtime/helpers/extends";
+import React, { useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
+import "./index.css";
+import ReactDOM from "react-dom";
+import classNames from "classnames";
+import { defineName } from "../utils/name";
+import { usePropsValue } from "../utils/useValue";
+import Trigger from "./trigger";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+import { Fragment as _Fragment } from "react/jsx-runtime";
+
+var _defineName = defineName("popover"),
+    prefix = _defineName[0];
+
 var defaultProps = {
-    trigger: "click",
-    placement: "bottom",
-    defaultVisible: false
+  trigger: "click",
+  placement: "bottom",
+  defaultVisible: false
 };
-var Popover = function (p, ref) {
-    var props = (0, tslib_1.__assign)((0, tslib_1.__assign)({}, defaultProps), p);
-    var content = props.content, children = props.children, placement = props.placement, _a = props.verticalDistance, verticalDistance = _a === void 0 ? 8 : _a, _b = props.horizontalDistance, horizontalDistance = _b === void 0 ? 8 : _b;
-    var _c = (0, useValue_1.usePropsValue)({
-        value: props.visible,
-        defaultValue: props.defaultVisible,
-        onChange: props.onVisibleChange
-    }), visible = _c[0], setVisible = _c[1];
-    var _d = (0, react_1.useState)({ width: 0, height: 0, x: 0, y: 0 }), rect = _d[0], setRect = _d[1];
-    var _e = (0, react_1.useState)({ width: 0, height: 0 }), contentSize = _e[0], setContentSize = _e[1];
-    var contentRef = (0, react_1.useRef)(null);
-    var triggerRef = (0, react_1.useRef)(null);
-    (0, react_1.useEffect)(function () {
-        var isParent = function (node, target) {
-            if (node === target) {
-                return true;
-            }
-            while ((node = node === null || node === void 0 ? void 0 : node.parentNode)) {
-                if (node === target) {
-                    return true;
-                }
-            }
-            return false;
-        };
-        function onClick(event) {
-            var triggerInstance = triggerRef.current;
-            var element = react_dom_1["default"].findDOMNode(triggerInstance);
-            if (element) {
-                if (!isParent(event.target, element)) {
-                    setVisible(false);
-                }
-            }
+
+var Popover = function Popover(p, ref) {
+  var props = _extends({}, defaultProps, p);
+
+  var content = props.content,
+      children = props.children,
+      placement = props.placement,
+      _props$verticalDistan = props.verticalDistance,
+      verticalDistance = _props$verticalDistan === void 0 ? 8 : _props$verticalDistan,
+      _props$horizontalDist = props.horizontalDistance,
+      horizontalDistance = _props$horizontalDist === void 0 ? 8 : _props$horizontalDist;
+
+  var _usePropsValue = usePropsValue({
+    value: props.visible,
+    defaultValue: props.defaultVisible,
+    onChange: props.onVisibleChange
+  }),
+      visible = _usePropsValue[0],
+      setVisible = _usePropsValue[1];
+
+  var _useState = useState({
+    width: 0,
+    height: 0,
+    x: 0,
+    y: 0
+  }),
+      rect = _useState[0],
+      setRect = _useState[1];
+
+  var _useState2 = useState({
+    width: 0,
+    height: 0
+  }),
+      contentSize = _useState2[0],
+      setContentSize = _useState2[1];
+
+  var contentRef = useRef(null);
+  var triggerRef = useRef(null);
+  useEffect(function () {
+    var isParent = function isParent(node, target) {
+      if (node === target) {
+        return true;
+      }
+
+      while (node = (_node = node) == null ? void 0 : _node.parentNode) {
+        var _node;
+
+        if (node === target) {
+          return true;
         }
-        window.addEventListener("click", onClick);
-        return function () {
-            window.removeEventListener("click", onClick);
-        };
-    }, []);
-    var initRect = function () {
-        if (!triggerRef.current)
-            return;
-        var triggerInstance = triggerRef.current;
-        var element = react_dom_1["default"].findDOMNode(triggerInstance);
-        if (!element)
-            return;
-        var rect = element.getBoundingClientRect();
-        setRect({
-            width: rect.width,
-            height: rect.height,
-            y: rect.y + document.documentElement.scrollTop || 0,
-            x: rect.x + document.documentElement.scrollLeft || 0
-        });
-        if (contentRef.current) {
-            var rect_1 = contentRef.current.getBoundingClientRect();
-            setContentSize({
-                width: rect_1.width,
-                height: rect_1.height
-            });
-        }
+      }
+
+      return false;
     };
-    (0, react_1.useImperativeHandle)(ref, function () { return ({
-        resetPosition: initRect
-    }); });
-    (0, react_1.useEffect)(initRect, [visible]);
-    var getContainer = function () {
-        return document.body;
-    };
-    var getX = function (placement) {
-        switch (placement) {
-            case "bottom":
-            case "top":
-                return "".concat(rect.x + (rect.width - contentSize.width) / 2, "px");
-            case "bottom-start":
-            case "top-start":
-                return "".concat(rect.x, "px");
-            case "bottom-end":
-            case "top-end":
-                return "".concat(rect.x - contentSize.width + rect.width, "px");
-            case "right":
-            case "right-end":
-            case "right-start":
-                return "".concat(rect.x + rect.width + horizontalDistance, "px");
-            case "left":
-            case "left-end":
-            case "left-start":
-                return "".concat(rect.x - contentSize.width - horizontalDistance, "px");
+
+    function onClick(event) {
+      var triggerInstance = triggerRef.current;
+      var element = ReactDOM.findDOMNode(triggerInstance);
+
+      if (element) {
+        if (!isParent(event.target, element)) {
+          setVisible(false);
         }
+      }
+    }
+
+    window.addEventListener("click", onClick);
+    return function () {
+      window.removeEventListener("click", onClick);
     };
-    var getY = function (placement) {
-        switch (placement) {
-            case "bottom":
-            case "bottom-end":
-            case "bottom-start":
-                return "".concat(rect.y + rect.height + verticalDistance, "px");
-            case "top":
-            case "top-end":
-            case "top-start":
-                return "".concat(rect.y - contentSize.height - verticalDistance, "px");
-            case "left":
-            case "right":
-                return "".concat(rect.y - (contentSize.height - rect.height) / 2, "px");
-            case "left-start":
-            case "right-start":
-                return "".concat(rect.y, "px");
-            case "left-end":
-            case "right-end":
-                return "".concat(rect.y - contentSize.height + rect.height, "px");
-        }
-    };
-    var style = { left: getX(placement), top: getY(placement) };
-    var portal = react_dom_1["default"].createPortal((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: (0, classnames_1["default"])([prefix]), ref: contentRef, style: style }, { children: (0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ style: p.contentStyle, className: (0, classnames_1["default"])([
-                prefix + "__content",
-                prefix + "--" + placement,
-            ]) }, { children: [(0, jsx_runtime_1.jsx)("div", { className: "wax-popover__arrow" }, void 0), (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "wax-popover__body" }, { children: content }), void 0)] }), void 0) }), void 0), getContainer());
-    var clonedReference = react_1["default"].cloneElement(children, {
-        onClick: function () {
-            setVisible(!visible);
-        }
+  }, []);
+
+  var initRect = function initRect() {
+    if (!triggerRef.current) return;
+    var triggerInstance = triggerRef.current;
+    var element = ReactDOM.findDOMNode(triggerInstance);
+    if (!element) return;
+    var rect = element.getBoundingClientRect();
+    setRect({
+      width: rect.width,
+      height: rect.height,
+      y: rect.y + document.documentElement.scrollTop || 0,
+      x: rect.x + document.documentElement.scrollLeft || 0
     });
-    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(trigger_1["default"], (0, tslib_1.__assign)({ ref: triggerRef }, { children: clonedReference }), void 0), visible && portal] }, void 0));
+
+    if (contentRef.current) {
+      var _rect = contentRef.current.getBoundingClientRect();
+
+      setContentSize({
+        width: _rect.width,
+        height: _rect.height
+      });
+    }
+  };
+
+  useImperativeHandle(ref, function () {
+    return {
+      resetPosition: initRect
+    };
+  });
+  useEffect(initRect, [visible]);
+
+  var getContainer = function getContainer() {
+    return document.body;
+  };
+
+  var getX = function getX(placement) {
+    switch (placement) {
+      case "bottom":
+      case "top":
+        return rect.x + (rect.width - contentSize.width) / 2 + "px";
+
+      case "bottom-start":
+      case "top-start":
+        return rect.x + "px";
+
+      case "bottom-end":
+      case "top-end":
+        return rect.x - contentSize.width + rect.width + "px";
+
+      case "right":
+      case "right-end":
+      case "right-start":
+        return rect.x + rect.width + horizontalDistance + "px";
+
+      case "left":
+      case "left-end":
+      case "left-start":
+        return rect.x - contentSize.width - horizontalDistance + "px";
+    }
+  };
+
+  var getY = function getY(placement) {
+    switch (placement) {
+      case "bottom":
+      case "bottom-end":
+      case "bottom-start":
+        return rect.y + rect.height + verticalDistance + "px";
+
+      case "top":
+      case "top-end":
+      case "top-start":
+        return rect.y - contentSize.height - verticalDistance + "px";
+
+      case "left":
+      case "right":
+        return rect.y - (contentSize.height - rect.height) / 2 + "px";
+
+      case "left-start":
+      case "right-start":
+        return rect.y + "px";
+
+      case "left-end":
+      case "right-end":
+        return rect.y - contentSize.height + rect.height + "px";
+    }
+  };
+
+  var style = {
+    left: getX(placement),
+    top: getY(placement)
+  };
+  var portal = /*#__PURE__*/ReactDOM.createPortal( /*#__PURE__*/_jsx("div", {
+    className: classNames([prefix]),
+    ref: contentRef,
+    style: style,
+    children: /*#__PURE__*/_jsxs("div", {
+      style: p.contentStyle,
+      className: classNames([prefix + "__content", prefix + "--" + placement]),
+      children: [/*#__PURE__*/_jsx("div", {
+        className: "wax-popover__arrow"
+      }), /*#__PURE__*/_jsx("div", {
+        className: "wax-popover__body",
+        children: content
+      })]
+    })
+  }), getContainer());
+  var clonedReference = /*#__PURE__*/React.cloneElement(children, {
+    onClick: function onClick() {
+      setVisible(!visible);
+    }
+  });
+  return /*#__PURE__*/_jsxs(_Fragment, {
+    children: [/*#__PURE__*/_jsx(Trigger, {
+      ref: triggerRef,
+      children: clonedReference
+    }), visible && portal]
+  });
 };
-exports["default"] = (0, react_1.forwardRef)(Popover);
-//# sourceMappingURL=index.js.map
+
+export default /*#__PURE__*/forwardRef(Popover);

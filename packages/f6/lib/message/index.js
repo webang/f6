@@ -1,35 +1,67 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var name_1 = require("../utils/name");
-require("./index.less");
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-var f6_icons_1 = (0, tslib_1.__importDefault)(require("f6-icons"));
-var prefix = (0, name_1.defineName)('message')[0];
-var Message = function (_a) {
-    var _b;
-    var className = _a.className, _c = _a.type, type = _c === void 0 ? 'primary' : _c, children = _a.children, icon = _a.icon, _d = _a.link, link = _d === void 0 ? false : _d, restProps = (0, tslib_1.__rest)(_a, ["className", "type", "children", "icon", "link"]);
-    var mCls = (0, classnames_1["default"])([
-        prefix,
-        "".concat(prefix, "--").concat(type),
-        className
-    ], (_b = {},
-        _b["".concat(prefix, "--link")] = link,
-        _b));
-    var renderIcon = function () {
-        if (icon)
-            return icon;
-        switch (type) {
-            case "success":
-                return (0, jsx_runtime_1.jsx)(f6_icons_1["default"], { name: "success", style: { fontSize: '18px' } }, void 0);
-            case "danger":
-            case "primary":
-            case "warning":
-                return (0, jsx_runtime_1.jsx)(f6_icons_1["default"], { name: "error" }, void 0);
-        }
-    };
-    return ((0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ className: mCls }, restProps, { children: [(0, jsx_runtime_1.jsxs)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__icon") }, { children: [" ", renderIcon(), " "] }), void 0), (0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__body") }, { children: [(0, jsx_runtime_1.jsx)("div", { children: children }, void 0), link && ((0, jsx_runtime_1.jsx)(f6_icons_1["default"], { className: "".concat(prefix, "__link"), name: "arrow-right" }, void 0))] }), void 0)] }), void 0));
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["className", "type", "children", "icon", "link"];
+import { defineName } from "../utils/name";
+import "./index.css";
+import classNames from "classnames";
+import Icon from "f6-icons";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+
+var _defineName = defineName('message'),
+    prefix = _defineName[0];
+
+var Message = function Message(_ref) {
+  var _classNames;
+
+  var className = _ref.className,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'primary' : _ref$type,
+      children = _ref.children,
+      icon = _ref.icon,
+      _ref$link = _ref.link,
+      link = _ref$link === void 0 ? false : _ref$link,
+      restProps = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  var mCls = classNames([prefix, prefix + "--" + type, className], (_classNames = {}, _classNames[prefix + "--link"] = link, _classNames));
+
+  var renderIcon = function renderIcon() {
+    if (icon) return icon;
+
+    switch (type) {
+      case "success":
+        return /*#__PURE__*/_jsx(Icon, {
+          name: "success",
+          style: {
+            fontSize: '18px'
+          }
+        });
+
+      case "danger":
+      case "primary":
+      case "warning":
+        return /*#__PURE__*/_jsx(Icon, {
+          name: "error"
+        });
+    }
+  };
+
+  return /*#__PURE__*/_jsxs("div", _extends({
+    className: mCls
+  }, restProps, {
+    children: [/*#__PURE__*/_jsxs("span", {
+      className: prefix + "__icon",
+      children: [" ", renderIcon(), " "]
+    }), /*#__PURE__*/_jsxs("div", {
+      className: prefix + "__body",
+      children: [/*#__PURE__*/_jsx("div", {
+        children: children
+      }), link && /*#__PURE__*/_jsx(Icon, {
+        className: prefix + "__link",
+        name: "arrow-right"
+      })]
+    })]
+  }));
 };
-exports["default"] = Message;
-//# sourceMappingURL=index.js.map
+
+export default Message;

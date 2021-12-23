@@ -1,51 +1,82 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-var react_1 = require("react");
-var f6_icons_1 = (0, tslib_1.__importDefault)(require("f6-icons"));
-var name_1 = require("../utils/name");
-var checkbox_context_1 = require("./checkbox-context");
-var prefix = (0, name_1.defineName)("checkbox")[0];
-var Checkbox = function (props) {
-    var _a;
-    var children = props.children, _b = props.defaultChecked, defaultChecked = _b === void 0 ? false : _b, _c = props.disabled, disabled = _c === void 0 ? false : _c, onChange = props.onChange, icon = props.icon, value = props.value, restProps = (0, tslib_1.__rest)(props, ["children", "defaultChecked", "disabled", "onChange", "icon", "value"]);
-    var _d = (0, react_1.useState)(defaultChecked), checked = _d[0], setChecked = _d[1];
-    var context = (0, react_1.useContext)(checkbox_context_1.CheckboxGroupContext);
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["children", "defaultChecked", "disabled", "onChange", "icon", "value"];
+import classNames from "classnames";
+import { useContext, useState } from "react";
+import Icon from "f6-icons";
+import { defineName } from "../utils/name";
+import { CheckboxGroupContext } from "./checkbox-context";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+
+var _defineName = defineName("checkbox"),
+    prefix = _defineName[0];
+
+var Checkbox = function Checkbox(props) {
+  var _classNames;
+
+  var children = props.children,
+      _props$defaultChecked = props.defaultChecked,
+      defaultChecked = _props$defaultChecked === void 0 ? false : _props$defaultChecked,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      onChange = props.onChange,
+      icon = props.icon,
+      value = props.value,
+      restProps = _objectWithoutPropertiesLoose(props, _excluded);
+
+  var _useState = useState(defaultChecked),
+      checked = _useState[0],
+      setChecked = _useState[1];
+
+  var context = useContext(CheckboxGroupContext);
+
+  if (context && value !== undefined) {
+    checked = context.value.includes(value);
+  }
+
+  var handleClick = function handleClick() {
+    if (disabled) return;
+
     if (context && value !== undefined) {
-        checked = context.value.includes(value);
+      checked = context.value.includes(value);
+
+      if (!checked) {
+        context.check(value);
+      } else {
+        context.uncheck(value);
+      }
+    } else {
+      setChecked(!checked);
+      onChange && onChange(!checked);
     }
-    var handleClick = function () {
-        if (disabled)
-            return;
-        if (context && value !== undefined) {
-            checked = context.value.includes(value);
-            if (!checked) {
-                context.check(value);
-            }
-            else {
-                context.uncheck(value);
-            }
-        }
-        else {
-            setChecked(!checked);
-            onChange && onChange(!checked);
-        }
-    };
-    var renderIcon = function () {
-        if (icon) {
-            return typeof icon === "function" ? icon(checked) : icon;
-        }
-        else {
-            return checked ? ((0, jsx_runtime_1.jsx)(f6_icons_1["default"], { name: "checkbox" }, void 0)) : ((0, jsx_runtime_1.jsx)(f6_icons_1["default"], { name: "checkbox_rect_outline" }, void 0));
-        }
-    };
-    var mCls = (0, classnames_1["default"])([prefix], (_a = {},
-        _a["".concat(prefix, "--checked")] = checked,
-        _a["".concat(prefix, "--disabled")] = disabled,
-        _a));
-    return ((0, jsx_runtime_1.jsxs)("label", (0, tslib_1.__assign)({ className: mCls }, restProps, { onClick: handleClick }, { children: [(0, jsx_runtime_1.jsx)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__icon") }, { children: renderIcon() }), void 0), (0, jsx_runtime_1.jsx)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__text") }, { children: children }), void 0)] }), void 0));
+  };
+
+  var renderIcon = function renderIcon() {
+    if (icon) {
+      return typeof icon === "function" ? icon(checked) : icon;
+    } else {
+      return checked ? /*#__PURE__*/_jsx(Icon, {
+        name: "checkbox"
+      }) : /*#__PURE__*/_jsx(Icon, {
+        name: "checkbox_rect_outline"
+      });
+    }
+  };
+
+  var mCls = classNames([prefix], (_classNames = {}, _classNames[prefix + "--checked"] = checked, _classNames[prefix + "--disabled"] = disabled, _classNames));
+  return /*#__PURE__*/_jsxs("label", _extends({
+    className: mCls
+  }, restProps, {
+    onClick: handleClick,
+    children: [/*#__PURE__*/_jsx("span", {
+      className: prefix + "__icon",
+      children: renderIcon()
+    }), /*#__PURE__*/_jsx("span", {
+      className: prefix + "__text",
+      children: children
+    })]
+  }));
 };
-exports["default"] = Checkbox;
-//# sourceMappingURL=checkbox.js.map
+
+export default Checkbox;

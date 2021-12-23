@@ -1,25 +1,50 @@
-"use strict";
-exports.__esModule = true;
-exports.alert = void 0;
-var tslib_1 = require("tslib");
-var show_1 = require("./show");
-function alert(props) {
-    var _this = this;
-    return new Promise(function (resolve, _) {
-        return (0, show_1.show)((0, tslib_1.__assign)((0, tslib_1.__assign)({}, props), { showCancelButton: false, showConfirmButton: true, appear: true, onOk: function () { return (0, tslib_1.__awaiter)(_this, void 0, void 0, function () {
-                var result;
-                var _a;
-                return (0, tslib_1.__generator)(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, ((_a = props.onOk) === null || _a === void 0 ? void 0 : _a.call(props))];
-                        case 1:
-                            result = (_b.sent()) || "ok";
-                            resolve(result);
-                            return [2 /*return*/];
-                    }
-                });
-            }); } }));
-    });
+import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
+import _extends from "@babel/runtime/helpers/extends";
+import { show } from "./show";
+export function alert(props) {
+  return new Promise(function (resolve, _) {
+    return show(_extends({}, props, {
+      showCancelButton: false,
+      showConfirmButton: true,
+      appear: true,
+      onOk: function () {
+        var _onOk = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+          var result;
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.next = 2;
+                  return props.onOk == null ? void 0 : props.onOk();
+
+                case 2:
+                  _context.t0 = _context.sent;
+
+                  if (_context.t0) {
+                    _context.next = 5;
+                    break;
+                  }
+
+                  _context.t0 = "ok";
+
+                case 5:
+                  result = _context.t0;
+                  resolve(result);
+
+                case 7:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        function onOk() {
+          return _onOk.apply(this, arguments);
+        }
+
+        return onOk;
+      }()
+    }));
+  });
 }
-exports.alert = alert;
-//# sourceMappingURL=alert.js.map

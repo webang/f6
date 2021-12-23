@@ -1,0 +1,70 @@
+.wax-swipe {
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  height: 180px;
+  line-height: 180px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.wax-swipe-item {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: cadetblue;
+}
+
+.wax-swipe-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 300ms ease;
+}
+
+.wax-swipe-dots {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wax-swipe-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  margin: 0 3px;
+  border-radius: 4px;
+  transition: all 300ms;
+}
+.wax-swipe-dot--active {
+  background: #fff;
+}
+
+/* vertical */
+.wax-swipe.is-vertical .wax-swipe-container {
+  flex-direction: column;
+}
+.wax-swipe-dots--vertical {
+  flex-direction: column;
+  right: 4px;
+  width: 18px;
+  height: 100%;
+}
+.wax-swipe-dots--vertical .wax-swipe-dot {
+  margin: 4px 0;
+}
+
+/* effect slide */
+.effect-scale .wax-swipe-item {
+  transform: scale3d(0.92, 0.8, 1);
+  transition: transform 300ms;
+}
+.effect-scale .swipe-item-active {
+  transform: scale3d(1, 1, 1);
+}

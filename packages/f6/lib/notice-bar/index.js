@@ -1,46 +1,72 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var name_1 = require("../utils/name");
-var react_1 = require("react");
-require("./index.less");
-var prefix = (0, name_1.defineName)("notice-bar")[0];
-var NoticeBar = function (_a) {
-    var text = _a.text, _b = _a.start, start = _b === void 0 ? 100 : _b, _c = _a.step, step = _c === void 0 ? 1 : _c;
-    var _d = (0, react_1.useState)({
-        offset: -start,
-        running: true
-    }), state = _d[0], setState = _d[1];
-    var mRef = (0, react_1.useRef)(null);
-    var oRef = (0, react_1.useRef)(null);
-    var stop = function () {
-        setState(function (prev) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { running: !prev.running })); });
-    };
-    (0, react_1.useEffect)(function () {
-        if (!state.running)
-            return;
-        if (!mRef.current)
-            return;
-        if (!oRef.current)
-            return;
-        var id = setTimeout(function () {
-            setState(function (prev) {
-                // const oWidth = oRef.current!.offsetWidth;
-                var iWidth = mRef.current.offsetWidth;
-                var isFinished = iWidth <= prev.offset;
-                var offset = isFinished ? -100 : prev.offset + step;
-                return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { offset: offset });
-            });
-        }, 25);
-        return function () {
-            clearTimeout(id);
-        };
+import _extends from "@babel/runtime/helpers/extends";
+import { defineName } from "../utils/name";
+import { useRef, useState, useEffect } from "react";
+import "./index.css";
+import { jsx as _jsx } from "react/jsx-runtime";
+
+var _defineName = defineName("notice-bar"),
+    prefix = _defineName[0];
+
+var NoticeBar = function NoticeBar(_ref) {
+  var text = _ref.text,
+      _ref$start = _ref.start,
+      start = _ref$start === void 0 ? 100 : _ref$start,
+      _ref$step = _ref.step,
+      step = _ref$step === void 0 ? 1 : _ref$step;
+
+  var _useState = useState({
+    offset: -start,
+    running: true
+  }),
+      state = _useState[0],
+      setState = _useState[1];
+
+  var mRef = useRef(null);
+  var oRef = useRef(null);
+
+  var stop = function stop() {
+    setState(function (prev) {
+      return _extends({}, prev, {
+        running: !prev.running
+      });
     });
-    var style = {
-        left: -state.offset
+  };
+
+  useEffect(function () {
+    if (!state.running) return;
+    if (!mRef.current) return;
+    if (!oRef.current) return;
+    var id = setTimeout(function () {
+      setState(function (prev) {
+        // const oWidth = oRef.current!.offsetWidth;
+        var iWidth = mRef.current.offsetWidth;
+        var isFinished = iWidth <= prev.offset;
+        var offset = isFinished ? -100 : prev.offset + step;
+        return _extends({}, prev, {
+          offset: offset
+        });
+      });
+    }, 25);
+    return function () {
+      clearTimeout(id);
     };
-    return ((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: prefix }, { children: (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__inner"), ref: oRef }, { children: (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__content"), style: style, ref: mRef }, { children: text }), void 0) }), void 0) }), void 0));
+  });
+  var style = {
+    left: -state.offset
+  };
+  return /*#__PURE__*/_jsx("div", {
+    className: prefix,
+    children: /*#__PURE__*/_jsx("div", {
+      className: prefix + "__inner",
+      ref: oRef,
+      children: /*#__PURE__*/_jsx("div", {
+        className: prefix + "__content",
+        style: style,
+        ref: mRef,
+        children: text
+      })
+    })
+  });
 };
-exports["default"] = NoticeBar;
-//# sourceMappingURL=index.js.map
+
+export default NoticeBar;

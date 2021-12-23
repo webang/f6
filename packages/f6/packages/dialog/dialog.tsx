@@ -84,9 +84,9 @@ const Dialog: FC<DialogProps> = ({
           <div className={prefix + "__content"}>{content}</div>
           <div className={classNames([prefix + "__footer", "hairline"])}>
             {showCancelButton && (
-              <Button onClick={cancelHandler}>{cancelText}</Button>
+              <Button className={"hairline"} onClick={cancelHandler}>{cancelText}</Button>
             )}
-            {showConfirmButton && <Button onClick={okHandler}>{okText}</Button>}
+            {showConfirmButton && <Button className={"hairline"} onClick={okHandler}>{okText}</Button>}
           </div>
         </div>
       </Transition>

@@ -1,40 +1,80 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var name_1 = require("../utils/name");
-var react_1 = (0, tslib_1.__importStar)(require("react"));
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-require("./index.less");
-var Grid = function (_a) {
-    var className = _a.className, children = _a.children, _b = _a.columnNum, columnNum = _b === void 0 ? 4 : _b, _c = _a.border, border = _c === void 0 ? true : _c, restProps = (0, tslib_1.__rest)(_a, ["className", "children", "columnNum", "border"]);
-    var prefix = (0, name_1.defineName)('grid')[0];
-    var mCls = (0, classnames_1["default"])([prefix, className]);
-    // 过滤飞 GridItem 节点
-    var gridChildren = react_1["default"].Children
-        .toArray(children)
-        .filter(function (it) {
-        return it && it.type === GridItem;
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["className", "children", "columnNum", "border"],
+    _excluded2 = ["className", "children", "icon", "text"];
+import { defineName } from "../utils/name";
+import React, { cloneElement } from "react";
+import classNames from "classnames";
+import "./index.css";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+
+var Grid = function Grid(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      _ref$columnNum = _ref.columnNum,
+      columnNum = _ref$columnNum === void 0 ? 4 : _ref$columnNum,
+      _ref$border = _ref.border,
+      border = _ref$border === void 0 ? true : _ref$border,
+      restProps = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  var _defineName = defineName('grid'),
+      prefix = _defineName[0];
+
+  var mCls = classNames([prefix, className]); // 过滤飞 GridItem 节点
+
+  var gridChildren = React.Children.toArray(children).filter(function (it) {
+    return it && it.type === GridItem;
+  });
+  var mColumnNum = Math.min(columnNum, gridChildren.length);
+  var mChildren = gridChildren.map(function (child, index, array) {
+    var style = _extends({}, child.props.style || {}, {
+      flexBasis: 1 / mColumnNum * 100 + "%"
     });
-    var mColumnNum = Math.min(columnNum, gridChildren.length);
-    var mChildren = gridChildren.map(function (child, index, array) {
-        var style = (0, tslib_1.__assign)((0, tslib_1.__assign)({}, (child.props.style || {})), { flexBasis: "".concat((1 / mColumnNum) * 100, "%") });
-        return (0, react_1.cloneElement)(child, { index: index, style: style, border: border });
+
+    return /*#__PURE__*/cloneElement(child, {
+      index: index,
+      style: style,
+      border: border
     });
-    return ((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: mCls }, restProps, { children: mChildren }), void 0));
+  });
+  return /*#__PURE__*/_jsx("div", _extends({
+    className: mCls
+  }, restProps, {
+    children: mChildren
+  }));
 };
-var GridItem = function (props) {
-    var _a;
-    var className = props.className, children = props.children, icon = props.icon, text = props.text, restProps = (0, tslib_1.__rest)(props, ["className", "children", "icon", "text"]);
-    var prefix = (0, name_1.defineName)('grid-item')[0];
-    var mCls = (0, classnames_1["default"])([prefix, className], (_a = {
-            hairline: restProps['border']
-        },
-        _a['border-b'] = restProps['border'],
-        _a['border-r'] = restProps['border'],
-        _a));
-    return ((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: mCls }, restProps, { children: (0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__body") }, { children: [(0, jsx_runtime_1.jsx)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__icon") }, { children: icon }), void 0), (0, jsx_runtime_1.jsx)("span", (0, tslib_1.__assign)({ className: "".concat(prefix, "__text") }, { children: text }), void 0)] }), void 0) }), void 0));
+
+var GridItem = function GridItem(props) {
+  var _classNames;
+
+  var className = props.className,
+      children = props.children,
+      icon = props.icon,
+      text = props.text,
+      restProps = _objectWithoutPropertiesLoose(props, _excluded2);
+
+  var _defineName2 = defineName('grid-item'),
+      prefix = _defineName2[0];
+
+  var mCls = classNames([prefix, className], (_classNames = {
+    hairline: restProps['border']
+  }, _classNames['border-b'] = restProps['border'], _classNames['border-r'] = restProps['border'], _classNames));
+  return /*#__PURE__*/_jsx("div", _extends({
+    className: mCls
+  }, restProps, {
+    children: /*#__PURE__*/_jsxs("div", {
+      className: prefix + "__body",
+      children: [/*#__PURE__*/_jsx("span", {
+        className: prefix + "__icon",
+        children: icon
+      }), /*#__PURE__*/_jsx("span", {
+        className: prefix + "__text",
+        children: text
+      })]
+    })
+  }));
 };
+
 Grid.Item = GridItem;
-exports["default"] = Grid;
-//# sourceMappingURL=index.js.map
+export default Grid;

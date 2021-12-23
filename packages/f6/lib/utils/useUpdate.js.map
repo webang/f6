@@ -1,1 +1,0 @@
-{"version":3,"file":"useUpdate.js","sourceRoot":"","sources":["../../packages/utils/useUpdate.ts"],"names":[],"mappings":";;AAAA,+BAA8C;AAE9C,IAAM,SAAS,GAAG;IACV,IAAA,KAAe,IAAA,gBAAQ,EAAC,EAAE,CAAC,EAAxB,QAAQ,QAAgB,CAAC;IAElC,OAAO,cAAM,OAAA,QAAQ,CAAC,EAAE,CAAC,EAAZ,CAAY,CAAC;AAC5B,CAAC,CAAC;AAEF,qBAAe,SAAS,CAAC"}

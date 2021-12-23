@@ -1,16 +1,44 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-require("./index.less");
-var react_transition_group_1 = require("react-transition-group");
-var overlay_1 = (0, tslib_1.__importDefault)(require("../overlay"));
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-var name_1 = require("../utils/name");
-var prefix = (0, name_1.defineName)("popup");
-var Popup = function (_a) {
-    var children = _a.children, visible = _a.visible, _b = _a.animationDuration, animationDuration = _b === void 0 ? 300 : _b, _c = _a.position, position = _c === void 0 ? "bottom" : _c, _d = _a.style, style = _d === void 0 ? {} : _d, className = _a.className, onMaskClick = _a.onMaskClick;
-    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(overlay_1["default"], { visible: visible, onClick: onMaskClick }, void 0), (0, jsx_runtime_1.jsx)(react_transition_group_1.CSSTransition, (0, tslib_1.__assign)({ classNames: "wax-slide-" + position, "in": visible, unmountOnExit: true, timeout: animationDuration }, { children: (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ style: (0, tslib_1.__assign)((0, tslib_1.__assign)({}, style), { transitionDuration: "".concat(animationDuration, "ms") }), className: (0, classnames_1["default"])([prefix, className, prefix + "--" + position]) }, { children: children }), void 0) }), void 0)] }, void 0));
+import _extends from "@babel/runtime/helpers/extends";
+import React from "react";
+import "./index.css";
+import { CSSTransition } from "react-transition-group";
+import Overlay from "../overlay";
+import classNames from "classnames";
+import { defineName } from "../utils/name";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { Fragment as _Fragment } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+var prefix = defineName("popup");
+
+var Popup = function Popup(_ref) {
+  var children = _ref.children,
+      visible = _ref.visible,
+      _ref$animationDuratio = _ref.animationDuration,
+      animationDuration = _ref$animationDuratio === void 0 ? 300 : _ref$animationDuratio,
+      _ref$position = _ref.position,
+      position = _ref$position === void 0 ? "bottom" : _ref$position,
+      _ref$style = _ref.style,
+      style = _ref$style === void 0 ? {} : _ref$style,
+      className = _ref.className,
+      onMaskClick = _ref.onMaskClick;
+  return /*#__PURE__*/_jsxs(_Fragment, {
+    children: [/*#__PURE__*/_jsx(Overlay, {
+      visible: visible,
+      onClick: onMaskClick
+    }), /*#__PURE__*/_jsx(CSSTransition, {
+      classNames: "wax-slide-" + position,
+      "in": visible,
+      unmountOnExit: true,
+      timeout: animationDuration,
+      children: /*#__PURE__*/_jsx("div", {
+        style: _extends({}, style, {
+          transitionDuration: animationDuration + "ms"
+        }),
+        className: classNames([prefix, className, prefix + "--" + position]),
+        children: children
+      })
+    })]
+  });
 };
-exports["default"] = Popup;
-//# sourceMappingURL=index.js.map
+
+export default Popup;

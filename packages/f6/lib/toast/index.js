@@ -1,146 +1,236 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-var react_1 = (0, tslib_1.__importStar)(require("react"));
-var react_dom_1 = (0, tslib_1.__importDefault)(require("react-dom"));
-var name_1 = require("../utils/name");
-var react_transition_group_1 = require("react-transition-group");
-require("./index.less");
-var f6_icons_1 = (0, tslib_1.__importDefault)(require("f6-icons"));
-var spinner_1 = (0, tslib_1.__importDefault)(require("../spinner"));
-var prefix = (0, name_1.defineName)("toast")[0];
+import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["position", "message"];
+import classNames from "classnames";
+import React, { useState, useEffect, useImperativeHandle } from "react";
+import ReactDOM from "react-dom";
+import { defineName } from "../utils/name";
+import { CSSTransition } from "react-transition-group";
+import "./index.css";
+import Icon from "f6-icons";
+import Spinner from "../spinner";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+
+var _defineName = defineName("toast"),
+    prefix = _defineName[0];
+
 var instances = [];
 var defaultAnimationTime = 300;
 var single = true;
 /**
  * @description
  */
-var AnimateWrapper = function (_a, ref) {
-    var position = _a.position, _b = _a.message, message = _b === void 0 ? '' : _b, restProps = (0, tslib_1.__rest)(_a, ["position", "message"]);
-    var _c = (0, react_1.useState)(false), visible = _c[0], setVisible = _c[1];
-    var _d = (0, react_1.useState)(message), content = _d[0], setContent = _d[1];
-    (0, react_1.useEffect)(function () {
-        setVisible(true);
-    }, []);
-    (0, react_1.useImperativeHandle)(ref, function () { return ({
-        close: function () {
-            setVisible(false);
-        },
-        setContent: function (message) {
-            setContent(message);
-        }
-    }); }, []);
-    return ((0, jsx_runtime_1.jsx)(react_transition_group_1.CSSTransition, (0, tslib_1.__assign)({ "in": visible, timeout: defaultAnimationTime, classNames: "slide-".concat(position), unmountOnExit: true }, { children: (0, jsx_runtime_1.jsx)(Toast, (0, tslib_1.__assign)({ position: position, message: content }, restProps), void 0) }), void 0));
+
+var AnimateWrapper = function AnimateWrapper(_ref, ref) {
+  var position = _ref.position,
+      _ref$message = _ref.message,
+      message = _ref$message === void 0 ? '' : _ref$message,
+      restProps = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  var _useState = useState(false),
+      visible = _useState[0],
+      setVisible = _useState[1];
+
+  var _useState2 = useState(message),
+      content = _useState2[0],
+      _setContent = _useState2[1];
+
+  useEffect(function () {
+    setVisible(true);
+  }, []);
+  useImperativeHandle(ref, function () {
+    return {
+      close: function close() {
+        setVisible(false);
+      },
+      setContent: function setContent(message) {
+        _setContent(message);
+      }
+    };
+  }, []);
+  return /*#__PURE__*/_jsx(CSSTransition, {
+    "in": visible,
+    timeout: defaultAnimationTime,
+    classNames: "slide-" + position,
+    unmountOnExit: true,
+    children: /*#__PURE__*/_jsx(Toast, _extends({
+      position: position,
+      message: content
+    }, restProps))
+  });
 };
-var AnimateWrapperRefed = react_1["default"].forwardRef(AnimateWrapper);
-var Toast = /** @class */ (function (_super) {
-    (0, tslib_1.__extends)(Toast, _super);
-    function Toast() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Toast.formatParams = function (params) {
-        var getField = function (params, key, _default) {
-            if (typeof params === 'string')
-                return _default;
-            return typeof params[key] !== "undefined" ? params[key] : _default;
-        };
-        var type = getField(params, 'type', 'text');
-        var message = getField(params, 'message', '');
-        var duration = getField(params, 'duration', 1500);
-        var position = getField(params, 'position', 'middle');
-        var spinner = getField(params, 'spinner', undefined);
-        return { duration: duration, position: position, message: message, type: type, spinner: spinner };
+
+var AnimateWrapperRefed = /*#__PURE__*/React.forwardRef(AnimateWrapper);
+
+var Toast = /*#__PURE__*/function (_React$Component) {
+  _inheritsLoose(Toast, _React$Component);
+
+  function Toast() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  Toast.formatParams = function formatParams(params) {
+    var getField = function getField(params, key, _default) {
+      if (typeof params === 'string') return _default;
+      return typeof params[key] !== "undefined" ? params[key] : _default;
     };
-    /**
-     * @description 创建 toast
-     */
-    Toast.show = function (params) {
-        var _a = Toast.formatParams(params), type = _a.type, duration = _a.duration, position = _a.position, message = _a.message, spinner = _a.spinner;
-        var ref = react_1["default"].createRef();
-        var result = {
-            mountNode: Toast.createSlot(),
-            close: function (force) {
-                var _a;
-                if (force) {
-                    if (result.mountNode) {
-                        document.body.removeChild(result.mountNode);
-                    }
-                    result.mountNode = null;
-                }
-                else {
-                    (_a = ref.current) === null || _a === void 0 ? void 0 : _a.close();
-                    setTimeout(function () {
-                        if (result.mountNode) {
-                            document.body.removeChild(result.mountNode);
-                        }
-                        result.mountNode = null;
-                    }, defaultAnimationTime);
-                }
-            },
-            setContent: function (content) {
-                var _a;
-                (_a = ref.current) === null || _a === void 0 ? void 0 : _a.setContent(content);
+
+    var type = getField(params, 'type', 'text');
+    var message = getField(params, 'message', '');
+    var duration = getField(params, 'duration', 1500);
+    var position = getField(params, 'position', 'middle');
+    var spinner = getField(params, 'spinner', undefined);
+    return {
+      duration: duration,
+      position: position,
+      message: message,
+      type: type,
+      spinner: spinner
+    };
+  }
+  /**
+   * @description 创建 toast
+   */
+  ;
+
+  Toast.show = function show(params) {
+    var _Toast$formatParams = Toast.formatParams(params),
+        type = _Toast$formatParams.type,
+        duration = _Toast$formatParams.duration,
+        position = _Toast$formatParams.position,
+        message = _Toast$formatParams.message,
+        spinner = _Toast$formatParams.spinner;
+
+    var ref = /*#__PURE__*/React.createRef();
+    var result = {
+      mountNode: Toast.createSlot(),
+      close: function close(force) {
+        if (force) {
+          if (result.mountNode) {
+            document.body.removeChild(result.mountNode);
+          }
+
+          result.mountNode = null;
+        } else {
+          var _ref$current;
+
+          (_ref$current = ref.current) == null ? void 0 : _ref$current.close();
+          setTimeout(function () {
+            if (result.mountNode) {
+              document.body.removeChild(result.mountNode);
             }
-        };
-        if (single) {
-            Toast.forceClear();
+
+            result.mountNode = null;
+          }, defaultAnimationTime);
         }
-        instances.push(result);
-        react_dom_1["default"].render((0, jsx_runtime_1.jsx)(AnimateWrapperRefed, { spinner: spinner, type: type, position: position, duration: duration, message: message, ref: ref }, void 0), result.mountNode);
-        if (duration) {
-            setTimeout(result.close, duration);
-        }
-        return result;
+      },
+      setContent: function setContent(content) {
+        var _ref$current2;
+
+        (_ref$current2 = ref.current) == null ? void 0 : _ref$current2.setContent(content);
+      }
     };
-    Toast.forceClear = function () {
-        while (instances.length) {
-            var it = instances.pop();
-            it === null || it === void 0 ? void 0 : it.close(true);
-        }
-    };
-    Toast.clear = function () {
-        while (instances.length) {
-            var it = instances.pop();
-            it === null || it === void 0 ? void 0 : it.close();
-        }
-    };
-    Toast.config = function (option) {
-        single = option.single;
-    };
-    Toast.hide = function () {
-        Toast.clear();
-    };
-    Toast.createSlot = function () {
-        var mountNode = document.createElement("div");
-        mountNode.setAttribute("class", "".concat(prefix, "-wrapper"));
-        document.body.appendChild(mountNode);
-        return mountNode;
-    };
-    Toast.prototype.renderIcon = function () {
-        if (this.props.type === 'success') {
-            return (0, jsx_runtime_1.jsx)(f6_icons_1["default"], { className: "".concat(prefix, "__icon"), name: "success3" }, void 0);
-        }
-        if (this.props.type === 'fail') {
-            return (0, jsx_runtime_1.jsx)(f6_icons_1["default"], { className: "".concat(prefix, "__icon"), name: "close-circle-o" }, void 0);
-        }
-        if (this.props.type === 'warning') {
-            return (0, jsx_runtime_1.jsx)(f6_icons_1["default"], { className: "".concat(prefix, "__icon"), name: "warn" }, void 0);
-        }
-        if (this.props.type === 'loading') {
-            return (0, jsx_runtime_1.jsx)(spinner_1["default"], { type: this.props.spinner || "oval" }, void 0);
-        }
-    };
-    Toast.prototype.render = function () {
-        var _a = this.props, position = _a.position, type = _a.type;
-        return ((0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ style: { transitionDuration: "".concat(defaultAnimationTime, "ms") }, className: (0, classnames_1["default"])([
-                prefix,
-                "".concat(prefix, "--").concat(type),
-                "".concat(prefix, "--").concat(position)
-            ]) }, { children: [this.renderIcon(), (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__content") }, { children: this.props.message }), void 0)] }), void 0));
-    };
-    return Toast;
-}(react_1["default"].Component));
-exports["default"] = Toast;
-//# sourceMappingURL=index.js.map
+
+    if (single) {
+      Toast.forceClear();
+    }
+
+    instances.push(result);
+    ReactDOM.render( /*#__PURE__*/_jsx(AnimateWrapperRefed, {
+      spinner: spinner,
+      type: type,
+      position: position,
+      duration: duration,
+      message: message,
+      ref: ref
+    }), result.mountNode);
+
+    if (duration) {
+      setTimeout(result.close, duration);
+    }
+
+    return result;
+  };
+
+  Toast.forceClear = function forceClear() {
+    while (instances.length) {
+      var it = instances.pop();
+      it == null ? void 0 : it.close(true);
+    }
+  };
+
+  Toast.clear = function clear() {
+    while (instances.length) {
+      var it = instances.pop();
+      it == null ? void 0 : it.close();
+    }
+  };
+
+  Toast.config = function config(option) {
+    single = option.single;
+  };
+
+  Toast.hide = function hide() {
+    Toast.clear();
+  };
+
+  Toast.createSlot = function createSlot() {
+    var mountNode = document.createElement("div");
+    mountNode.setAttribute("class", prefix + "-wrapper");
+    document.body.appendChild(mountNode);
+    return mountNode;
+  };
+
+  var _proto = Toast.prototype;
+
+  _proto.renderIcon = function renderIcon() {
+    if (this.props.type === 'success') {
+      return /*#__PURE__*/_jsx(Icon, {
+        className: prefix + "__icon",
+        name: "success3"
+      });
+    }
+
+    if (this.props.type === 'fail') {
+      return /*#__PURE__*/_jsx(Icon, {
+        className: prefix + "__icon",
+        name: "close-circle-o"
+      });
+    }
+
+    if (this.props.type === 'warning') {
+      return /*#__PURE__*/_jsx(Icon, {
+        className: prefix + "__icon",
+        name: "warn"
+      });
+    }
+
+    if (this.props.type === 'loading') {
+      return /*#__PURE__*/_jsx(Spinner, {
+        type: this.props.spinner || "oval"
+      });
+    }
+  };
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        position = _this$props.position,
+        type = _this$props.type;
+    return /*#__PURE__*/_jsxs("div", {
+      style: {
+        transitionDuration: defaultAnimationTime + "ms"
+      },
+      className: classNames([prefix, prefix + "--" + type, prefix + "--" + position]),
+      children: [this.renderIcon(), /*#__PURE__*/_jsx("div", {
+        className: prefix + "__content",
+        children: this.props.message
+      })]
+    });
+  };
+
+  return Toast;
+}(React.Component);
+
+export default Toast;

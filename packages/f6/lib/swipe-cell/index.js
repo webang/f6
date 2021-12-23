@@ -1,105 +1,152 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var name_1 = require("../utils/name");
-var react_1 = require("react");
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-require("./index.less");
-var dom_1 = require("../utils/dom");
-var prefix = (0, name_1.defineName)("swipe-cell")[0];
-var SwipeCell = function (p) {
-    var className = p.className, children = p.children, right = p.right, left = p.left;
-    var mCls = (0, classnames_1["default"])([prefix, className]);
-    var mRef = (0, react_1.useRef)(null);
-    var rRef = (0, react_1.useRef)(null);
-    var lRef = (0, react_1.useRef)(null);
-    (0, react_1.useEffect)(function () {
-        var handleClick = function (e) {
-            if (mRef.current) {
-                console.log(e.target, mRef.current);
-                if (!(0, dom_1.isParent)(e.target, mRef.current)) {
-                    setState(function (prev) {
-                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { translate: 0 });
-                    });
-                }
-            }
-        };
-        var event = (0, dom_1.isMobile)() ? 'touchstart' : 'mousedown';
-        document.addEventListener(event, handleClick);
-        return function () {
-            document.removeEventListener(event, handleClick);
-        };
-    }, []);
-    var _a = (0, react_1.useState)({
+import _extends from "@babel/runtime/helpers/extends";
+import { defineName } from "../utils/name";
+import { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
+import "./index.css";
+import { getPosition, isMobile, isParent } from "../utils/dom";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+
+var _defineName = defineName("swipe-cell"),
+    prefix = _defineName[0];
+
+var SwipeCell = function SwipeCell(p) {
+  var className = p.className,
+      children = p.children,
+      right = p.right,
+      left = p.left;
+  var mCls = classNames([prefix, className]);
+  var mRef = useRef(null);
+  var rRef = useRef(null);
+  var lRef = useRef(null);
+  useEffect(function () {
+    var handleClick = function handleClick(e) {
+      if (mRef.current) {
+        console.log(e.target, mRef.current);
+
+        if (!isParent(e.target, mRef.current)) {
+          setState(function (prev) {
+            return _extends({}, prev, {
+              translate: 0
+            });
+          });
+        }
+      }
+    };
+
+    var event = isMobile() ? 'touchstart' : 'mousedown';
+    document.addEventListener(event, handleClick);
+    return function () {
+      document.removeEventListener(event, handleClick);
+    };
+  }, []);
+
+  var _useState = useState({
+    diff: 0,
+    translate: 0,
+    startScreen: 0,
+    startTranslate: 0,
+    touched: false,
+    useAnimation: false
+  }),
+      state = _useState[0],
+      setState = _useState[1];
+
+  var startHandler = function startHandler(event) {
+    var touch = getPosition(event.type, event);
+    setState(function (prev) {
+      return _extends({}, prev, {
+        useAnimation: false,
+        startScreen: touch.clientX,
+        startTranslate: prev.translate,
+        touched: true
+      });
+    });
+  };
+
+  var getMaxTranslate = function getMaxTranslate() {
+    var _lRef$current, _rRef$current;
+
+    return [((_lRef$current = lRef.current) == null ? void 0 : _lRef$current.offsetWidth) || 0, -(((_rRef$current = rRef.current) == null ? void 0 : _rRef$current.offsetWidth) || 0)];
+  };
+
+  var getValidTransform = function getValidTransform(val) {
+    var _rRef$current2, _lRef$current2;
+
+    var maxR = ((_rRef$current2 = rRef.current) == null ? void 0 : _rRef$current2.offsetWidth) || 0;
+    var maxL = ((_lRef$current2 = lRef.current) == null ? void 0 : _lRef$current2.offsetWidth) || 0;
+    if (val < -maxR) val = -maxR;
+    if (val > maxL) val = maxL;
+    return val;
+  };
+
+  var moveHandler = function moveHandler(event) {
+    if (!state.touched) return;
+    var touch = getPosition(event.type, event);
+    var diff = touch.clientX - state.startScreen;
+    var delta = diff * 1;
+    setState(function (prev) {
+      return _extends({}, prev, {
+        diff: diff,
+        useAnimation: false,
+        translate: getValidTransform(prev.startTranslate + delta)
+      });
+    });
+  };
+
+  var endHandler = function endHandler() {
+    setState(function (prev) {
+      var range = getMaxTranslate();
+      var translate = prev.translate;
+
+      if (prev.diff < 0 && prev.diff < -10) {
+        translate = range[1];
+      } else if (prev.diff > 0 && prev.diff > 10) {
+        translate = range[0];
+      } else {
+        translate = 0;
+      }
+
+      return _extends({}, prev, {
         diff: 0,
-        translate: 0,
-        startScreen: 0,
-        startTranslate: 0,
-        touched: false,
-        useAnimation: false
-    }), state = _a[0], setState = _a[1];
-    var startHandler = function (event) {
-        var touch = (0, dom_1.getPosition)(event.type, event);
-        setState(function (prev) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { useAnimation: false, startScreen: touch.clientX, startTranslate: prev.translate, touched: true })); });
-    };
-    var getMaxTranslate = function () {
-        var _a, _b;
-        return [
-            ((_a = lRef.current) === null || _a === void 0 ? void 0 : _a.offsetWidth) || 0,
-            -(((_b = rRef.current) === null || _b === void 0 ? void 0 : _b.offsetWidth) || 0)
-        ];
-    };
-    var getValidTransform = function (val) {
-        var _a, _b;
-        var maxR = ((_a = rRef.current) === null || _a === void 0 ? void 0 : _a.offsetWidth) || 0;
-        var maxL = ((_b = lRef.current) === null || _b === void 0 ? void 0 : _b.offsetWidth) || 0;
-        if (val < -maxR)
-            val = -maxR;
-        if (val > maxL)
-            val = maxL;
-        return val;
-    };
-    var moveHandler = function (event) {
-        if (!state.touched)
-            return;
-        var touch = (0, dom_1.getPosition)(event.type, event);
-        var diff = touch.clientX - state.startScreen;
-        var delta = diff * 1;
-        setState(function (prev) {
-            return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { diff: diff, useAnimation: false, translate: getValidTransform(prev.startTranslate + delta) });
-        });
-    };
-    var endHandler = function () {
-        setState(function (prev) {
-            var range = getMaxTranslate();
-            var translate = prev.translate;
-            if (prev.diff < 0 && prev.diff < -10) {
-                translate = range[1];
-            }
-            else if (prev.diff > 0 && prev.diff > 10) {
-                translate = range[0];
-            }
-            else {
-                translate = 0;
-            }
-            return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, prev), { diff: 0, translate: translate, useAnimation: true, touched: false });
-        });
-    };
-    var events = (0, dom_1.isMobile)() ? {
-        onTouchStart: startHandler,
-        onTouchMove: moveHandler,
-        onTouchEnd: endHandler
-    } : {
-        onMouseDown: startHandler,
-        onMouseMove: moveHandler,
-        onMouseUp: endHandler
-    };
-    var style = {
-        transform: "translate3d(".concat(state.translate, "px, 0, 0)"),
-        transitionDuration: state.useAnimation ? "300ms" : "0ms"
-    };
-    return ((0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: mCls, ref: mRef }, events, { children: (0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "-wrapper"), style: style }, { children: [(0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__left"), ref: lRef }, { children: left }), void 0), children, (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__right"), ref: rRef }, { children: right }), void 0)] }), void 0) }), void 0));
+        translate: translate,
+        useAnimation: true,
+        touched: false
+      });
+    });
+  };
+
+  var events = isMobile() ? {
+    onTouchStart: startHandler,
+    onTouchMove: moveHandler,
+    onTouchEnd: endHandler
+  } : {
+    onMouseDown: startHandler,
+    onMouseMove: moveHandler,
+    onMouseUp: endHandler
+  };
+  var style = {
+    transform: "translate3d(" + state.translate + "px, 0, 0)",
+    transitionDuration: state.useAnimation ? "300ms" : "0ms"
+  };
+  return /*#__PURE__*/_jsx("div", _extends({
+    className: mCls,
+    ref: mRef
+  }, events, {
+    children: /*#__PURE__*/_jsxs("div", {
+      className: prefix + "-wrapper",
+      style: style,
+      children: [/*#__PURE__*/_jsx("div", {
+        className: prefix + "__left",
+        ref: lRef,
+        children: left
+      }), children, /*#__PURE__*/_jsx("div", {
+        className: prefix + "__right",
+        ref: rRef,
+        children: right
+      })]
+    })
+  }));
 };
-exports["default"] = SwipeCell;
-//# sourceMappingURL=index.js.map
+
+export default SwipeCell;

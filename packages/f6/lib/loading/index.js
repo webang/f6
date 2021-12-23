@@ -1,19 +1,45 @@
-"use strict";
-exports.__esModule = true;
-var tslib_1 = require("tslib");
-var jsx_runtime_1 = require("react/jsx-runtime");
-var classnames_1 = (0, tslib_1.__importDefault)(require("classnames"));
-var name_1 = require("../utils/name");
-require("./index.less");
-var spinner_1 = (0, tslib_1.__importDefault)(require("../spinner"));
-var Loading = function (_a) {
-    var _b;
-    var _c = _a.vertical, vertical = _c === void 0 ? false : _c, _d = _a.spinnerType, spinnerType = _d === void 0 ? 'crescent' : _d, _e = _a.spinnerSize, spinnerSize = _e === void 0 ? '24' : _e, className = _a.className, children = _a.children, _f = _a.message, message = _f === void 0 ? 'Loading' : _f, restProps = (0, tslib_1.__rest)(_a, ["vertical", "spinnerType", "spinnerSize", "className", "children", "message"]);
-    var prefix = (0, name_1.defineName)("loading")[0];
-    var mCls = (0, classnames_1["default"])([prefix, className], (_b = {},
-        _b["".concat(prefix, "--vertical")] = vertical,
-        _b));
-    return ((0, jsx_runtime_1.jsxs)("div", (0, tslib_1.__assign)({ className: mCls }, restProps, { children: [(0, jsx_runtime_1.jsx)(spinner_1["default"], { className: "".concat(prefix, "__icon"), type: spinnerType, size: spinnerSize }, void 0), (0, jsx_runtime_1.jsx)("div", (0, tslib_1.__assign)({ className: "".concat(prefix, "__text") }, { children: children || message }), void 0)] }), void 0));
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["vertical", "spinnerType", "spinnerSize", "className", "children", "message"];
+import classNames from "classnames";
+import React from "react";
+import { defineName } from "../utils/name";
+import "./index.css";
+import Spinner from '../spinner';
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+
+var Loading = function Loading(_ref) {
+  var _classNames;
+
+  var _ref$vertical = _ref.vertical,
+      vertical = _ref$vertical === void 0 ? false : _ref$vertical,
+      _ref$spinnerType = _ref.spinnerType,
+      spinnerType = _ref$spinnerType === void 0 ? 'crescent' : _ref$spinnerType,
+      _ref$spinnerSize = _ref.spinnerSize,
+      spinnerSize = _ref$spinnerSize === void 0 ? '24' : _ref$spinnerSize,
+      className = _ref.className,
+      children = _ref.children,
+      _ref$message = _ref.message,
+      message = _ref$message === void 0 ? 'Loading' : _ref$message,
+      restProps = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  var _defineName = defineName("loading"),
+      prefix = _defineName[0];
+
+  var mCls = classNames([prefix, className], (_classNames = {}, _classNames[prefix + "--vertical"] = vertical, _classNames));
+  return /*#__PURE__*/_jsxs("div", _extends({
+    className: mCls
+  }, restProps, {
+    children: [/*#__PURE__*/_jsx(Spinner, {
+      className: prefix + "__icon",
+      type: spinnerType,
+      size: spinnerSize
+    }), /*#__PURE__*/_jsx("div", {
+      className: prefix + "__text",
+      children: children || message
+    })]
+  }));
 };
-exports["default"] = Loading;
-//# sourceMappingURL=index.js.map
+
+export default Loading;

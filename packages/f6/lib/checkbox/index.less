@@ -1,0 +1,36 @@
+@import './../style/base.less';
+
+@checkbox: ~'@{prefix}-checkbox';
+
+.@{checkbox} {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    color: #666;
+    .wax-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__text {
+    color: #666;
+    margin-left: 2px;
+  }
+  &--checked {
+    .@{checkbox}__icon {
+      color: var(--f6-primary-color);
+    }
+  }
+  &--disabled {
+    cursor: not-allowed;
+    .@{checkbox}__icon,
+    .@{checkbox}__text {
+      color: #aaa;
+      fill: #aaa;
+    }
+  }
+}
