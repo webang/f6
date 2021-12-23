@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import { Routes, Route } from "react-router-dom";
 import { HashRouter as Router } from "react-router-dom";
 import "./index.less";
+import 'f6/lib/style/common.css';
 
 const importAll = (requireContext: __WebpackModuleApi.RequireContext) => {
   return requireContext.keys().map((key: string) => {
