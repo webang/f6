@@ -16,11 +16,14 @@
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "rimraf lib && tsc -d && gulp"
+    "build": "rimraf lib && tsc -d && gulp",
+    "gulp": "gulp",
+    "tsc": "tsc -d"
   },
   "dependencies": {
     "@types/prismjs": "^1.16.6",
     "@types/react-transition-group": "^4.4.4",
+    "del": "^6.0.0",
     "f6-icons": "^0.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
