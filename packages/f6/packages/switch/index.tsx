@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { usePropsValue } from "../utils/useValue";
 import { defineName } from "../utils/name";
 import "./index.less";
+import React from 'react';
 
 const [prefix] = defineName("switch");
 

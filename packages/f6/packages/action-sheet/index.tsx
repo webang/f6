@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 import "./index.less";
 import classNames from "classnames";
 import Popup from "../popup";

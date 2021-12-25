@@ -5,7 +5,6 @@ const babel = require("gulp-babel");
 const ts = require("gulp-typescript");
 const del = require('del')
 const tsconfig = require("./tsconfig.json");
-var tsProject = ts.createProject("tsconfig.json");
 
 const ignores = [
   "**/demos/**/*",
@@ -14,12 +13,34 @@ const ignores = [
   "**/tests/**/*",
 ]
 
-// clean lib
+function buildStyle() {
+  return gulp
+    .src(['./packages/**/*.less'], {
+      base: './packages/',
+      ignore: ignores
+    })
+    .pipe(
+      less({
+        paths: [path.join(__dirname, 'packages')],
+        relativeUrls: true,
+      })
+    )
+    .pipe(gulp.dest('./lib/es'))
+    .pipe(gulp.dest('./lib/cjs'))
+}
+
+function copyAssets() {
+  return gulp
+    .src('./packages/assets/**/*')
+    .pipe(gulp.dest('lib/assets'))
+    .pipe(gulp.dest('lib/es/assets'))
+    .pipe(gulp.dest('lib/cjs/assets'))
+}
+
 function clean() {
   return del('./lib/**')
 }
 
-// build es module
 function buildES() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
@@ -34,7 +55,6 @@ function buildES() {
     .pipe(gulp.dest("lib/es/"));
 }
 
-// build commonjs module
 function buildCJS() {
   return gulp
     .src(["lib/es/**/*.js"])
@@ -47,29 +67,31 @@ function buildCJS() {
 }
 
 function buildDeclaration() {
-  const tsProject = ts({
-    // ...tsconfig.compilerOptions,
-    "declaration": true,
+  const tsProject = ts.createProject({
     esModuleInterop: true,
-    "emitDeclarationOnly": true,
-    "jsx": "react-jsx",
+    jsx: "react-jsx",
     declaration: true,
     emitDeclarationOnly: true
   })
   return gulp
     .src('packages/**/*.{ts,tsx}')
-    .pipe(tsProject)
-    .pipe(gulp.dest('lib'))
-    // .pipe(gulp.dest('./lib/cjs/'))
-// return tsProject.src()
-//   .pipe(tsProject())
-//   .pipe(gulp.dest("dist"));
+    .pipe(tsProject())
+    .pipe(gulp.dest('lib/es'))
+    .pipe(gulp.dest('lib/cjs'))
 }
 
+function copyAssets() {
+  return gulp
+    .src('./packages/assets/**/*')
+    .pipe(gulp.dest('lib/es/assets'))
+    .pipe(gulp.dest('lib/cjs/assets'))
+}
 
 exports.default = gulp.series(
-  buildDeclaration
-  // clean,
-  // buildES,
-  // gulp.parallel(buildCJS, buildDeclaration),
+  clean,
+  buildES,
+  buildCJS,
+  buildDeclaration,
+  buildStyle,
+  copyAssets
 );

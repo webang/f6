@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import './index.less';
 import { getPosition, isMobile, isParent } from "../utils/dom";

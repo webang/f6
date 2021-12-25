@@ -14,10 +14,10 @@ export function confirm(props: ConfirmDialogProps) {
       showConfirmButton: true,
       appear: true,
       onCancel: () => {
-        resolve(props.onCancel?.() || 'cancel');
+        resolve(props.onCancel ? props.onCancel() : 'cancel');
       },
       onOk: () => {
-        resolve(props.onOk?.() || 'ok');
+        resolve(props.onOk ? props.onOk() : 'ok');
       }
     })
   });

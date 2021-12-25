@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, ReactNode, useContext, useState } from "react";
+import React, { FC, ReactNode, useContext, useState } from "react";
 import Icon from "f6-icons";
 import { defineName } from "../utils/name";
 import { CheckboxGroupContext } from "./checkbox-context";

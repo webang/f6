@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { CheckboxValue } from "./checkbox";
 import { CheckboxGroupContext } from "./checkbox-context";
 

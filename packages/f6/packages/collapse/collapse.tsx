@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import classNames from "classnames";
 import { CollapseContext } from "./collapse-context";
 

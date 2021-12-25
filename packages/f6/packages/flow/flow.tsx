@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC } from "react";
+import React, { FC } from "react";
 import { FlowContext } from "./flow-context";
 import classNames from "classnames";
 

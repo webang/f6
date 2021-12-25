@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import '../iconfont/iconfont.css';
 import { IconType } from './interface';
 export interface IconProps {

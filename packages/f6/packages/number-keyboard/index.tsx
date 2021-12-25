@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC } from "react";
+import React, { FC } from "react";
 import "./index.less";
 import IconKeyboard from "./icon-keyboard";
 import IconDelete from "./icon-delete";

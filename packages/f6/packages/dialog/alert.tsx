@@ -14,7 +14,7 @@ export function alert(props: AlertDialogProps) {
       showConfirmButton: true,
       appear: true,
       onOk: async () => {
-        const result = (await props.onOk?.()) || "ok";
+        const result = props.onOk ? await props.onOk() : "ok";
         resolve(result);
       },
     });

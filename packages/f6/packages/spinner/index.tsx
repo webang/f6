@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { FC, CSSProperties } from "react";
+import React, { FC, CSSProperties } from "react";
 import { defineName } from "../utils/name";
 import "./index.less";
 import SpinnerLines from "./spinner-lines";

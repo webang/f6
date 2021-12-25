@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC, useContext } from "react";
+import React, { FC, useContext } from "react";
 import { MarqueeContext } from "./context";
 
 export interface MarqueeItemProps {}

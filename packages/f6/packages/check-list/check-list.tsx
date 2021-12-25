@@ -1,5 +1,5 @@
 import { usePropsValue } from "../utils/useValue";
-import { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 import { CheckListContext } from "./context";
 import { defineName } from "../utils/name";
 

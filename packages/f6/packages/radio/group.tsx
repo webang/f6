@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import { RadioValue } from "./radio";
 import { RadioGroupContext } from "./context";
 import { usePropsValue } from "../utils/useValue";

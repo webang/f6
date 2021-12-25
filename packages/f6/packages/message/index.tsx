@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { CSSProperties, FC, ReactNode } from "react";
+import React, { CSSProperties, FC, ReactNode } from "react";
 import './index.less';
 import classNames from "classnames";
 import Icon from "f6-icons";

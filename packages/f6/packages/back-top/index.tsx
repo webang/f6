@@ -1,6 +1,6 @@
 import Icon from "f6-icons";
 import { getScrollTop } from "../utils/dom";
-import { FC, forwardRef, ForwardRefRenderFunction, useEffect, useState } from "react";
+import React, { FC, forwardRef, ForwardRefRenderFunction, useEffect, useState } from "react";
 import { defineName } from "../utils/name";
 import './index.less';
 

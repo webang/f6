@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC, ReactNode, useContext } from "react";
+import React, { FC, ReactNode, useContext } from "react";
 import { FlowContext } from "./flow-context";
 import Icon from "f6-icons";
 import classNames from "classnames";

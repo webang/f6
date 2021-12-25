@@ -239,7 +239,7 @@ class Swipe extends React.Component<SwipeProps, {}> {
     lastEl.setAttribute("data-index", `${innerEl.children.length - 1}`);
     lastEl.className = lastEl.className + " is-last";
 
-    [].forEach.call(innerEl.children, (element, index) => {
+    [].forEach.call(innerEl.children, (element: Element, index: number) => {
       (element as HTMLDivElement).setAttribute("data-index", `${index}`);
     });
     innerEl.insertBefore(lastEl, innerEl.firstElementChild);

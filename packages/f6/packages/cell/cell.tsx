@@ -70,7 +70,7 @@ const Cell: React.FC<CellProps> = ({
         {link && (
           <img
             className={prefix + "__arrow"}
-            src={require("../svg/arrow_right.svg").default}
+            src={require("../assets/arrow_right.svg").default}
             alt=""
           />
         )}

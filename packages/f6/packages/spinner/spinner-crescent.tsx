@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { SpinnerProps } from ".";
 
 const SpinnerCrescent: FC<SpinnerProps> = ({ className, ...restProps }) => {

@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect } from "react";
+import React, { FC, useRef, useState, useEffect } from "react";
 import { defineName } from "../utils/name";
 import classNames from "classnames";
 import "./index.less";

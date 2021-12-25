@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Cell from "../cell";
-import {
+import React, {
   CSSProperties,
   FC,
   useContext,

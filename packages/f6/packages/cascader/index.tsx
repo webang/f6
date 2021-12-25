@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Popup from "../popup";
 import CascaderView, { CascaderViewOption } from "./cascader-view";
 import "./index.less";

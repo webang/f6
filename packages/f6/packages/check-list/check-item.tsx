@@ -1,5 +1,5 @@
 import { defineName } from '../utils/name';
-import { FC, useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import Icon from 'f6-icons';
 import classNames from 'classnames';
 import { CheckListContext } from './context';

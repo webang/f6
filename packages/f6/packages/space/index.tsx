@@ -1,5 +1,5 @@
 import { defineName } from "../utils/name";
-import { Children, FC } from "react";
+import React, { Children, FC } from "react";
 import './index.less';
 import classNames from "classnames";
 
