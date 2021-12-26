@@ -80,10 +80,13 @@ export default function App() {
         <h3>加载按钮</h3>
 
 ```jsx
+import React from 'react';
 import { Button } from 'f6';
 
 export default function App() {
-    return <Button loading color="primary">块级按钮</Button>
+  const [loading, setLoading] = React.useState(true);
+  const clickHandle = () => setLoading(v => !v);
+  return <Button loading={loading} color="primary" onClick={clickHandle}>块级按钮</Button>
 }
 ```
 </div>
@@ -144,7 +147,7 @@ export default function App() {
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -177,9 +180,7 @@ interface BaseButtonProps {
   disabled?: boolean;
 }
 
-type NativeButtonProps =
-  BaseButtonProps &
-  ButtonHTMLAttributes<HTMLElement>;
+type NativeButtonProps = ButtonHTMLAttributes<HTMLElement>;
 
 export type ButtonProps = BaseButtonProps & NativeButtonProps;
 ```

@@ -4,6 +4,9 @@ const path = require("path");
 const babel = require("gulp-babel");
 const ts = require("gulp-typescript");
 const del = require('del')
+const webpackStream = require('webpack-stream')
+const webpack = require('webpack')
+
 const tsconfig = require("./tsconfig.json");
 
 const ignores = [
@@ -69,7 +72,7 @@ function buildCJS() {
 function buildDeclaration() {
   const tsProject = ts.createProject({
     esModuleInterop: true,
-    jsx: "react-jsx",
+    jsx: "react",
     declaration: true,
     emitDeclarationOnly: true
   })
@@ -87,11 +90,59 @@ function copyAssets() {
     .pipe(gulp.dest('lib/cjs/assets'))
 }
 
+function umdWebpack() {
+  return gulp
+    .src('lib/es/index.js')
+    .pipe(
+      webpackStream(
+        {
+          output: {
+            filename: 'wax.js',
+            library: {
+              type: 'umd',
+              name: 'wax',
+            },
+          },
+          mode: 'production',
+          optimization: {
+            usedExports: true,
+          },
+          resolve: {
+            extensions: ['.js', '.json'],
+          },
+          module: {
+            rules: [
+              {
+                test: /\.(png|svg|jpg|gif|jpeg)$/,
+                type: 'asset/inline',
+              },
+              {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+              },
+            ],
+          },
+          externals: [
+            {
+              react: 'React',
+            },
+            {
+              
+            }
+          ],
+        },
+        webpack
+      )
+    )
+    .pipe(gulp.dest('lib/umd/'))
+}
+
 exports.default = gulp.series(
   clean,
   buildES,
   buildCJS,
   buildDeclaration,
   buildStyle,
-  copyAssets
+  copyAssets,
+  umdWebpack
 );

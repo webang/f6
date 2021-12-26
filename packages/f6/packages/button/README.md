@@ -7,7 +7,7 @@ title: Button
 
 Button 用于点击触发一个操作，它可以包含文本、图片等资源。
 
-### Props
+### API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |
@@ -40,9 +40,7 @@ interface BaseButtonProps {
   disabled?: boolean;
 }
 
-type NativeButtonProps =
-  BaseButtonProps &
-  ButtonHTMLAttributes<HTMLElement>;
+type NativeButtonProps = ButtonHTMLAttributes<HTMLElement>;
 
 export type ButtonProps = BaseButtonProps & NativeButtonProps;
 ```

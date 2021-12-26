@@ -4,9 +4,12 @@ title: 加载按钮
 ---
 
 ```jsx
+import React from 'react';
 import { Button } from 'f6';
 
 export default function App() {
-    return <Button loading color="primary">块级按钮</Button>
+  const [loading, setLoading] = React.useState(true);
+  const clickHandle = () => setLoading(v => !v);
+  return <Button loading={loading} color="primary" onClick={clickHandle}>块级按钮</Button>
 }
 ```
