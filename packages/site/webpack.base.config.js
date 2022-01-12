@@ -30,7 +30,7 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         include: [
           path.resolve(__dirname, "src"),
-          path.resolve(__dirname, '../f6/packages'),
+          path.resolve(__dirname, '../f6'),
           path.resolve(__dirname, '../f6-icons')
         ],
         loader: require.resolve("babel-loader"),
@@ -50,9 +50,9 @@ module.exports = {
               importLoaders: 2,
             },
           },
-          {
-            loader: require.resolve("postcss-loader"),
-          },
+          // {
+          //   loader: require.resolve("postcss-loader"),
+          // },
           {
             loader: require.resolve("less-loader"),
           },

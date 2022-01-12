@@ -1,7 +1,6 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { defineName } from "../utils/name";
 import { getPosition, isMobile } from "../utils/dom";
-import Button from "../button";
 import { SwipeProps } from "./interface";
 import classNames from "classnames";
 
@@ -21,10 +20,10 @@ class Swipe extends React.Component<SwipeProps, {}> {
   };
 
   state = {
-    translate: 0
+    translate: 0,
   };
 
-  store = {
+  private store = {
     width: 0,
     height: 0,
     size: 0,
@@ -37,6 +36,7 @@ class Swipe extends React.Component<SwipeProps, {}> {
     diff: 0,
     isTouched: false,
     gridIndex: 0,
+    realIndex: 0,
     maxTranslate: 0,
     maxGridIndex: 0,
     minGridIndex: 0,
@@ -45,34 +45,73 @@ class Swipe extends React.Component<SwipeProps, {}> {
     slides: [] as HTMLDivElement[],
     slidesGrid: [] as number[],
     isLoop: !!this.props.loop,
+    isScrolling: undefined as (Boolean|undefined),
     useAnimate: false,
     timeId: null as unknown as NodeJS.Timeout,
     isHorizontal: this.props.direction === "horizontal",
-    rectProp: (this.props.direction === 'horizontal' ? "width" : "height") as "width" | "height"
+    rectProp: (this.props.direction === "horizontal" ? "width" : "height") as
+      | "width"
+      | "height",
   };
 
   private wrapperRef = React.createRef<HTMLDivElement>();
   private containerRef = React.createRef<HTMLDivElement>();
 
+  // move handler
   private moveHandler = (event: React.TouchEvent) => {
     const touch = getPosition(event.type, event);
     const store = this.store;
+
     if (!store.isTouched) return;
 
-    event.preventDefault();
-
+    store.useAnimate = false;
     store.diffX = touch.clientX - store.startX;
     store.diffY = touch.clientY - store.startY;
     store.diff = store.isHorizontal ? store.diffX : store.diffY;
-    store.useAnimate = false;
 
-    this.setState((prev) => {
-      return {
-        ...prev,
-        translate: store.startTranslate + (touch.clientX - store.startX),
-      };
-    });
+    // determine isScrolling
+    if (typeof store.isScrolling === 'undefined') {
+      if (store.isHorizontal) {
+        store.isScrolling = Math.abs(store.diffX) < Math.abs(store.diffY);
+      } else {
+        store.isScrolling = Math.abs(store.diffX) > Math.abs(store.diffY);
+      }
+    }
+
+    if (store.isScrolling) return;
+    event.preventDefault();
+
+    const resetTouch = () => {
+      store.startX = touch.clientX;
+      store.startY = touch.clientY;
+      store.diff = 0;
+    };
+    let translate = store.startTranslate + store.diff;
+
+    if (store.isLoop) {
+      if (Math.abs(translate) >= store.maxTranslate) {
+        this.slideTo(1, false);
+        resetTouch();
+        store.startTranslate = translate = store.diff + this.getPosByGridIndex(1);
+      } else if (translate >= 0) {
+        this.slideTo(store.slidesGrid.length - 2, false);
+        resetTouch();
+        translate = store.diff + this.getPosByGridIndex(store.slidesGrid.length - 2);
+        store.startTranslate = translate;
+      }
+    } else {
+      if (Math.abs(translate) >= store.maxTranslate || translate >= 0) {
+        translate = (store.diff/Math.abs(store.diff)) * Math.pow(Math.abs(store.diff), 0.8) + this.store.startTranslate;
+      }
+    }
+
+    this.setState({ translate });
   };
+
+  // 通过 gridIndex 获取偏移距离
+  getPosByGridIndex = (index: number) => {
+    return -this.store.slidesGrid[index];
+  }
 
   private startHandler = (event: React.TouchEvent) => {
     const touch = getPosition(event.type, event);
@@ -88,34 +127,51 @@ class Swipe extends React.Component<SwipeProps, {}> {
 
   private endHandler = () => {
     const { store, slideTo } = this;
-
-    if (store.diff !== 0) {
-      const deltaTime = Date.now() - store.startTime;
-      if (store.diff < 0) {
-        if (deltaTime < SHORT_TOUCH) {
-          this.slideNext()
-        } else {
-          if (store.diff < -100) {
-            this.slideNext()
-          } else {
-            slideTo(store.gridIndex);
-          }
-        }
-      } else if (store.diff > 0) {
-        if (deltaTime < SHORT_TOUCH) {
-          this.slidePrev();
-        } else {
-          if (store.diff > 100) {
-            this.slidePrev();
-          } else {
-            slideTo(store.gridIndex);
-          }
-        }
-      }
+    if (store.isScrolling || store.diff === 0) {
+      return;
     }
 
-    store.diff = 0;
     store.isTouched = false;
+
+    const rtl = store.diff < 0;
+    const deltaTime = Date.now() - store.startTime;
+    const isShortTouch = deltaTime < SHORT_TOUCH;
+    let gridIndex = store.gridIndex;
+    let isValidTouch = isShortTouch || Math.abs(store.diff) > store.size / 2;
+
+    if (rtl && isValidTouch) {
+      gridIndex++;
+    } else if (!rtl && isValidTouch) {
+      gridIndex--;
+    }
+
+    this.slideTo(gridIndex, true);
+
+    // if (store.diff !== 0) {
+    //   if (store.diff < 0) {
+    //     if (deltaTime < SHORT_TOUCH) {
+    //       this.slideNext();
+    //     } else {
+    //       if (store.diff < -100) {
+    //         this.slideNext();
+    //       } else {
+    //         slideTo(store.gridIndex);
+    //       }
+    //     }
+    //   } else if (store.diff > 0) {
+    //     if (deltaTime < SHORT_TOUCH) {
+    //       this.slidePrev();
+    //     } else {
+    //       if (store.diff > 100) {
+    //         this.slidePrev();
+    //       } else {
+    //         slideTo(store.gridIndex);
+    //       }
+    //     }
+    //   }
+    // }
+
+    // store.diff = 0;
   };
 
   private onMount = () => {
@@ -132,13 +188,13 @@ class Swipe extends React.Component<SwipeProps, {}> {
       wrapperEl.style.height = height + "px";
     }
 
-    store.isLoop && this.createLoopEl();
+    store.isLoop && this.createLoop();
     this.initSlides();
     this.forceUpdate();
     store.initialized = true;
   };
 
-  initSlides = () => {
+  private initSlides = () => {
     const { store, containerRef } = this;
     if (!containerRef.current) return;
 
@@ -160,7 +216,8 @@ class Swipe extends React.Component<SwipeProps, {}> {
           element.style.marginBottom = spaceBetween + "px";
         }
       }
-      store.slidesGrid[index] = index * store.size + index * (spaceBetween || 0);
+      store.slidesGrid[index] =
+        index * store.size + index * (spaceBetween || 0);
     });
 
     store.minGridIndex = 0;
@@ -169,60 +226,106 @@ class Swipe extends React.Component<SwipeProps, {}> {
     store.maxTranslate = store.slidesGrid[store.maxGridIndex];
   };
 
-  slideTo = (index: number, animate = true) => {
-    this.store.gridIndex = index;
-    this.store.useAnimate = animate;
-    this.setTranslate(-this.store.slidesGrid[index]);
+  public slideTo = (index: number, animate = true, useCallback = true) => {
+    const { store } = this;
+    store.useAnimate = animate;
 
-    const duration = this.props.duration;
-    const maxGridIndex = this.store.maxGridIndex;
+    if (store.isLoop && index > store.maxGridIndex) {
+      store.useAnimate = false;
+      store.gridIndex = 1;
+      this.setTranslate(this.getPosByGridIndex(1));
+      index = 2;
+    }
 
-    if (this.store.isLoop) {
-      if (index === maxGridIndex) {
-        setTimeout(() => this.slideTo(1, false), duration);
+    if (store.isLoop && index < store.minGridIndex) {
+      store.useAnimate = false;
+      store.gridIndex = store.maxGridIndex - 1;
+      let translate = this.getPosByGridIndex(store.maxGridIndex - 1)
+      this.setTranslate(translate);
+      index = store.maxGridIndex - 2;
+    }
+
+    if (!store.isLoop) {
+      if (index < 0) {
+        index = 0;
       }
-      if (index === 0) {
-        setTimeout(() => this.slideTo(maxGridIndex - 1, false), duration);
+      if (index > store.maxGridIndex) {
+        index = store.maxGridIndex;
       }
     }
 
-    this.store.slides.forEach((it, index) => {
-      let cls = it.className.replace(' swipe-item-active', '');
-      it.style.transitionDuration = animate ? '300ms' : '0ms';
-      if (index === this.store.gridIndex) {
-        it.className = cls + ' swipe-item-active';
-      } else {
-        it.className = cls;
+    setTimeout(() => {
+      store.gridIndex = index;
+      store.useAnimate = true;
+      this.setTranslate(this.getPosByGridIndex(index));
+      let realIndex = index;
+      if (store.isLoop) {
+        if (index === 0) {
+          realIndex = this.store.slidesGrid.length - 3;
+        } else if (index >= this.store.slidesGrid.length - 1) {
+          realIndex = 0;
+        } else {
+          realIndex = index - 1;
+        }
       }
-    });
+
+      if (this.store.realIndex !== realIndex) {
+        useCallback && this.props.onIndexChange?.(realIndex);
+        this.store.realIndex = realIndex;
+      }
+
+      this.store.slides.forEach((it, index) => {
+        let cls = it.className.replace(' swipe-item-active', '');
+        it.style.transitionDuration = animate ? '300ms' : '0ms';
+        if (index === this.store.gridIndex) {
+          it.className = cls + ' swipe-item-active';
+        } else {
+          it.className = cls;
+        }
+      });
+    })
   };
 
-  slideNext = () => {
+  /**
+   * @description slide to next
+   */
+   public slideNext = () => {
     this.slideTo(this.store.gridIndex + 1);
   };
 
-  slidePrev = () => {
+  /**
+   * @description slide to previous
+   */
+   public slidePrev = () => {
     this.slideTo(this.store.gridIndex - 1);
   };
 
-  setTranslate = (dest: number) => {
-    this.setState({
-      translate: dest,
-    });
+  /**
+   * @description set current translate
+   * @param translate
+   */
+  private setTranslate = (translate: number) => {
+    this.setState({ translate });
   };
 
-  stop = () => {
-    clearInterval(this.store.timeId);
-  };
+  /**
+   * @description stop autoplay
+   * @returns
+   */
+  public stop = () => clearInterval(this.store.timeId);
 
-  play = () => {
+  /**
+   * @description enable autoplay
+   */
+  public play = () => {
     this.stop();
-    this.store.timeId = setInterval(() => {
-      this.slideNext();
-    }, 1000);
+    this.store.timeId = setInterval(() => this.slideNext(), 1000);
   };
 
-  createLoopEl() {
+  /**
+   * @description create el when loop mode
+   */
+  private createLoop() {
     if (!this.containerRef.current) return;
     const innerEl: HTMLDivElement = this.containerRef.current!;
 
@@ -251,25 +354,25 @@ class Swipe extends React.Component<SwipeProps, {}> {
     if (this.wrapperRef.current) {
       const el = this.wrapperRef.current;
       const options = {
-        passive: false
-      }
+        passive: false,
+      };
       if (isMobile()) {
-        el.addEventListener('touchstart', startHandler as any, options);
-        el.addEventListener('touchmove', moveHandler as any, options);
-        el.addEventListener('touchend', endHandler as any, options);
+        el.addEventListener("touchstart", startHandler as any, options);
+        window.addEventListener("touchmove", moveHandler as any, options);
+        el.addEventListener("touchend", endHandler as any, options);
       } else {
-        el.addEventListener('mousedown', startHandler as any, options);
-        el.addEventListener('mousemove', moveHandler as any, options);
-        el.addEventListener('mouseup', endHandler as any, options);
+        el.addEventListener("mousedown", startHandler as any, options);
+        window.addEventListener("mousemove", moveHandler as any, options);
+        el.addEventListener("mouseup", endHandler as any, options);
       }
     }
-  }
+  };
 
   componentDidMount() {
-    this.onMount();
+    this.onMount()
     this.initEvents();
     if (this.props.loop) {
-      this.slideTo(this.props.activeIndex || 0 + 1, false);
+      this.slideTo(this.props.activeIndex || 0 + 1, false, false);
     } else {
       this.slideTo(0, false);
     }
@@ -279,7 +382,7 @@ class Swipe extends React.Component<SwipeProps, {}> {
     const { children } = this.props;
     const { props, state, store, wrapperRef, containerRef } = this;
 
-    const containerStl: CSSProperties = {
+    const containerStl: React.CSSProperties = {
       transitionDuration: `${store.useAnimate ? props.duration : 0}ms`,
       [store.rectProp]: `${store.maxTranslate + store.size}px`,
       transform: store.isHorizontal
@@ -289,24 +392,18 @@ class Swipe extends React.Component<SwipeProps, {}> {
 
     const wrapperCls = classNames({
       [prefix]: true,
-      ['effect-' + this.props.effect]: true,
+      ["effect-" + this.props.effect]: true,
       [`is-${this.props.direction}`]: true,
-    })
+    });
 
     return (
-      <div>
-        <Button onClick={() => this.slideNext()}>next</Button>
-        <Button onClick={() => this.slidePrev()}>prev</Button>
-        <Button onClick={() => this.stop()}>stop</Button>
-        <Button onClick={() => this.play()}>play</Button>
-        <div className={wrapperCls} ref={wrapperRef}>
-          <div
-            style={containerStl}
-            className={`${prefix}-container`}
-            ref={containerRef}
-          >
-            {children}
-          </div>
+      <div style={this.props.style} className={wrapperCls} ref={wrapperRef}>
+        <div
+          style={containerStl}
+          className={`${prefix}-container`}
+          ref={containerRef}
+        >
+          {children}
         </div>
       </div>
     );

@@ -223,7 +223,7 @@ export default [
         content: require("../.build/docs/notice-bar.md"),
       },
       {
-        title: "Swipe",
+        title: "Swipe 轮播",
         key: 'Swipe',
         content: require("../.build/docs/swipe.md"),
       }

@@ -38,6 +38,34 @@ export default function () {
 </div>
 
 <div class="block-panel">
+        <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/titleAlign.md>更新此演示代码</a>
+        <h3>标题对齐方式</h3>
+
+```jsx
+import { Cell, Button, Toast } from "f6";
+
+const button = (
+  <Button size="mini" color="primary">
+    详情
+  </Button>
+);
+
+export default function () {
+  return (
+    <Cell.Group>
+      <Cell titleAlign="left" title={"单元格"} value={"100"}>
+        一曲新词酒一杯
+      </Cell>
+      <Cell titleAlign="top" title={"单元格"} value={button} link>
+        一曲新词酒一杯
+      </Cell>
+    </Cell.Group>
+  );
+}
+```
+</div>
+
+<div class="block-panel">
         <a class="to-github-link" target="_blank" href=https://github.com/Webang/f6/tree/master/packages/f6/packages/cell/demo/border.md>更新此演示代码</a>
         <h3>底部边框</h3>
 
@@ -155,7 +183,7 @@ export default function() {
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

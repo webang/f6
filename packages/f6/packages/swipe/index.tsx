@@ -1,13 +1,13 @@
 import SwipeItem from "./swipe-item";
 import Swipe from "./swipe";
-import './index.less';
+import "./index.less";
 
-export type { SwipeProps } from './interface'
-export type { SwipeItemProps } from './swipe-item';
+export type { SwipeProps } from "./interface";
+export type { SwipeItemProps } from "./swipe-item";
 
 type ISwipe = typeof Swipe & {
-    Item: typeof SwipeItem
-}
+  Item: typeof SwipeItem;
+};
 
 (Swipe as ISwipe).Item = SwipeItem;
 

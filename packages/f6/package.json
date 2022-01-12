@@ -5,7 +5,8 @@
   "author": "gaollard <1056834607@qq.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/es/index.js",
+  "main": "packages/index.tsx",
+  "module": "packages/index.tsx",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -16,7 +17,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "rimraf lib && tsc -d && gulp",
+    "build": "rimraf lib && gulp",
+    "rms": "rimraf packages/**/*.js.map",
     "gulp": "gulp",
     "tsc": "tsc -d"
   },

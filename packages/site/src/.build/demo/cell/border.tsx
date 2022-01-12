@@ -1,22 +1,20 @@
-import { Cell, Button } from "f6";
+import { Cell, Button, Toast } from "f6";
 
-const button = (<Button size="mini" color="primary">详情</Button>);
+const button = (
+  <Button size="mini" color="primary">
+    详情
+  </Button>
+);
 
-export default function() {
+export default function () {
   return (
     <Cell.Group>
-      <Cell
-        title={"无边框"}
-        value={button}
-        link
-        border={false}
-      />
-      <Cell title={"有边框"} value={"100"} link />
-      <Cell
-        title={"无边框"}
-        value={"100"}
-        link
-      />
+      <Cell titleAlign="left" title={"单元格"} value={"100"}>
+        一曲新词酒一杯
+      </Cell>
+      <Cell titleAlign="top" title={"单元格"} value={button} link>
+        一曲新词酒一杯
+      </Cell>
     </Cell.Group>
-  )
+  );
 }

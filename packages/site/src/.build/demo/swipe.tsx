@@ -1,30 +1,26 @@
-// import { Swipe } from "f6";
-
-// const Page = () => {
-//   return (
-//     <div>
-//       <Swipe>
-//         <Swipe.Item>1</Swipe.Item>
-//         <Swipe.Item>2</Swipe.Item>
-//         <Swipe.Item>3</Swipe.Item>
-//       </Swipe>
-//       <div style={{ height: 20 }}></div>
-//       <Swipe effect="scale" spaceBetween={0}>
-//         <Swipe.Item>1</Swipe.Item>
-//         <Swipe.Item>2</Swipe.Item>
-//         <Swipe.Item>3</Swipe.Item>
-//       </Swipe>
-//       <div style={{ height: 20 }}></div>
-//       <Swipe direction="vertical" spaceBetween={0}>
-//         <Swipe.Item>1</Swipe.Item>
-//         <Swipe.Item>2</Swipe.Item>
-//         <Swipe.Item>3</Swipe.Item>
-//       </Swipe>
-//       <div style={{ height: 200 }}></div>
-//     </div>
-//   );
-// };
-
-// export default Page;
-
-export {}
+import App0 from './swipe/basic';
+import App1 from './swipe/direction';
+import App2 from './swipe/effect';
+import App3 from './swipe/loop';
+import App4 from './swipe/spaceBetween';
+import Demo from '../../components/demo-block';
+export default () => {
+  const title = 'swipe';
+  const list = [{
+        title: '基本用法',
+        element: App0
+      },{
+        title: 'loop',
+        element: App1
+      },{
+        title: 'spaceBetween',
+        element: App2
+      },{
+        title: 'direction',
+        element: App3
+      },{
+        title: '变换效果',
+        element: App4
+      },];
+  return <Demo list={list} title={title}/>;
+}
