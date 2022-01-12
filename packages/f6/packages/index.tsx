@@ -33,6 +33,12 @@ export type { PopupProps } from './popup';
 export { default as Tab } from './tab';
 export type { TabProps } from './tab';
 
+export { default as TabBar } from './tab-bar';
+export type { TabBarProps } from './tab-bar';
+
+export { default as Badge } from './badge';
+export type { BadgeProps } from './badge';
+
 export { default as Switch } from './switch'
 export type { SwitchProps } from './switch'
 
@@ -63,7 +69,7 @@ export type { InputProps } from './input';
 export { default as TextArea } from './text-area';
 
 export { default as PasswordInput } from './password-input';
-export type { PasswordInputProps } from './password-input'; 
+export type { PasswordInputProps } from './password-input';
 
 export { default as NumberKeyboard } from './number-keyboard';
 export type {  NumberKeyboardProps } from './number-keyboard';

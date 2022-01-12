@@ -226,6 +226,11 @@ export default [
         title: "Swipe 轮播",
         key: 'Swipe',
         content: require("../.build/docs/swipe.md"),
+      },
+      {
+        title: "Badge 标签页",
+        key: 'Badge',
+        content: require("../.build/docs/badge.md"),
       }
     ]
   },
@@ -236,6 +241,11 @@ export default [
         title: "Tab 标签页",
         key: 'Tab',
         content: require("../.build/docs/tab.md"),
+      },
+      {
+        title: "TabBar 标签页",
+        key: 'TabBar',
+        content: require("../.build/docs/tab-bar.md"),
       }
     ]
   }
