@@ -34,7 +34,7 @@ export { default as Tab } from './tab';
 export type { TabProps } from './tab';
 
 export { default as TabBar } from './tab-bar';
-export type { TabBarProps } from './tab-bar';
+export type { TabBarProps, TabBarItemProps } from './tab-bar';
 
 export { default as Badge } from './badge';
 export type { BadgeProps } from './badge';

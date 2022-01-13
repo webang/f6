@@ -1,107 +1,101 @@
-import React, { ReactNode, useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { defineName } from "../utils/name";
-import classNames from 'classnames'
-import Badge, { BadgeProps } from '../badge'
+import classNames from "classnames";
+import Badge from "../badge";
+import { usePropsValue } from "../utils/useValue";
 import "./index.less";
+
+export interface TabBarProps {
+  activeKey?: string;
+  defaultActiveKey?: string;
+  onChange?: (key: string) => void;
+  className?: string;
+  style?: CSSProperties;
+}
+
+export type TabBarItemProps = {
+  icon?: React.ReactNode | ((active: boolean) => React.ReactNode);
+  title?: React.ReactNode;
+  key?: string;
+  badge?: string | number | symbol;
+  className?: string;
+  style?: CSSProperties;
+};
 
 const [prefix] = defineName("tab-bar");
 
-export interface TabBarProps {
-  activeKey?: string | null
-  badge?: BadgeProps['content']
-  onChange?: (key: string) => void
-}
+export const TabBarItem: React.FC<TabBarItemProps> = () => null;
 
 const TabBar: React.FC<TabBarProps> & {
-  TabBarItem: React.FC<TabBarItemProps>;
-} = ({
-  children,
-  activeKey,
-  onChange
-}) => {
-  const [activeKeySet, setActiveKey] = useState(activeKey);
-  const onChangeHandle = (key:string)=>{
-    setActiveKey(key)
-    onChange?.(key)
+  Item: React.FC<TabBarItemProps>;
+} = (props) => {
+  const [activeKey, setActiveKey] = usePropsValue({
+    defaultValue: props.defaultActiveKey,
+    value: props.activeKey,
+    onChange: props.onChange,
+  });
+
+  let list = props.children as React.FC<TabBarItemProps>[];
+
+  function renderContent(item: any) {
+    const { props } = item;
+    const active = item.key === activeKey;
+
+    const iconElement = props.icon && (
+      <div className={`${prefix}-item-icon`}>
+        {typeof props.icon === "function" ? props.icon(active) : props.icon}
+      </div>
+    );
+
+    const titleElement = props.title && (
+      <div className={`${prefix}-item-title`}>{props.title}</div>
+    );
+
+    return (
+      <>
+        <div className={`${prefix}-item-icon-box`}>
+          {props.badge !== undefined ? (
+            <Badge content={props.badge} className={`${prefix}-icon-badge`}>
+              {iconElement}
+            </Badge>
+          ) : (
+            iconElement
+          )}
+        </div>
+        {titleElement}
+      </>
+    );
   }
-  let list = children as React.FC<TabBarItemProps>[];
-  let firstActiveKey: string | null = (list[0]as any).key
 
-  let defaultValue = activeKeySet ?? firstActiveKey
-
-  // console.log('children',children);
+  const renderItem = (item: any) => {
+    const active = item.key === activeKey;
+    return (
+      <div
+        style={item.props.style}
+        key={item.key}
+        onClick={() => {
+          const { key } = item;
+          if (key === undefined || key === null) {
+            return;
+          }
+          setActiveKey(key.toString());
+        }}
+        className={classNames(`${prefix}-item`, item.props.className, {
+          [`${prefix}-item-active`]: active,
+        })}
+      >
+        {renderContent(item)}
+      </div>
+    );
+  };
 
   return (
-    <div className={prefix}>
-      {list.map((item:any) => {
-      const active = item.key === defaultValue
-      function renderContent() {
-        const iconElement = item.props.icon && (
-          <div className={`${prefix}-item-icon`}>
-            {typeof item.props.icon === 'function'
-              ? item.props.icon(active)
-              : item.props.icon}
-          </div>
-        )
-        const titleElement = item.props.title && (
-          <div className={`${prefix}-item-title`}>{item.props.title}</div>
-        )
-        if (iconElement) {
-          return (
-            <>
-              <Badge
-                content={item.props.badge}
-                className={`${prefix}-icon-badge`}
-              >
-                {iconElement}
-              </Badge>
-              {titleElement}
-            </>
-          )
-        } else if (titleElement) {
-          return (
-            <>
-              <Badge
-                content={item.props.badge}
-                className={`${prefix}-title-badge`}
-              >
-                {titleElement}
-              </Badge>
-            </>
-          )
-        }
-        return null
-      }
-      return (
-        <div
-          key={item.key}
-          onClick={() => {
-            const { key } = item
-            if (key === undefined || key === null) return
-            onChangeHandle(key.toString())
-          }}
-          className={classNames(`${prefix}-item`, {
-            [`${prefix}-item-active`]: active,
-          })}
-        >
-          {renderContent()}
-        </div>
-      )
-    })}
+    <div className={classNames(prefix, props.className)} style={props.style}>
+      {list.map(renderItem)}
     </div>
   );
 };
 
-export type TabBarItemProps = {
-  icon?: ReactNode | ((active: boolean) => ReactNode)
-  title?: string;
-  key?: string;
-  badge?: string|number;
-}
-export const TabBarItem: React.FC<TabBarItemProps> = () => {
-  return null
-}
-
-TabBar.TabBarItem = TabBarItem;
+TabBar.Item = TabBarItem;
 
 export default TabBar;

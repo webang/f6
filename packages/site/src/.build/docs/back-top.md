@@ -28,7 +28,7 @@ export default function App() {
 </div>
 <div class="block-panel">
 
-<h3>Props</h3>
+<h3>API</h3>
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-  | :- | :- | :- |

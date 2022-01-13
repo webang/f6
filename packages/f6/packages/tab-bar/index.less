@@ -4,7 +4,9 @@
   justify-content: flex-start;
   align-items: stretch;
   overflow: hidden;
-  min-height: 60px;
+  min-height: 58px;
+  background-color: #fff;
+
   &-item {
     flex: 1;
     color: var(--f6-overlay-background-color);
@@ -20,10 +22,13 @@
   }
 
   &-item-icon {
-    font-size: 20px;
-    height: 22px;
-    line-height: 1;
-    margin: 4px 0 1px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 18px;
+    .wax-icon {
+      font-size: 18px;
+    }
   }
 
   &-item-title {
@@ -38,31 +43,9 @@
   &-icon-badge {
     --top: 6px;
   }
+
   &-title-badge {
     --right: -2px;
     --top: -2px;
   }
-}
-.app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-}
-
-.top {
-  flex: 0;
-  border-bottom: solid 1px var(--adm-border-color);
-}
-
-.body {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.bottom {
-  flex: 0;
-  border-top: solid 1px var(--adm-border-color);
 }

@@ -7,6 +7,9 @@
 }
 
 .@{badge-cls} {
+  --right: 0;
+  --top: 0;
+
   display: inline-block;
   color: #fff;
   font-weight: normal;
@@ -19,10 +22,8 @@
   font-size: 9px;
   line-height: 1.2;
   white-space: nowrap;
-  --right: 0;
-  --top: 0;
 
-  &-fixed {
+  &-corner {
     position: absolute;
     right: var(--right);
     top: var(--top);
