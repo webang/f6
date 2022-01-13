@@ -26,5 +26,4 @@ npm run dev
 - [ ] Uploader 文件上传
 - [ ] Calendar 日历
 - [ ] DatetimePicker 时间选择
-- [ ] NavBar 导航栏
 - [ ] Picker 优化

@@ -238,6 +238,11 @@ export default [
     title: '导航组件',
     menus: [
       {
+        title: "NavBar 导航栏",
+        key: 'NavBar',
+        content: require("../.build/docs/nav-bar.md"),
+      },
+      {
         title: "Tab 标签页",
         key: 'Tab',
         content: require("../.build/docs/tab.md"),

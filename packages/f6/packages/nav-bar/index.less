@@ -1,0 +1,30 @@
+.wax-nav-bar {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  padding: 0px 12px;
+  background-color: #fff;
+  &-title,
+  &-left,
+  &-right {
+    flex: 1;
+  }
+  &-title {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 16px;
+    padding: 0px 12px;
+  }
+  &-back-button {
+    display: flex;
+    align-items: center;
+    color: #888;
+  }
+  &-back-arrow {
+    font-size: 22px;
+    margin-left: -4px;
+  }
+}

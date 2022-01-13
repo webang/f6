@@ -1,7 +1,7 @@
 ---
 category: 导航组件
-title: TabBar
-subTitle: 标签栏
+title: NavBar
+subTitle: 导航栏
 ---
 
 ### 介绍

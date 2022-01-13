@@ -112,3 +112,6 @@ export type { FlowItemProps, FlowProps } from './flow';
 
 export { default as Swipe } from './swipe';
 export type { SwipeItemProps, SwipeProps } from './swipe';
+
+export { default as NavBar } from './nav-bar';
+export type { NavBarProps } from './nav-bar';
