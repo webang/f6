@@ -115,3 +115,6 @@ export type { SwipeItemProps, SwipeProps } from './swipe';
 
 export { default as NavBar } from './nav-bar';
 export type { NavBarProps } from './nav-bar';
+
+export { default as Uploader } from './uploader';
+export type { UploaderProps } from './uploader';

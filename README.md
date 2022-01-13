@@ -23,7 +23,6 @@ npm run dev
 
 ## TODO
 
-- [ ] Uploader 文件上传
 - [ ] Calendar 日历
 - [ ] DatetimePicker 时间选择
 - [ ] Picker 优化

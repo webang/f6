@@ -171,6 +171,11 @@ export default [
         title: "TextArea 文本域",
         key: 'TextArea',
         content: require("../.build/docs/text-area.md"),
+      },
+      {
+        title: "Uploader 文件上传",
+        key: 'Uploader',
+        content: require("../.build/docs/uploader.md"),
       }
     ]
   },

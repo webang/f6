@@ -18,8 +18,8 @@ const Space: FC<SpaceProps> = ({ children, wrap = true, direction = 'horizontal'
     [`${prefix}-${direction}`]: true,
     [`${prefix}-wrap`]: wrap
   });
-  const mChildren = Children.toArray(children).map((it) => {
-    return <div className={`${prefix}-item`}>{it}</div>;
+  const mChildren = Children.toArray(children).map((it, index) => {
+    return <div className={`${prefix}-item`} key={index}>{it}</div>;
   });
   return <div className={mCls}>{mChildren}</div>;
 };
